@@ -1,7 +1,11 @@
 {
   "name": "haqq-docs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
+  "repository": "git@github.com:haqq-network/docs.git",
+  "author": "Jihad HadjHusein <dzhikhad.hadzh.husein@haqq.network>",
+  "license": "MIT",
+  "packageManager": "yarn@3.4.1",
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
@@ -20,7 +24,7 @@
     "clsx": "^1.2.1",
     "prism-react-renderer": "^1.3.5",
     "react": "^18.2.0",
-    "react-dom": "^17.0.2",
+    "react-dom": "^18.2.0",
     "typescript": "^5.0.4"
   },
   "devDependencies": {
