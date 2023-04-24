@@ -90,7 +90,7 @@ You can generate a new key/mnemonic with:
 haqqd keys add $KEY
 ```
 
-To export your haqq key as an Ethereum private key (for use with [Metamask](./../guides/keys-wallets/metamask.md) for example):
+To export your haqq key as an Ethereum private key (for use with [Metamask](../guides/key-wallets/metamask.md) for example):
 
 ```bash
 haqqd keys unsafe-export-eth-key $KEY
@@ -116,7 +116,7 @@ haqqd config keyring-backend file
 ```
 
 :::tip
-For more information about the Keyring and its backend options, click [here](./../guides/keys-wallets/keyring.md).
+For more information about the Keyring and its backend options, click [here](../guides/key-wallets/keyring.md).
 :::
 
 ## Clearing data from chain

@@ -1,6 +1,6 @@
 {
-  "label": "Tools",
-  "position": 2,
+  "label": "Core Concepts",
+  "position": 4,
   "link": {
     "type": "generated-index"
   }

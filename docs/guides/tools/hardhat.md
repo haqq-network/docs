@@ -11,7 +11,7 @@ Learn how to deploy a simple Solidity-based smart contract to Haqq using the Har
 ## Pre-requisite Readings
 
 - [Installation](./../../quickstart/installation.md) {prereq}
-- [Run a node](./../../quickstart/run-node.md) {prereq}
+- [Run a node](../../quickstart/run_node.md) {prereq}
 
 ## Install Dependencies
 

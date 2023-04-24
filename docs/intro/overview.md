@@ -31,7 +31,7 @@ Haqq enables these key features by:
 - Implementing Tendermint Core's Application Blockchain Interface ([ABCI](https://docs.tendermint.com/master/spec/abci/)) to manage the blockchain
 - Leveraging [modules](https://docs.cosmos.network/master/building-modules/intro.html) and other mechanisms implemented by the [Cosmos SDK](https://docs.cosmos.network/).
 - Utilizing [`geth`](https://github.com/ethereum/go-ethereum) as a library to avoid code reuse and improve maintainability.
-- Exposing a fully compatible Web3 [JSON-RPC](./../api/json-rpc/server.md) layer for interacting with existing Ethereum clients and tooling ([Metamask](./../guides/keys-wallets/metamask.md), [Remix](./../guides/tools/remix.md), [Truffle](./../guides/tools/truffle.md), etc).
+- Exposing a fully compatible Web3 [JSON-RPC](../api/json-rpc/server.md) layer for interacting with existing Ethereum clients and tooling ([Metamask](../guides/key-wallets/metamask.md), [Remix](../guides/tools/remix.md), [Truffle](../guides/tools/truffle.md), etc).
 
 The sum of these features allows developers to leverage existing Ethereum ecosystem tooling and
 software to seamlessly deploy smart contracts which interact with the rest of the Cosmos
@@ -39,9 +39,9 @@ software to seamlessly deploy smart contracts which interact with the rest of th
 
 ## Quick Facts Table
 
-| Property        | Value                                      |
-| --------------- | ------------------------------------------ |
-| Haqq Mainnet    | `haqq_11235-1`                             |
-| Haqq TestEdge-2 | `haqq_54211-3`                             |
-| Block Explorers | [Block Explorers](./../tools/explorers.md) |
-| Block Time      | ~6 seconds                                 |
+| Property        | Value                                           |
+| --------------- | ----------------------------------------------- |
+| Haqq Mainnet    | `haqq_11235-1`                                  |
+| Haqq TestEdge-2 | `haqq_54211-3`                                  |
+| Block Explorers | [Block Explorers](../guides/tools/explorers.md) |
+| Block Time      | ~6 seconds                                      |
