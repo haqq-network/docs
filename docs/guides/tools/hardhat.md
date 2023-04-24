@@ -10,8 +10,8 @@ Learn how to deploy a simple Solidity-based smart contract to Haqq using the Har
 
 ## Pre-requisite Readings
 
-- [Installation](./../../quickstart/installation.md) {prereq}
-- [Run a node](../../quickstart/run_node.md) {prereq}
+- [Installation](./../../quick-start/installation.md) {prereq}
+- [Run a node](../../quick-start/run_node.md) {prereq}
 
 ## Install Dependencies
 
@@ -51,7 +51,7 @@ $ npm -v
 ```
 
 :::tip
-If you haven't already, you will also need to install Haqq if you plan on deploying your smart contracts locally. Check this [document](./../../quickstart/installation.md) for the full instructions.
+If you haven't already, you will also need to install Haqq if you plan on deploying your smart contracts locally. Check this [document](./../../quick-start/installation.md) for the full instructions.
 :::
 
 ## Create Hardhat Project

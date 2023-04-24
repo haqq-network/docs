@@ -11,7 +11,7 @@ Connect your Metamask wallet with Haqq {synopsis}
 The [MetaMask](https://metamask.io/) browser extension is a wallet for accessing Ethereum-enabled applications and managing user identities. It can be used to connect to {{ $themeConfig.project.name }} through the official testnet or via a locally-running {{ $themeConfig.project.name }} node.
 
 :::tip
-If you are planning on developing on Haqq locally and you haven’t already set up your own local node, refer to [the quickstart tutorial](../../quickstart/run_node.md), or follow the instructions in the [GitHub repository](https://github.com/haqq-network).
+If you are planning on developing on Haqq locally and you haven’t already set up your own local node, refer to [the quickstart tutorial](../../quick-start/run_node.md), or follow the instructions in the [GitHub repository](https://github.com/haqq-network).
 :::
 
 ## Adding a New Network
@@ -19,7 +19,7 @@ If you are planning on developing on Haqq locally and you haven’t already set 
 Open the MetaMask extension on your browser, you may have to log in to your MetaMask account if you are not already. Then click the top right circle and go to `Settings` > `Networks` > `Add Network` and fill the form as shown below.
 
 :::tip
-You can also lookup the [EIP155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md) `Chain ID` by referring to [chainlist.org](https://chainlist.org/). Alternatively, to get the full Chain ID from Genesis, check the [Chain ID](./../../basics/chain_id.md) documentation page.
+You can also lookup the [EIP155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md) `Chain ID` by referring to [chainlist.org](https://chainlist.org/). Alternatively, to get the full Chain ID from Genesis, check the [Chain ID](../../basics/chain_id.md) documentation page.
 :::
 
 ![metamask networks settings](../../../static/img/metamask_network_settings.png)

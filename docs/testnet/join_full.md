@@ -16,7 +16,7 @@ You specify the network you want to join by setting the **genesis file** and **s
 
 ## Install `haqqd`
 
-Follow the [installation](./../quickstart/installation.md) document to install the {{ $themeConfig.project.name }} binary `{{ $themeConfig.project.binary }}`.
+Follow the [installation](./../quick-start/installation.md) document to install the {{ $themeConfig.project.name }} binary `{{ $themeConfig.project.binary }}`.
 
 ```
 ❗️Warning❗️
@@ -185,7 +185,7 @@ haqqd debug addr <your_account_address>
 ```
 
 After that you can transfer some ISLM to your validator address.
-If you don't have ISLM you can receive it using our [faucet](./../../testnet/faucet.md)
+If you don't have ISLM you can receive it using our [faucet](./faucet.md)
 
 Claim your testnet ISLM on the [faucet](./faucet.md) using your validator account address and submit your validator account address:
 

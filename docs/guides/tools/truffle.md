@@ -8,8 +8,8 @@ Learn how to deploy a simple Solidity-based smart contract to Haqq using the Tru
 
 ## Pre-requisite Readings
 
-- [Installation](./../../quickstart/installation.md) {prereq}
-- [Run a node](./../../quickstart/run_node.md) {prereq}
+- [Installation](./../../quick-start/installation.md) {prereq}
+- [Run a node](./../../quick-start/run_node.md) {prereq}
 
 [Truffle](https://www.trufflesuite.com/truffle) is a development framework for deploying and managing [Solidity](https://github.com/ethereum/solidity) smart contracts.
 
@@ -22,7 +22,7 @@ yarn install truffle -g
 ```
 
 :::tip
-If you haven't already, you will also need to install Haqq if you plan on deploying your smart contracts locally. Check this [document](./../../quickstart/installation.md) for the full instructions.
+If you haven't already, you will also need to install Haqq if you plan on deploying your smart contracts locally. Check this [document](./../../quick-start/installation.md) for the full instructions.
 :::
 
 ## Create Truffle Project
@@ -115,7 +115,7 @@ $ init.sh
 ```
 
 :::tip
-For further information on how to run a node, please refer to the [quickstart guide](./../../quickstart/run_node.md).
+For further information on how to run a node, please refer to the [quickstart guide](./../../quick-start/run_node.md).
 :::
 
 ## Deploy contract

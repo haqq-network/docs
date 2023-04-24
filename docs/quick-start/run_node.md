@@ -155,4 +155,4 @@ To clear all data except key storage (if keyring backend chosen) and then you ca
 
 ## Next {hide}
 
-Learn about running a Haqq [testnet](./../testnet/README.md) {hide}
+Learn about running a Haqq [testnet](../testnet/README.md) {hide}

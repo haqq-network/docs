@@ -8,8 +8,8 @@ Learn how to deploy a simple Solidity-based smart contract to Haqq using the Rem
 
 ## Pre-requisite Readings
 
-- [Installation](../../quickstart/installation.md) {prereq}
-- [Run a node](../../quickstart/run_node.md) {prereq}
+- [Installation](../../quick-start/installation.md) {prereq}
+- [Run a node](../../quick-start/run_node.md) {prereq}
 - [MetaMask](../key-wallets/metamask.md) {prereq}
 
 [Remix](http://remix.ethereum.org/) is an in-browser IDE for [Solidity](https://github.com/ethereum/solidity) smart contracts. In this guide, we will learn how to deploy a contract to a running Haqq network through Remix and interact with it.
@@ -17,7 +17,7 @@ Learn how to deploy a simple Solidity-based smart contract to Haqq using the Rem
 ## Connect Haqq account to Remix
 
 :::tip
-If you haven’t already, follow the steps in the [Metamask guide](../keys-wallets/metamask.md) to import your Haqq private key into Metamask. Start the Haqq daemon and REST server.
+If you haven’t already, follow the steps in the [Metamask guide](../key-wallets/metamask.md) to import your Haqq private key into Metamask. Start the Haqq daemon and REST server.
 :::
 
 Go to [Remix](http://remix.ethereum.org/). There are some contracts in the File Explorer. Replace these with the source code to `Counter.sol` below. On the left-most bar, select the Solidity Compiler and compile the contract.

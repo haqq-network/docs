@@ -18,7 +18,11 @@ Learn how to automate chain upgrades using Cosmovisor. {synopsis}
 👉 For more info about Cosmovisor, please refer to the project official documentation [here](https://docs.cosmos.network/main/run-node/cosmovisor.html).
 :::
 
-We highly recommend validators use Cosmovisor to run their nodes. This will make low-downtime upgrades smoother, as validators don't have to [manually upgrade](./manual.md) binaries during the upgrade. Instead users can [pre-install](#manual-download) new binaries, and Cosmovisor will automatically update them based on on-chain Software Upgrade proposals.
+We highly recommend validators use Cosmovisor to run their nodes. This will make low-downtime upgrades smoother, as validators don't have to [manually upgrade]
+
+<!-- (./manual.md) -->
+
+binaries during the upgrade. Instead users can [pre-install](#manual-download) new binaries, and Cosmovisor will automatically update them based on on-chain Software Upgrade proposals.
 
 ### 1. Setup Cosmovisor
 
@@ -149,7 +153,7 @@ Learn how to manually upgrade your node. {synopsis}
 
 ## Pre-requisites
 
-- [Install Haqq](./../quickstart/installation.md) {prereq}
+- [Install Haqq](./../quick-start/installation.md) {prereq}
 
 ## 1. Upgrade the Haqq version
 
@@ -218,7 +222,11 @@ echo "<expected_hash>  genesis.json" | sha256sum -c
 ## 3. Data Reset
 
 :::danger
-Check [here](./upgrades.md) if the version you are upgrading require a data reset (hard fork). If this is not the case, you can skip to [Restart](#restart-node).
+Check [here]
+
+<!-- (./upgrades.md) -->
+
+if the version you are upgrading require a data reset (hard fork). If this is not the case, you can skip to [Restart](#restart-node).
 :::
 
 Remove the outdated files and reset the data:

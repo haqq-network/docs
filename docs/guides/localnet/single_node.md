@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## Pre-requisite Readings
 
-- [Install Binary](./../../quickstart/installation.md) {prereq}
+- [Install Binary](../../quick-start/installation.md) {prereq}
 
 ## Install Go
 
@@ -74,10 +74,10 @@ haqqd init $MONIKER --chain-id=$CHAINID
 ```
 
 :::tip
-You can [edit](./../../quickstart/binary.md#configuring-the-node) this `moniker` later by updating the `config.toml` file.
+You can [edit](../../quick-start/binary.md#configuring-the-node) this `moniker` later by updating the `config.toml` file.
 :::
 
-The command above creates all the configuration files needed for your node and validator to run, as well as a default genesis file, which defines the initial state of the network. All these [configuration files](./../../quickstart/binary.md#configuring-the-node) are in `~/.haqqd` by default, but you can overwrite the location of this folder by passing the `--home` flag.
+The command above creates all the configuration files needed for your node and validator to run, as well as a default genesis file, which defines the initial state of the network. All these [configuration files](../../quick-start/binary.md#configuring-the-node) are in `~/.haqqd` by default, but you can overwrite the location of this folder by passing the `--home` flag.
 
 ### Genesis Procedure
 
