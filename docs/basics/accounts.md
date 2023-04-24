@@ -89,7 +89,7 @@ haqqd debug addr 14574A6DFF2DDF9E07828B4345D3040919AF5652
 
 ### Key output
 
-::: tip
+:::tip
 The Cosmos SDK Keyring output (i.e `haqqd keys`) only supports addresses and public keys in Bech32 format.
 :::
 

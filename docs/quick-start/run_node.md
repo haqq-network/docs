@@ -125,11 +125,11 @@ For more information about the Keyring and its backend options, click [here](../
 
 Alternatively, you can **reset** the blockchain database, remove the node's address book files, and reset the `$HOME/.haqqd/data/priv_validator_state.json` to the genesis state.
 
-::: danger
+:::danger
 If you are running a **validator node**, always be careful when doing `haqqd unsafe-reset-all`. You should never use this command if you are not switching `chain-id`.
 :::
 
-::: danger
+:::danger
 **IMPORTANT**: Make sure that every node has a unique file `priv_validator_key.json`. **Do not** copy the `priv_validator_key.json` from an old node to multiple new nodes. Running two nodes with the same `priv_validator_key.json` will cause you to double sign!
 :::
 
