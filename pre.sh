@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-echo "EKKKEKEKEKKEKEKEK"
 if [ ! -d "./docs/modules" ]; then
   echo "Modules directory not exists."
   mkdir -p ./docs/modules
