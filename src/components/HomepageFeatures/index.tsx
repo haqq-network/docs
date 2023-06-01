@@ -1,6 +1,14 @@
 import React, { ComponentProps, ComponentType } from 'react';
 import clsx from 'clsx';
 import styles from './index.module.css';
+import { BigCard } from '../big-card/big-card';
+import { RocketIcon } from '../icons/rocket-icon';
+import { CodeIcon } from '../icons/code-icon';
+import { SmallCard } from '../small-card/small-card';
+import { IntroducionIcon } from '../icons/introduciton-icon';
+import { BasicsIcon } from '../icons/basics-icon';
+import { CoreConceptsIcon } from '../icons/core-concepts-icon';
+import { ExploreBlock } from '../explore-block/explore-block';
 
 type FeatureItem = {
   title: string;
@@ -64,6 +72,26 @@ export default function HomepageFeatures() {
             <Feature key={idx} {...props} />
           ))}
         </div>
+        <div className="flex flex-col md:flex-row items-center gap-[40px] mt-[40px]">
+          <BigCard
+            link="intro"
+            type="read"
+            title="Quick start"
+            description="Deploy your own node, setup your testnet and more."
+          >
+            <RocketIcon />
+          </BigCard>
+
+          <BigCard
+            link="validators"
+            type="use"
+            title="Guides"
+            description="Follow guides to using popular Ethereum tools with HAQQ."
+          >
+            <CodeIcon />
+          </BigCard>
+        </div>
+        <ExploreBlock />
       </div>
     </section>
   );
