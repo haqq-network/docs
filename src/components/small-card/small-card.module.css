@@ -1,9 +1,7 @@
 .small__card {
-  min-height: 132px;
-  position: relative;
+  @apply relative mb-0 pt-[20px] pr-[16px] pl-[88px] min-h-[114px] md:min-h-[134px] rounded-[8px] md:pt-[24px] md:pr-[24px] md:pb-[24px] md:pl-[88px];
+
   color: initial;
-  border-radius: 0.5rem;
-  padding: 1.5rem 1.5rem 1.5rem 5.5rem;
   box-shadow: 0px 2px 4px rgba(22, 25, 49, 0.05),
     0px 0px 1px rgba(22, 25, 49, 0.2), 0px 0.5px 0px rgba(22, 25, 49, 0.05);
   transition: box-shadow 0.25s ease-out, transform 0.25s ease-out,
@@ -24,46 +22,24 @@
 
 @media screen and (max-width: 640px) {
   .small__card {
-    margin-bottom: 0;
-    padding: 1.25rem 1rem 0 5.5rem;
-    min-height: 112px;
+    @apply shadow-none;
 
-    &,
     &:hover:not(:active) {
       box-shadow: none;
     }
-
-    &__icon {
-      top: 1rem;
-      left: 1.25rem;
-    }
-
-    &__wrapper {
-      padding-bottom: 1.25rem;
-      border-bottom: 1px solid rgba(140, 145, 177, 0.32);
-    }
-
-    &:last-child .sections__item__wrapper {
-      border-bottom: none;
-    }
   }
+}
 
-  .wrapper {
-    position: relative;
-    padding: 0.1px 1rem 1rem;
-    background: white;
-    border-radius: 0.5rem;
+[data-theme='dark'] .small__card {
+  @apply md:bg-[#1B1C1D];
 
-    &:before {
-      position: absolute;
-      content: '';
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: 0.5rem;
-      box-shadow: 0px 24px 40px rgba(0, 0, 0, 0.1),
-        0px 10px 16px rgba(0, 0, 0, 0.08), 0px 1px 0px rgba(0, 0, 0, 0.05);
-    }
+  box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.05),
+    0px 0px 1px rgba(255, 255, 255, 0.2),
+    0px 0.5px 0px rgba(255, 255, 255, 0.05);
+}
+
+@media screen and (max-width: 640px) {
+  [data-theme='dark'] .small__card {
+    @apply shadow-none;
   }
 }
