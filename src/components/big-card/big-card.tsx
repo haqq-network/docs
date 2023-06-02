@@ -15,9 +15,12 @@ export function BigCard({
   return (
     <div
       className={clsx(
-        'flex flex-row w-full rounded-md shadow hover:shadow-lg border border-gray/20',
+        'flex flex-col md:flex-row w-full rounded-md shadow hover:shadow-lg border border-gray/20',
         'transition-all duration-250 ease-in-out',
         'hover:translate-y-[-3px]',
+        'md:min-h-[184px]',
+        // working only if @tailwind/base is enabled
+        'bg-gradient-to-r from-white via-transparent to-[rgba(236,87,40,0.3)]',
         className,
       )}
     >
