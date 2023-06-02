@@ -13,7 +13,14 @@ export function BigCard({
   className?: string;
 }) {
   return (
-    <div className={clsx('flex flex-row w-full', className)}>
+    <div
+      className={clsx(
+        'flex flex-row w-full rounded-md shadow hover:shadow-lg border border-gray/20',
+        'transition-all duration-250 ease-in-out',
+        'hover:translate-y-[-3px]',
+        className,
+      )}
+    >
       <div className="flex items-center justify-center self-center max-h-[144px] sm:h-auto pt-[1rem] sm:pt-0">
         {icon}
       </div>

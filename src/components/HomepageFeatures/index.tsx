@@ -1,5 +1,4 @@
-import React, { ComponentProps, ComponentType } from 'react';
-import styles from './index.module.css';
+import React from 'react';
 import { BigCard } from '../big-card/big-card';
 import { RocketIcon } from '../icons/rocket-icon';
 import { CodeIcon } from '../icons/code-icon';
@@ -8,9 +7,9 @@ import Link from '@docusaurus/Link';
 
 export default function HomepageFeatures() {
   return (
-    <section className={styles.features}>
+    <section>
       <div className="container">
-        <div className="flex flex-col md:flex-row items-center gap-[40px] mt-[40px]">
+        <div className="flex flex-col md:flex-row items-center gap-[40px] mt-[80px] mb-[40px]">
           <div className="flex-1">
             <Link to="/intro">
               <BigCard
