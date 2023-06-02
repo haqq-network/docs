@@ -1,5 +1,5 @@
 /* @tailwind base; */
-/* @tailwind components; */
+@tailwind components;
 @tailwind utilities;
 
 :root {
@@ -26,4 +26,8 @@
   --ifm-color-primary-lighter: #ef754e;
   --ifm-color-primary-lightest: #f39274;
   --ifm-background-color: #0d0d0e;
+}
+
+body {
+  @apply font-sans;
 }
