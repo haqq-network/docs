@@ -1,13 +1,8 @@
 import React, { ComponentProps, ComponentType } from 'react';
-import clsx from 'clsx';
 import styles from './index.module.css';
 import { BigCard } from '../big-card/big-card';
 import { RocketIcon } from '../icons/rocket-icon';
 import { CodeIcon } from '../icons/code-icon';
-import { SmallCard } from '../small-card/small-card';
-import { IntroducionIcon } from '../icons/introduciton-icon';
-import { BasicsIcon } from '../icons/basics-icon';
-import { CoreConceptsIcon } from '../icons/core-concepts-icon';
 import { ExploreBlock } from '../explore-block/explore-block';
 import Link from '@docusaurus/Link';
 

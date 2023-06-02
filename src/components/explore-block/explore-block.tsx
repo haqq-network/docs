@@ -8,8 +8,12 @@ import { CoreConceptsIcon } from '../icons/core-concepts-icon';
 export function ExploreBlock() {
   return (
     <div className={styles.wrapper}>
-      <h2>Explore Haqq</h2>
-      <p>Get familiar with Haqq and explore its main concepts.</p>
+      <h2 className="text-[24px] font-bold leading-[2rem] md:text-[32px] md:leading-[36px] md:tracking-[.01em]">
+        Explore Haqq
+      </h2>
+      <p className="mt-[12px]">
+        Get familiar with Haqq and explore its main concepts.
+      </p>
       <div className={styles.sections}>
         <SmallCard
           title="Introducion"

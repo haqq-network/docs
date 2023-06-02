@@ -22,7 +22,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 640px) {
   .small__card {
     margin-bottom: 0;
     padding: 1.25rem 1rem 0 5.5rem;

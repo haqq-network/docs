@@ -1,22 +1,20 @@
 .wrapper {
+  @apply pt-[72px] mt-[40px]
   /* padding-bottom: 1.25rem; */
-  /* border-bottom: 1px solid rgba(140, 145, 177, 0.32); */
+  /* border-bottom: 1px solid rgba(140, 145, 177, 0.32); */;
 }
 
 .sections {
-  display: grid;
+  @apply grid md:grid-cols-2 lg:grid-cols-3;
+
   margin-top: 3rem;
   margin-bottom: 5rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
 }
 
 @media screen and (max-width: 640px) {
   .wrapper {
-    position: relative;
-    padding: 0.1px 1rem 1rem;
-    background: white;
-    border-radius: 0.5rem;
+    @apply relative pt-[72px] px-[16px] pb-[16px] bg-white rounded-[8px];
 
     &:before {
       position: absolute;
@@ -32,8 +30,7 @@
   }
 
   .sections {
-    gap: 0;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    @apply grid-cols-1 gap-0;
     margin: 2rem -1rem 0;
   }
 }
