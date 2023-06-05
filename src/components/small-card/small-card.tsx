@@ -21,8 +21,10 @@ export function SmallCard({ title, description, icon }: SmallCardProps) {
           'pb-[20px] sm:pb-0 border-b border-b-[#8c91b152] sm:border-b-0',
         )}
       >
-        <div className="font-semibold">{title}</div>
-        <div className="leading-[20px] text-[14px]">{description}</div>
+        <div className="font-semibold dark:text-white/50">{title}</div>
+        <div className="leading-[20px] text-[14px] dark:text-white/80">
+          {description}
+        </div>
       </div>
     </div>
   );
