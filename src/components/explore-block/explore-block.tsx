@@ -16,10 +16,10 @@ export function ExploreBlock() {
       )}
     >
       <div className="text-[24px] font-bold leading-[2rem] md:text-[32px] md:leading-[36px] md:tracking-[.01em]">
-        Explore Haqq
+        Explore HAQQ
       </div>
       <p className="mt-[12px]">
-        Get familiar with Haqq and explore its main concepts.
+        Get familiar with HAQQ and explore its main concepts.
       </p>
       <div
         className={
@@ -29,7 +29,7 @@ export function ExploreBlock() {
         <Link to={`/intro`} className="hover:no-underline hover:text-inherit">
           <SmallCard
             title="Introducion"
-            description="Read a high-level overview of Haqq and its architecture."
+            description="Read a high-level overview of HAQQ and its architecture."
             icon={<IntroducionIcon />}
           />
         </Link>
@@ -37,7 +37,7 @@ export function ExploreBlock() {
         <Link to={`/intro`} className="hover:no-underline hover:text-inherit">
           <SmallCard
             title="Basics"
-            description="Start with the basic concepts of Haqq, like accounts and transactions."
+            description="Start with the basic concepts of HAQQ, like accounts and transactions."
             icon={<BasicsIcon />}
           />
         </Link>
