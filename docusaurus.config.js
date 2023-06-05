@@ -13,7 +13,7 @@ function defineSection(section, options = {}) {
       id: section,
       sidebarPath: require.resolve('./sidebars.ts'),
       breadcrumbs: true,
-      editUrl: 'https://github.com/evmos/docs/tree/main/',
+      editUrl: 'https://github.com/haqq-network/docs/tree/main/',
       ...options,
     }),
   ];
@@ -86,7 +86,6 @@ const config = {
       return {
         name: 'docusaurus-tailwindcss',
         configurePostCss(postcssOptions) {
-          // Appends TailwindCSS and AutoPrefixer.
           postcssOptions.plugins.push(require('tailwindcss'));
           postcssOptions.plugins.push(require('autoprefixer'));
           return postcssOptions;
