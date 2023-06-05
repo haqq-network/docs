@@ -175,10 +175,10 @@ const config = {
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/The_HAQQNetwork',
+                href: 'https://twitter.com/The_HaqqNetwork',
               },
               {
-                href: 'https://github.com/haqq-network/HAQQ',
+                href: 'https://github.com/haqq-network/haqq',
                 label: 'GitHub',
               },
             ],
