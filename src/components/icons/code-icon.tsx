@@ -17,7 +17,7 @@ export function CodeIcon({ className }: { className?: string }) {
         height="115.2"
         rx="4.8"
         stroke="url(#paint0_linear)"
-        stroke-width="0.6"
+        strokeWidth="0.6"
       />
       <rect
         x="0.199982"
@@ -40,7 +40,7 @@ export function CodeIcon({ className }: { className?: string }) {
       <path
         d="M15.2 29.1999H150.8"
         stroke="url(#paint4_linear)"
-        stroke-width="0.6"
+        strokeWidth="0.6"
       />
       <defs>
         <linearGradient
@@ -51,8 +51,8 @@ export function CodeIcon({ className }: { className?: string }) {
           y2="177.6"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#8CA9C6" />
-          <stop offset="1" stop-color="#336699" />
+          <stop stopColor="#8CA9C6" />
+          <stop offset="1" stopColor="#336699" />
         </linearGradient>
         <linearGradient
           id="paint1_linear"
@@ -62,8 +62,8 @@ export function CodeIcon({ className }: { className?: string }) {
           y2="281.816"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ec5728" />
-          <stop offset="1" stop-color="rgba(#e38a6f 0.2)" />
+          <stop stopColor="#ec5728" />
+          <stop offset="1" stopColor="rgba(#e38a6f 0.2)" />
         </linearGradient>
         <linearGradient
           id="paint2_linear"
@@ -73,8 +73,8 @@ export function CodeIcon({ className }: { className?: string }) {
           y2="229.399"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#e38a6f" />
-          <stop offset="1" stop-color="#ec5728" />
+          <stop stopColor="#e38a6f" />
+          <stop offset="1" stopColor="#ec5728" />
         </linearGradient>
         <linearGradient
           id="paint3_linear"
@@ -84,8 +84,8 @@ export function CodeIcon({ className }: { className?: string }) {
           y2="97.2"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#e38a6f" />
-          <stop offset="1" stop-color="#ec5728" />
+          <stop stopColor="#e38a6f" />
+          <stop offset="1" stopColor="#ec5728" />
         </linearGradient>
         <linearGradient
           id="paint4_linear"
@@ -95,8 +95,8 @@ export function CodeIcon({ className }: { className?: string }) {
           y2="163.2"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#e38a6f" />
-          <stop offset="1" stop-color="#ec5728" />
+          <stop stopColor="#e38a6f" />
+          <stop offset="1" stopColor="#ec5728" />
         </linearGradient>
       </defs>
     </svg>
