@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import clsx from 'clsx';
+import styles from './big-card.module.css';
 
 export function BigCard({
   title,
@@ -16,11 +17,11 @@ export function BigCard({
     <div
       className={clsx(
         'flex flex-col md:flex-row w-full rounded-md shadow hover:shadow-lg border border-gray/20',
-        'transition-all duration-250 ease-in-out',
+        'transition-all duration-[250ms] ease-in-out',
         'hover:translate-y-[-3px]',
         'md:min-h-[184px]',
-        // working only if @tailwind/base is enabled
         'bg-gradient-to-r from-white via-transparent to-[rgba(236,87,40,0.3)]',
+        styles.big__card,
         className,
       )}
     >
