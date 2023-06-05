@@ -21,11 +21,6 @@ Horcrux is a [multi-party-computation (MPC)](https://en.wikipedia.org/wiki/Secur
 
 See documentation [here](https://github.com/strangelove-ventures/horcrux/blob/main/docs/migrating.md) to learn how to upgrade your validator infrastructure with Horcrux.
 
-## Tendermint KMS
-
-[Tendermint KMS](../kms/kms) is a signature service with support for Hardware Security Modules (HSMs), such as YubiHSM2 and Ledger Nano . It’s intended to be run alongside Cosmos Validators, ideally on separate physical hosts, providing defense-in-depth for online validator signing keys, double signing protection, and functioning as a central signing service that can be used when operating multiple validators in several Cosmos Zones.
-
-For more details, please see [Tendermint KMS](../kms/kms.md)
 
 ## Hardware HSM
 
@@ -77,7 +72,7 @@ private_peer_ids = "node_ids_of_private_peers"
 
 By default, uppercase environment variables with the following prefixes will replace lowercase command-line flags:
 
-- `EVMOS` (for HAQQ flags)
+- `HAQQ` (for HAQQ flags)
 - `TM` (for Tendermint flags)
 - `BC` (for democli or basecli flags)
 
