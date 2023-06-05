@@ -1,9 +1,15 @@
+const typographyPlugin = require('@tailwindcss/typography');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './docs/**/*.{md,mdx}'],
 
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--guise-font)'],
+        serif: ['var(--clash-font)'],
+      },
       colors: {
         pearl: '#faf1e4',
         darkPearl: '#dad2c7',
@@ -27,8 +33,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
-  corePlugins: {
-    preflight: false,
-  },
+  plugins: [typographyPlugin],
 };

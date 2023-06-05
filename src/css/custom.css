@@ -2,7 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/ClashDisplay-Medium.woff2') format('woff2'),
+    url('/fonts/ClashDisplay-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HK Guise';
+  src: url('/fonts/hk_guise_medium-webfont.woff2') format('woff2'),
+    url('/fonts/hk_guise_medium-webfont.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HK Guise';
+  src: url('/fonts/hk_guise_regular-webfont.woff2') format('woff2'),
+    url('/fonts/hk_guise_regular-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
 :root {
+  /* Base fonts with fallbacks */
+  --font-apple: -apple-system, 'BlinkMacSystemFont';
+  --font-fallback: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-family-base: var(--font-apple), var(--font-fallback), var(--font-emoji);
+
+  --guise-font: 'HK Guise', var(--font-family-base);
+  --clash-font: 'Clash Display', var(--font-family-base);
+
   --ifm-color-primary: #ec5728;
   --ifm-color-primary-dark: #e44614;
   --ifm-color-primary-darker: #d84213;
@@ -29,5 +63,5 @@
 }
 
 body {
-  @apply font-sans;
+  @apply font-sans will-change-auto;
 }
