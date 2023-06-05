@@ -11,18 +11,13 @@ interface SmallCardProps {
 
 export function SmallCard({ title, description, icon }: SmallCardProps) {
   return (
-    <div className={styles.small__card}>
-      <div className="absolute top-[16px] left-[20px] text-[24px] flex items-center justify-center w-[48px] h-[48px]">
-        {icon}
-      </div>
-
-      <div
-        className={clsx(
-          'pb-[20px] sm:pb-0 border-b border-b-[#8c91b152] sm:border-b-0',
-        )}
-      >
-        <div className="font-semibold">{title}</div>
-        <div className="leading-[20px] text-[14px]">{description}</div>
+    <div className="rounded-md border border-gray-600/30 hover:border-haqq-orange h-full transition-all duration-250 ease-out">
+      <div className="flex flex-row gap-5 py-4 px-5">
+        <div className="w-[48px] h-[48px]">{icon}</div>
+        <div>
+          <div className="font-[500] font-serif text-lg">{title}</div>
+          <div className="text-sm">{description}</div>
+        </div>
       </div>
     </div>
   );
