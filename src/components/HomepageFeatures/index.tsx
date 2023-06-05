@@ -14,7 +14,7 @@ export default function HomepageFeatures() {
             <Link to="/intro" className={'hover:no-underline'}>
               <BigCard
                 title="Intro"
-                description="Deploy your own node, setup your testnet and more."
+                description="What is HAQQ?"
                 icon={<RocketIcon />}
               />
             </Link>
@@ -23,7 +23,7 @@ export default function HomepageFeatures() {
             <Link to="/validators" className={'hover:no-underline'}>
               <BigCard
                 title="Validators"
-                description="Follow guides to using popular Ethereum tools with HAQQ."
+                description="Follow guides to run validators on HAQQ."
                 icon={<CodeIcon />}
               />
             </Link>
