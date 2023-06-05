@@ -45,14 +45,14 @@ export function RocketIcon({ className }: { className?: string }) {
         clipRule="evenodd"
         d="M35.4626 196.23L99.4743 110.96L58.1472 105.081L5.50019 172.841L35.4626 196.23Z"
         stroke="url(#paint5_linear)"
-        stroke-width="0.7"
+        strokeWidth="0.7"
       />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
         d="M106.575 217.245L99.4741 110.959L137.392 127.801L143.167 213.533L106.575 217.245Z"
         stroke="url(#paint6_linear)"
-        stroke-width="0.7"
+        strokeWidth="0.7"
       />
       <defs>
         <linearGradient
@@ -63,8 +63,8 @@ export function RocketIcon({ className }: { className?: string }) {
           y2="119.532"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ec5728" stop-opacity="0.91" />
-          <stop offset="1" stop-color="#e38a6f" />
+          <stop stopColor="#ec5728" stopOpacity="0.91" />
+          <stop offset="1" stopColor="#e38a6f" />
         </linearGradient>
         <linearGradient
           id="paint1_linear"
@@ -74,8 +74,8 @@ export function RocketIcon({ className }: { className?: string }) {
           y2="154.845"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ec5728" stop-opacity="0.91" />
-          <stop offset="1" stop-color="#e38a6f" />
+          <stop stopColor="#ec5728" stopOpacity="0.91" />
+          <stop offset="1" stopColor="#e38a6f" />
         </linearGradient>
         <linearGradient
           id="paint2_linear"
@@ -85,8 +85,8 @@ export function RocketIcon({ className }: { className?: string }) {
           y2="213.994"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ec5728" stop-opacity="0.91" />
-          <stop offset="1" stop-color="#e38a6f" />
+          <stop stopColor="#ec5728" stopOpacity="0.91" />
+          <stop offset="1" stopColor="#e38a6f" />
         </linearGradient>
         <linearGradient
           id="paint3_linear"
@@ -96,8 +96,8 @@ export function RocketIcon({ className }: { className?: string }) {
           y2="254.491"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ec5728" stop-opacity="0.91" />
-          <stop offset="1" stop-color="#e38a6f" />
+          <stop stopColor="#ec5728" stopOpacity="0.91" />
+          <stop offset="1" stopColor="#e38a6f" />
         </linearGradient>
         <linearGradient
           id="paint4_linear"
@@ -107,8 +107,8 @@ export function RocketIcon({ className }: { className?: string }) {
           y2="270.124"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ec5728" stop-opacity="0.91" />
-          <stop offset="1" stop-color="#e38a6f" />
+          <stop stopColor="#ec5728" stopOpacity="0.91" />
+          <stop offset="1" stopColor="#e38a6f" />
         </linearGradient>
         <linearGradient
           id="paint5_linear"
@@ -118,8 +118,8 @@ export function RocketIcon({ className }: { className?: string }) {
           y2="221.613"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ec5728" />
-          <stop offset="1" stop-color="#e38a6f" />
+          <stop stopColor="#ec5728" />
+          <stop offset="1" stopColor="#e38a6f" />
         </linearGradient>
         <linearGradient
           id="paint6_linear"
@@ -129,8 +129,8 @@ export function RocketIcon({ className }: { className?: string }) {
           y2="241.973"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ec5728" />
-          <stop offset="1" stop-color="#e38a6f" />
+          <stop stopColor="#ec5728" />
+          <stop offset="1" stopColor="#e38a6f" />
         </linearGradient>
       </defs>
     </svg>

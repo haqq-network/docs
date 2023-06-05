@@ -13,8 +13,8 @@ export default function HomepageFeatures() {
           <div className="flex-1">
             <Link to="/intro" className={'hover:no-underline'}>
               <BigCard
-                title="Quick start"
-                description="Deploy your own node, setup your testnet and more."
+                title="Intro"
+                description="What is HAQQ?"
                 icon={<RocketIcon />}
               />
             </Link>
@@ -22,8 +22,8 @@ export default function HomepageFeatures() {
           <div className="flex-1">
             <Link to="/validators" className={'hover:no-underline'}>
               <BigCard
-                title="Guides"
-                description="Follow guides to using popular Ethereum tools with HAQQ."
+                title="Validators"
+                description="Follow guides to run validators on HAQQ."
                 icon={<CodeIcon />}
               />
             </Link>

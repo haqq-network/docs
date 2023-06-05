@@ -16,36 +16,42 @@ export function ExploreBlock() {
       )}
     >
       <div className="text-[24px] font-bold leading-[2rem] md:text-[32px] md:leading-[36px] md:tracking-[.01em]">
-        Explore Haqq
+        Explore HAQQ
       </div>
       <p className="mt-[12px]">
-        Get familiar with Haqq and explore its main concepts.
+        Get familiar with HAQQ and explore its main concepts.
       </p>
       <div
         className={
           'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 sm:gap-[12px] md:gap-[24px] mt-[32px] mx-[-16px] sm:mx-0 md:mt-[48px] md:mb-[80px]'
         }
       >
-        <Link to={`/intro`} className="hover:no-underline hover:text-inherit">
+        {/* <Link
+          to={`/intro/ecosystem`}
+          className="hover:no-underline hover:text-inherit"
+        >
           <SmallCard
-            title="Introducion"
-            description="Read a high-level overview of Haqq and its architecture."
+            title="Ecosystem"
+            description="More about ."
             icon={<IntroducionIcon />}
           />
-        </Link>
+        </Link> */}
 
-        <Link to={`/intro`} className="hover:no-underline hover:text-inherit">
+        <Link to={`/develop`} className="hover:no-underline hover:text-inherit">
           <SmallCard
-            title="Basics"
-            description="Start with the basic concepts of Haqq, like accounts and transactions."
+            title="Develop"
+            description="Read a high-level overview of HAQQ and its architecture."
             icon={<BasicsIcon />}
           />
         </Link>
 
-        <Link to={`/intro`} className="hover:no-underline hover:text-inherit">
+        <Link
+          to={`/explorers`}
+          className="hover:no-underline hover:text-inherit"
+        >
           <SmallCard
-            title="Core Concepts"
-            description="Read about the core concepts like encoding and events."
+            title="Explorers"
+            description="Links on chain explorers."
             className="max-[640px]:border-b-0"
             icon={<CoreConceptsIcon />}
           />
