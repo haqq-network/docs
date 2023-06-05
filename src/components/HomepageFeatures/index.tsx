@@ -1,69 +1,36 @@
-import React, { ComponentProps, ComponentType } from 'react';
-import clsx from 'clsx';
-import styles from './index.module.css';
-
-type FeatureItem = {
-  title: string;
-  Svg: ComponentType<ComponentProps<'svg'>>;
-  description: JSX.Element;
-};
-
-const FeatureList: FeatureItem[] = [
-  {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
-    ),
-  },
-  {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
-    description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
-  },
-  {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
-  },
-];
-
-function Feature({ Svg, title, description }) {
-  return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </div>
-    </div>
-  );
-}
+import React from 'react';
+import { BigCard } from '../big-card/big-card';
+import { RocketIcon } from '../icons/rocket-icon';
+import { CodeIcon } from '../icons/code-icon';
+import { ExploreBlock } from '../explore-block/explore-block';
+import Link from '@docusaurus/Link';
 
 export default function HomepageFeatures() {
   return (
-    <section className={styles.features}>
+    <section>
       <div className="container">
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
+        <div className="flex flex-col md:flex-row items-center gap-[40px] mt-[80px] mb-[40px]">
+          <div className="flex-1">
+            <Link to="/intro" className={'hover:no-underline'}>
+              <BigCard
+                title="Quick start"
+                description="Deploy your own node, setup your testnet and more."
+                icon={<RocketIcon />}
+              />
+            </Link>
+          </div>
+          <div className="flex-1">
+            <Link to="/validators" className={'hover:no-underline'}>
+              <BigCard
+                title="Guides"
+                description="Follow guides to using popular Ethereum tools with HAQQ."
+                icon={<CodeIcon />}
+              />
+            </Link>
+          </div>
         </div>
+
+        <ExploreBlock />
       </div>
     </section>
   );

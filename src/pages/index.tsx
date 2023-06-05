@@ -3,7 +3,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 // import clsx from 'clsx';
 // import Link from '@docusaurus/Link';
-// import HomepageFeatures from '../components/HomepageFeatures';
+import HomepageFeatures from '../components/HomepageFeatures';
 
 // import styles from './index.module.css';
 // import Tabs from '@theme/Tabs';
@@ -32,14 +32,14 @@ export default function Home() {
 
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
+      title={siteConfig.title}
       description="Description will go into a meta tag in <head />"
     >
       {/* <HomepageHeader /> */}
 
-      {/* <main>
+      <main>
         <HomepageFeatures />
-      </main> */}
+      </main>
     </Layout>
   );
 }
