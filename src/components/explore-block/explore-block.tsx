@@ -26,25 +26,31 @@ export function ExploreBlock() {
           'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 sm:gap-[12px] md:gap-[24px] mt-[32px] mx-[-16px] sm:mx-0 md:mt-[48px] md:mb-[80px]'
         }
       >
-        <Link to={`/intro`} className="hover:no-underline hover:text-inherit">
+        <Link
+          to={`/intro/ecosystem`}
+          className="hover:no-underline hover:text-inherit"
+        >
           <SmallCard
-            title="Introducion"
+            title="Ecosystem"
             description="Read a high-level overview of HAQQ and its architecture."
             icon={<IntroducionIcon />}
           />
         </Link>
 
-        <Link to={`/intro`} className="hover:no-underline hover:text-inherit">
+        <Link to={`/develop`} className="hover:no-underline hover:text-inherit">
           <SmallCard
-            title="Basics"
+            title="Develop"
             description="Start with the basic concepts of HAQQ, like accounts and transactions."
             icon={<BasicsIcon />}
           />
         </Link>
 
-        <Link to={`/intro`} className="hover:no-underline hover:text-inherit">
+        <Link
+          to={`/explorers`}
+          className="hover:no-underline hover:text-inherit"
+        >
           <SmallCard
-            title="Core Concepts"
+            title="Explorers"
             description="Read about the core concepts like encoding and events."
             className="max-[640px]:border-b-0"
             icon={<CoreConceptsIcon />}
