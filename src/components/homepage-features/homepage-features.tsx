@@ -37,7 +37,7 @@ export default function HomepageFeatures() {
               >
                 <BigCard
                   title="Intro"
-                  description="What is HAQQ?"
+                  description="Learn about the core concepts, mission, and vision of the Haqq Network. A great starting point for new users."
                   icon={<RocketIcon className="ml-[-1rem] scale-[1.06]" />}
                 />
               </Link>
@@ -50,8 +50,8 @@ export default function HomepageFeatures() {
                 }
               >
                 <BigCard
-                  title="Validators"
-                  description="Follow guides to run validators on HAQQ."
+                  title="Becoming a Validator"
+                  description="Understand the validator's role and responsibilities. Learn how to become a validator and contribute to the network's security."
                   icon={<CodeIcon className="mb-[-1rem]" />}
                 />
               </Link>
@@ -67,15 +67,27 @@ export default function HomepageFeatures() {
             Get familiar with HAQQ and explore its main concepts.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px] md:gap-[40px]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-[20px] md:gap-[40px]">
+            <div>
+              <Link
+                to={`/intro/ecosystem`}
+                className="hover:no-underline hover:text-inherit"
+              >
+                <SmallCard
+                  title="Ecosystem"
+                  description="Explore our thriving ecosystem. From partners to projects, learn about how various components interact within the Haqq Network."
+                  icon={<BasicsIcon />}
+                />
+              </Link>
+            </div>
             <div>
               <Link
                 to={`/develop`}
                 className="hover:no-underline hover:text-inherit"
               >
                 <SmallCard
-                  title="Basics"
-                  description="Start with the basic concepts of HAQQ, like accounts and transactions."
+                  title="Develop"
+                  description=" A comprehensive guide for developers. Understand the tools, APIs, and SDKs available to build applications on top of the Haqq Network."
                   icon={<BasicsIcon />}
                 />
               </Link>
@@ -87,7 +99,7 @@ export default function HomepageFeatures() {
               >
                 <SmallCard
                   title="Explorers"
-                  description="Links on chain explorers."
+                  description="Discover the available blockchain explorers for monitoring and verifying transactions on the Haqq Network."
                   className="max-[640px]:border-b-0"
                   icon={<CoreConceptsIcon />}
                 />
