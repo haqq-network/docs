@@ -13,4 +13,4 @@ wallets and block explorers to interact with the Proof-of-Stake logic and native
 
 [gRPC-Gateway](https://grpc-ecosystem.github.io/grpc-gateway/) reads a gRPC service definition and
 generates a reverse-proxy server which translates RESTful JSON API into gRPC. With gRPC-Gateway,
-users can use REST to interact with the Cosmos gRPC service. 
+users can use REST to interact with the Cosmos gRPC service.

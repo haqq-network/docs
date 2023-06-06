@@ -21,7 +21,6 @@ Horcrux is a [multi-party-computation (MPC)](https://en.wikipedia.org/wiki/Secur
 
 See documentation [here](https://github.com/strangelove-ventures/horcrux/blob/main/docs/migrating.md) to learn how to upgrade your validator infrastructure with Horcrux.
 
-
 ## Hardware HSM
 
 It is mission critical that an attacker cannot steal a validator's key. If this is possible, it puts the entire stake delegated to the compromised validator at risk. Hardware security modules are an important strategy for mitigating this risk.

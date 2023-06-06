@@ -20,7 +20,7 @@ be able to download a copy of the data and verify it before starting their node.
 1. First, stop your node.
 
 2. Then, copy the contents of your backup data directory back to the `HAQQ_HOME/data` directory (which, by default,
-should be `~/.haqqd/data`).
+   should be `~/.haqqd/data`).
 
 ```bash
 # Assumes backup is stored in "backup" directory

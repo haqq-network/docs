@@ -6,7 +6,7 @@ sidebar_position: 1
 
 We highly recommend validators use Cosmovisor to run their nodes. This will make low-downtime upgrades smoother, as validators don't have to [manually upgrade](./manual-upgrades) binaries during the upgrade. Instead users can [pre-install](#manual-download) new binaries, and Cosmovisor will automatically update them based on on-chain Software Upgrade proposals.
 
->[`cosmovisor`](https://docs.cosmos.network/main/tooling/cosmovisor) is a small process manager for Cosmos SDK application binaries that monitors the governance module for incoming chain upgrade proposals. If it sees a proposal that gets approved, cosmovisor can automatically download the new binary, stop the current binary, switch from the old binary to the new one, and finally restart the node with the new binary.
+> [`cosmovisor`](https://docs.cosmos.network/main/tooling/cosmovisor) is a small process manager for Cosmos SDK application binaries that monitors the governance module for incoming chain upgrade proposals. If it sees a proposal that gets approved, cosmovisor can automatically download the new binary, stop the current binary, switch from the old binary to the new one, and finally restart the node with the new binary.
 
 ## Prerequisites
 
@@ -54,13 +54,13 @@ Cosmovisor will continually poll the `$DAEMON_HOME/data/upgrade-info.json` for n
 
 ```json
 {
-    "binaries": {
-        "darwin/arm64": "https://github.com/haqq-network/haqq/releases/download/v1.4.0/haqq_1.4.0_Darwin_arm64.tar.gz",
-        "darwin/x86_64": "https://github.com/haqq-network/haqq/releases/download/v1.4.0/haqq_1.4.0_Darwin_x86_64.tar.gz",
-        "linux/arm64": "https://github.com/haqq-network/haqq/releases/download/v1.4.0/haqq_1.4.0_Linux_arm64.tar.gz",
-        "linux/amd64": "https://github.com/haqq-network/haqq/releases/download/v1.4.0/haqq_1.4.0_Linux_amd64.tar.gz",
-        "windows/x86_64": "https://github.com/haqq-network/haqq/releases/download/v1.4.0/haqq_1.4.0_Windows_x86_64.zip"
-    }
+  "binaries": {
+    "darwin/arm64": "https://github.com/haqq-network/haqq/releases/download/v1.4.0/haqq_1.4.0_Darwin_arm64.tar.gz",
+    "darwin/x86_64": "https://github.com/haqq-network/haqq/releases/download/v1.4.0/haqq_1.4.0_Darwin_x86_64.tar.gz",
+    "linux/arm64": "https://github.com/haqq-network/haqq/releases/download/v1.4.0/haqq_1.4.0_Linux_arm64.tar.gz",
+    "linux/amd64": "https://github.com/haqq-network/haqq/releases/download/v1.4.0/haqq_1.4.0_Linux_amd64.tar.gz",
+    "windows/x86_64": "https://github.com/haqq-network/haqq/releases/download/v1.4.0/haqq_1.4.0_Windows_x86_64.zip"
+  }
 }
 ```
 
