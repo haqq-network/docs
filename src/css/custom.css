@@ -84,9 +84,10 @@ svg {
 
 .markdown {
   @apply prose max-w-none prose-headings:text-haqq-black prose-strong:text-haqq-black text-haqq-black prose-a:text-inherit prose-headings:font-serif;
-  @apply prose-table:table-auto prose-td:px-4 prose-td:py-2 prose-th:py-2  prose-th:px-4 prose-code:text-inherit;
+  @apply prose-table:table-auto prose-td:px-4 prose-td:py-2 prose-th:py-2 prose-th:px-4 prose-code:text-inherit;
   @apply prose-pre:bg-[#0000000d] prose-headings:font-[500];
   @apply prose-blockquote:text-haqq-black;
+  @apply prose-code:before:hidden prose-code:after:hidden;
 }
 
 html[data-theme='dark'] .markdown {
