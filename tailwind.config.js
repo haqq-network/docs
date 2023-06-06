@@ -13,6 +13,7 @@ module.exports = {
       colors: {
         'haqq-black': '#0D0D0E',
         'haqq-orange': '#EC5728',
+        'haqq-light-orange': '#FF8D69',
 
         // pearl: '#faf1e4',
         // darkPearl: '#dad2c7',
