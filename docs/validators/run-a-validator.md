@@ -6,34 +6,33 @@ sidebar_position: 3
 
 Learn how to setup and run a validator node
 
-## Pre-requisite Readings
+:::tip Pre-requisite Readings
 
-:::tip
-
-Pre-requisite Readings
 - [Run a Node](./run-node/mainnet.md)
 - [Validator Overview](./index.mdx)
 - [Validator Security](./configuration/security.md)
+
 :::
 
 ## Create Your Validator
 
 Your node consensus public key (`haqqvalconspub...`) can be used to create a new validator by staking ISLM tokens. You can find your validator pubkey by running:
 
-```bash
+```sh
 haqqd tendermint show-validator
 ```
 
 :::danger
+
 🚨 **DANGER**: <u>Never</u> create your mainnet validator keys using a `test` keying backend. Doing so might result in a loss of funds by making your funds remotely accessible via the `eth_sendTransaction` JSON-RPC endpoint.
 
 Ref: [Security Advisory: Insecurely configured geth can make funds remotely accessible](https://blog.ethereum.org/2015/08/29/security-alert-insecurely-configured-geth-can-make-funds-remotely-accessible/)
-:::
 
+:::
 
 To create your validator on mainnet, just use the following command:
 
-```bash
+```sh
 haqqd tx staking create-validator \
   --amount=1000000aISLM \
   --pubkey=$(haqqd tendermint show-validator) \
@@ -51,7 +50,7 @@ haqqd tx staking create-validator \
 
 :::tip
 
-When specifying commission parameters, the `commission-max-change-rate` is used to measure % *point* change over the `commission-rate`. E.g. 1% to 2% is a 100% rate increase, but only 1 percentage point.
+When specifying commission parameters, the `commission-max-change-rate` is used to measure % _point_ change over the `commission-rate`. E.g. 1% to 2% is a 100% rate increase, but only 1 percentage point.
 
 :::
 
@@ -63,7 +62,7 @@ The <key_name> specifies which validator you are editing. If you choose to not i
 
 The `--identity` can be used as to verify identity with systems like Keybase or UPort. When using with Keybase `--identity` should be populated with a 16-digit string that is generated with a [keybase.io](https://keybase.io) account. It's a cryptographically secure method of verifying your identity across multiple online networks. The Keybase API allows us to retrieve your Keybase avatar. This is how you can add a logo to your validator profile.
 
-```bash
+```sh
 haqqd tx staking edit-validator
   --new-moniker="choose a moniker" \
   --website="https://islamiccoin.net" \
@@ -76,7 +75,7 @@ haqqd tx staking edit-validator
   --commission-rate="0.10"
 ```
 
-__Note__: The `commission-rate` value must adhere to the following invariants:
+**Note**: The `commission-rate` value must adhere to the following invariants:
 
 - Must be between 0 and the validator's `commission-max-rate`
 - Must not exceed the validator's `commission-max-change-rate` which is maximum
@@ -87,7 +86,7 @@ __Note__: The `commission-rate` value must adhere to the following invariants:
 
 View the validator's information with this command:
 
-```bash
+```sh
 haqqd query staking validator <account_validator>
 ```
 
@@ -95,7 +94,7 @@ haqqd query staking validator <account_validator>
 
 In order to keep track of a validator's signatures in the past you can do so by using the `signing-info` command:
 
-```bash
+```sh
 haqqd query slashing signing-info $(haqqd tendermint show-validator)\
   --chain-id=<chain_id>
 ```
@@ -104,7 +103,7 @@ haqqd query slashing signing-info $(haqqd tendermint show-validator)\
 
 When a validator is "jailed" for downtime, you must submit an `Unjail` transaction from the operator account in order to be able to get block proposer rewards again (depends on the zone fee distribution).
 
-```bash
+```sh
 haqqd tx slashing unjail \
   --from=<key_name> \
   --chain-id=<chain_id>
@@ -114,7 +113,7 @@ haqqd tx slashing unjail \
 
 Your validator is active if the following command returns anything:
 
-```bash
+```sh
 haqqd query tendermint-validator-set | grep "$(haqqd tendermint show-address)"
 ```
 
@@ -141,7 +140,7 @@ Your validator has become jailed. Validators get jailed, i.e. get removed from t
 
 If you got jailed for downtime, you can get your voting power back to your validator. First, if `haqqd` is not running, start it up again:
 
-```bash
+```sh
 haqqd start
 ```
 
@@ -149,7 +148,7 @@ Wait for your full node to catch up to the latest block. Then, you can [unjail y
 
 Lastly, check your validator again to see if your voting power is back.
 
-```bash
+```sh
 haqqd status
 ```
 
@@ -204,7 +203,7 @@ haqqd version "1.3.1" 877c235c1b86b0c734fb482fdebdec71bdc47b07
 
 We are currently using version `1.3.1` on Mainnet.
 
-This error can also occur if you run the validator from a period when blocks were produced on a different version of the binary. 
+This error can also occur if you run the validator from a period when blocks were produced on a different version of the binary.
 
 From this point, we recommend starting the node using statesync. More information you can find [here](./run-node/mainnet.md)
 

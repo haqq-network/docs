@@ -2,7 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/ClashDisplay-Medium.woff2') format('woff2'),
+    url('/fonts/ClashDisplay-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HK Guise';
+  src: url('/fonts/hk_guise_medium-webfont.woff2') format('woff2'),
+    url('/fonts/hk_guise_medium-webfont.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HK Guise';
+  src: url('/fonts/hk_guise_regular-webfont.woff2') format('woff2'),
+    url('/fonts/hk_guise_regular-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
 :root {
+  /* Base fonts with fallbacks */
+  --font-apple: -apple-system, 'BlinkMacSystemFont';
+  --font-fallback: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-family-base: var(--font-apple), var(--font-fallback), var(--font-emoji);
+
+  --guise-font: 'HK Guise', var(--font-family-base);
+  --clash-font: 'Clash Display', var(--font-family-base);
+
   --ifm-color-primary: #ec5728;
   --ifm-color-primary-dark: #e44614;
   --ifm-color-primary-darker: #d84213;
@@ -14,10 +48,12 @@
   --ifm-background-surface-color: var(--ifm-background-color);
   --ifm-navbar-background-color: var(--ifm-background-color);
   --ifm-footer-background-color: var(--ifm-background-color);
+  --ifm-toc-border-color: #0d0d0e3d;
+  --ifm-heading-font-family: var(--clash-font);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
+html[data-theme='dark'] {
   --ifm-color-primary: #ec5728;
   --ifm-color-primary-dark: #eb4d1b;
   --ifm-color-primary-darker: #e44614;
@@ -26,8 +62,89 @@
   --ifm-color-primary-lighter: #ef754e;
   --ifm-color-primary-lightest: #f39274;
   --ifm-background-color: #0d0d0e;
+  --ifm-toc-border-color: #ffffff3d;
 }
 
 body {
-  @apply font-sans;
+  @apply font-sans will-change-auto;
+}
+
+svg {
+  display: inline-block;
+  vertical-align: initial;
+}
+
+.container {
+  @apply !max-w-6xl mx-auto;
+}
+
+.container-fluid {
+  @apply max-w-none w-full;
+}
+
+.markdown {
+  @apply prose max-w-none prose-headings:text-haqq-black prose-strong:text-haqq-black text-haqq-black prose-a:text-inherit prose-headings:font-serif;
+  @apply prose-table:table-auto prose-td:px-4 prose-td:py-2 prose-th:py-2  prose-th:px-4 prose-code:text-inherit;
+  @apply prose-pre:bg-[#0000000d] prose-headings:font-[500];
+  @apply prose-blockquote:text-haqq-black;
+}
+
+html[data-theme='dark'] .markdown {
+  @apply text-white prose-headings:text-white prose-strong:text-white;
+  @apply prose-blockquote:text-white;
+}
+
+.theme-doc-breadcrumbs {
+  @apply !mb-10;
+}
+
+.navbar {
+  @apply border-b border-t border-[#0D0D0E3D];
+  @apply shadow-none;
+}
+
+.footer {
+  @apply border-t border-[#0D0D0E3D] px-0;
+}
+
+.footer__title {
+  @apply font-serif text-lg;
+}
+.pagination-nav__label {
+  @apply font-serif mt-3;
+}
+.pagination-nav__label::before {
+  @apply mr-1;
+}
+.pagination-nav__label::after {
+  @apply ml-1;
+}
+
+html[data-theme='dark'] .footer,
+html[data-theme='dark'] .navbar {
+  @apply border-[#FFFFFF3D];
+}
+
+a {
+  transition: none;
+  @apply transition-colors duration-100 ease-out;
+}
+
+.menu__link {
+  @apply py-3;
+}
+
+.big-card {
+  @apply border-[1px] border-[#eaeaea] hover:border-haqq-orange text-haqq-black;
+}
+html[data-theme='dark'] .big-card {
+  @apply !text-white border-[#292929] hover:border-haqq-orange;
+}
+
+.hero__title {
+  @apply font-serif font-[500] my-6;
+}
+
+.footer__copyright {
+  @apply text-sm;
 }

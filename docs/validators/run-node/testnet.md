@@ -15,6 +15,7 @@ Sources of all scripts are here [`github`](https://github.com/haqq-network/testn
 _*Battle tested on [Ubuntu LTS 22.04](https://spinupwp.com/doc/what-does-lts-mean-ubuntu/#:~:text=The%20abbreviation%20stands%20for%20Long,extended%20period%20over%20regular%20releases)*_
 
 Install packages:
+
 ```sh
 sudo apt-get install curl git make gcc liblz4-tool build-essential jq bzip2 -y
 ```
@@ -24,10 +25,12 @@ sudo apt-get install curl git make gcc liblz4-tool build-essential jq bzip2 -y
 https://github.com/haqq-network/haqq/releases/tag/v1.3.1
 
 **Preresquisites for compile from source**
-- `make` & `gcc` 
+
+- `make` & `gcc`
 - `Go 1.19+` ([How to install Go](https://www.digitalocean.com/community/tutorials/how-to-install-go-on-ubuntu-20-04))
 
 Build from source:
+
 ```sh
 cd $HOME
 git clone -b v1.3.1 https://github.com/haqq-network/haqq
@@ -36,12 +39,14 @@ make install
 ```
 
 Check binary version:
+
 ```sh
 haqq@haqq-node:~# haqqd -v
 haqqd version "1.3.1" 877c235c1b86b0c734fb482fdebdec71bdc47b07
 ```
 
 **Run pipline**
+
 - `init folders`
 - `download genesis file for testnet`
 - `download current addrbook`
@@ -72,4 +77,5 @@ haqqd start
 ```
 
 ## Upgrade to Validator Node
+
 You now have an active full node. What's the next step? You can upgrade your full node to become a Haqq Validator. The top 150 validators have the ability to propose new blocks to the Haqq Network. Continue onto the [Run a Validator](../run-a-validator.md)..

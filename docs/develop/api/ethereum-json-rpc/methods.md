@@ -15,7 +15,7 @@ The examples also do not include the URL/IP & port combination which must be the
 ## Endpoints
 
 | Method                                                                            | Namespace | Implemented | Public | Notes              |
-|-----------------------------------------------------------------------------------|-----------|-------------|--------|--------------------|
+| --------------------------------------------------------------------------------- | --------- | ----------- | ------ | ------------------ |
 | [`web3_clientVersion`](#web3_clientversion)                                       | Web3      | ✔           | ✔      |                    |
 | [`web3_sha3`](#web3_sha3)                                                         | Web3      | ✔           | ✔      |                    |
 | [`net_version`](#net_version)                                                     | Net       | ✔           | ✔      |                    |
@@ -58,9 +58,9 @@ The examples also do not include the URL/IP & port combination which must be the
 | `eth_compileSolidity`                                                             | Eth       |             |        |                    |
 | `eth_compileSerpent`                                                              | Eth       |             |        |                    |
 | `eth_signTransaction`                                                             | Eth       |             |        |                    |
-| `eth_mining`                                                                      | Eth       |             | ❌      |                    |
+| `eth_mining`                                                                      | Eth       |             | ❌     |                    |
 | [`eth_coinbase`](#eth_coinbase)                                                   | Eth       | ✔           |        |                    |
-| `eth_hashrate`                                                                    | Eth       | N/A         | ❌      | PoW-only           |
+| `eth_hashrate`                                                                    | Eth       | N/A         | ❌     | PoW-only           |
 | `eth_getUncleCountByBlockHash`                                                    | Eth       | N/A         |        | PoW-only           |
 | `eth_getUncleCountByBlockNumber`                                                  | Eth       | N/A         |        | PoW-only           |
 | `eth_getUncleByBlockHashAndIndex`                                                 | Eth       | N/A         |        | PoW-only           |
@@ -68,16 +68,16 @@ The examples also do not include the URL/IP & port combination which must be the
 | [`eth_getProof`](#eth_getProof)                                                   | Eth       | ✔           |        |                    |
 | [`eth_subscribe`](#eth_subscribe)                                                 | Websocket | ✔           |        |                    |
 | [`eth_unsubscribe`](#eth_unsubscribe)                                             | Websocket | ✔           |        |                    |
-| [`personal_importRawKey`](#personal-importrawkey)                                 | Personal  | ✔           | ❌      |                    |
-| [`personal_listAccounts`](#personal-listaccounts)                                 | Personal  | ✔           | ❌      |                    |
-| [`personal_lockAccount`](#personal-lockaccount)                                   | Personal  | ✔           | ❌      |                    |
-| [`personal_newAccount`](#personal-newaccount)                                     | Personal  | ✔           | ❌      |                    |
-| [`personal_unlockAccount`](#personal-unlockaccount)                               | Personal  | ✔           | ❌      |                    |
-| [`personal_sendTransaction`](#personal-sendtransaction)                           | Personal  | ✔           | ❌      |                    |
-| [`personal_sign`](#personal-sign)                                                 | Personal  | ✔           | ❌      |                    |
-| [`personal_ecRecover`](#personal-ecrecover)                                       | Personal  | ✔           | ❌      |                    |
-| [`personal_initializeWallet`](#personal_initializewallet)                                       | Personal  | ✔           | ❌      ||
-| [`personal_unpair`](#personal_unpair)                                       | Personal  | ✔           | ❌      |                    |
+| [`personal_importRawKey`](#personal-importrawkey)                                 | Personal  | ✔           | ❌     |                    |
+| [`personal_listAccounts`](#personal-listaccounts)                                 | Personal  | ✔           | ❌     |                    |
+| [`personal_lockAccount`](#personal-lockaccount)                                   | Personal  | ✔           | ❌     |                    |
+| [`personal_newAccount`](#personal-newaccount)                                     | Personal  | ✔           | ❌     |                    |
+| [`personal_unlockAccount`](#personal-unlockaccount)                               | Personal  | ✔           | ❌     |                    |
+| [`personal_sendTransaction`](#personal-sendtransaction)                           | Personal  | ✔           | ❌     |                    |
+| [`personal_sign`](#personal-sign)                                                 | Personal  | ✔           | ❌     |                    |
+| [`personal_ecRecover`](#personal-ecrecover)                                       | Personal  | ✔           | ❌     |                    |
+| [`personal_initializeWallet`](#personal_initializewallet)                         | Personal  | ✔           | ❌     |                    |
+| [`personal_unpair`](#personal_unpair)                                             | Personal  | ✔           | ❌     |                    |
 | `db_putString`                                                                    | DB        |             |        |                    |
 | `db_getString`                                                                    | DB        |             |        |                    |
 | `db_putHex`                                                                       | DB        |             |        |                    |
@@ -92,14 +92,14 @@ The examples also do not include the URL/IP & port combination which must be the
 | `shh_uninstallFilter`                                                             | SSH       |             |        |                    |
 | `shh_getFilterChanges`                                                            | SSH       |             |        |                    |
 | `shh_getMessages`                                                                 | SSH       |             |        |                    |
-| `admin_addPeer`                                                                   | Admin     |             | ❌      |                    |
-| `admin_datadir`                                                                   | Admin     |             | ❌      |                    |
-| `admin_nodeInfo`                                                                  | Admin     |             | ❌      |                    |
-| `admin_peers`                                                                     | Admin     |             | ❌      |                    |
-| `admin_startRPC`                                                                  | Admin     |             | ❌      |                    |
-| `admin_startWS`                                                                   | Admin     |             | ❌      |                    |
-| `admin_stopRPC`                                                                   | Admin     |             | ❌      |                    |
-| `admin_stopWS`                                                                    | Admin     |             | ❌      |                    |
+| `admin_addPeer`                                                                   | Admin     |             | ❌     |                    |
+| `admin_datadir`                                                                   | Admin     |             | ❌     |                    |
+| `admin_nodeInfo`                                                                  | Admin     |             | ❌     |                    |
+| `admin_peers`                                                                     | Admin     |             | ❌     |                    |
+| `admin_startRPC`                                                                  | Admin     |             | ❌     |                    |
+| `admin_startWS`                                                                   | Admin     |             | ❌     |                    |
+| `admin_stopRPC`                                                                   | Admin     |             | ❌     |                    |
+| `admin_stopWS`                                                                    | Admin     |             | ❌     |                    |
 | `clique_getSnapshot`                                                              | Clique    |             |        |                    |
 | `clique_getSnapshotAtHash`                                                        | Clique    |             |        |                    |
 | `clique_getSigners`                                                               | Clique    |             |        |                    |
@@ -127,13 +127,13 @@ The examples also do not include the URL/IP & port combination which must be the
 | `debug_startGoTrace`                                                              | Debug     | ✔           |        |                    |
 | `debug_stopCPUProfile`                                                            | Debug     | ✔           |        |                    |
 | `debug_stopGoTrace`                                                               | Debug     | ✔           |        |                    |
-| [`debug_traceBlock`](#debug-traceblock)                                                                | Debug     | ✔           |        |                    |
-| [`debug_traceBlockByNumber`](#debug-traceblockbynumber)                                                        | Debug     | ✔ |        |                    |
-| [`debug_traceBlockByHash`](#debug-traceblockbyhash)                                                          | Debug     | ✔ |        |                    |
+| [`debug_traceBlock`](#debug-traceblock)                                           | Debug     | ✔           |        |                    |
+| [`debug_traceBlockByNumber`](#debug-traceblockbynumber)                           | Debug     | ✔           |        |                    |
+| [`debug_traceBlockByHash`](#debug-traceblockbyhash)                               | Debug     | ✔           |        |                    |
 | `debug_traceBlockFromFile`                                                        | Debug     |             |        |                    |
 | `debug_standardTraceBlockToFile`                                                  | Debug     |             |        |                    |
 | `debug_standardTraceBadBlockToFile`                                               | Debug     |             |        |                    |
-| [`debug_traceTransaction`](#debug-tracetransaction)                                                          | Debug     | ✔           |        |                    |
+| [`debug_traceTransaction`](#debug-tracetransaction)                               | Debug     | ✔           |        |                    |
 | `debug_verbosity`                                                                 | Debug     |             |        |                    |
 | `debug_vmodule`                                                                   | Debug     |             |        |                    |
 | `debug_writeBlockProfile`                                                         | Debug     | ✔           |        |                    |
@@ -148,19 +148,19 @@ The examples also do not include the URL/IP & port combination which must be the
 | `les_latestCheckpoint`                                                            | Les       |             |        |                    |
 | `les_getCheckpoint`                                                               | Les       |             |        |                    |
 | `les_getCheckpointContractAddress`                                                | Les       |             |        |                    |
-| [`miner_getHashrate`](#miner-gethashrate)                                         | Miner     | ✔           | ❌      | No-op              |
-| [`miner_setExtra`](#miner-setextra)                                               | Miner     | ✔           | ❌      | No-op              |
-| [`miner_setGasPrice`](#miner-setgasprice)                                         | Miner     | ✔           | ❌      | Needs node restart |
-| [`miner_start`](#miner-start)                                                     | Miner     | ✔           | ❌      | No-op              |
-| [`miner_stop`](#miner-stop)                                                       | Miner     | ✔           | ❌      | No-op              |
-| [`miner_setGasLimit`](#miner-setgaslimit)                                         | Miner     | ✔           | ❌      | No-op              |
-| [`miner_setEtherbase`](#miner-setetherbase)                                       | Miner     | ✔           | ❌      |                    |
+| [`miner_getHashrate`](#miner-gethashrate)                                         | Miner     | ✔           | ❌     | No-op              |
+| [`miner_setExtra`](#miner-setextra)                                               | Miner     | ✔           | ❌     | No-op              |
+| [`miner_setGasPrice`](#miner-setgasprice)                                         | Miner     | ✔           | ❌     | Needs node restart |
+| [`miner_start`](#miner-start)                                                     | Miner     | ✔           | ❌     | No-op              |
+| [`miner_stop`](#miner-stop)                                                       | Miner     | ✔           | ❌     | No-op              |
+| [`miner_setGasLimit`](#miner-setgaslimit)                                         | Miner     | ✔           | ❌     | No-op              |
+| [`miner_setEtherbase`](#miner-setetherbase)                                       | Miner     | ✔           | ❌     |                    |
 | [`txpool_content`](#txpool-content)                                               | TxPool    | ✔           |        |                    |
 | [`txpool_inspect`](#txpool-inspect)                                               | TxPool    | ✔           |        |                    |
 | [`txpool_status`](#txpool-status)                                                 | TxPool    | ✔           |        |                    |
 
 :::tip
-Block Number can be entered as a Hex string, `"earliest"`, ``"latest"`` or `"pending"`.
+Block Number can be entered as a Hex string, `"earliest"`, `"latest"` or `"pending"`.
 :::
 
 Below is a list of the RPC methods, the parameters and an example response from the namespaces.
@@ -176,7 +176,7 @@ Get the web3 client version.
 #### Result
 
 ```json
- {"jsonrpc":"2.0","id":1,"result":"Haqq/0.1.3+/linux/go1.18"}
+{ "jsonrpc": "2.0", "id": 1, "result": "Haqq/0.1.3+/linux/go1.18" }
 ```
 
 #### Client Examples
@@ -206,7 +206,11 @@ Returns Keccak-256 (not the standardized SHA3-256) of the given data.
 #### Result
 
 ```json
-{"jsonrpc":"2.0","id":1,"result":"0x1b84adea42d5b7d192fd8a61a85b25abe0757e9a65cab1da470258914053823f"}
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "0x1b84adea42d5b7d192fd8a61a85b25abe0757e9a65cab1da470258914053823f"
+}
 ```
 
 #### Client Examples
@@ -351,7 +355,7 @@ Returns the storage address for a given account address.
 
 - Integer of the position in the storage
 
-- Block Number  or Block Hash ([EIP-1898](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1898.md))
+- Block Number or Block Hash ([EIP-1898](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1898.md))
 
 ```json
 // Request
@@ -419,7 +423,7 @@ Returns the code for a given account address and Block Number.
 
 - Account Address
 
-- Block Number  or Block Hash ([EIP-1898](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1898.md))
+- Block Number or Block Hash ([EIP-1898](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1898.md))
 
 ```json
 // Request
@@ -464,19 +468,19 @@ Sends transaction from given account to a given account.
 
 - Object containing:
 
-    `from`: `DATA`, 20 Bytes - The address the transaction is send from.
+  `from`: `DATA`, 20 Bytes - The address the transaction is send from.
 
-    `to`: `DATA`, 20 Bytes - (optional when creating new contract) The address the transaction is directed to.
+  `to`: `DATA`, 20 Bytes - (optional when creating new contract) The address the transaction is directed to.
 
-    `gas`: QUANTITY - (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas.
+  `gas`: QUANTITY - (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas.
 
-    `gasPrice`: QUANTITY - (optional, default: To-Be-Determined) Integer of the gasPrice used for each paid gas
+  `gasPrice`: QUANTITY - (optional, default: To-Be-Determined) Integer of the gasPrice used for each paid gas
 
-    `value`: QUANTITY - value sent with this transaction
+  `value`: QUANTITY - value sent with this transaction
 
-    `data`: `DATA` - The compiled code of a contract OR the hash of the invoked method signature and encoded parameters. For details see Ethereum Contract ABI
+  `data`: `DATA` - The compiled code of a contract OR the hash of the invoked method signature and encoded parameters. For details see Ethereum Contract ABI
 
-    `nonce`: QUANTITY - (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce.
+  `nonce`: QUANTITY - (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce.
 
 ```json
 // Request
@@ -511,19 +515,19 @@ Executes a new message call immediately without creating a transaction on the bl
 
 - Object containing:
 
-    `from`: `DATA`, 20 Bytes - (optional) The address the transaction is sent from.
+  `from`: `DATA`, 20 Bytes - (optional) The address the transaction is sent from.
 
-    `to`: `DATA`, 20 Bytes - The address the transaction is directed to.
+  `to`: `DATA`, 20 Bytes - The address the transaction is directed to.
 
-    `gas`: QUANTITY - gas provided for the transaction execution. eth_call consumes zero gas, but this parameter may be needed by some executions.
+  `gas`: QUANTITY - gas provided for the transaction execution. eth_call consumes zero gas, but this parameter may be needed by some executions.
 
-    `gasPrice`: QUANTITY - gasPrice used for each paid gas
+  `gasPrice`: QUANTITY - gasPrice used for each paid gas
 
-    `value`: QUANTITY - value sent with this transaction
+  `value`: QUANTITY - value sent with this transaction
 
-    `data`: `DATA` - (optional) Hash of the method signature and encoded parameters. For details see Ethereum Contract ABI in the Solidity documentation
+  `data`: `DATA` - (optional) Hash of the method signature and encoded parameters. For details see Ethereum Contract ABI in the Solidity documentation
 
-- Block number  or Block Hash ([EIP-1898](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1898.md))
+- Block number or Block Hash ([EIP-1898](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1898.md))
 
 ```json
 // Request
@@ -541,11 +545,11 @@ Returns an estimate value of the gas required to send the transaction.
 
 - Object containing:
 
-    `from`: `DATA`, 20 Bytes - The address the transaction is send from.
+  `from`: `DATA`, 20 Bytes - The address the transaction is send from.
 
-    `to`: `DATA`, 20 Bytes - (optional when creating new contract) The address the transaction is directed to.
+  `to`: `DATA`, 20 Bytes - (optional when creating new contract) The address the transaction is directed to.
 
-    `value`: `QUANTITY` - value sent with this transaction
+  `value`: `QUANTITY` - value sent with this transaction
 
 ```json
 // Request
@@ -630,10 +634,10 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByBlockHashAnd
 Returns the receipt of a transaction by transaction hash.
 
 Note: Tx Code from Tendermint and the Ethereum receipt status are switched:
-|         | Tendermint | Ethereum |
+| | Tendermint | Ethereum |
 |---------|------------|----------|
-| Success | 0          | 1        |
-| Fail    | 1          | 0        |
+| Success | 0 | 1 |
+| Fail | 1 | 0 |
 
 #### Parameters
 
@@ -743,22 +747,22 @@ Returns an array of all logs matching a given filter object.
 
 - Object containing:
 
-    `fromBlock`: `QUANTITY|TAG` - (optional, default: `"latest"`) Integer block number, or `"latest"` for the
-    last mined block or `"pending"`, `"earliest"` for not yet mined transactions.
+  `fromBlock`: `QUANTITY|TAG` - (optional, default: `"latest"`) Integer block number, or `"latest"` for the
+  last mined block or `"pending"`, `"earliest"` for not yet mined transactions.
 
-    `toBlock`: `QUANTITY|TAG` - (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined
-    block or `"pending"`, `"earliest"` for not yet mined transactions.
+  `toBlock`: `QUANTITY|TAG` - (optional, default: `"latest"`) Integer block number, or `"latest"` for the last mined
+  block or `"pending"`, `"earliest"` for not yet mined transactions.
 
-    `address`: `DATA|Array`, 20 Bytes - (optional) Contract address or a list of addresses from which logs should originate.
+  `address`: `DATA|Array`, 20 Bytes - (optional) Contract address or a list of addresses from which logs should originate.
 
-    `topics`: Array of `DATA`, - (optional) Array of 32 Bytes `DATA` topics. Topics are order-dependent. Each topic
-    can also be an array of `DATA` with “or” options.
+  `topics`: Array of `DATA`, - (optional) Array of 32 Bytes `DATA` topics. Topics are order-dependent. Each topic
+  can also be an array of `DATA` with “or” options.
 
-    `blockhash`: (optional, future) With the addition of [EIP-234](https://eips.ethereum.org/EIPS/eip-234),
-    `blockHash` will be a new filter option which restricts the logs returned to the single block with the
-    32-byte hash `blockHash`. Using `blockHash` is equivalent to `fromBlock` = `toBlock` = the block number
-    with hash `blockHash`. If `blockHash` is present in in the filter criteria, then neither `fromBlock`
-    nor `toBlock` are allowed.
+  `blockhash`: (optional, future) With the addition of [EIP-234](https://eips.ethereum.org/EIPS/eip-234),
+  `blockHash` will be a new filter option which restricts the logs returned to the single block with the
+  32-byte hash `blockHash`. Using `blockHash` is equivalent to `fromBlock` = `toBlock` = the block number
+  with hash `blockHash`. If `blockHash` is present in in the filter criteria, then neither `fromBlock`
+  nor `toBlock` are allowed.
 
 ```json
 // Request
@@ -790,7 +794,7 @@ Returns the account- and storage-values of the specified account including the M
 
 - Integer of the position in the storage
 
-- Block Number  or Block Hash ([EIP-1898](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1898.md))
+- Block Number or Block Hash ([EIP-1898](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1898.md))
 
 ```json
 // Request
@@ -975,11 +979,11 @@ The account is not unlocked globally in the node and cannot be used in other RPC
 
 - Object containing:
 
-    `from`: `DATA`, 20 Bytes - The address the transaction is send from.
+  `from`: `DATA`, 20 Bytes - The address the transaction is send from.
 
-    `to`: `DATA`, 20 Bytes - (optional when creating new contract) The address the transaction is directed to.
+  `to`: `DATA`, 20 Bytes - (optional when creating new contract) The address the transaction is directed to.
 
-    `value`: QUANTITY - value sent with this transaction
+  `value`: QUANTITY - value sent with this transaction
 
 - Passphrase
 
@@ -1093,7 +1097,7 @@ wscat -c ws://localhost:8546 -x '{"jsonrpc": "2.0", "id": 1, "method": "personal
 ```
 
 ```javascript title="Javascript Console"
-personal.unpair(url,pin);
+personal.unpair(url, pin);
 ```
 
 ## Debug Methods
@@ -1370,5 +1374,5 @@ txpool.status();
 #### Result
 
 ```json
-{"jsonrpc":"2.0","id":1,"result":{"pending":"0x0","queued":"0x0"}}
+{ "jsonrpc": "2.0", "id": 1, "result": { "pending": "0x0", "queued": "0x0" } }
 ```
