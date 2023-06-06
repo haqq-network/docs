@@ -58,8 +58,7 @@ Cosmovisor will continually poll the `$DAEMON_HOME/data/upgrade-info.json` for n
     "darwin/arm64": "https://github.com/haqq-network/haqq/releases/download/v1.4.0/haqq_1.4.0_Darwin_arm64.tar.gz",
     "darwin/x86_64": "https://github.com/haqq-network/haqq/releases/download/v1.4.0/haqq_1.4.0_Darwin_x86_64.tar.gz",
     "linux/arm64": "https://github.com/haqq-network/haqq/releases/download/v1.4.0/haqq_1.4.0_Linux_arm64.tar.gz",
-    "linux/amd64": "https://github.com/haqq-network/haqq/releases/download/v1.4.0/haqq_1.4.0_Linux_amd64.tar.gz",
-    "windows/x86_64": "https://github.com/haqq-network/haqq/releases/download/v1.4.0/haqq_1.4.0_Windows_x86_64.zip"
+    "linux/amd64": "https://github.com/haqq-network/haqq/releases/download/v1.4.0/haqq_1.4.0_Linux_amd64.tar.gz"
   }
 }
 ```

@@ -6,6 +6,7 @@ import Link from '@docusaurus/Link';
 import { SmallCard } from '../small-card/small-card';
 import { BasicsIcon } from '../icons/basics-icon';
 import { CoreConceptsIcon } from '../icons/core-concepts-icon';
+import { IntroducionIcon } from '../icons/introduciton-icon';
 
 export default function HomepageFeatures() {
   return (
@@ -76,7 +77,7 @@ export default function HomepageFeatures() {
                 <SmallCard
                   title="Ecosystem"
                   description="Explore our thriving ecosystem. From partners to projects, learn about how various components interact within the Haqq Network."
-                  icon={<BasicsIcon />}
+                  icon={<IntroducionIcon />}
                 />
               </Link>
             </div>
