@@ -41,10 +41,10 @@ In the Ledger Live app, you should see the Ethereum app listed under the **Apps 
 
 In the table below you can find a list of Chain IDs to use with the Ethereum Ledger app.
 
-| Network       | EIP155 chain ID |
-| ------------- | --------------- |
-| HAQQ Mainnet | `11235`          |
-| HAQQ Testnet | `54211`          |
+| Network      | EIP155 chain ID |
+| ------------ | --------------- |
+| HAQQ Mainnet | `11235`         |
+| HAQQ Testnet | `54211`         |
 
 ## Import your Ledger Account
 
@@ -52,7 +52,7 @@ In the table below you can find a list of Chain IDs to use with the Ethereum Led
 
 Now that you've installed the app on Ledger Live, you can connect your Ledger to your computer and unlock it with your PIN-code and open the Ethereum app.
 
-:::tip
+:::note Note
 Follow our [Metamask Guide](./metamask) to add the HAQQ Mainnet and Testnet to your Settings
 :::
 
@@ -113,7 +113,7 @@ Now, you can use your Ledger as you would normally interact with the CLI.
 
 In order to sign Cosmos transactions (staking, voting on proposals, IBC transfers), with Ledger hardware wallets, we implemented EIP712.
 
-EIP712 means that the signer will generate a signature for something like a JSON representation of the Cosmos transaction and that signature will be included in the Cosmos transaction itself. 
+EIP712 means that the signer will generate a signature for something like a JSON representation of the Cosmos transaction and that signature will be included in the Cosmos transaction itself.
 
 ### Ledger signing
 
@@ -156,25 +156,29 @@ This step should be done automatically by the same service that generated the me
 
 <details>
 
-<summary><b>How can I generate Cosmos `secp256k1` keys with Ledger?</b></summary>
+<summary>
+  <b>How can I generate Cosmos `secp256k1` keys with Ledger?</b>
+</summary>
 
 Cosmos `secp256k1` keys are not supported on HAQQ with Ledger. Only Ethereum keys (`eth_secp256k1`) can be generated with Ledger.
 
 </details>
 
-
 <details>
 
-<summary><b>My Ledger has trouble connecting or signing on the CLI</b></summary>
+<summary>
+  <b>My Ledger has trouble connecting or signing on the CLI</b>
+</summary>
 
 The Ledger's connection to the CLI can fail for a number of reasons. Make sure to close any other apps using the Ledger (such as Ledger Live or Metamask), unlock the Ledger, and open the Ethereum app. If this does not work, simply disconnecting and reconnecting the device often solves the issue.
 
 </details>
 
-
 <details>
 
-<summary><b>I can’t use Metamask or Keplr with the Cosmos Ledger app</b></summary>
+<summary>
+  <b>I can’t use Metamask or Keplr with the Cosmos Ledger app</b>
+</summary>
 
 Since HAQQ only support Ethereum keys and uses the same HD (hierarchival determination) wallet derivation path as Ethereum, the Cosmos Ledger app doesn’t work to sign cosmos transactions. Using Keplr with the Cosmos Ledger app will only work with derivation path `m/44'/118'/0'/0` (Cosmos) and not `m/44'/60'/0'/0` (Ethereum). On your Ledger hardware device, you can always switch to Ethereum to reconnect to the Keplr HAQQ network.
 
