@@ -13,12 +13,6 @@ Ethereum, while at the same time, benefit from Tendermint’s PoS implementation
 built on top of the Cosmos SDK, it will be able to exchange value with the rest of the Cosmos
 Ecosystem through the Inter Blockchain Communication Protocol (IBC).
 
-:::caution
-
-Some **content** with _Markdown_ `syntax`. Check [this `api`](#).
-
-:::
-
 ### Features
 
 Here’s a glance at some of the key features of HAQQ:

@@ -21,9 +21,9 @@ function defineSection(section, options = {}) {
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'HAQQ Docs',
+  title: 'HAQQ Documentation',
   tagline:
-    'HAQQ is a scalable and interoperable Ethereum, built on Proof-of-Stake with fast-finality. Islamic Coin (ISLM) is a native currency of HAQQ.',
+    'HAQQ is a scalable and interoperable Ethereum, built on Proof-of-Stake with fast-finality.',
   url: 'https://docs.haqq.network/',
   baseUrl: '/',
   onBrokenLinks: 'warn',
@@ -188,6 +188,16 @@ const config = {
       prism: {
         theme: themes.vsLight,
         darkTheme: themes.vsDark,
+        additionalLanguages: [
+          'powershell',
+          'shell-session',
+          'bash',
+          'solidity',
+          'typescript',
+          'toml',
+          'yaml',
+          'json',
+        ],
       },
       algolia: {
         appId: 'T5OEVED57K',

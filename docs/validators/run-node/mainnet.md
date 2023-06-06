@@ -10,7 +10,6 @@ The current HAQQ version of mainnet is [`v1.3.1`](https://github.com/haqq-networ
 
 Sources of all scripts are here [`github`](https://github.com/haqq-network/mainnet)
 
-
 ## Quickstart
 
 _*Battle tested on [Ubuntu LTS 22.04](https://spinupwp.com/doc/what-does-lts-mean-ubuntu/#:~:text=The%20abbreviation%20stands%20for%20Long,extended%20period%20over%20regular%20releases)*_
@@ -82,4 +81,5 @@ sh init_start.sh mainnet_node
 _`mainnet_node`_ is argument value for custom moniker
 
 ## Upgrade to Validator Node
+
 You now have an active full node. What's the next step? You can upgrade your full node to become a Haqq Validator. The top 150 validators have the ability to propose new blocks to the Haqq Network. Continue onto the [Run a Validator](../run-a-validator.md).

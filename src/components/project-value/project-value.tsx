@@ -1,11 +1,11 @@
 import React from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
-export const ProjectValue = ({ keyword }) => {
+export function ProjectValue({ keyword }: { keyword: string }) {
   const { siteConfig } = useDocusaurusContext();
   const {
     customFields: { project },
   } = siteConfig;
 
-  return <span>{project[keyword] || ''}</span>;
-};
+  return project[keyword] ? <span>{project[keyword]}</span> : null;
+}
