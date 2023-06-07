@@ -30,20 +30,39 @@ Ref: [Security Advisory: Insecurely configured geth can make funds remotely acce
 
 :::
 
-To create your validator on mainnet, just use the following command:
+### To create your validator on **Testnet**
 
 ```sh
 haqqd tx staking create-validator \
   --amount=1000000aISLM \
   --pubkey=$(haqqd tendermint show-validator) \
   --moniker="choose a moniker" \
-  --chain-id=<chain_id> \
+  --chain-id="haqq_54211-3" \
   --commission-rate="0.05" \
   --commission-max-rate="0.10" \
   --commission-max-change-rate="0.01" \
   --min-self-delegation="1000000" \
-  --gas="auto" \
-  --gas-prices="0.025aISLM" \
+  --gas-adjustment=1.15 \
+  --gas=auto \
+  --from=<key_name> \
+  --node https://rpc.tm.testedge2.haqq.network:443
+```
+
+
+### To create your validator on **Mainnet**
+
+```sh
+haqqd tx staking create-validator \
+  --amount=1000000aISLM \
+  --pubkey=$(haqqd tendermint show-validator) \
+  --moniker="choose a moniker" \
+  --chain-id="haqq_11235-1" \
+  --commission-rate="0.05" \
+  --commission-max-rate="0.10" \
+  --commission-max-change-rate="0.01" \
+  --min-self-delegation="1000000" \
+  --gas-adjustment=1.15 \
+  --gas=auto \
   --from=<key_name> \
   --node https://rpc.tm.haqq.network:443
 ```
