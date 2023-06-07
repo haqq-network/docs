@@ -2,32 +2,32 @@ import Swal from 'sweetalert2';
 
 export const chainConfig = {
   stakeCurrency: {
-    coinDenom: 'Islamic Coin',
-    coinMinimalDenom: 'ISLM',
+    coinDenom: 'ISLM',
+    coinMinimalDenom: 'aISLM',
     coinDecimals: 18,
   },
   bech32Config: {
-    bech32PrefixAccAddr: 'evmos',
-    bech32PrefixAccPub: 'evmospub',
-    bech32PrefixValAddr: 'evmosvaloper',
-    bech32PrefixValPub: 'evmosvaloperpub',
-    bech32PrefixConsAddr: 'evmosvalcons',
-    bech32PrefixConsPub: 'evmosvalconspub',
+    bech32PrefixAccAddr: 'haqq',
+    bech32PrefixAccPub: 'haqq' + 'pub',
+    bech32PrefixValAddr: 'haqq' + 'valoper',
+    bech32PrefixValPub: 'haqq' + 'valoperpub',
+    bech32PrefixConsAddr: 'haqq' + 'valcons',
+    bech32PrefixConsPub: 'haqq' + 'valconspub',
   },
   currencies: [
     {
-      coinDenom: 'Islamic Coin',
-      coinMinimalDenom: 'ISLM',
+      coinDenom: 'ISLM',
+      coinMinimalDenom: 'aISLM',
       coinDecimals: 18,
     },
   ],
   feeCurrencies: [
     {
-      coinDenom: 'Islamic Coin',
-      coinMinimalDenom: 'ISLM',
+      coinDenom: 'ISLM',
+      coinMinimalDenom: 'aISLM',
       coinDecimals: 18,
       gasPriceStep: {
-        low: 25000000000,
+        low: 10000000000,
         average: 25000000000,
         high: 40000000000,
       },
@@ -36,11 +36,10 @@ export const chainConfig = {
   bip44: {
     coinType: 60,
   },
-  chainId: 'evmos_9000-4',
-  chainName: 'Evmos Testnet',
-  rpc: 'https://tendermint.bd.evmos.dev:26657',
-  rest: 'https://rest.bd.evmos.dev:1317',
-  beta: true,
+  chainId: 'haqq_11235-1',
+  chainName: 'Haqq Network',
+  rpc: 'https://rpc.tm.haqq.network',
+  rest: 'https://rest.cosmos.haqq.network',
   features: ['ibc-transfer', 'ibc-go', 'eth-address-gen', 'eth-key-sign'],
 };
 
