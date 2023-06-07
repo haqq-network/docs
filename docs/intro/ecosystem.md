@@ -1,9 +1,12 @@
 ---
 sidebar_position: 3
 ---
+
 # Ecosystem
 
 HAQQ Network is a unique blockchain ecosystem that synergizes Islamic law, or Sharia, with the advanced technology of decentralized finance. This integration has opened up a plethora of applications and opportunities within the HAQQ Network, ensuring that all transactions and applications are in compliance with Sharia law.
+
+![ecosystem.png](/img/ecosystem.png)
 
 ## Shell: The Multifunctional dApp
 
