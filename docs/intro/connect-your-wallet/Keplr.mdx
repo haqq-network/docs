@@ -3,7 +3,12 @@ sidebar_position: 2
 ---
 
 import { ProjectValue } from '@site/src/components/project-value/project-value';
-import { chainConfig, handler } from '@site/src/utils/chain-config';
+import {
+  chainConfig,
+  handler,
+  MainnetConfig,
+  TestnetConfig,
+} from '@site/src/utils/chain-config';
 
 # Keplr
 
@@ -13,7 +18,7 @@ Connect your Keplr wallet with <ProjectValue keyword="name" />.
 
 ![keplr-homepage.png](/img/keplr-homepage.png)
 
-:::note Note
+:::note
 The Keplr extension is officially supported on Chromium-based browsers (i.e. Edge, Chrome, and Brave) and Firefox.
 :::
 
@@ -23,13 +28,38 @@ rewards, send and stake tokens, interact with governance, and more.
 
 ## Set Up Keplr
 
-:::note Note
+:::note
 Further information about the process of setting up Keplr can be found in the official
 [Keplr Documentation](https://keplr.crunch.help/getting-started) or in this [Medium article](https://medium.com/chainapsis/how-to-use-keplr-wallet-40afc80907f6).
 :::
 
 Open the Keplr extension on your browser. If you are setting up Keplr for the first time, you can either
 [create a new account](#create-a-new-account) or [import an existing account](#import-an-existing-account).
+
+## Connect Keplr to HAQQ
+
+Once you are signed in to the Keplr extension, you can connect the wallet with the HAQQ network. The HAQQ mainnet network
+is already built into Keplr and look for the `HAQQ` network by clicking on the extension and scrolling to select the network.
+
+:::note
+if you already have a configured wallet, you can click on one of the two buttons below to add the network you need
+
+<div className="grid grid-cols-1 md:grid-cols-2 gap-[24px]">
+<button
+  onClick={() => handler(MainnetConfig)}
+  className="bg-haqq-orange mb-4 text-white font-bold py-2 px-4 rounded hover:bg-haqq-light-orange transition-colors duration-300 ease-in-out"
+>
+  Add Mainnet to Keplr
+</button>
+
+<button
+  onClick={() => handler(TestnetConfig)}
+  className="bg-haqq-orange mb-4 text-white font-bold py-2 px-4 rounded hover:bg-haqq-light-orange transition-colors duration-300 ease-in-out"
+>
+  Add Testnet to Keplr
+</button>
+</div>
+:::
 
 ### Create a New Account
 
@@ -59,11 +89,17 @@ There are several ways to create a new account:
 
 7. In last window, you need to choose **HAQQ Network** from the list of available networks and click **Save**
 
+:::note
+Currently, our network is not included in the list of integrated networks within the wallet.
+However, please note that we are actively working towards integration and aim to be included as soon as possible.
+In the meantime, you can select the networks that you find useful for yourself.
+:::
+
 ![keplr-select-chain.png](/img/keplr-select-chain.png)
 
 #### Create an Account with One-Click (Google OAuth) Login
 
-:::note Note
+:::note
 It is suggested to create an account via mnemonic phrase or utilize a Ledger and not use the `Sign in with Google`.
 :::
 
@@ -127,11 +163,6 @@ There are times when the wallet's connected RPC or REST is not working and requi
 3. Make sure you are on the `HAQQ Testnet` network from the dropdown. Testnet networks will likely be towards the bottom
    of the list.
 4. Update either the `RPC` or `Rest` or both inputs and click `Confirm`
-
-## Connect Keplr to Mainnet
-
-Once you are signed in to the Keplr extension, you can connect the wallet with the HAQQ network. The HAQQ mainnet network
-is already built into Keplr and look for the `HAQQ` network by clicking on the extension and scrolling to select the network.
 
 ## Connect to HAQQ Testnet
 
