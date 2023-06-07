@@ -2,19 +2,20 @@
 sidebar_position: 2
 ---
 
+import { ProjectValue } from '@site/src/components/project-value/project-value';
+import { chainConfig, handler } from '@site/src/utils/chain-config';
+
 # Keplr
 
-Connect your Keplr wallet with Evmos.
+Connect your Keplr wallet with <ProjectValue keyword="name" />.
 
 - [Install Keplr](https://www.keplr.app/)
 
 ![keplr-homepage.png](/img/keplr-homepage.png)
 
-:::tip
-**Note**: The Keplr extension is officially supported on Chromium-based browsers (i.e. Edge, Chrome, and Brave) and Firefox.
+:::note Note
+The Keplr extension is officially supported on Chromium-based browsers (i.e. Edge, Chrome, and Brave) and Firefox.
 :::
-
-<!-- import ProjectValue from '@site/src/components/ProjectValue.js'; -->
 
 The [Keplr](https://www.keplr.app/) browser extension is a wallet for accessing applications in the Cosmos ecosystem and
 managing user identities. It can be used to connect to <ProjectValue keyword="name" /> mainnet and testnet and claim
@@ -22,8 +23,8 @@ rewards, send and stake tokens, interact with governance, and more.
 
 ## Set Up Keplr
 
-:::tip
-**Note**: Further information about the process of setting up Keplr can be found in the official
+:::note Note
+Further information about the process of setting up Keplr can be found in the official
 [Keplr Documentation](https://keplr.crunch.help/getting-started) or in this [Medium article](https://medium.com/chainapsis/how-to-use-keplr-wallet-40afc80907f6).
 :::
 
@@ -37,30 +38,33 @@ There are several ways to create a new account:
 - via a [mnemonic/seed phrase](#create-an-account-with-a-seed-phrase)
 - via [one-click login](#create-an-account-with-one-click-login)
 
-#### Create an Account with a Seed Phrase
+#### Create a Wallet with a Seed Phrase
 
 ![keplr-create-new.png](/img/keplr-create-new.png)
 
-1. In the initial pop-up window, choose **Create New Account**
+1. In the initial pop-up window, choose **Create New Wallet**
 
-- If you have used Keplr before, click on the silhouette in the upper-right corner, then the blue box labeled
-**Add Account**, and select **Create New Account**
+2. In the next window, choose **Create new recovery phrase**
 
-2. Choose to have a seed/mnemonic phrase of 24 words, and save the phrase
+3. Choose to have a seed/mnemonic phrase of 12 or 24 words, copy, save the phrase and click **Next**
 
 - You can change the derivation path by clicking on **Advanced**, but this is optional (learn more in the
-[Keplr FAQ](https://faq.keplr.app/))
+  [Keplr FAQ](https://faq.keplr.app/))
 
-3. Enter a name for your account (can change later)
-4. Once you have transcribed your 24 word seed/mnemonic phrase, click on **Next**
-5. To confirm the creation of the new account, click on the words on the right order in which they appear in your
-seed/mnemonic phrase, and press **Register**
-6. If you have not used Keplr before, set a **strong** password for the Keplr extension, and click **Confirm**
+4. Verify your seed/mnemonic phrase by filling the form word fields according to their numbers
+
+5. Enter a name for your account (you can change later)
+
+6. Set a strong password, repeat it and press **Next**
+
+7. In last window, you need to choose **HAQQ Network** from the list of available networks and click **Save**
+
+![keplr-select-chain.png](/img/keplr-select-chain.png)
 
 #### Create an Account with One-Click (Google OAuth) Login
 
-:::tip
-**Note**: It is suggested to create an account via mnemonic phrase or utilize a Ledger and not use the `Sign in with Google`.
+:::note Note
+It is suggested to create an account via mnemonic phrase or utilize a Ledger and not use the `Sign in with Google`.
 :::
 
 1. Choose the option **Sign in with Google**
@@ -78,18 +82,17 @@ There are several ways to import an existing account:
 
 1. In the initial pop-up window, choose **Import Existing Account**
 
-- If you have used Keplr before, click on the silhouette in the upper-right corner, then the blue box labeled
-**Add Account**, and select **Import Existing Account**
-![keplr-import-existing.png](/img/keplr-import-existing.png)
-![keplr-seed-phrase.png](/img/keplr-seed-phrase.png)
+- If you have used Keplr before, click on the **Import an existing wallet**, and select **Use recovery phrase or private key**
+  ![keplr-import-existing.png](/img/keplr-import-existing.png)
 
 2. Enter your mnemonic/seed phrase/private key in the appropriate slot, separating the words with spaces and taking
-care to check they are spelled correctly
+   care to check they are spelled correctly
+   ![keplr-seed-phrase.png](/img/keplr-seed-phrase.png)
 3. Make sure you have imported the account with the correct derivation path, viewable by clicking on **Advanced**
 
 - Normally, the derivation path should be `m/44'/…’/0/0/0`, but if you see that importing the account via
-mnemonic on Keplr, the Cosmos Mainnet address displayed is different than yours, it is possible the derivation
-    path ends with 1 (or another number) instead of 0
+  mnemonic on Keplr, the Cosmos Mainnet address displayed is different than yours, it is possible the derivation
+  path ends with 1 (or another number) instead of 0
 - If this is the case, you just have to start the process over, and replace the last 0 with 1
 - Learn more in the [Keplr FAQ](https://faq.keplr.app/)
 
@@ -102,17 +105,17 @@ mnemonic on Keplr, the Cosmos Mainnet address displayed is different than yours,
 1. In the initial pop-up window, choose **Import Ledger**
 
 - If you have used Keplr before, click on the silhouette in the upper-right corner, then the blue box labeled
-**Add Account**, and select **Import Ledger**
+  **Add Account**, and select **Import Ledger**
 - Be sure you have both the Cosmos and Ethereum Ledger apps downloaded on your Ledger device
 
 2. To complete the connection with your Ledger device, follow the steps described in the pop-up that appears (a detailed
-tutorial can be found [here](https://medium.com/chainapsis/how-to-use-ledger-nano-hardware-wallet-with-keplr-9ea7f07826c2))
-or another article from a [validator](https://medium.com/coinmonks/how-to-set-up-ledger-wallet-evmos-using-keplr-c438cf8c5321).
+   tutorial can be found [here](https://medium.com/chainapsis/how-to-use-ledger-nano-hardware-wallet-with-keplr-9ea7f07826c2))
+   or another article from a [validator](https://medium.com/coinmonks/how-to-set-up-ledger-wallet-evmos-using-keplr-c438cf8c5321).
 3. If you have not used Keplr before, set a **strong** password for the Keplr extension, and click **Confirm**
-4. Switch to the Ethereum app on the Ledger, then select “Evmos” from the Keplr chain registry to connect the public key
+4. Switch to the Ethereum app on the Ledger, then select “HAQQ” from the Keplr chain registry to connect the public key
 
 - All signing from Keplr will use the Ledger Ethereum app, with either [EIP-712 transactions](https://eips.ethereum.org/EIPS/eip-712)
-or standard [Ethereum transactions](https://ethereum.org/en/developers/docs/transactions/).
+  or standard [Ethereum transactions](https://ethereum.org/en/developers/docs/transactions/).
 
 ## Changing RPC/REST on Keplr Wallet
 
@@ -121,16 +124,16 @@ There are times when the wallet's connected RPC or REST is not working and requi
 
 1. Click on the Keplr Wallet Extension
 2. Go to `Settings` and go to `Endpoints`
-3. Make sure you are on the `Evmos Testnet` network from the dropdown. Testnet networks will likely be towards the bottom
-of the list.
+3. Make sure you are on the `HAQQ Testnet` network from the dropdown. Testnet networks will likely be towards the bottom
+   of the list.
 4. Update either the `RPC` or `Rest` or both inputs and click `Confirm`
 
 ## Connect Keplr to Mainnet
 
-Once you are signed in to the Keplr extension, you can connect the wallet with the Evmos network. The Evmos mainnet network
-is already built into Keplr and look for the `Evmos` network by clicking on the extension and scrolling to select the network.
+Once you are signed in to the Keplr extension, you can connect the wallet with the HAQQ network. The HAQQ mainnet network
+is already built into Keplr and look for the `HAQQ` network by clicking on the extension and scrolling to select the network.
 
-## Connect to Evmos Testnet
+## Connect to HAQQ Testnet
 
 ![keplr-testnet-evmos.png](/img/keplr-testnet-evmos.png)
 
@@ -138,12 +141,13 @@ The default network configurations for Keplr comes with mainnet as its default. 
 you will need to head to a site/project that has testnet configuration. A window will request your approval for the chain
 and the `chain-id`. Once approved, the testnet will be selectable under the `Beta Support` section of Keplr Wallet.
 
-<!-- import { chainConfig, handler } from '@site/src/utils/ChainConfig'; -->
+:::note
+Add HAQQ Testnet to Keplr.
 
-:::tip
-Add Evmos Testnet to Keplr.
-
-<button onClick={() => handler()} className="bg-red mt-4 hover:bg-red1 text-white font-bold py-2 px-4 rounded">
+<button
+  onClick={handler}
+  className="bg-haqq-orange mb-4 text-white font-bold py-2 px-4 rounded hover:bg-haqq-light-orange transition-colors duration-300 ease-in-out"
+>
   Add Configuration to Keplr
 </button>
 :::
