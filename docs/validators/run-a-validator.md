@@ -177,7 +177,7 @@ You may notice that your voting power is less than it used to be. That's because
 
 The default number of files Linux can open (per-process) is `1024`. `haqqd` is known to open more than `1024` files. This causes the process to crash. A quick fix is to run `ulimit -n 4096` (increase the number of open files allowed) and then restart the process with `haqqd start`. If you are using `systemd` or another process manager to launch `haqqd` this may require some configuration at that level. A sample `systemd` file to fix this issue is below:
 
-```toml
+```sh
 # /etc/systemd/system/haqqd.service
 [Unit]
 Description=Haqq Node
