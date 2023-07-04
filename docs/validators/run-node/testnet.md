@@ -27,7 +27,14 @@ https://github.com/haqq-network/haqq/releases/tag/v1.4.0
 **Preresquisites for compile from source**
 
 - `make` & `gcc`
-- `Go 1.19+` ([How to install Go](https://www.digitalocean.com/community/tutorials/how-to-install-go-on-ubuntu-20-04))
+- `Go 1.19+`
+
+Easy Go compiler installation:
+```sh
+bash <(curl -s https://raw.githubusercontent.com/haqq-network/mainnet/master/install_go.sh) && \
+source $HOME/.bash_profile
+```
+
 
 Build from source:
 
