@@ -30,20 +30,39 @@ Ref: [Security Advisory: Insecurely configured geth can make funds remotely acce
 
 :::
 
-To create your validator on mainnet, just use the following command:
+### To create your validator on **Testnet**
 
 ```sh
 haqqd tx staking create-validator \
   --amount=1000000aISLM \
   --pubkey=$(haqqd tendermint show-validator) \
   --moniker="choose a moniker" \
-  --chain-id=<chain_id> \
+  --chain-id="haqq_54211-3" \
   --commission-rate="0.05" \
   --commission-max-rate="0.10" \
   --commission-max-change-rate="0.01" \
   --min-self-delegation="1000000" \
-  --gas="auto" \
-  --gas-prices="0.025aISLM" \
+  --gas-adjustment=1.15 \
+  --gas=auto \
+  --from=<key_name> \
+  --node https://rpc.tm.testedge2.haqq.network:443
+```
+
+
+### To create your validator on **Mainnet**
+
+```sh
+haqqd tx staking create-validator \
+  --amount=1000000aISLM \
+  --pubkey=$(haqqd tendermint show-validator) \
+  --moniker="choose a moniker" \
+  --chain-id="haqq_11235-1" \
+  --commission-rate="0.05" \
+  --commission-max-rate="0.10" \
+  --commission-max-change-rate="0.01" \
+  --min-self-delegation="1000000" \
+  --gas-adjustment=1.15 \
+  --gas=auto \
   --from=<key_name> \
   --node https://rpc.tm.haqq.network:443
 ```
@@ -119,7 +138,7 @@ haqqd query tendermint-validator-set | grep "$(haqqd tendermint show-address)"
 
 You should now see your validator in one of Haqq explorers. You are looking for the `bech32` encoded `address` in the `~/.haqqd/config/priv_validator.json` file.
 
-::: warning Note
+:::warning Note
 To be in the validator set, you need to have more total voting power than the 100th validator.
 :::
 
@@ -158,7 +177,7 @@ You may notice that your voting power is less than it used to be. That's because
 
 The default number of files Linux can open (per-process) is `1024`. `haqqd` is known to open more than `1024` files. This causes the process to crash. A quick fix is to run `ulimit -n 4096` (increase the number of open files allowed) and then restart the process with `haqqd start`. If you are using `systemd` or another process manager to launch `haqqd` this may require some configuration at that level. A sample `systemd` file to fix this issue is below:
 
-```toml
+```sh
 # /etc/systemd/system/haqqd.service
 [Unit]
 Description=Haqq Node

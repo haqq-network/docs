@@ -1,0 +1,51 @@
+{
+  "chainId": "haqq_11235-1",
+  "chainName": "HAQQ Network",
+  // "chainSymbolImageUrl": "https://raw.githubusercontent.com/chainapsis/keplr-chain-registry/main/images/osmosis/chain.png",
+  "rpc": "https://rpc.tm.haqq.network",
+  "rest": "https://rest.cosmos.haqq.network",
+  // "nodeProvider": {
+    // "name": "Blockapsis",
+    // "email": "infra@blockapsis.com",
+    // "website":"https://blockapsis.com/"
+  // },
+  "bip44": {
+    "coinType": 60
+  },
+  "bech32Config": {
+    "bech32PrefixAccAddr": "haqq",
+    "bech32PrefixAccPub": "haqqpub",
+    "bech32PrefixValAddr": "haqqvaloper",
+    "bech32PrefixValPub": "haqqvaloperpub",
+    "bech32PrefixConsAddr": "haqqvalcons",
+    "bech32PrefixConsPub": "haqqvalconspub"
+  },
+  "currencies": [
+    {
+      "coinDenom": "ISLM",
+      "coinMinimalDenom": "aISLM",
+      "coinDecimals": 18,
+      // "coinGeckoId": "osmosis"
+    }
+  ],
+  "feeCurrencies": [
+    {
+      "coinDenom": "ISLM",
+      "coinMinimalDenom": "aISLM",
+      "coinDecimals": 18,
+      // "coinGeckoId": "osmosis",
+      "gasPriceStep": {
+        "low": 10000000000,
+        "average": 25000000000,
+        "high": 40000000000
+      }
+    }
+  ],
+  "stakeCurrency": {
+    "coinDenom": "ISLM",
+    "coinMinimalDenom": "aISLM",
+    "coinDecimals": 18,
+    // "coinGeckoId": "osmosis"
+  },
+  "features": ["ibc-transfer", "ibc-go", "eth-address-gen", "eth-key-sign"],
+}

@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## Overview
 
-The current HAQQ version of mainnet is [`v1.3.1`](https://github.com/haqq-network/haqq/releases/tag/v1.3.1).
+The current HAQQ version of mainnet is [`v1.4.0`](https://github.com/haqq-network/haqq/releases/tag/v1.4.0).
 
 Sources of all scripts are here [`github`](https://github.com/haqq-network/mainnet)
 
@@ -36,28 +36,26 @@ sudo apt-get install curl git make gcc liblz4-tool build-essential jq -y
 **Preresquisites for compile from source**
 
 - `make` & `gcc`
-- `Go 1.19+` ([How to install Go](https://www.digitalocean.com/community/tutorials/how-to-install-go-on-ubuntu-20-04))
+- `Go 1.19+`
 
 **Easy GO compiler and HAQQ node installation**
 
 ```sh
-curl -OL https://raw.githubusercontent.com/haqq-network/mainnet/master/install_go.sh && \
-curl -OL https://raw.githubusercontent.com/haqq-network/mainnet/master/install_haqq.sh && \
-sh install_go.sh && \
+bash <(curl -s https://raw.githubusercontent.com/haqq-network/mainnet/master/install_go.sh) && \
 source $HOME/.bash_profile && \
-sh install_haqq.sh
+bash <(curl -s https://raw.githubusercontent.com/haqq-network/mainnet/master/install_haqq.sh)
 ```
 
 **Do the same manually:**
 
 Download latest binary for your arch:
-https://github.com/haqq-network/haqq/releases/tag/v1.3.1
+https://github.com/haqq-network/haqq/releases/tag/v1.4.0
 
 Build from source:
 
 ```sh
 cd $HOME
-git clone -b v1.3.1 https://github.com/haqq-network/haqq
+git clone -b v1.4.0 https://github.com/haqq-network/haqq
 cd haqq
 make install
 ```
@@ -66,7 +64,7 @@ Verify binary version:
 
 ```sh
 haqq@haqq-node:~# haqqd -v
-haqqd version "1.3.1" 877c235c1b86b0c734fb482fdebdec71bdc47b07
+haqqd version "1.4.0" 4f16bbfc188b66ae44b559453c43bff78f85b6d4
 ```
 
 **Initialize and start HAQQ**

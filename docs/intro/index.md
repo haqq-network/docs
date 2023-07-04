@@ -37,7 +37,7 @@ software to seamlessly deploy smart contracts which interact with the rest of th
 
 | Property        | Value                                           |
 | --------------- | ----------------------------------------------- |
-| HAQQ Mainnet    | `haqq_11235-1`                                  |
-| HAQQ TestEdge-2 | `haqq_54211-3`                                  |
-| Block Explorers | [Block Explorers](../guides/tools/explorers.md) |
-| Block Time      | ~6 seconds                                      |
+| HAQQ Mainnet    | **haqq_11235-1**                                  |
+| HAQQ TestEdge-2 | **haqq_54211-3**                                  |
+| Block Explorers | [Block Explorers](../explorers) |
+| Block Time      | ***~6 seconds***                                     |

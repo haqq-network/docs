@@ -40,16 +40,16 @@ const config = {
 
   customFields: {
     project: {
-      // name: 'Evmos',
+      name: 'HAQQ Network',
       // denom: 'Evmos',
       // ticker: 'EVMOS',
       // binary: 'evmosd',
       testnet_denom: 'ISLM',
       // testnet_ticker: 'tEVMOS',
-      // rpc_url: 'https://eth.bd.evmos.org:8545',
+      rpc_url: 'https://rpc.eth.haqq.network',
       // rpc_url_testnet: 'https://eth.bd.evmos.dev:8545',
-      // rpc_url_local: 'http://localhost:8545/',
-      // chain_id: '9001',
+      rpc_url_local: 'http://localhost:8545/',
+      chain_id: '11235',
       // testnet_chain_id: '9000',
       // latest_version: 'v11.0.1',
       // mainnet_version: 'v11.0.1',
@@ -60,6 +60,8 @@ const config = {
       // evm_explorer_url: 'https://escan.live',
       // testnet_cosmos_explorer_url: 'https://testnet.mintscan.io/evmos-testnet',
       // cosmos_explorer_url: 'https://www.mintscan.io/evmos',
+      block_explorer_url: 'https://explorer.haqq.network',
+      eth_name: 'Main Ethereum Network',
     },
   },
 
