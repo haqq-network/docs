@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## Overview
 
-The current HAQQ version of testedge2 is [`v1.4.0`](https://github.com/haqq-network/haqq/releases/tag/v1.4.0).
+The current HAQQ version of testedge2 is [`v1.4.1`](https://github.com/haqq-network/haqq/releases/tag/v1.4.1).
 
 Sources of all scripts are here [`github`](https://github.com/haqq-network/testnets/tree/main/TestEdge2)
 
@@ -22,7 +22,7 @@ sudo apt-get install curl git make gcc liblz4-tool build-essential jq bzip2 -y
 
 **You can try to find latest compiled binary for your arch**:
 
-https://github.com/haqq-network/haqq/releases/tag/v1.4.0
+https://github.com/haqq-network/haqq/releases/tag/v1.4.1
 
 **Preresquisites for compile from source**
 
@@ -40,7 +40,7 @@ Build from source:
 
 ```sh
 cd $HOME
-git clone -b v1.4.0 https://github.com/haqq-network/haqq
+git clone -b v1.4.1 https://github.com/haqq-network/haqq
 cd haqq
 make install
 ```
