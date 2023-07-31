@@ -18,7 +18,7 @@ Below is a list of publicly available endpoints that you can use to connect to t
 | [https://grpc.cosmos.haqq.network](https://grpc.cosmos.haqq.network) | `gRPC Cosmos`    | [HAQQ](https://haqq.network)      |
 | [https://rest.cosmos.haqq.network](https://rest.cosmos.haqq.network) | `REST Cosmos`    | [HAQQ](https://haqq.network)      |
 | [wss://m-s1-evm-ws.haqq.sh](wss://m-s1-evm-ws.haqq.sh)               | `EVM Websocket`  | [Kioqq](https://github.com/kioqq) |
-| [https://m-s1-evm-rpc.haqq.sh](https://m-s1-evm-rpc.haqq.sh)         | `EVM JSON-RPC`   | [Kiqoq](https://github.com/kioqq) |
+| [https://m-s1-evm-rpc.haqq.sh](https://m-s1-evm-rpc.haqq.sh)         | `EVM JSON-RPC`   | [Kioqq](https://github.com/kioqq) |
 | [https://m-s1-tm.haqq.sh](https://m-s1-tm.haqq.sh)                   | `Tendermint RPC` | [Kioqq](https://github.com/kioqq) |
 | grpc://m-s1-grpc.haqq.sh:1337                                        | `gRPC Cosmos`    | [Kioqq](https://github.com/kioqq) |
 
@@ -32,6 +32,6 @@ Below is a list of publicly available endpoints that you can use to connect to t
 | [https://grpc.cosmos.testedge2.haqq.network](https://grpc.cosmos.testedge2.haqq.network) | `gRPC Cosmos`    | [HAQQ](https://haqq.network)      |
 | [https://rest.cosmos.testedge2.haqq.network](https://rest.cosmos.testedge2.haqq.network) | `REST Cosmos`    | [HAQQ](https://haqq.network)      |
 | [wss://te2-s1-evm-ws.haqq.sh](wss://te2-s1-evm-ws.haqq.sh)                               | `EVM Websocket`  | [Kioqq](https://github.com/kioqq) |
-| [https://te2-s1-evm-rpc.haqq.sh](https://te2-s1-evm-rpc.haqq.sh)                         | `EVM JSON-RPC`   | [Kiqoq](https://github.com/kioqq) |
+| [https://te2-s1-evm-rpc.haqq.sh](https://te2-s1-evm-rpc.haqq.sh)                         | `EVM JSON-RPC`   | [Kioqq](https://github.com/kioqq) |
 | [https://te2-s1-tm.haqq.sh](https://te2-s1-tm.haqq.sh)                                   | `Tendermint RPC` | [Kioqq](https://github.com/kioqq) |
 | grpc://te2-s1-grpc.haqq.sh:1337                                                          | `gRPC Cosmos`    | [Kioqq](https://github.com/kioqq) |
