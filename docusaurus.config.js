@@ -41,19 +41,20 @@ const config = {
   customFields: {
     project: {
       name: 'HAQQ Network',
-      // denom: 'Evmos',
-      // ticker: 'EVMOS',
-      // binary: 'evmosd',
+      short_name: 'HAQQ',
+      denom: 'ISLM',
+      ticker: 'ISLM',
+      binary: 'haqqd',
       testnet_denom: 'ISLM',
-      // testnet_ticker: 'tEVMOS',
+      testnet_ticker: 'ISLM',
       rpc_url: 'https://rpc.eth.haqq.network',
-      // rpc_url_testnet: 'https://eth.bd.evmos.dev:8545',
+      rpc_url_testnet: 'https://rpc.eth.testedge2.haqq.network',
       rpc_url_local: 'http://localhost:8545/',
       chain_id: '11235',
-      // testnet_chain_id: '9000',
-      // latest_version: 'v11.0.1',
-      // mainnet_version: 'v11.0.1',
-      // testnet_version: 'v11.0.1',
+      testnet_chain_id: '54211',
+      latest_version: 'v1.7.0',
+      mainnet_version: 'v1.6.4',
+      testnet_version: 'v1.6.4',
       // version_number: '2',
       // testnet_version_number: '4',
       // testnet_evm_explorer_url: 'https://evm.evmos.dev',
@@ -62,6 +63,8 @@ const config = {
       // cosmos_explorer_url: 'https://www.mintscan.io/evmos',
       block_explorer_url: 'https://explorer.haqq.network',
       eth_name: 'Main Ethereum Network',
+      unbonding_period: '21 days',
+      active_set: '150'
     },
   },
 
@@ -80,9 +83,9 @@ const config = {
     ],
   ],
   plugins: [
-    defineSection('intro'),
-    defineSection('validators'),
+    defineSection('learn'),
     defineSection('develop'),
+    defineSection('user-guides'),
     defineSection('explorers'),
     async function tailwindPlugin() {
       return {
@@ -110,19 +113,19 @@ const config = {
         },
         items: [
           {
-            href: '/intro',
+            href: '/learn',
             position: 'left',
-            label: 'Intro',
-          },
-          {
-            href: '/validators',
-            position: 'left',
-            label: 'Validators',
+            label: 'Learn',
           },
           {
             href: '/develop',
             position: 'left',
             label: 'Develop',
+          },
+          {
+            href: '/user-guides',
+            position: 'left',
+            label: 'Guides',
           },
           {
             href: '/explorers',
@@ -142,19 +145,19 @@ const config = {
             title: 'Docs',
             items: [
               {
-                href: '/intro',
+                href: '/learn',
 
-                label: 'Intro',
-              },
-              {
-                href: '/validators',
-
-                label: 'Validators',
+                label: 'Learn',
               },
               {
                 href: '/develop',
 
                 label: 'Develop',
+              },
+              {
+                href: '/user-guides',
+
+                label: 'User Guides',
               },
               {
                 href: '/explorers',
@@ -171,7 +174,11 @@ const config = {
               //   href: 'https://stackoverflow.com/questions/tagged/docusaurus',
               // },
               {
-                label: 'Discord',
+                label: 'HAQQ Network Discord',
+                href: 'https://discord.gg/CDtXuQG3Vd',
+              },
+              {
+                label: 'Islamic Coin Discord',
                 href: 'https://discord.gg/islamiccoin',
               },
               {

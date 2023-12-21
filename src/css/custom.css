@@ -149,3 +149,9 @@ html[data-theme='dark'] .big-card {
 .footer__copyright {
   @apply text-sm;
 }
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: var(--ifm-container-width-xl) !important;
+  }
+}

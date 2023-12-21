@@ -9,7 +9,7 @@ Learn how to setup and run a validator node
 :::tip Pre-requisite Readings
 
 - [Run a Node](./run-node/mainnet.md)
-- [Validator Overview](./index.mdx)
+- [Validator Overview](../user-guides/index.mdx)
 - [Validator Security](./configuration/security.md)
 
 :::
