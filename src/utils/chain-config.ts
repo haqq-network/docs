@@ -79,7 +79,7 @@ export const MainnetConfig: ChainConfig = {
       coinMinimalDenom: HAQQ_COIN_MINIMAL_DENOM,
       coinDecimals: 18,
       gasPriceStep: {
-        low: 10000000000,
+        low: 20000000000,
         average: 25000000000,
         high: 40000000000,
       },
@@ -93,8 +93,8 @@ export const MainnetConfig: ChainConfig = {
 export const TestnetConfig: ChainConfig = {
   chainId: TESTNET_ID,
   chainName: 'HAQQ Testnet',
-  rpc: 'https://rpc.tm.haqq.network',
-  rest: 'https://rest.cosmos.haqq.network',
+  rpc: 'https://rpc.tm.testedge2.haqq.network',
+  rest: 'https://rest.cosmos.testedge2.haqq.network',
   features: ['ibc-transfer', 'ibc-go', 'eth-address-gen', 'eth-key-sign'],
   stakeCurrency: {
     coinDenom: HAQQ_COIN_DENOM,
@@ -122,7 +122,7 @@ export const TestnetConfig: ChainConfig = {
       coinMinimalDenom: HAQQ_COIN_MINIMAL_DENOM,
       coinDecimals: 18,
       gasPriceStep: {
-        low: 10000000000,
+        low: 20000000000,
         average: 25000000000,
         high: 40000000000,
       },
