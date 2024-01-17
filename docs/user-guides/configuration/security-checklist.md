@@ -9,7 +9,7 @@ sidebar_position: 4
 
 ## Pre-requisite Readings
 
-- [Validator Security](./security.md) {prereq}
+- [Validator Security](security.md) {prereq}
 
 ## Conduct Survey on General Controls of Hosting Data Centre
 
@@ -18,7 +18,7 @@ Perform a survey on the hosting data centre, and compare your result with the be
 For example, your hosting data centre should have following features
 
 | Controls Category | Description of Best Practice    |
-| ----------------- | ------------------------------- |
+|-------------------|---------------------------------|
 | Data Center       | Redundant Power                 |
 | Data Center       | Redundant Cooling               |
 | Data Center       | Redundant Networking            |
@@ -30,7 +30,7 @@ For example, your hosting data centre should have following features
 Perform a survey on your current status of node setup, and compare your result with the best practice suggested below
 
 | Controls Category                | Description of Best Practice                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | General System Security          | Operating system appropriately patched. Kernel is updated to latest stable version. The node should be operated in x86_64 environment                                                                                                                                                                                                                                                                                                                                                                                                   |
 | General System Security          | Auto-updates for operation system is configured. Toolkit for automatic upgrades exists (e.g. auter, yum-cron, dnf-automatic, unattended-upgrades)                                                                                                                                                                                                                                                                                                                                                                                       |
 | General System Security          | Security framework enabled and enforcing. SELinux / AppArmor / Tomoyo / Grsecurity Enabled                                                                                                                                                                                                                                                                                                                                                                                                                                              |

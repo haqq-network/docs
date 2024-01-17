@@ -2,6 +2,6 @@
 sidebar_position: 1
 ---
 
-# HAQQ WAllet
+# HAQQ Wallet
 
 Coming...

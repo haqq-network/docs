@@ -22,7 +22,7 @@ However, we understand the importance of flexibility and the varying needs of ou
 
 <summary><b>Can I use my Ledger device?</b></summary>
 
-Absolutely! Take a look at the [Ledger](./connect-your-wallet/keplr) for more information. HAQQ Wallet, Metamask,
+Absolutely! Take a look at the [Ledger](../user-guides/connect-your-wallet/keplr) for more information. HAQQ Wallet, Metamask,
 and Keplr all work with Ledger. Ledger setup will be required before engaging with the dApps and products on HAQQ.
 
 </details>
