@@ -9,7 +9,7 @@ function defineSection(section, options = {}) {
     /** @type {import('@docusaurus/plugin-content-docs').Options} */
     ({
       path: `docs/${section}`,
-      routeBasePath: section,
+      routeBasePath: "/",
       id: section,
       sidebarPath: require.resolve('./sidebars.ts'),
       breadcrumbs: true,
