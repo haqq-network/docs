@@ -31,7 +31,7 @@ export default function HomepageFeatures() {
           <div className="flex flex-col md:flex-row items-center gap-[20px] md:gap-[40px]">
             <div className="flex-1 w-full">
               <Link
-                to="/intro"
+                to="/learn"
                 className={
                   'hover:no-underline transition-colors duration-250 ease-out !text-white'
                 }
@@ -45,7 +45,7 @@ export default function HomepageFeatures() {
             </div>
             <div className="flex-1 w-full">
               <Link
-                to="/validators"
+                to="/user-guides/run-a-validator"
                 className={
                   'hover:no-underline transition-colors duration-250 ease-out !text-white'
                 }
@@ -71,7 +71,7 @@ export default function HomepageFeatures() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-[20px] md:gap-[40px]">
             <div>
               <Link
-                to={`/intro/ecosystem`}
+                to={`/learn/ecosystem`}
                 className="hover:no-underline hover:text-inherit"
               >
                 <SmallCard

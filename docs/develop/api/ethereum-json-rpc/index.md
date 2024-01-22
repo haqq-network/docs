@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Ethereum JSON-RPC
@@ -30,24 +30,24 @@ on a per-namespace basis.
 Find below the JSON-RPC namespaces supported on HAQQ or head over to the documentation for the individual API endpoints
 and their respective curl commands on the [JSON-RPC Methods](./methods.md) page.
 
-| Namespace                                                  | Description                                                                                                                                                                                                                  | Supported | Enabled by Default |
-| ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |
-| [`eth`](./ethereum-json-rpc/methods#eth-methods)           | HAQQ provides several extensions to the standard `eth` JSON-RPC namespace.                                                                                                                                                   | ✔         | ✔                  |
-| [`web3`](./ethereum-json-rpc/methods#web3-methods)         | The `web3` API provides utility functions for the web3 client.                                                                                                                                                               | ✔         | ✔                  |
-| [`net`](./ethereum-json-rpc/methods#net-methods)           | The `net` API provides access to network information of the node                                                                                                                                                             | ✔         | ✔                  |
-| `clique`                                                   | The `clique` API provides access to the state of the clique consensus engine. You can use this API to manage signer votes and to check the health of a private network.                                                      | 🚫        |                    |
-| `debug`                                                    | The `debug` API gives you access to several non-standard RPC methods, which will allow you to inspect, debug and set certain debugging flags during runtime.                                                                 | ✔         |                    |
-| `les`                                                      | The `les` API allows you to manage LES server settings, including client parameters and payment settings for prioritized clients. It also provides functions to query checkpoint information in both server and client mode. | 🚫        |                    |
-| [`miner`](./ethereum-json-rpc/methods#miner-methods)       | The `miner` API allows you to remote control the node’s mining operation and set various mining specific settings.                                                                                                           | ✔         | 🚫                 |
-| [`txpool`](./ethereum-json-rpc/methods#txpool-methods)     | The `txpool` API gives you access to several non-standard RPC methods to inspect the contents of the transaction pool containing all the currently pending transactions as well as the ones queued for future processing.    | ✔         | 🚫                 |
-| `admin`                                                    | The `admin` API gives you access to several non-standard RPC methods, which will allow you to have a fine grained control over your node instance, including but not limited to network peer and RPC endpoint management.    | 🚫        |                    |
-| [`personal`](./ethereum-json-rpc/methods#personal-methods) | The `personal` API manages private keys in the key store.                                                                                                                                                                    | ✔         | 🚫                 |
+| Namespace                                   | Description                                                                                                                                                                                                                  | Supported | Enabled by Default |
+|---------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------:|:------------------:|
+| [`eth`](./methods.md#eth-methods)           | HAQQ provides several extensions to the standard `eth` JSON-RPC namespace.                                                                                                                                                   |     ✔     |         ✔          |
+| [`web3`](./methods.md#web3-methods)         | The `web3` API provides utility functions for the web3 client.                                                                                                                                                               |     ✔     |         ✔          |
+| [`net`](./methods.md#net-methods)           | The `net` API provides access to network information of the node                                                                                                                                                             |     ✔     |         ✔          |
+| `clique`                                    | The `clique` API provides access to the state of the clique consensus engine. You can use this API to manage signer votes and to check the health of a private network.                                                      |    🚫     |                    |
+| `debug`                                     | The `debug` API gives you access to several non-standard RPC methods, which will allow you to inspect, debug and set certain debugging flags during runtime.                                                                 |     ✔     |                    |
+| `les`                                       | The `les` API allows you to manage LES server settings, including client parameters and payment settings for prioritized clients. It also provides functions to query checkpoint information in both server and client mode. |    🚫     |                    |
+| [`miner`](./methods.md#miner-methods)       | The `miner` API allows you to remote control the node’s mining operation and set various mining specific settings.                                                                                                           |     ✔     |         🚫         |
+| [`txpool`](./methods.md#txpool-methods)     | The `txpool` API gives you access to several non-standard RPC methods to inspect the contents of the transaction pool containing all the currently pending transactions as well as the ones queued for future processing.    |     ✔     |         🚫         |
+| `admin`                                     | The `admin` API gives you access to several non-standard RPC methods, which will allow you to have a fine grained control over your node instance, including but not limited to network peer and RPC endpoint management.    |    🚫     |                    |
+| [`personal`](./methods.md#personal-methods) | The `personal` API manages private keys in the key store.                                                                                                                                                                    |     ✔     |         🚫         |
 
 ## Subscribing to Ethereum Events
 
 ### Filters
 
-HAQQ also supports the Ethereum [JSON-RPC](./ethereum-json-rpc/methods) filters calls to
+HAQQ also supports the Ethereum [JSON-RPC](./methods.md) filters calls to
 subscribe to [state logs](https://eth.wiki/json-rpc/API#eth_newfilter),
 [blocks](https://eth.wiki/json-rpc/API#eth_newblockfilter) or [pending transactions](https://eth.wiki/json-rpc/API#eth_newpendingtransactionfilter) changes.
 
@@ -74,16 +74,15 @@ The Ethereum Websocket allows you to subscribe to Ethereum logs and events emitt
 don't need to continuously make requests when you want specific information.
 
 Since HAQQ is built with the Cosmos SDK framework and uses Tendermint Core as it's consensus Engine, it inherits the
-[event format](./tendermint-rpc#subscribing-to-cosmos-and-tendermint-events) from them. However, in order to support the
+[event format](../tendermint.md#subscribing-to-events-via-websocket) from them. However, in order to support the
 native Web3 compatibility for websockets of the [Ethereum's PubSubAPI](https://geth.ethereum.org/docs/interacting-with-geth/rpc/pubsub),
-HAQQ needs to cast the Tendermint
-responses retrieved into the Ethereum types.
+HAQQ needs to cast the CometBFT responses retrieved into the Ethereum types.
 
 You can start a connection with the Ethereum websocket using the `--json-rpc.ws-address` flag when starting
 the node (default `"0.0.0.0:8546"`):
 
 ```bash
-haqqd start  --json-rpc.address"0.0.0.0:8545" --json-rpc.ws-address="0.0.0.0:8546" --evm.rpc.api="eth,web3,net,txpool,debug" --json-rpc.enable
+haqqd start --json-rpc.address="0.0.0.0:8545" --json-rpc.ws-address="0.0.0.0:8546" --json-rpc.api="eth,web3,net,txpool,debug" --json-rpc.enable
 ```
 
 Then, start a websocket subscription with [`ws`](https://github.com/hashrocket/ws)
@@ -103,8 +102,8 @@ ws ws://localhost:8546/
 
 At present there are two key datatypes that are passed over JSON:
 
-- **quantities** and
-- **unformatted byte arrays**.
+* **quantities** and
+* **unformatted byte arrays**.
 
 Both are passed with a hex encoding, however with different requirements to formatting.
 
@@ -130,11 +129,11 @@ two hex digits per byte. Examples:
 
 The following methods have an extra default block parameter:
 
-- [`eth_getBalance`](./ethereum-json-rpc/methods#eth_getbalance)
-- [`eth_getCode`](./ethereum-json-rpc/methods#eth_getcode)
-- [`eth_getTransactionCount`](./ethereum-json-rpc/methods#eth_gettransactioncount)
-- [`eth_getStorageAt`](./ethereum-json-rpc/methods#eth_getstorageat)
-- [`eth_call`](./ethereum-json-rpc/methods#eth_call)
+- [`eth_getBalance`](./methods.md#eth_getbalance)
+- [`eth_getCode`](./methods.md#eth_getcode)
+- [`eth_getTransactionCount`](./methods.md#eth_gettransactioncount)
+- [`eth_getStorageAt`](./methods.md#eth_getstorageat)
+- [`eth_call`](./methods.md#eth_call)
 
 When requests are made that act on the state of HAQQ, the last default block parameter determines the height of the block.
 

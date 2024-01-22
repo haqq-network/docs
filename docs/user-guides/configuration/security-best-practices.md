@@ -764,4 +764,4 @@ Validators are responsible for ensuring that the network can sustain denial of s
 
 One recommended way to mitigate these risks is for validators to carefully structure their network topology in a so-called sentry node architecture.
 
-More information about sentry node you can find [here](./security.md#sentry-nodes-ddos-protection)
+More information about sentry node you can find [here](security.md#sentry-nodes-ddos-protection)

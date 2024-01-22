@@ -15,7 +15,7 @@ The examples also do not include the URL/IP & port combination which must be the
 ## Endpoints
 
 | Method                                                                            | Namespace | Implemented | Public | Notes              |
-| --------------------------------------------------------------------------------- | --------- | ----------- | ------ | ------------------ |
+|-----------------------------------------------------------------------------------|-----------|-------------|--------|--------------------|
 | [`web3_clientVersion`](#web3_clientversion)                                       | Web3      | ✔           | ✔      |                    |
 | [`web3_sha3`](#web3_sha3)                                                         | Web3      | ✔           | ✔      |                    |
 | [`net_version`](#net_version)                                                     | Net       | ✔           | ✔      |                    |
@@ -58,9 +58,9 @@ The examples also do not include the URL/IP & port combination which must be the
 | `eth_compileSolidity`                                                             | Eth       |             |        |                    |
 | `eth_compileSerpent`                                                              | Eth       |             |        |                    |
 | `eth_signTransaction`                                                             | Eth       |             |        |                    |
-| `eth_mining`                                                                      | Eth       |             | ❌     |                    |
+| `eth_mining`                                                                      | Eth       |             | ❌      |                    |
 | [`eth_coinbase`](#eth_coinbase)                                                   | Eth       | ✔           |        |                    |
-| `eth_hashrate`                                                                    | Eth       | N/A         | ❌     | PoW-only           |
+| `eth_hashrate`                                                                    | Eth       | N/A         | ❌      | PoW-only           |
 | `eth_getUncleCountByBlockHash`                                                    | Eth       | N/A         |        | PoW-only           |
 | `eth_getUncleCountByBlockNumber`                                                  | Eth       | N/A         |        | PoW-only           |
 | `eth_getUncleByBlockHashAndIndex`                                                 | Eth       | N/A         |        | PoW-only           |
@@ -68,16 +68,16 @@ The examples also do not include the URL/IP & port combination which must be the
 | [`eth_getProof`](#eth_getProof)                                                   | Eth       | ✔           |        |                    |
 | [`eth_subscribe`](#eth_subscribe)                                                 | Websocket | ✔           |        |                    |
 | [`eth_unsubscribe`](#eth_unsubscribe)                                             | Websocket | ✔           |        |                    |
-| [`personal_importRawKey`](#personal-importrawkey)                                 | Personal  | ✔           | ❌     |                    |
-| [`personal_listAccounts`](#personal-listaccounts)                                 | Personal  | ✔           | ❌     |                    |
-| [`personal_lockAccount`](#personal-lockaccount)                                   | Personal  | ✔           | ❌     |                    |
-| [`personal_newAccount`](#personal-newaccount)                                     | Personal  | ✔           | ❌     |                    |
-| [`personal_unlockAccount`](#personal-unlockaccount)                               | Personal  | ✔           | ❌     |                    |
-| [`personal_sendTransaction`](#personal-sendtransaction)                           | Personal  | ✔           | ❌     |                    |
-| [`personal_sign`](#personal-sign)                                                 | Personal  | ✔           | ❌     |                    |
-| [`personal_ecRecover`](#personal-ecrecover)                                       | Personal  | ✔           | ❌     |                    |
-| [`personal_initializeWallet`](#personal_initializewallet)                         | Personal  | ✔           | ❌     |                    |
-| [`personal_unpair`](#personal_unpair)                                             | Personal  | ✔           | ❌     |                    |
+| [`personal_importRawKey`](#personal_importrawkey)                                 | Personal  | ✔           | ❌      |                    |
+| [`personal_listAccounts`](#personal_listaccounts)                                 | Personal  | ✔           | ❌      |                    |
+| [`personal_lockAccount`](#personal_lockaccount)                                   | Personal  | ✔           | ❌      |                    |
+| [`personal_newAccount`](#personal_newaccount)                                     | Personal  | ✔           | ❌      |                    |
+| [`personal_unlockAccount`](#personal_unlockaccount)                               | Personal  | ✔           | ❌      |                    |
+| [`personal_sendTransaction`](#personal_sendtransaction)                           | Personal  | ✔           | ❌      |                    |
+| [`personal_sign`](#personal_sign)                                                 | Personal  | ✔           | ❌      |                    |
+| [`personal_ecRecover`](#personal_ecrecover)                                       | Personal  | ✔           | ❌      |                    |
+| [`personal_initializeWallet`](#personal_initializewallet)                         | Personal  | ✔           | ❌      |                    |
+| [`personal_unpair`](#personal_unpair)                                             | Personal  | ✔           | ❌      |                    |
 | `db_putString`                                                                    | DB        |             |        |                    |
 | `db_getString`                                                                    | DB        |             |        |                    |
 | `db_putHex`                                                                       | DB        |             |        |                    |
@@ -92,14 +92,14 @@ The examples also do not include the URL/IP & port combination which must be the
 | `shh_uninstallFilter`                                                             | SSH       |             |        |                    |
 | `shh_getFilterChanges`                                                            | SSH       |             |        |                    |
 | `shh_getMessages`                                                                 | SSH       |             |        |                    |
-| `admin_addPeer`                                                                   | Admin     |             | ❌     |                    |
-| `admin_datadir`                                                                   | Admin     |             | ❌     |                    |
-| `admin_nodeInfo`                                                                  | Admin     |             | ❌     |                    |
-| `admin_peers`                                                                     | Admin     |             | ❌     |                    |
-| `admin_startRPC`                                                                  | Admin     |             | ❌     |                    |
-| `admin_startWS`                                                                   | Admin     |             | ❌     |                    |
-| `admin_stopRPC`                                                                   | Admin     |             | ❌     |                    |
-| `admin_stopWS`                                                                    | Admin     |             | ❌     |                    |
+| `admin_addPeer`                                                                   | Admin     |             | ❌      |                    |
+| `admin_datadir`                                                                   | Admin     |             | ❌      |                    |
+| `admin_nodeInfo`                                                                  | Admin     |             | ❌      |                    |
+| `admin_peers`                                                                     | Admin     |             | ❌      |                    |
+| `admin_startRPC`                                                                  | Admin     |             | ❌      |                    |
+| `admin_startWS`                                                                   | Admin     |             | ❌      |                    |
+| `admin_stopRPC`                                                                   | Admin     |             | ❌      |                    |
+| `admin_stopWS`                                                                    | Admin     |             | ❌      |                    |
 | `clique_getSnapshot`                                                              | Clique    |             |        |                    |
 | `clique_getSnapshotAtHash`                                                        | Clique    |             |        |                    |
 | `clique_getSigners`                                                               | Clique    |             |        |                    |
@@ -127,13 +127,13 @@ The examples also do not include the URL/IP & port combination which must be the
 | `debug_startGoTrace`                                                              | Debug     | ✔           |        |                    |
 | `debug_stopCPUProfile`                                                            | Debug     | ✔           |        |                    |
 | `debug_stopGoTrace`                                                               | Debug     | ✔           |        |                    |
-| [`debug_traceBlock`](#debug-traceblock)                                           | Debug     | ✔           |        |                    |
-| [`debug_traceBlockByNumber`](#debug-traceblockbynumber)                           | Debug     | ✔           |        |                    |
-| [`debug_traceBlockByHash`](#debug-traceblockbyhash)                               | Debug     | ✔           |        |                    |
+| [`debug_traceBlock`](#debug_traceblock)                                           | Debug     | ✔           |        |                    |
+| [`debug_traceBlockByNumber`](#debug_traceblockbynumber)                           | Debug     | ✔           |        |                    |
+| [`debug_traceBlockByHash`](#debug_traceblockbyhash)                               | Debug     | ✔           |        |                    |
 | `debug_traceBlockFromFile`                                                        | Debug     |             |        |                    |
 | `debug_standardTraceBlockToFile`                                                  | Debug     |             |        |                    |
 | `debug_standardTraceBadBlockToFile`                                               | Debug     |             |        |                    |
-| [`debug_traceTransaction`](#debug-tracetransaction)                               | Debug     | ✔           |        |                    |
+| [`debug_traceTransaction`](#debug_tracetransaction)                               | Debug     | ✔           |        |                    |
 | `debug_verbosity`                                                                 | Debug     |             |        |                    |
 | `debug_vmodule`                                                                   | Debug     |             |        |                    |
 | `debug_writeBlockProfile`                                                         | Debug     | ✔           |        |                    |
@@ -148,16 +148,16 @@ The examples also do not include the URL/IP & port combination which must be the
 | `les_latestCheckpoint`                                                            | Les       |             |        |                    |
 | `les_getCheckpoint`                                                               | Les       |             |        |                    |
 | `les_getCheckpointContractAddress`                                                | Les       |             |        |                    |
-| [`miner_getHashrate`](#miner-gethashrate)                                         | Miner     | ✔           | ❌     | No-op              |
-| [`miner_setExtra`](#miner-setextra)                                               | Miner     | ✔           | ❌     | No-op              |
-| [`miner_setGasPrice`](#miner-setgasprice)                                         | Miner     | ✔           | ❌     | Needs node restart |
-| [`miner_start`](#miner-start)                                                     | Miner     | ✔           | ❌     | No-op              |
-| [`miner_stop`](#miner-stop)                                                       | Miner     | ✔           | ❌     | No-op              |
-| [`miner_setGasLimit`](#miner-setgaslimit)                                         | Miner     | ✔           | ❌     | No-op              |
-| [`miner_setEtherbase`](#miner-setetherbase)                                       | Miner     | ✔           | ❌     |                    |
-| [`txpool_content`](#txpool-content)                                               | TxPool    | ✔           |        |                    |
-| [`txpool_inspect`](#txpool-inspect)                                               | TxPool    | ✔           |        |                    |
-| [`txpool_status`](#txpool-status)                                                 | TxPool    | ✔           |        |                    |
+| [`miner_getHashrate`](#miner_gethashrate)                                         | Miner     | ✔           | ❌      | No-op              |
+| [`miner_setExtra`](#miner_setextra)                                               | Miner     | ✔           | ❌      | No-op              |
+| [`miner_setGasPrice`](#miner_setgasprice)                                         | Miner     | ✔           | ❌      | Needs node restart |
+| [`miner_start`](#miner_start)                                                     | Miner     | ✔           | ❌      | No-op              |
+| [`miner_stop`](#miner_stop)                                                       | Miner     | ✔           | ❌      | No-op              |
+| [`miner_setGasLimit`](#miner_setgaslimit)                                         | Miner     | ✔           | ❌      | No-op              |
+| [`miner_setEtherbase`](#miner_setetherbase)                                       | Miner     | ✔           | ❌      |                    |
+| [`txpool_content`](#txpool_content)                                               | TxPool    | ✔           |        |                    |
+| [`txpool_inspect`](#txpool_inspect)                                               | TxPool    | ✔           |        |                    |
+| [`txpool_status`](#txpool_status)                                                 | TxPool    | ✔           |        |                    |
 
 :::tip
 Block Number can be entered as a Hex string, `"earliest"`, `"latest"` or `"pending"`.
@@ -176,7 +176,7 @@ Get the web3 client version.
 #### Result
 
 ```json
-{ "jsonrpc": "2.0", "id": 1, "result": "Haqq/0.1.3+/linux/go1.18" }
+ {"jsonrpc":"2.0","id":1,"result":"Haqq/1.7.0+/linux/go1.19"}
 ```
 
 #### Client Examples
@@ -206,11 +206,7 @@ Returns Keccak-256 (not the standardized SHA3-256) of the given data.
 #### Result
 
 ```json
-{
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": "0x1b84adea42d5b7d192fd8a61a85b25abe0757e9a65cab1da470258914053823f"
-}
+{"jsonrpc":"2.0","id":1,"result":"0x1b84adea42d5b7d192fd8a61a85b25abe0757e9a65cab1da470258914053823f"}
 ```
 
 #### Client Examples
@@ -634,10 +630,11 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByBlockHashAnd
 Returns the receipt of a transaction by transaction hash.
 
 Note: Tx Code from Tendermint and the Ethereum receipt status are switched:
-| | Tendermint | Ethereum |
+
+|         | Tendermint | Ethereum |
 |---------|------------|----------|
-| Success | 0 | 1 |
-| Fail | 1 | 0 |
+| Success | 0          | 1        |
+| Fail    | 1          | 0        |
 
 #### Parameters
 
@@ -806,7 +803,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getProof","params":["0x12345
 
 ## WebSocket Methods
 
-Read about websockets in [Tendermint Events](../tendermint-rpc.md)
+Read about websockets in [CometBFT Events](../tendermint.md#list-of-cometbft-events)
 
 ### `eth_subscribe`
 
@@ -1374,5 +1371,5 @@ txpool.status();
 #### Result
 
 ```json
-{ "jsonrpc": "2.0", "id": 1, "result": { "pending": "0x0", "queued": "0x0" } }
+{"jsonrpc":"2.0","id":1,"result":{"pending":"0x0","queued":"0x0"}}
 ```

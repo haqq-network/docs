@@ -2,12 +2,12 @@
 sidebar_position: 4
 ---
 
-# Tendermint RPC
+# CometBFT RPC
 
-The Tendermint RPC allows you to query transactions, blocks, consensus state, broadcast transactions, etc.
+The CometBFT RPC allows you to query transactions, blocks, consensus state, broadcast transactions, etc.
 
-The latest Tendermint RPC documentations can be found [here](https://docs.tendermint.com/v0.34/rpc/). Tendermint
-supports the following RPC protocols:
+The latest CometBFT RPC documentations can be found [here](https://docs.cometbft.com/v0.37/rpc/). 
+CometBFT supports the following RPC protocols:
 
 - URI over HTTP
 - JSON-RPC over HTTP
@@ -26,16 +26,16 @@ curl localhost:26657/block?height=5
 ## RPC/HTTP
 
 JSONRPC requests can be POST'd to the root RPC endpoint via HTTP. See the list
-of supported Tendermint RPC endpoints using Swagger [here](../api#clients).
+of supported CometBFT RPC endpoints using Swagger [here](../api#clients).
 
 ## RPC/Websocket
 
-### Cosmos and Tendermint Events
+### Cosmos and CometBFT Events
 
 `Event`s are objects that contain information about the execution of the application
 and are triggered after a block is committed. They are mainly used by service providers
 like block explorers and wallet to track the execution of various messages and index transactions.
-You can get the full list of `event` categories and values [here](#list-of-tendermint-events).
+You can get the full list of `event` categories and values [here](#list-of-cometbft-events).
 
 More on Events:
 
@@ -43,7 +43,9 @@ More on Events:
 
 ### Subscribing to Events via Websocket
 
-Tendermint Core provides a [Websocket](https://docs.tendermint.com/v0.34/tendermint-core/subscription.html) connection to subscribe or unsubscribe to Tendermint `Events`. To start a connection with the Tendermint websocket you need to define the address with the `--rpc.laddr` flag when starting the node (default `tcp://127.0.0.1:26657`):
+CometBFT Core provides a [Websocket](https://docs.cometbft.com/v0.37/core/subscription) connection to subscribe 
+or unsubscribe to CometBFT `Events`. To start a connection with the CometBFT websocket you need to define
+the address with the `--rpc.laddr` flag when starting the node (default `tcp://127.0.0.1:26657`):
 
 ```bash
 haqqd start --rpc.laddr="tcp://127.0.0.1:26657"
@@ -55,41 +57,41 @@ Then, start a websocket subscription with [ws](https://github.com/hashrocket/ws)
 # connect to tendermint websocket at port 8080
 ws ws://localhost:8080/websocket
 
-# subscribe to new Tendermint block headers
+# subscribe to new CometBFT block headers
 > { "jsonrpc": "2.0", "method": "subscribe", "params": ["tm.event='NewBlockHeader'"], "id": 1 }
 ```
 
 The `type` and `attribute` value of the `query` allow you to filter the specific `event` you are
-looking for. For example, a an Ethereum transaction on Haqq (`MsgEthereumTx`) triggers an `event` of type `ethermint` and
+looking for. For example, an Ethereum transaction on HAQQ (`MsgEthereumTx`) triggers an `event` of type `ethermint` and
 has `sender` and `recipient` as `attributes`. Subscribing to this `event` would be done like so:
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "method": "subscribe",
-  "id": "0",
-  "params": {
-    "query": "tm.event='Tx' AND ethereum.recipient='hexAddress'"
-  }
+    "jsonrpc": "2.0",
+    "method": "subscribe",
+    "id": "0",
+    "params": {
+        "query": "tm.event='Tx' AND ethereum.recipient='hexAddress'"
+    }
 }
 ```
 
 where `hexAddress` is an Ethereum hex address (eg: `0x1122334455667788990011223344556677889900`).
 
-The generic syntax look like this:
+The generic syntax looks like this:
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "method": "subscribe",
-  "id": "0",
-  "params": {
-    "query": "tm.event='<event_value>' AND eventType.eventAttribute='<attribute_value>'"
-  }
+    "jsonrpc": "2.0",
+    "method": "subscribe",
+    "id": "0",
+    "params": {
+        "query": "tm.event='<event_value>' AND eventType.eventAttribute='<attribute_value>'"
+    }
 }
 ```
 
-### List of Tendermint Events
+### List of CometBFT Events
 
 The main events you can subscribe to are:
 
@@ -98,11 +100,11 @@ The main events you can subscribe to are:
 - `ValidatorSetUpdates`: Contains validator set updates for the block.
 
 :::tip
-👉 The list of events types and values for each Cosmos SDK module can be found in the [Modules Specification](./../../../../protocol/modules/) section.
-Check the `Events` page to obtain the event list of each supported module on Haqq.
+👉 The list of events types and values for each Cosmos SDK module can be found in the [Modules Specification](./../modules/) section.
+Check the `Events` page to obtain the event list of each supported module on HAQQ Network.
 :::
 
-List of all Tendermint event keys:
+List of all CometBFT event keys:
 
 |                                                      | Event Type       | Categories  |
 | ---------------------------------------------------- | ---------------- | ----------- |
@@ -145,27 +147,27 @@ Example response:
 
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 0,
-  "result": {
-    "query": "tm.event='ValidatorSetUpdates'",
-    "data": {
-      "type": "tendermint/event/ValidatorSetUpdates",
-      "value": {
-        "validator_updates": [
-          {
-            "address": "09EAD022FD25DE3A02E64B0FE9610B1417183EE4",
-            "pub_key": {
-              "type": "tendermint/PubKeyEd25519",
-              "value": "ww0z4WaZ0Xg+YI10w43wTWbBmM3dpVza4mmSQYsd0ck="
-            },
-            "voting_power": "10",
-            "proposer_priority": "0"
-          }
-        ]
-      }
+    "jsonrpc": "2.0",
+    "id": 0,
+    "result": {
+        "query": "tm.event='ValidatorSetUpdates'",
+        "data": {
+            "type": "tendermint/event/ValidatorSetUpdates",
+            "value": {
+              "validator_updates": [
+                {
+                  "address": "09EAD022FD25DE3A02E64B0FE9610B1417183EE4",
+                  "pub_key": {
+                    "type": "tendermint/PubKeyEd25519",
+                    "value": "ww0z4WaZ0Xg+YI10w43wTWbBmM3dpVza4mmSQYsd0ck="
+                  },
+                  "voting_power": "10",
+                  "proposer_priority": "0"
+                }
+              ]
+            }
+        }
     }
-  }
 }
 ```
 

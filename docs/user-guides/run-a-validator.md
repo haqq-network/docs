@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # Run a Validator
@@ -8,9 +8,9 @@ Learn how to setup and run a validator node
 
 :::tip Pre-requisite Readings
 
-- [Run a Node](./run-node/mainnet.md)
-- [Validator Overview](./index.mdx)
-- [Validator Security](./configuration/security.md)
+- [Run a Node](run-node/mainnet.md)
+- [Validator Overview](index.mdx)
+- [Validator Security](configuration/security.md)
 
 :::
 
@@ -217,14 +217,14 @@ First of all, you should make sure that your bin file is up to date
 
 ```sh
 haqq@haqq-node:~# haqqd -v
-haqqd version "1.4.0" 4f16bbfc188b66ae44b559453c43bff78f85b6d4
+haqqd version "1.7.0" 1cdd044523cffd0a2428b139f611a48a60045a1b
 ```
 
-We are currently using version `1.4.0` on Mainnet.
+We are currently using version `1.7.0` on Mainnet.
 
 This error can also occur if you run the validator from a period when blocks were produced on a different version of the binary.
 
-From this point, we recommend starting the node using statesync. More information you can find [here](./run-node/mainnet.md)
+From this point, we recommend starting the node using statesync. More information you can find [here](run-node/mainnet.md)
 
 ### Unknown problems
 
@@ -232,4 +232,4 @@ If you encounter bugs that are not covered in our documentation portal, we'd lov
 
 ## Validator FAQ
 
-If you have any problems with validator setting up you can visit our [Validator FAQ](./configuration/faq.md) page.
+If you have any problems with validator setting up you can visit our [Validator FAQ](configuration/faq.md) page.
