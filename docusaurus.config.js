@@ -74,11 +74,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         // NOTE: Docs enabled separate in plugins section
-        docs: {
-          path: 'docs/home',
-          sidebarPath: require.resolve('./sidebars.js'),
-          breadcrumbs: true,
-        },
+        docs: false,
         blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
