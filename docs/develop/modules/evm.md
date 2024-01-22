@@ -28,7 +28,7 @@ It can be used on Cosmos application-specific blockchains, which alleviate the a
 high transaction throughput via [CometBFT](https://github.com/cometbft/cometbft), fast transaction finality,
 and horizontal scalability via [IBC](https://ibcprotocol.org/).
 
-:::note
+::: note
 The `x/evm` module previously was a part of the [ethermint library](https://pkg.go.dev/github.com/evmos/ethermint),
 but has been merged into the Evmos repository lately and got protected by new LICENCE. Therefore, we decided 
 to merge the latest common version into the HAQQ repository.
@@ -48,7 +48,7 @@ to merge the latest common version into the HAQQ repository.
 
 ## Module Architecture
 
-:::note
+::: note
 If you're not familiar with the overall module structure from the SDK modules, please check this
 [document](https://docs.cosmos.network/main/building-modules/structure.html) as prerequisite reading.
 :::
@@ -1211,7 +1211,7 @@ For example, on Ethereum, the `evm_denom` would be `ETH`. In the case of HAQQ, t
 In terms of precision, `ISLM` and `ETH` share the same value,
 *i.e.* `1 ISLM = 10^18 atto ISLM` and `1 ETH = 10^18 wei`.
 
-:::NOTE
+::: NOTE
 SDK applications that want to import the EVM module as a dependency will need to set their own `evm_denom` (i.e not `"aISLM"`).
 :::
 
@@ -1230,7 +1230,7 @@ When the parameter is disabled, it will prevent transfers between accounts and e
 The extra EIPs parameter defines the set of activateable Ethereum Improvement Proposals (**[EIPs](https://ethereum.org/en/eips/)**)
 on the Ethereum VM `Config` that apply custom jump tables.
 
-:::note
+::: note
 Some of these EIPs are already enabled by the chain configuration, depending on the hard fork number.
 :::
 
