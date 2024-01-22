@@ -9,7 +9,7 @@ function defineSection(section, options = {}) {
     /** @type {import('@docusaurus/plugin-content-docs').Options} */
     ({
       path: `docs/${section}`,
-      routeBasePath: "/",
+      routeBasePath: section,
       id: section,
       sidebarPath: require.resolve('./sidebars.ts'),
       breadcrumbs: true,
@@ -74,7 +74,11 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         // NOTE: Docs enabled separate in plugins section
-        docs: false,
+        docs: {
+          path: 'docs/home',
+          sidebarPath: require.resolve('./sidebars.js'),
+          breadcrumbs: true,
+        },
         blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
