@@ -112,7 +112,7 @@ The validator operator's "self-bond" refers to the amount of ISLM stake delegate
 
 ### Is there a faucet?
 
-If you want to obtain coins for the testnet, you can do so by using the [faucet](./../../testnet/faucet.md).
+If you want to obtain coins for the testnet, you can do so by using the [faucet](./../../develop/faucet).
 
 ### Is there a minimum amount of ISLM that must be staked to be an active (bonded) validator?
 
