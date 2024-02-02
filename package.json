@@ -34,7 +34,7 @@
     "@tsconfig/docusaurus": "1.0.7",
     "@types/prettier": "2.7.3",
     "autoprefixer": "10.4.14",
-    "postcss": "8.4.24",
+    "postcss": "8.4.31",
     "prettier": "2.8.8",
     "tailwindcss": "3.3.2",
     "typescript": "5.1.3"
