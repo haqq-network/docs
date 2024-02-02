@@ -428,7 +428,7 @@ You can find used ports in your node config files and make your own firewall rul
 
 For security reasons, you must block access to the listed ports in the table from the public network.
 
-How to do it via [iptables](./security_best_practices.md#tcp-or-unix-socket-address-for-the-rpc-server-to-listen-on) or via [ufw](./security_best_practices.md#ufw-configuration-alternatively)
+How to do it via [iptables](#tcp-or-unix-socket-address-for-the-rpc-server-to-listen-on) or via [ufw](#ufw-configuration-alternatively)
 
 :::
 
@@ -755,7 +755,7 @@ The `test` backend is a password-less variation of the file backend. Keys are st
 
 :::
 
-We recommend using [Tendermint KMS](./../kms/kms.md) that allows separating key management from Tendermint nodes.
+We recommend using [Tendermint KMS](kms.md) that allows separating key management from Tendermint nodes.
 It is recommended that the KMS service runs in a separate physical hosts.
 
 ## Sentry Node
