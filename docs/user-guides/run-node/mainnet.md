@@ -36,7 +36,7 @@ sudo apt-get install curl git make gcc liblz4-tool build-essential jq -y
 **Preresquisites for compile from source**
 
 - `make` & `gcc`
-- `Go 1.19+`
+- `Go 1.20+`
 
 **Easy GO compiler and HAQQ node installation**
 

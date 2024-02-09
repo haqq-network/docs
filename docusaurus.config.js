@@ -16,13 +16,26 @@ function defineSection(section, options = {}) {
       path: `docs/${section}`,
       routeBasePath: section,
       id: section,
-      sidebarPath: require.resolve('./sidebars.ts'),
+      sidebarPath: require.resolve('./sidebars.js'),
       breadcrumbs: true,
       editUrl: 'https://github.com/haqq-network/docs/tree/master/',
       ...options,
     }),
   ];
 }
+
+    // defineSection('learn'),
+    // defineSection('develop'),
+    // defineSection('user-guides'),
+    // defineSection('explorers'),
+
+const SECTIONS = [
+  defineSection('learn'),
+  defineSection('develop'),
+  defineSection('user-guides'),
+  defineSection('explorers'),
+];
+
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -34,7 +47,8 @@ const config = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  // trailingSlash: false,
+  trailingSlash: false,
+
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
@@ -80,17 +94,10 @@ const config = {
       ({
         // NOTE: Docs enabled separate in plugins section
         docs: {
-          // path: 'docs',
+          path: 'docs/home',
           // routeBasePath: '/',
-          // sidebarPath: require.resolve('./sidebars.js'),
-          sidebarPath: require.resolve("./sidebars.ts"),
-          sidebarCollapsible: true,
+          sidebarPath: require.resolve('./sidebars.js'),
           breadcrumbs: true,
-          routeBasePath: "/",
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          // editUrl:
-          //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: false,
         theme: {
@@ -100,10 +107,7 @@ const config = {
     ],
   ],
   plugins: [
-    // defineSection('learn'),
-    // defineSection('develop'),
-    // defineSection('user-guides'),
-    // defineSection('explorers'),
+    ...SECTIONS,
     async function tailwindPlugin() {
       return {
         name: 'docusaurus-tailwindcss',
