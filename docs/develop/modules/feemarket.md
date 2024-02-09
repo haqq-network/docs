@@ -16,7 +16,7 @@ the `minimal-gas-prices` allowing to implement a global fee mechanism which vary
 
 For more reference to EIP1559:
 
-<https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md>
+[https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md)
 
 ## Contents
 
@@ -262,14 +262,14 @@ The `x/feemarket` module emits the following events:
 
 | Type       | Attribute Key | Attribute Value |
 |------------|---------------|-----------------|
-| fee_market | base_fee      | {baseGasPrices} |
+| fee_market | base_fee      | `baseGasPrices` |
 
 ### EndBlocker
 
 | Type      | Attribute Key | Attribute Value |
 |-----------|---------------|-----------------|
-| block_gas | height        | {blockHeight}   |
-| block_gas | amount        | {blockGasUsed}  |
+| block_gas | height        | `blockHeight`   |
+| block_gas | amount        | `blockGasUsed`  |
 
 ## Parameters
 

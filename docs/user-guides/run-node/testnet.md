@@ -27,7 +27,7 @@ https://github.com/haqq-network/haqq/releases/tag/v1.7.0
 **Preresquisites for compile from source**
 
 - `make` & `gcc`
-- `Go 1.19+`
+- `Go 1.20+`
 
 Easy Go compiler installation:
 ```sh

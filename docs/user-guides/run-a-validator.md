@@ -23,11 +23,9 @@ haqqd tendermint show-validator
 ```
 
 :::danger
-
 🚨 **DANGER**: <u>Never</u> create your mainnet validator keys using a `test` keying backend. Doing so might result in a loss of funds by making your funds remotely accessible via the `eth_sendTransaction` JSON-RPC endpoint.
 
 Ref: [Security Advisory: Insecurely configured geth can make funds remotely accessible](https://blog.ethereum.org/2015/08/29/security-alert-insecurely-configured-geth-can-make-funds-remotely-accessible/)
-
 :::
 
 ### To create your validator on **Testnet**
@@ -77,7 +75,7 @@ When specifying commission parameters, the `commission-max-change-rate` is used 
 
 You can edit your validator's public description. This info is to identify your validator, and will be relied on by delegators to decide which validators to stake to. Make sure to provide input for every flag below. If a flag is not included in the command the field will default to empty (`--moniker` defaults to the machine name) if the field has never been set or remain the same if it has been set in the past.
 
-The <key_name> specifies which validator you are editing. If you choose to not include certain flags, remember that the --from flag must be included to identify the validator to update.
+The `<key_name>` specifies which validator you are editing. If you choose to not include certain flags, remember that the --from flag must be included to identify the validator to update.
 
 The `--identity` can be used as to verify identity with systems like Keybase or UPort. When using with Keybase `--identity` should be populated with a 16-digit string that is generated with a [keybase.io](https://keybase.io) account. It's a cryptographically secure method of verifying your identity across multiple online networks. The Keybase API allows us to retrieve your Keybase avatar. This is how you can add a logo to your validator profile.
 
@@ -94,12 +92,14 @@ haqqd tx staking edit-validator
   --commission-rate="0.10"
 ```
 
-**Note**: The `commission-rate` value must adhere to the following invariants:
+:::note
+The `commission-rate` value must adhere to the following invariants:
 
 - Must be between 0 and the validator's `commission-max-rate`
 - Must not exceed the validator's `commission-max-change-rate` which is maximum
   % point change rate **per day**. In other words, a validator can only change
   its commission once per day and within `commission-max-change-rate` bounds.
+:::
 
 ## View Validator Description
 
@@ -138,7 +138,7 @@ haqqd query tendermint-validator-set | grep "$(haqqd tendermint show-address)"
 
 You should now see your validator in one of Haqq explorers. You are looking for the `bech32` encoded `address` in the `~/.haqqd/config/priv_validator.json` file.
 
-:::warning Note
+:::warning
 To be in the validator set, you need to have more total voting power than the 100th validator.
 :::
 

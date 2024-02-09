@@ -19,7 +19,7 @@ The examples also do not include the URL/IP & port combination which must be the
 | [`web3_clientVersion`](#web3_clientversion)                                       | Web3      | ✔           | ✔      |                    |
 | [`web3_sha3`](#web3_sha3)                                                         | Web3      | ✔           | ✔      |                    |
 | [`net_version`](#net_version)                                                     | Net       | ✔           | ✔      |                    |
-| [`net_peerCount`](#net_peerCount)                                                 | Net       | ✔           | ✔      |                    |
+| [`net_peerCount`](#net_peercount)                                                 | Net       | ✔           | ✔      |                    |
 | [`net_listening`](#net_listening)                                                 | Net       | ✔           | ✔      |                    |
 | [`eth_protocolVersion`](#eth_protocolversion)                                     | Eth       | ✔           | ✔      |                    |
 | [`eth_syncing`](#eth_syncing)                                                     | Eth       | ✔           | ✔      |                    |
@@ -65,7 +65,7 @@ The examples also do not include the URL/IP & port combination which must be the
 | `eth_getUncleCountByBlockNumber`                                                  | Eth       | N/A         |        | PoW-only           |
 | `eth_getUncleByBlockHashAndIndex`                                                 | Eth       | N/A         |        | PoW-only           |
 | `eth_getUncleByBlockNumberAndIndex`                                               | Eth       | N/A         |        | PoW-only           |
-| [`eth_getProof`](#eth_getProof)                                                   | Eth       | ✔           |        |                    |
+| [`eth_getProof`](#eth_getproof)                                                   | Eth       | ✔           |        |                    |
 | [`eth_subscribe`](#eth_subscribe)                                                 | Websocket | ✔           |        |                    |
 | [`eth_unsubscribe`](#eth_unsubscribe)                                             | Websocket | ✔           |        |                    |
 | [`personal_importRawKey`](#personal_importrawkey)                                 | Personal  | ✔           | ❌      |                    |
@@ -127,9 +127,7 @@ The examples also do not include the URL/IP & port combination which must be the
 | `debug_startGoTrace`                                                              | Debug     | ✔           |        |                    |
 | `debug_stopCPUProfile`                                                            | Debug     | ✔           |        |                    |
 | `debug_stopGoTrace`                                                               | Debug     | ✔           |        |                    |
-| [`debug_traceBlock`](#debug_traceblock)                                           | Debug     | ✔           |        |                    |
 | [`debug_traceBlockByNumber`](#debug_traceblockbynumber)                           | Debug     | ✔           |        |                    |
-| [`debug_traceBlockByHash`](#debug_traceblockbyhash)                               | Debug     | ✔           |        |                    |
 | `debug_traceBlockFromFile`                                                        | Debug     |             |        |                    |
 | `debug_standardTraceBlockToFile`                                                  | Debug     |             |        |                    |
 | `debug_standardTraceBadBlockToFile`                                               | Debug     |             |        |                    |
@@ -176,7 +174,7 @@ Get the web3 client version.
 #### Result
 
 ```json
- {"jsonrpc":"2.0","id":1,"result":"Haqq/1.7.0+/linux/go1.19"}
+ {"jsonrpc":"2.0","id":1,"result":"Haqq/1.7.0+/linux/go1.20"}
 ```
 
 #### Client Examples
@@ -489,7 +487,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{
 ### `eth_sendRawTransaction`
 
 Creates new message call transaction or a contract creation for signed transactions.
-You can get signed transaction data using the [`personal_sign`](#personal-sign) method.
+You can get signed transaction data using the [`personal_sign`](#personal_sign) method.
 
 #### Parameters
 
@@ -1023,13 +1021,13 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"personal_sign","params":["0xdead
 **Private**: Requires authentication.
 :::
 
-`ecRecover` returns the address associated with the private key that was used to calculate the signature in [`personal_sign`](#personal-sign).
+`ecRecover` returns the address associated with the private key that was used to calculate the signature in [`personal_sign`](#personal_sign).
 
 #### Parameters
 
 - Message
 
-- Signature returned from [`personal_sign`](#personal-sign)
+- Signature returned from [`personal_sign`](#personal_sign)
 
 ```json
 // Request

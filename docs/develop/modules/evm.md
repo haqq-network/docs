@@ -203,7 +203,7 @@ It uses JSON (RFC 4627) as a data format.
 
 ##### JSON-RPC Example: `eth_call`
 
-The JSON-RPC method [`eth_call`](../../develop/api/ethereum-json-rpc/methods#eth-call) allows you to execute messages
+The JSON-RPC method [`eth_call`](../../develop/api/ethereum-json-rpc/methods#eth_call) allows you to execute messages
 against contracts.
 Usually, you need to send a transaction to a Geth node to include it in the mempool, then nodes gossip between 
 each other and eventually the transaction is included in a block and gets executed.
@@ -1211,7 +1211,7 @@ For example, on Ethereum, the `evm_denom` would be `ETH`. In the case of HAQQ, t
 In terms of precision, `ISLM` and `ETH` share the same value,
 *i.e.* `1 ISLM = 10^18 atto ISLM` and `1 ETH = 10^18 wei`.
 
-:::NOTE
+:::note
 SDK applications that want to import the EVM module as a dependency will need to set their own `evm_denom` (i.e not `"aISLM"`).
 :::
 
