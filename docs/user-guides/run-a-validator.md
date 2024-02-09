@@ -23,11 +23,9 @@ haqqd tendermint show-validator
 ```
 
 :::danger
-
 🚨 **DANGER**: <u>Never</u> create your mainnet validator keys using a `test` keying backend. Doing so might result in a loss of funds by making your funds remotely accessible via the `eth_sendTransaction` JSON-RPC endpoint.
 
 Ref: [Security Advisory: Insecurely configured geth can make funds remotely accessible](https://blog.ethereum.org/2015/08/29/security-alert-insecurely-configured-geth-can-make-funds-remotely-accessible/)
-
 :::
 
 ### To create your validator on **Testnet**
@@ -94,12 +92,14 @@ haqqd tx staking edit-validator
   --commission-rate="0.10"
 ```
 
-**Note**: The `commission-rate` value must adhere to the following invariants:
+:::note
+The `commission-rate` value must adhere to the following invariants:
 
 - Must be between 0 and the validator's `commission-max-rate`
 - Must not exceed the validator's `commission-max-change-rate` which is maximum
   % point change rate **per day**. In other words, a validator can only change
   its commission once per day and within `commission-max-change-rate` bounds.
+:::
 
 ## View Validator Description
 
@@ -138,7 +138,7 @@ haqqd query tendermint-validator-set | grep "$(haqqd tendermint show-address)"
 
 You should now see your validator in one of Haqq explorers. You are looking for the `bech32` encoded `address` in the `~/.haqqd/config/priv_validator.json` file.
 
-:::warning Note
+:::warning
 To be in the validator set, you need to have more total voting power than the 100th validator.
 :::
 
