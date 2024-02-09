@@ -19,7 +19,7 @@ The examples also do not include the URL/IP & port combination which must be the
 | [`web3_clientVersion`](#web3_clientversion)                                       | Web3      | ✔           | ✔      |                    |
 | [`web3_sha3`](#web3_sha3)                                                         | Web3      | ✔           | ✔      |                    |
 | [`net_version`](#net_version)                                                     | Net       | ✔           | ✔      |                    |
-| [`net_peerCount`](#net_peerCount)                                                 | Net       | ✔           | ✔      |                    |
+| [`net_peerCount`](#net_peercount)                                                 | Net       | ✔           | ✔      |                    |
 | [`net_listening`](#net_listening)                                                 | Net       | ✔           | ✔      |                    |
 | [`eth_protocolVersion`](#eth_protocolversion)                                     | Eth       | ✔           | ✔      |                    |
 | [`eth_syncing`](#eth_syncing)                                                     | Eth       | ✔           | ✔      |                    |
@@ -65,7 +65,7 @@ The examples also do not include the URL/IP & port combination which must be the
 | `eth_getUncleCountByBlockNumber`                                                  | Eth       | N/A         |        | PoW-only           |
 | `eth_getUncleByBlockHashAndIndex`                                                 | Eth       | N/A         |        | PoW-only           |
 | `eth_getUncleByBlockNumberAndIndex`                                               | Eth       | N/A         |        | PoW-only           |
-| [`eth_getProof`](#eth_getProof)                                                   | Eth       | ✔           |        |                    |
+| [`eth_getProof`](#eth_getproof)                                                   | Eth       | ✔           |        |                    |
 | [`eth_subscribe`](#eth_subscribe)                                                 | Websocket | ✔           |        |                    |
 | [`eth_unsubscribe`](#eth_unsubscribe)                                             | Websocket | ✔           |        |                    |
 | [`personal_importRawKey`](#personal_importrawkey)                                 | Personal  | ✔           | ❌      |                    |
