@@ -1,7 +1,12 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const { themes } = require('prism-react-renderer');
+// const { themes } = require('prism-react-renderer');
+// // const lightCodeTheme = require('prism-react-renderer/themes/github');
+// // const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
+
+const lightCodeTheme = require("prism-react-renderer").themes.github;
+const darkCodeTheme = require("prism-react-renderer").themes.vsDark;
 
 function defineSection(section, options = {}) {
   return [
@@ -13,7 +18,7 @@ function defineSection(section, options = {}) {
       id: section,
       sidebarPath: require.resolve('./sidebars.ts'),
       breadcrumbs: true,
-      editUrl: 'https://github.com/haqq-network/docs/tree/main/',
+      editUrl: 'https://github.com/haqq-network/docs/tree/master/',
       ...options,
     }),
   ];
@@ -29,7 +34,7 @@ const config = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  trailingSlash: false,
+  // trailingSlash: false,
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
@@ -74,7 +79,19 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         // NOTE: Docs enabled separate in plugins section
-        docs: false,
+        docs: {
+          // path: 'docs',
+          // routeBasePath: '/',
+          // sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve("./sidebars.ts"),
+          sidebarCollapsible: true,
+          breadcrumbs: true,
+          routeBasePath: "/",
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          // editUrl:
+          //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+        },
         blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -83,10 +100,10 @@ const config = {
     ],
   ],
   plugins: [
-    defineSection('learn'),
-    defineSection('develop'),
-    defineSection('user-guides'),
-    defineSection('explorers'),
+    // defineSection('learn'),
+    // defineSection('develop'),
+    // defineSection('user-guides'),
+    // defineSection('explorers'),
     async function tailwindPlugin() {
       return {
         name: 'docusaurus-tailwindcss',
@@ -195,8 +212,8 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} HAQQ Network`,
       },
       prism: {
-        theme: themes.vsLight,
-        darkTheme: themes.vsDark,
+        theme: lightCodeTheme,
+        darkTheme: darkCodeTheme,
         additionalLanguages: [
           'powershell',
           'shell-session',
@@ -213,7 +230,7 @@ const config = {
         apiKey: '12309afa621f617e25de57d1503d5ff3',
         indexName: 'my_first_index',
         contextualSearch: true,
-        searchPagePath: 'search',
+        searchParameters: {},
       },
     }),
 };
