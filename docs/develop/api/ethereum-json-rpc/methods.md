@@ -127,9 +127,7 @@ The examples also do not include the URL/IP & port combination which must be the
 | `debug_startGoTrace`                                                              | Debug     | ✔           |        |                    |
 | `debug_stopCPUProfile`                                                            | Debug     | ✔           |        |                    |
 | `debug_stopGoTrace`                                                               | Debug     | ✔           |        |                    |
-| [`debug_traceBlock`](#debug_traceblock)                                           | Debug     | ✔           |        |                    |
 | [`debug_traceBlockByNumber`](#debug_traceblockbynumber)                           | Debug     | ✔           |        |                    |
-| [`debug_traceBlockByHash`](#debug_traceblockbyhash)                               | Debug     | ✔           |        |                    |
 | `debug_traceBlockFromFile`                                                        | Debug     |             |        |                    |
 | `debug_standardTraceBlockToFile`                                                  | Debug     |             |        |                    |
 | `debug_standardTraceBadBlockToFile`                                               | Debug     |             |        |                    |
@@ -489,7 +487,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{
 ### `eth_sendRawTransaction`
 
 Creates new message call transaction or a contract creation for signed transactions.
-You can get signed transaction data using the [`personal_sign`](#personal-sign) method.
+You can get signed transaction data using the [`personal_sign`](#personal_sign) method.
 
 #### Parameters
 
@@ -1023,13 +1021,13 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"personal_sign","params":["0xdead
 **Private**: Requires authentication.
 :::
 
-`ecRecover` returns the address associated with the private key that was used to calculate the signature in [`personal_sign`](#personal-sign).
+`ecRecover` returns the address associated with the private key that was used to calculate the signature in [`personal_sign`](#personal_sign).
 
 #### Parameters
 
 - Message
 
-- Signature returned from [`personal_sign`](#personal-sign)
+- Signature returned from [`personal_sign`](#personal_sign)
 
 ```json
 // Request

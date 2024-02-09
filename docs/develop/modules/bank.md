@@ -26,16 +26,6 @@ to instantaneously convert users' native Cosmos `sdk.Coins` (in this document re
 to ERC-20 (aka "Token(s)") during the transfers. That allows users' to see the same information about
 balances and make transfers without additional conversions using the preferred wallet apps (e.g. Keplr, MetaMask, etc).
 
-## Contents
-
-1. **[Concept](#concept)**
-2. **[Improvements](#improvements)**
-3. **[ABCI](#abci)**
-4. **[Events](#events)**
-5. **[Keeper](#keeper)**
-6. **[Parameters](#parameters)**
-7. **[Client](#client)**
-
 ## Module Architecture
 
 :::note

@@ -3423,6 +3423,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@docusaurus/tsconfig@npm:3.1.1":
+  version: 3.1.1
+  resolution: "@docusaurus/tsconfig@npm:3.1.1"
+  checksum: 042a03d5a282b314d3e923d3534b77dc5780e1fb3302a70a929e7e97677d2346e7e9f94452dd68f8d872eef1f02b640a686da43800e3cf0d66ee831acfad91ac
+  languageName: node
+  linkType: hard
+
 "@docusaurus/types@npm:3.1.1":
   version: 3.1.1
   resolution: "@docusaurus/types@npm:3.1.1"
@@ -4019,13 +4026,6 @@ __metadata:
   version: 0.2.0
   resolution: "@trysound/sax@npm:0.2.0"
   checksum: 11226c39b52b391719a2a92e10183e4260d9651f86edced166da1d95f39a0a1eaa470e44d14ac685ccd6d3df7e2002433782872c0feeb260d61e80f21250e65c
-  languageName: node
-  linkType: hard
-
-"@tsconfig/docusaurus@npm:2.0.2":
-  version: 2.0.2
-  resolution: "@tsconfig/docusaurus@npm:2.0.2"
-  checksum: 129f2532172496c108f53a15082e410b418e664c1761902664558059541a6cf7faff2b3d2953e2d507a7e3688afacf2479e17adcb35b89cae04ddb0415d0397a
   languageName: node
   linkType: hard
 
@@ -7527,10 +7527,10 @@ __metadata:
     "@docusaurus/core": 3.1.1
     "@docusaurus/module-type-aliases": 3.1.1
     "@docusaurus/preset-classic": 3.1.1
+    "@docusaurus/tsconfig": 3.1.1
     "@docusaurus/types": 3.1.1
     "@mdx-js/react": 3.0.0
     "@tailwindcss/typography": 0.5.10
-    "@tsconfig/docusaurus": 2.0.2
     "@types/prettier": 3.0.0
     autoprefixer: 10.4.17
     browserslist: 4.22.3
