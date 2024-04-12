@@ -20,7 +20,7 @@ Vesting DApp allows users to manage vesting and view their wallet details, inclu
 
 If you have ongoing vesting schedules, the site displays the full vesting timeline, details about the next release period, and how many periods remain.
 
-## liquid vesting functionality 
+## Liquid vesting functionality 
 
 ![liquidity.png](/img/liquidity.png)
 

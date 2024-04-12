@@ -15,6 +15,7 @@ Here is a list of all production-grade modules that can be used on the HAQQ Netw
 - [feemarket](modules/feemarket) - Fee market implementation based on the EIP1559 specification.
 - [ibc](modules/ibc) - Cross-chain token transfer functionalities extended to natively support ERC-20 tokens.
 - [vesting](modules/vesting) - Vesting accounts with lockup and clawback capabilities.
+- [liquidvesting](modules/liquidvesting) - Liquidate and redeem vesting tokens with the preservation of the vesting schedule.
 
 ## Cosmos SDK
 
