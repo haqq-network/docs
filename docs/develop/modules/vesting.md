@@ -22,7 +22,7 @@ transactions from the account. Both vesting and lockup are defined in schedules 
 At any time, the funder of a `ClawbackVestingAccount` can perform a clawback to retrieve unvested tokens.
 The circumstances under which a clawback should be performed can be agreed upon in a contract (e.g. smart contract).
 
-For HAQQ, the `ClawbackVestingAccount` is used to allocate tokens to core team members and advisors to incentivize 
+For HAQQ, the `ClawbackVestingAccount` is used to allocate tokens to users via airdrops, core team members and advisors to incentivize 
 long-term participation in the project.
 
 ## Contents
