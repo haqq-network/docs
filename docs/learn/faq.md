@@ -38,3 +38,17 @@ are sending tokens (via IBC), you will use bech32 formatted addresses unless
 the receiving chain support EVM (i.e. Ethermint-based chains).
 
 </details>
+
+
+## EVM compatibility.
+
+
+<details>
+
+<summary><b>Is HAQQ compatible with EVM?</b></summary>
+
+HAQQ Network is fully compatible with the EVM version of Paris. (Solidity 8.19).
+
+Unfortunately, now we do not support the functionality of the account is abstract. (EIP-4337).
+
+</details>
