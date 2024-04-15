@@ -19,25 +19,40 @@ title: Open IBC Channels
 
 ## Mainnet - FULL PATH
 
-| Network  | FULL PATH |
-| --- | -------- |
-|  GRAVITY | HAQQ 07-tendermint-0 - > connection-0 - > channel-0 < - > channel-100 < - connection-163 < - GRAVITY 07-tendermint-192 |
-|  AXELAR | HAQQ 07-tendermint-1 - > connection-1 - > channel-1 < - > channel-113 < - connection-148 < - AXELAR 07-tendermint-162 |
-|  OSMOSIS |HAQQ 07-tendermint-3 - > connection-2 - > channel-2 < - > channel-1575 < - connection-2388 < - OSMOSIS 07-tendermint-2871 |
-|  COSMOSHUB | HAQQ 07-tendermint-2 - > connection-3 - > channel-3 < - > channel-632 < - connection-874 < - COSMOSHUB 07-tendermint-1153 |
-|  NOBLE | HAQQ 07-tendermint-4 - > connection-4 - > channel-4 < - > channel-32 < - connection-56 < - NOBLE 07-tendermint-58 |
-| KAVA | HAQQ 07-tendermint-5 - > connection-7 - > channel-6 < - > channel-135 < - connection-193 < - KAVA 07-tendermint-149 |
+| From Network | To Network  | FULL PATH |
+| --- | --- | -------- |
+|  HAQQ | GRAVITY | 07-tendermint-0 - > connection-0 - > channel-0 |
+|  GRAVITY | HAQQ | 07-tendermint-192  - > connection-163 - > channel-100 |
+|  |  |  |
+| HAQQ | AXELAR |  07-tendermint-1 - > connection-1 - > channel-1 |
+|  AXELAR | HAQQ |  07-tendermint-162  - > connection-148  - > channel-113  |
+|  |  |  |
+| HAQQ |  OSMOSIS | 07-tendermint-3 - > connection-2 - > channel-2 
+| OSMOSIS | HAQQ | 07-tendermint-2871 - > connection-2388 - > channel-1575 |
+|  |  |  |
+|  HAQQ | COSMOSHUB |  07-tendermint-2 - > connection-3 - > channel-3  |
+|  COSMOSHUB | HAQQ |  07-tendermint-1153 - > connection-874 - > channel-632 |
+|  |  |  |
+| HAQQ  |  NOBLE | 07-tendermint-4 - > connection-4 - > channel-4  |
+|  NOBLE | HAQQ | 07-tendermint-58 - > connection-56 - > channel-32  | 
+|  |  |  |
+| HAQQ  |  KAVA | 07-tendermint-5 - > connection-7 - > channel-6 | 
+| KAVA | HAQQ | 07-tendermint-149 - > connection-193 - > channel-135 |
 
 ## TestEdge2 - short form
 
 | Network  | Channel from HAQQ | Network | Channel to HAQQ|
 | --- | -------- | -------- | -------- |
-| HAQQ TestEdge2     | channel-3     | AXELAR TESTNET LISBON     | channel-230    |
+| HAQQ TestEdge2 | channel-4 | AXELAR TESTNET LISBON     | channel-304    |
+| HAQQ TestEdge2 | channel-0 | GRAVITY     | channel-94    |
 
 
 ## TestEdge2 - FULL PATH
 
-
-| Network  | FULL PATH |
-| --- | -------- |
-|  GRAVITY | HAQQ TestEdge2  07-tendermint-12 - > connection-11 - > channel-3 < - > channel-230 < - connection-334 < - AXELAR TESTNET LISBON 07-tendermint-253 |
+| From Network | To Network  | FULL PATH |
+| ------------ | ----------- | --------- |
+| HAQQ TestEdge2 | GRAVITY |   07-tendermint-1 - >   connection-0 - > channel-0  | 
+| GRAVITY | HAQQ TestEdge2 | 07-tendermint-181 - > connection-156 - > channel-94 |
+|  |  |  |
+| HAQQ TestEdge2 | AXELAR TESTNET LISBON |  07-tendermint-13 - >  connection-13 - > channel-4   |
+| AXELAR TESTNET LISBON | HAQQ TestEdge2 | 07-tendermint-602 - > connection-602 - > channel-304 |
