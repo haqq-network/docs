@@ -42,13 +42,39 @@ the receiving chain support EVM (i.e. Ethermint-based chains).
 
 ## EVM compatibility.
 
+<details>
+
+<summary><b>Is HAQQ compatible with EVM?</b></summary>
+
+HAQQ Network is fully compatible with the EVM version Paris. (Solidity 8.19).
+
+Unfortunately, now we do not support the functionality of the account is abstract. (EIP-4337).
+
+</details>
 
 <details>
 
 <summary><b>Is HAQQ compatible with EVM?</b></summary>
 
-HAQQ Network is fully compatible with the EVM version of Paris. (Solidity 8.19).
+HAQQ Network is fully compatible with the EVM version Paris. (Solidity 8.19).
 
 Unfortunately, now we do not support the functionality of the account is abstract. (EIP-4337).
+
+</details>
+
+<details>
+
+<summary><b>Is HAQQ compatible with EVM?</b></summary>
+
+HAQQ Network is fully compatible with the EVM version Paris. (Solidity 8.19).
+
+Unfortunately, now we do not support the functionality of the account is abstract. (EIP-4337).
+
+</details>
+
+<details>
+<summary><b>Can i deploy the contract written in solidity directly in the chain？</b></summary>
+
+**Yes, you can** - HAQQ Network is fully compatible with the EVM version Paris. (Solidity 8.19).
 
 </details>
