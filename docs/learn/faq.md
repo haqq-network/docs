@@ -43,38 +43,33 @@ the receiving chain support EVM (i.e. Ethermint-based chains).
 ## EVM compatibility.
 
 <details>
-
 <summary><b>Is HAQQ compatible with EVM?</b></summary>
 
 HAQQ Network is fully compatible with the EVM version Paris. (Solidity 8.19).
 
 Unfortunately, now we do not support the functionality of the account is abstract. (EIP-4337).
-
-</details>
-
-<details>
-
-<summary><b>Is HAQQ compatible with EVM?</b></summary>
-
-HAQQ Network is fully compatible with the EVM version Paris. (Solidity 8.19).
-
-Unfortunately, now we do not support the functionality of the account is abstract. (EIP-4337).
-
-</details>
-
-<details>
-
-<summary><b>Is HAQQ compatible with EVM?</b></summary>
-
-HAQQ Network is fully compatible with the EVM version Paris. (Solidity 8.19).
-
-Unfortunately, now we do not support the functionality of the account is abstract. (EIP-4337).
-
 </details>
 
 <details>
 <summary><b>Can i deploy the contract written in solidity directly in the chain？</b></summary>
 
 **Yes, you can** - HAQQ Network is fully compatible with the EVM version Paris. (Solidity 8.19).
+</details>
 
+<details>
+<summary><b>What is the block size?</b></summary>
+
+Each block on HAQQ Network has a maxium block size is **40.000.000 GAS**
+</details>
+
+<details>
+<summary><b>What is the block time?</b></summary>
+
+On HAQQ Network the block time is within **5.6 - 6.2 seconds.**
+</details>
+
+<details>
+<summary><b>What is Time to Finality (TTF)?</b></summary>
+
+HAQQ has instant Time to Finality (TTF)  ** -6 sec, 1 block.** Because as a consensus mechanism HAQQ is CometBFT (formerly Tendermint).
 </details>
