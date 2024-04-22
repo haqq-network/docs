@@ -45,7 +45,7 @@ export default function HomepageFeatures() {
             </div>
             <div className="flex-1 w-full">
               <Link
-                to="/user-guides/run-a-validator"
+                to="/network/run-a-validator"
                 className={
                   'hover:no-underline transition-colors duration-250 ease-out !text-white'
                 }
@@ -71,13 +71,25 @@ export default function HomepageFeatures() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-[20px] md:gap-[40px]">
             <div>
               <Link
+                to={`/learn`}
+                className="hover:no-underline hover:text-inherit"
+              >
+                <SmallCard
+                  title="Learn"
+                  description="Learn on the Haqq Network."
+                  icon={<IntroducionIcon />}
+                />
+              </Link>
+            </div>
+            <div>
+              <Link
                 to={`/learn/ecosystem`}
                 className="hover:no-underline hover:text-inherit"
               >
                 <SmallCard
                   title="Ecosystem"
                   description="Explore our thriving ecosystem. From partners to projects, learn about how various components interact within the Haqq Network."
-                  icon={<IntroducionIcon />}
+                  icon={<IntroducionIcon/>}
                 />
               </Link>
             </div>
@@ -95,14 +107,25 @@ export default function HomepageFeatures() {
             </div>
             <div>
               <Link
-                to={`/explorers`}
+                to={`/network`}
                 className="hover:no-underline hover:text-inherit"
               >
                 <SmallCard
-                  title="Explorers"
-                  description="Discover the available blockchain explorers for monitoring and verifying transactions on the Haqq Network."
-                  className="max-[640px]:border-b-0"
-                  icon={<CoreConceptsIcon />}
+                  title="Network"
+                  description="Answers to questions - How HAQQ Network is organized? blockchain modules? how to run your node or validator?"
+                  icon={<CoreConceptsIcon/>}
+                />
+              </Link>
+            </div>
+            <div>
+              <Link
+                to={`/user-guides`}
+                className="hover:no-underline hover:text-inherit"
+              >
+                <SmallCard
+                  title="User Guides"
+                  description="How to on HAQQ Network"
+                  icon={<BasicsIcon/>}
                 />
               </Link>
             </div>
