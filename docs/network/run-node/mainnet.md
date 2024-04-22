@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## Overview
 
-The current HAQQ version of mainnet is [`v1.7.0`](https://github.com/haqq-network/haqq/releases/tag/v1.7.0).
+The current HAQQ version of mainnet is [`v1.7.3`](https://github.com/haqq-network/haqq/releases/tag/v1.7.3).
 
 Sources of all scripts are here [`github`](https://github.com/haqq-network/mainnet)
 
