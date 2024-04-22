@@ -20,6 +20,8 @@ Below is a table of modules, their respective wallet addresses and permissions:
 | `bonded_tokens_pool`     | [haqq1fl48vsnmsdzcv85q5d2q4z5ajdha8yu3huuu8p](https://ping.pub/haqq/account/haqq1fl48vsnmsdzcv85q5d2q4z5ajdha8yu3huuu8p) | `burner` `staking` |
 | `not_bonded_tokens_pool` | [haqq1tygms3xhhs3yv487phx3dw4a95jn7t7lruqd34](https://ping.pub/haqq/account/haqq1tygms3xhhs3yv487phx3dw4a95jn7t7lruqd34) | `burner` `staking` |
 | `transfer`               | [haqq1yl6hdjhmkf37639730gffanpzndzdpmhvcr6f4](https://ping.pub/haqq/account/haqq1yl6hdjhmkf37639730gffanpzndzdpmhvcr6f4) | `minter` `burner`  |
+| `liquidvesting`          | [haqq102lq49sg6lmw2e0mw740tjldzq68v0yfylw05s](https://ping.pub/haqq/account/haqq102lq49sg6lmw2e0mw740tjldzq68v0yfylw05s) | `minter` `burner`  |
+
 
 ## Account Permissions
 

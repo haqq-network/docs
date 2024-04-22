@@ -24,16 +24,11 @@ function defineSection(section, options = {}) {
   ];
 }
 
-    // defineSection('learn'),
-    // defineSection('develop'),
-    // defineSection('user-guides'),
-    // defineSection('explorers'),
-
 const SECTIONS = [
   defineSection('learn'),
   defineSection('develop'),
   defineSection('user-guides'),
-  defineSection('explorers'),
+  defineSection('network'),
 ];
 
 
@@ -71,15 +66,15 @@ const config = {
       rpc_url_local: 'http://localhost:8545/',
       chain_id: '11235',
       testnet_chain_id: '54211',
-      latest_version: 'v1.7.0',
-      mainnet_version: 'v1.6.4',
-      testnet_version: 'v1.6.4',
       // version_number: '2',
       // testnet_version_number: '4',
       // testnet_evm_explorer_url: 'https://evm.evmos.dev',
       // evm_explorer_url: 'https://escan.live',
       // testnet_cosmos_explorer_url: 'https://testnet.mintscan.io/evmos-testnet',
       // cosmos_explorer_url: 'https://www.mintscan.io/evmos',
+      latest_version: 'v1.7.4',
+      mainnet_version: 'v1.7.3',
+      testnet_version: 'v1.7.3',
       block_explorer_url: 'https://explorer.haqq.network',
       eth_name: 'Main Ethereum Network',
       unbonding_period: '21 days',
@@ -139,6 +134,11 @@ const config = {
             label: 'Learn',
           },
           {
+            href: '/network',
+            position: 'left',
+            label: 'Network',
+          },
+          {
             href: '/develop',
             position: 'left',
             label: 'Develop',
@@ -146,12 +146,7 @@ const config = {
           {
             href: '/user-guides',
             position: 'left',
-            label: 'Guides',
-          },
-          {
-            href: '/explorers',
-            position: 'left',
-            label: 'Explorers',
+            label: 'User Guides',
           },
           {
             href: 'https://github.com/haqq-network/haqq',
@@ -171,6 +166,11 @@ const config = {
                 label: 'Learn',
               },
               {
+                href: '/network',
+
+                label: 'Network',
+              },
+              {
                 href: '/develop',
 
                 label: 'Develop',
@@ -180,20 +180,11 @@ const config = {
 
                 label: 'User Guides',
               },
-              {
-                href: '/explorers',
-
-                label: 'Explorers',
-              },
             ],
           },
           {
             title: 'Community',
             items: [
-              // {
-              //   label: 'Stack Overflow',
-              //   href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              // },
               {
                 label: 'HAQQ Network Discord',
                 href: 'https://discord.gg/CDtXuQG3Vd',

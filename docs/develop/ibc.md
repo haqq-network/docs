@@ -5,6 +5,10 @@ title: Open IBC Channels
 
 # Open IBC Channels
 
+The [Inter-Blockchain Communication Protocol (IBC)](https://www.ibcprotocol.dev) is a protocol to handle authentication and transport of data between two blockchains
+
+You can read more about IBC - [here](/network/modules/ibc/)
+
 ## Mainnet - short form
 
 | Network  | Channel from HAQQ | Network | Channel to HAQQ|
