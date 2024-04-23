@@ -123,9 +123,9 @@ If Users A and B transfer/sell 1,000 aLIQUID1 and 1,000 aLIQUID2 to User C, then
 
 The `x/liquidvesting` module keeps the following objects in state:
 
-| State Object | Description           | Key                             | Value           | Store    |
-|--------------|-----------------------|---------------------------------|-----------------| --- |
-| `Denom`      | Liquid token bytecode | `[]byte{1} + []byte(baseDenom)` | `[]byte{denom}` | KV    |
+| State Object | Description           | Key                             | Value           | Store  |
+|--------------|-----------------------|---------------------------------|-----------------| ------ |
+| `Denom`      | Liquid token bytecode | `[]byte{1} + []byte(baseDenom)` | `[]byte{denom}` | KV     |
 
 #### Denom
 
@@ -133,18 +133,18 @@ Denom aka liquid token representation of locked ISLM with unlock schedule
 
 ```go
 type Denom struct {
-// base_denom main identifier for the denom, used to query it from store.
-BaseDenom string `protobuf:"bytes,1,opt,name=base_denom,json=baseDenom,proto3" json:"base_denom,omitempty"`
-// display_denom identifier used for display name for broad audience
-DisplayDenom string `protobuf:"bytes,2,opt,name=display_denom,json=displayDenom,proto3" json:"display_denom,omitempty"`
-// original_denom which liquid denom derived from
-OriginalDenom string `protobuf:"bytes,3,opt,name=original_denom,json=originalDenom,proto3" json:"original_denom,omitempty"`
-// start date
-StartTime time.Time `protobuf:"bytes,4,opt,name=start_time,json=startTime,proto3,stdtime" json:"start_time"`
-// end_date
-EndTime time.Time `protobuf:"bytes,5,opt,name=end_time,json=endTime,proto3,stdtime" json:"end_time"`
-// lockup periods
-LockupPeriods github_com_cosmos_cosmos_sdk_x_auth_vesting_types.Periods `protobuf:"bytes,6,rep,name=lockup_periods,json=lockupPeriods,proto3,castrepeated=github.com/cosmos/cosmos-sdk/x/auth/vesting/types.Periods" json:"lockup_periods"`
+    // base_denom main identifier for the denom, used to query it from store.
+    BaseDenom string `protobuf:"bytes,1,opt,name=base_denom,json=baseDenom,proto3" json:"base_denom,omitempty"`
+    // display_denom identifier used for display name for broad audience
+    DisplayDenom string `protobuf:"bytes,2,opt,name=display_denom,json=displayDenom,proto3" json:"display_denom,omitempty"`
+    // original_denom which liquid denom derived from
+    OriginalDenom string `protobuf:"bytes,3,opt,name=original_denom,json=originalDenom,proto3" json:"original_denom,omitempty"`
+    // start date
+    StartTime time.Time `protobuf:"bytes,4,opt,name=start_time,json=startTime,proto3,stdtime" json:"start_time"`
+    // end_date
+    EndTime time.Time `protobuf:"bytes,5,opt,name=end_time,json=endTime,proto3,stdtime" json:"end_time"`
+    // lockup periods
+    LockupPeriods github_com_cosmos_cosmos_sdk_x_auth_vesting_types.Periods `protobuf:"bytes,6,rep,name=lockup_periods,json=lockupPeriods,proto3,castrepeated=github.com/cosmos/cosmos-sdk/x/auth/vesting/types.Periods" json:"lockup_periods"`
 }
 ```
 
@@ -182,12 +182,12 @@ The `x/liquidvesting` module's `GenesisState` defines the state necessary for in
 ```go
 // GenesisState defines the module's genesis state.
 type GenesisState struct {
-// params defines all the paramaters of the module.
-Params       Params  `protobuf:"bytes,1,opt,name=params,proto3" json:"params"`
-// keeps track of denom ID
-DenomCounter uint64  `protobuf:"varint,2,opt,name=denomCounter,proto3" json:"denomCounter,omitempty"`
-// list of  liquid denoms
-Denoms       []Denom `protobuf:"bytes,3,rep,name=denoms,proto3" json:"denoms"`
+    // params defines all the paramaters of the module.
+    Params       Params  `protobuf:"bytes,1,opt,name=params,proto3" json:"params"`
+    // keeps track of denom ID
+    DenomCounter uint64  `protobuf:"varint,2,opt,name=denomCounter,proto3" json:"denomCounter,omitempty"`
+    // list of  liquid denoms
+    Denoms       []Denom `protobuf:"bytes,3,rep,name=denoms,proto3" json:"denoms"`
 }
 ```
 
@@ -212,12 +212,12 @@ Denoms       []Denom `protobuf:"bytes,3,rep,name=denoms,proto3" json:"denoms"`
 
 1. User submits `MsgRedeem`
 2. Checks if redeem possible
-   - Specified liquid token does exist
-   - Check user's account has sufficient amount of liquid token to redeem
+    - Specified liquid token does exist
+    - Check user's account has sufficient amount of liquid token to redeem
 3. Burn specified liquid token amount
 4. Subtract burnt liquid token amount from liquid token schedule
 5. Transfer ISLM to target account
-6. Apply token unlock schedule to target account. If target account in not vesting account it will be converted to vesting one.
+6. Apply token unlock schedule to target account. If target account is not vesting account it will be converted to vesting one.
 
 ## Transactions
 
@@ -229,12 +229,12 @@ A user broadcasts a `MsgLiquidate` message to liquidate locked ISLM token.
 
 ```go
 type MsgLiquidate struct {
-// account for liquidation of locked vesting tokens
-LiquidateFrom string `protobuf:"bytes,1,opt,name=liquidate_from,json=liquidateFrom,proto3" json:"liquidate_from,omitempty"`
-// account to send resulted liquid token
-LiquidateTo string `protobuf:"bytes,2,opt,name=liquidate_to,json=liquidateTo,proto3" json:"liquidate_to,omitempty"`
-// amount of tokens subject for liquidation
-Amount types.Coin `protobuf:"bytes,3,opt,name=amount,proto3" json:"amount"`
+    // account for liquidation of locked vesting tokens
+    LiquidateFrom string `protobuf:"bytes,1,opt,name=liquidate_from,json=liquidateFrom,proto3" json:"liquidate_from,omitempty"`
+    // account to send resulted liquid token
+    LiquidateTo string `protobuf:"bytes,2,opt,name=liquidate_to,json=liquidateTo,proto3" json:"liquidate_to,omitempty"`
+    // amount of tokens subject for liquidation
+    Amount types.Coin `protobuf:"bytes,3,opt,name=amount,proto3" json:"amount"`
 }
 ```
 
@@ -250,11 +250,11 @@ A user broadcasts a `MsgRedeem` message to redeem liquid token to locked ISLM.
 
 ```go
 type MsgRedeem struct {
-RedeemFrom string `protobuf:"bytes,1,opt,name=redeem_from,json=redeemFrom,proto3" json:"redeem_from,omitempty"`
-// destination address for vesting tokens
-RedeemTo string `protobuf:"bytes,2,opt,name=redeem_to,json=redeemTo,proto3" json:"redeem_to,omitempty"`
-// amount of vesting tokens to redeem from liquidation module
-Amount types.Coin `protobuf:"bytes,3,opt,name=amount,proto3" json:"amount"`
+    RedeemFrom string `protobuf:"bytes,1,opt,name=redeem_from,json=redeemFrom,proto3" json:"redeem_from,omitempty"`
+    // destination address for vesting tokens
+    RedeemTo string `protobuf:"bytes,2,opt,name=redeem_to,json=redeemTo,proto3" json:"redeem_to,omitempty"`
+    // amount of vesting tokens to redeem from liquidation module
+    Amount types.Coin `protobuf:"bytes,3,opt,name=amount,proto3" json:"amount"`
 }
 ```
 
@@ -268,8 +268,8 @@ Message stateless validation fails if:
 
 The `x/liquidvesting` module contains the following parameters:
 
-| Key                        | Type       | Default Value       |
-|----------------------------|------------|---------------------|
+| Key                        | Type        | Default Value       |
+|----------------------------|-------------|---------------------|
 | `MinimumLiquidationAmount` | sdkmath.Int | `1000*10^18`        |
 
 ### Minimum liquidation amount
@@ -291,34 +291,34 @@ haqqd query liquidvesting params
 | Command                 | Subcommand | Description                    |
 |-------------------------|------------|--------------------------------|
 | `query` `liquidvesting` | `denom`    | Get liquid token               |
-| `query` `liquidvesting` | `denoms`        | Get all existing liquid tokens |
+| `query` `liquidvesting` | `denoms`   | Get all existing liquid tokens |
 
 #### Transactions
 
-| Command  | Subcommand  | Description                                       |
-|----------|-------------|---------------------------------------------------|
+| Command              | Subcommand  | Description                                       |
+|----------------------|-------------|---------------------------------------------------|
 | `tx` `liquidvesting` | `liquidate` | Liquidates arbitrary amount of locked ISLM tokens |
-| `tx` `liquidvesting` | `redeem`         | Redeem liquid token to ISLM                       |
+| `tx` `liquidvesting` | `redeem`    | Redeem liquid token to ISLM                       |
 
 ### gRPC
 
 #### Queries
 
-| Verb   | Method                              | Description                   |
-| ------ |-------------------------------------| ----------------------------- |
-| `gRPC` | `haqq.liquidvesting.v1.Query/Denom` | Get liquid token     |
-| `gRPC` | `haqq.liquidvesting.v1.Query/Denoms`            | Get all existing liquid tokens |
-| `GET`  | `/haqq/liquidvesting/v1/denom`      | Get liquid token     |
-| `GET`  | `/haqq/liquidvesting/v1/denom`      | Get all existing liquid tokens |
+| Verb   | Method                               | Description                    |
+| ------ |--------------------------------------| ------------------------------ |
+| `gRPC` | `haqq.liquidvesting.v1.Query/Denom`  | Get liquid token               |
+| `gRPC` | `haqq.liquidvesting.v1.Query/Denoms` | Get all existing liquid tokens |
+| `GET`  | `/haqq/liquidvesting/v1/denom`       | Get liquid token               |
+| `GET`  | `/haqq/liquidvesting/v1/denom`       | Get all existing liquid tokens |
 
 #### Transactions
 
-| Verb   | Method                                | Description                    |
-|--------|---------------------------------------| ------------------------------ |
+| Verb   | Method                                | Description                                       |
+|--------|---------------------------------------| ------------------------------------------------- |
 | `gRPC` | `haqq.liquidvesting.v1.Msg/Liquidate` | Liquidates arbitrary amount of locked ISLM tokens |
-| `gRPC` | `haqq.liquidvesting.v1.Msg/Redeem`     | Redeem liquid token to ISLM |
+| `gRPC` | `haqq.liquidvesting.v1.Msg/Redeem`    | Redeem liquid token to ISLM                       |
 | `POST` | `/haqq/liquidvesting/v1/tx/liquidate` | Liquidates arbitrary amount of locked ISLM tokens |
-| `POST` | `/haqq/liquidvesting/v1/tx/redeem`    | Redeem liquid token to ISLM |
+| `POST` | `/haqq/liquidvesting/v1/tx/redeem`    | Redeem liquid token to ISLM                       |
 
 ## Shedule amount modification 
 
