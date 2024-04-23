@@ -22,7 +22,7 @@ sudo apt-get install curl git make gcc liblz4-tool build-essential jq bzip2 -y
 
 **You can try to find latest compiled binary for your arch**:
 
-https://github.com/haqq-network/haqq/releases/tag/v1.7.0
+https://github.com/haqq-network/haqq/releases/tag/v1.7.3
 
 **Preresquisites for compile from source**
 
@@ -40,7 +40,7 @@ Build from source:
 
 ```sh
 cd $HOME
-git clone -b v1.7.0 https://github.com/haqq-network/haqq
+git clone -b v1.7.3 https://github.com/haqq-network/haqq
 cd haqq
 make install
 ```
@@ -49,7 +49,7 @@ Check binary version:
 
 ```sh
 haqq@haqq-node:~# haqqd -v
-haqqd version "1.7.0" 1cdd044523cffd0a2428b139f611a48a60045a1b
+haqqd version "1.7.3" 1cdd044523cffd0a2428b139f611a48a60045a1b
 ```
 
 **Run pipline**

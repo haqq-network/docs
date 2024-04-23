@@ -49,13 +49,13 @@ bash <(curl -s https://raw.githubusercontent.com/haqq-network/mainnet/master/ins
 **Do the same manually:**
 
 Download latest binary for your arch:
-https://github.com/haqq-network/haqq/releases/tag/v1.7.0
+https://github.com/haqq-network/haqq/releases/tag/v1.7.3
 
 Build from source:
 
 ```sh
 cd $HOME
-git clone -b v1.7.0 https://github.com/haqq-network/haqq
+git clone -b v1.7.3 https://github.com/haqq-network/haqq
 cd haqq
 make install
 ```
@@ -64,7 +64,7 @@ Verify binary version:
 
 ```sh
 haqq@haqq-node:~# haqqd -v
-haqqd version "1.7.0" 1cdd044523cffd0a2428b139f611a48a60045a1b
+haqqd version "1.7.3" 1cdd044523cffd0a2428b139f611a48a60045a1b
 ```
 
 **Initialize and start HAQQ**
