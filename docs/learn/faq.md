@@ -57,6 +57,13 @@ Unfortunately, now we do not support the functionality of the account is abstrac
 </details>
 
 <details>
+<summary><b>What is the HD Path on the HAQQ network？</b></summary>
+HAQQ HD path is **m/44'/60'/0'/0.** HAQQ Netowrk use Coin type 60 to support Ethereum type accounts. 
+</details>
+
+## Network details.
+
+<details>
 <summary><b>What is the block size?</b></summary>
 
 Each block on HAQQ Network has a maxium block size is **40.000.000 GAS**
