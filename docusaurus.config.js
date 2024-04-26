@@ -233,7 +233,7 @@ const config = {
       algolia: {
         appId: 'T5OEVED57K',
         apiKey: '33a0821aee656a275399c5151aa06a9e',
-        indexName: 'my_first_index',
+        indexName: 'docusaurus',
         contextualSearch: true,
         searchParameters: {},
       },
