@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## Overview
 
-The current HAQQ version of mainnet is [`v1.7.3`](https://github.com/haqq-network/haqq/releases/tag/v1.7.3).
+The current HAQQ version of mainnet is [`v1.7.4`](https://github.com/haqq-network/haqq/releases/tag/v1.7.4).
 
 Sources of all scripts are here [`github`](https://github.com/haqq-network/mainnet)
 
@@ -36,7 +36,7 @@ sudo apt-get install curl git make gcc liblz4-tool build-essential jq -y
 **Preresquisites for compile from source**
 
 - `make` & `gcc`
-- `Go 1.20+`
+- `Go 1.21+`
 
 **Easy GO compiler and HAQQ node installation**
 
@@ -49,13 +49,13 @@ bash <(curl -s https://raw.githubusercontent.com/haqq-network/mainnet/master/ins
 **Do the same manually:**
 
 Download latest binary for your arch:
-https://github.com/haqq-network/haqq/releases/tag/v1.7.3
+https://github.com/haqq-network/haqq/releases/tag/v1.7.4
 
 Build from source:
 
 ```sh
 cd $HOME
-git clone -b v1.7.3 https://github.com/haqq-network/haqq
+git clone -b v1.7.4 https://github.com/haqq-network/haqq
 cd haqq
 make install
 ```
@@ -64,7 +64,7 @@ Verify binary version:
 
 ```sh
 haqq@haqq-node:~# haqqd -v
-haqqd version "1.7.3" 1cdd044523cffd0a2428b139f611a48a60045a1b
+haqqd version "1.7.4" b531ad3a9d86df47f28e5e6da133cea5c66a8d03
 ```
 
 **Initialize and start HAQQ**
