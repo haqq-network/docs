@@ -7536,6 +7536,7 @@ __metadata:
     browserslist: 4.22.3
     clsx: 2.1.0
     postcss: 8.4.35
+    posthog-docusaurus: 2.0.0
     prettier: 3.2.5
     prism-react-renderer: 2.3.1
     react: 18.2.0
@@ -11068,6 +11069,13 @@ __metadata:
     picocolors: ^1.0.0
     source-map-js: ^1.0.2
   checksum: 6f98b2af4b76632a3de20c4f47bf0e984a1ce1a531cf11adcb0b1d63a6cbda0aae4165e578b66c32ca4879038e3eaad386a6be725a8fb4429c78e3c1ab858fe9
+  languageName: node
+  linkType: hard
+
+"posthog-docusaurus@npm:2.0.0":
+  version: 2.0.0
+  resolution: "posthog-docusaurus@npm:2.0.0"
+  checksum: c190b0b28c35a839dfd5e0dfb0baf638d63ff14456b3125f25fce6618fd34b1e80d05622347efefac4532c2858828a9a6ad4a46a7cf6758e47f3034134ef17cd
   languageName: node
   linkType: hard
 

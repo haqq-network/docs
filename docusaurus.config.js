@@ -103,6 +103,16 @@ const config = {
   ],
   plugins: [
     ...SECTIONS,
+    [
+      "posthog-docusaurus",
+      {
+        apiKey: "phc_q2QwNFHKRdLPZcBlcs0Sav2cIx79iJhO2uFtiQms3bT",
+        appUrl: "https://eu.posthog.com", // optional
+        enableInDevelopment: false, // optional
+        // other options are passed to posthog-js init as is
+        // NOTE: options are passed through JSON.stringify(), so functions (such as `sanitize_properties`) are not supported.
+      },
+    ],
     async function tailwindPlugin() {
       return {
         name: 'docusaurus-tailwindcss',
@@ -222,7 +232,7 @@ const config = {
       },
       algolia: {
         appId: 'T5OEVED57K',
-        apiKey: '12309afa621f617e25de57d1503d5ff3',
+        apiKey: '33a0821aee656a275399c5151aa06a9e',
         indexName: 'my_first_index',
         contextualSearch: true,
         searchParameters: {},
