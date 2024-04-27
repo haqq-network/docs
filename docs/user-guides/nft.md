@@ -149,6 +149,15 @@ Remix is not only a tool for compiling and deploying contracts; you can also int
 27. See your token and image 
 ![explorer-nft](/img/user_guides/explorer-nft.png)
 
+## Next steps
+
+Here's what you can study next:
+
+1. NFT Metadata:In the example, we considered that TokenURI immediately returns an image, this is the simplest example, but the best application would be to use NFT Metadata. If you will use Metadata - The TokenURI does not directly deliver an image, but a JSON file containing metadata. This metadata can include not only a link to the image but also a wealth of information about the NFT and its applications. A good article on metadata is available on  [OpenSea metadata-standards](https://docs.opensea.io/docs/metadata-standards). For example, on our network, check out the NFT ["Fruits of Jannah"](https://explorer.haqq.network/token/0xe5C15B68cfE3182c106f60230A1bE377ceaad483/instance/1?tab=metadata).
+2. Changing Smart Contract Logic: By modifying the smart contract, you can make minting paid or add new functionalities. For instance, you can transform NFTs into SBT (Soulbound Tokens) by restricting the transfer function. Here’s a detailed article about SBT -  [Understanding Soulbound Tokens(SBTs)](https://haqq.network/blog/soulbound-tokens), and  [HAQQ Crypto Academy Certificate](https://explorer.haqq.network/token/0x22CC1c235892d84453AAe398237449530e653bd3) as an example from our network.
+3. Future Developments and Applications of NFTs: The further development and application of NFTs are limited only by your imagination. We are excited to see new uses for NFTs on our network and encourage you to explore innovative ways to leverage this technology. Your creativity could lead to the next big advancement in the world of digital assets.
+
+
 
 
 
