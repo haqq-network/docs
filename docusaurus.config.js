@@ -5,8 +5,8 @@
 // // const lightCodeTheme = require('prism-react-renderer/themes/github');
 // // const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
 
-const lightCodeTheme = require("prism-react-renderer").themes.github;
-const darkCodeTheme = require("prism-react-renderer").themes.vsDark;
+const lightCodeTheme = require('prism-react-renderer').themes.github;
+const darkCodeTheme = require('prism-react-renderer').themes.vsDark;
 
 function defineSection(section, options = {}) {
   return [
@@ -30,7 +30,6 @@ const SECTIONS = [
   defineSection('user-guides'),
   defineSection('network'),
 ];
-
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -78,7 +77,7 @@ const config = {
       block_explorer_url: 'https://explorer.haqq.network',
       eth_name: 'Main Ethereum Network',
       unbonding_period: '21 days',
-      active_set: '150'
+      active_set: '150',
     },
   },
 
@@ -104,13 +103,11 @@ const config = {
   plugins: [
     ...SECTIONS,
     [
-      "posthog-docusaurus",
+      'posthog-docusaurus',
       {
-        apiKey: "phc_q2QwNFHKRdLPZcBlcs0Sav2cIx79iJhO2uFtiQms3bT",
-        appUrl: "https://eu.posthog.com", // optional
-        enableInDevelopment: false, // optional
-        // other options are passed to posthog-js init as is
-        // NOTE: options are passed through JSON.stringify(), so functions (such as `sanitize_properties`) are not supported.
+        apiKey: 'phc_S8yvZufvPSBgyfXwjP2nIzndGES4HV8i0yOxMecUkLE',
+        appUrl: 'https://eu.posthog.com',
+        enableInDevelopment: false,
       },
     ],
     async function tailwindPlugin() {
