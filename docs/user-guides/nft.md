@@ -107,9 +107,12 @@ We **strongly** recommend using a separate wallet for development purposes from 
 
 1. In OpenZeppilin click - Open in Remix
 ![remix-start](/img/user_guides/remix-start.png)
-2. Config Solidity Compiler - Select Solidity 8.20 and EVM compile Paris
+2. Config Solidity Compiler - Select **Solidity 8.20** and **EVM** compile **Paris**
 :::info
-We recommend using Solidity 8.19 but to simplify the example now, choose 8.20
+We recommend using **Solidity 8.19** but to simplify the example now, choose **8.20**
+:::
+:::warning
+**Must use - EVM compile Paris** 
 :::
 ![remix-solidity-compiler](/img/user_guides/remix-solidity-compiler.png)
 3. Compile contract - click on Compile button
