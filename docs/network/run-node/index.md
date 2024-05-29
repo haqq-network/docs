@@ -27,7 +27,7 @@ We officially support macOS and Linux only in the following architectures:
 To run mainnet or testnet validator nodes, you will need a machine with the following minimum hardware requirements:
 
 - **4** or more physical CPU cores
-- At least **500GB** of SSD disk storage
+- At least **500GB** of SSD disk storage, for a full node at least **2 TB**, we recommend more than **3TB**
 - At least **32GB** of memory (RAM)
 - At least **100mbps** network bandwidth
 
