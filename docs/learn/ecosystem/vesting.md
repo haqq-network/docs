@@ -22,8 +22,6 @@ If you have ongoing vesting schedules, the site displays the full vesting timeli
 
 ## Liquid vesting functionality 
 
-**The functionality is temporarily disabled in release 1.7.5**
-
 ![liquidity.png](/img/liquidity.png)
 
 Within the HAQQ ecosystem, liquid vesting allows users to convert their locked or vested ISLM tokens into a liquid form, known as aLIQUIDX, with "X", an ordinal number indicating the specific instance of the vested tokens. This ERC-20 token facilitates transfers across various wallets, including Metamask and HAQQ Wallet, enhancing the peer-to-peer (p2p) market for vested ISLM tokens and enabling trading at a discount. This mechanism improves the liquidity of vested tokens, offering users early market value access to their investments before the vesting period concludes.
