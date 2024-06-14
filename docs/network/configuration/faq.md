@@ -19,7 +19,7 @@ HAQQ is a public Proof-of-Stake (PoS) blockchain, meaning that validator's weigh
 
 Any user in the system can declare its intention to become a validator by sending a [`create-validator`](#how-to-become-a-validator) transaction. From there, they become validators.
 
-The weight (i.e. total stake or voting power) of a validator determines wether or not it is an active validator, and also how frequently this node will have to propose a block and how much revenue it will obtain. Initially, only the top 125 validators with the most weight will be active validators. If validators double-sign, or are frequently offline, they risk their staked tokens (including ISLMs delegated by users) being "slashed" by the protocol to penalize negligence and misbehavior.
+The weight (i.e. total stake or voting power) of a validator determines wether or not it is an active validator, and also how frequently this node will have to propose a block and how much revenue it will obtain. Initially, only the top 150 validators with the most weight will be active validators. If validators double-sign, or are frequently offline, they risk their staked tokens (including ISLMs delegated by users) being "slashed" by the protocol to penalize negligence and misbehavior.
 
 ### What is a full node?
 
@@ -70,7 +70,7 @@ haqqd tx staking create-validator \
 
 Once a validator is created and registered, ISLM holders can delegate ISLMs to it, effectively adding stake to its pool. The total stake of a validator is the sum of the ISLM self-bonded by the validator's operator and the ISLM bonded by external delegators.
 
-**Only the top 125 validators with the most stake are considered the active validators**, becoming **bonded validators**. If ever a validator's total stake dips below the top 125, the validator loses its validator privileges (meaning that it won't generate rewards) and no longer serves as part of the active set (i.e doesn't participate in consensus), entering **unbonding mode** and eventually becomes **unbonded**.
+**Only the top 150 validators with the most stake are considered the active validators**, becoming **bonded validators**. If ever a validator's total stake dips below the top 150, the validator loses its validator privileges (meaning that it won't generate rewards) and no longer serves as part of the active set (i.e doesn't participate in consensus), entering **unbonding mode** and eventually becomes **unbonded**.
 
 ## Validator keys and states
 
@@ -116,7 +116,7 @@ If you want to obtain coins for the testnet, you can do so by using the [faucet]
 
 ### Is there a minimum amount of ISLM that must be staked to be an active (bonded) validator?
 
-There is no minimum. The top 125 validators with the highest total stake (where `total stake = self-bonded stake + delegators stake`) are the active validators.
+There is no minimum. The top 150 validators with the highest total stake (where `total stake = self-bonded stake + delegators stake`) are the active validators.
 
 ### How will delegators choose their validators?
 
