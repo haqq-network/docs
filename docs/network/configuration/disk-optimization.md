@@ -16,6 +16,14 @@ disk usage quite significantly. Some of these changes take full effect
 only when you do the configuration and start syncing from start with
 them in use.
 
+## Storage Configuration Options        
+
+Set to true to discard ABCI responses from the state store, which can save a considerable amount of disk space. On `config.toml` setß
+```toml
+[storage]
+discard_abci_responses = true
+```
+
 ## Indexing
 
 If you do not need to query transactions from the specific node, you can
@@ -28,6 +36,14 @@ indexer = "null"
 If you do this on already synced node, the collected index is not purged
 automatically, you need to delete it manually. The index is located
 under the database directory with name `data/tx_index.db/`.
+
+
+## Consensus Configuration Options
+
+```toml
+[consensus]
+skip_timeout_commit = true
+```
 
 ## State-sync snapshots
 
@@ -44,20 +60,34 @@ would not have the history.
 
 ## Configure pruning
 
-By default every 500th state, and the last 100 states are kept. This
+By default every 500th state, and the last zero states are kept. This
 consumes a lot of disk space on long run, and can be optimized with
-following custom configuration:
-
+following custom configuration in `app.toml`:
 ```toml
-pruning = "custom"
-pruning-keep-recent = "100"
-pruning-keep-every = "0"
-pruning-interval = "10"
+pruning = "everything"
+
+pruning-keep-recent = "0"
+pruning-interval = "0"
+min-retain-blocks = 400000
 ```
 
-Configuring `pruning-keep-recent = "0"` might sound tempting, but this
-will risk database corruption if the `HAQQd` is killed for any reason.
-Thus, it is recommended to keep the few latest states.
+
+## API
+To reduce the load, we recommend disabling all APIs in in `app.toml`:
+
+```toml
+[api]
+enable = false
+
+[rosetta]
+enable = false
+
+[grpc]
+enable = false
+
+[grpc-web]
+enable = false
+```
 
 ## Logging
 
