@@ -13,7 +13,7 @@ Sources of all scripts are here [`github`](https://github.com/haqq-network/mainn
 
 _*Battle tested on [Ubuntu LTS 22.04](https://spinupwp.com/doc/what-does-lts-mean-ubuntu/#:~:text=The%20abbreviation%20stands%20for%20Long,extended%20period%20over%20regular%20releases)*_
 
-**All-in-one(tested on Ubuntu LTS):**
+**All-in-one (tested on Ubuntu LTS):**
 
 You can easily install all dependencies and the HAQQ node binary by using a single bash script.
 
