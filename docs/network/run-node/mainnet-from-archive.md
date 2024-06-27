@@ -186,4 +186,4 @@ journalctl -fu haqqd
 ## Helpful links
 
 - https://quicksync.io/networks/osmosis.html 
-- https://www.polkachu.com/testnets/axelar/snapshots
+- https://polkachu.com/tendermint_snapshots/haqq
