@@ -115,7 +115,7 @@ wget -O haqqd-2023-07-13-02-00-01.lz4 https://storage.googleapis.com/haqq-archiv
 
 haqqd tendermint unsafe-reset-all --home $HOME/.haqqd --keep-addr-book
 
-lz4 -c -d haqqd-2023-07-13-02-00-01.lz4  | tar -x -C $HOME/.haqqd/data 
+lz4 -c -d haqqd-2023-07-13-02-00-01.lz4  | tar -x -C $HOME/.haqqd 
 ```
 
 ### Checks 
