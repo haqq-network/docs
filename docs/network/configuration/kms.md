@@ -80,7 +80,7 @@ tmkms init config
 tmkms softsign keygen ./config/secrets/secret_connection_key
 ```
 
-Now we will transfer your validator private key from your validator to your VM running TMKMS. You can do this manually or though scp. I will use scp in this example (the validator has the IP of 123.456.32.123):
+Now we will transfer your validator private key from your validator to your VM running TMKMS. You can do this manually or through scp. I will use scp in this example (the validator has the IP of 123.456.32.123):
 
 ```sh
 scp user@123.456.32.123:~/.haqqd/config/priv_validator_key.json ~/tmkms/config/secrets
