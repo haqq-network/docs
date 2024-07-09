@@ -14,7 +14,7 @@ In this guide, we will delve into how you can create your first smart contact - 
 
 :::tip
 Before start - setup your wallet
-In this article, you will need an EVM-compatible wallet configured for the HAQQ testedge2 - test network , such as MetaMask or Haqq Wallet.
+In this article, you will need an EVM-compatible wallet configured for the HAQQ testedge2 - test network, such as MetaMask or Haqq Wallet.
 
 Follow the [Metamask](../user-guides/connect-your-wallet/Metamask/#connect-to-testnet) guide for more info on how to setup your wallet account.
 :::
@@ -119,7 +119,7 @@ We recommend using **Solidity 8.19** but to simplify the example now, choose **8
 4. Go to - Deploy & run transactions
 5. Connect your wallet
 6. Select HAQQ Testedge2 network in your wallet.
-7. Set up inichial owener - you wallet addr 
+7. Set up inichial owener - your wallet addr 
 ![remix-deploy-setup](/img/user_guides/remix-deploy-setup.png)
 8. Click on Deploy
 9. Confirm TX
@@ -134,20 +134,20 @@ We recommend using **Solidity 8.19** but to simplify the example now, choose **8
 
 Remix is not only a tool for compiling and deploying contracts; you can also interact with and debug contracts on the network using it. Let's go ahead and release your first NFT through your own smart contract.
 
-1. See your smart contract avaliabe methods
+1. See your smart contract available methods
 ![remix-mint-start](/img/user_guides/remix-mint-start.png)
 2. Open Mint methods
 ![remix-mint](/img/user_guides/remix-mint.png)
 3. Setup mint 
     1. to address insert your address
     2. url - paste the image address with the base url in mind - what does that mean - the path to the image should be BaseUrl + Url - for example the link to the image is https://vorobevsa.com/haqq.png BaseUrl = https://vorobevsa.com - then the url is /test.png
-4. trasact 
+4. Transact 
 5. Sing TX
 6. Use method token URI and see your link from NFT
 ![remix-token-uri](/img/user_guides/remix-token-uri.png)
 7. Seath TX by hash in [explorer for HAQQ TestEdge2](https://explorer.testedge2.haqq.network)
 ![explorer-tx](/img/user_guides/explorer-tx.png)
-25. Click on your token id - 1 in exmple
+25. Click on your token id - 1 in example
 ![explorer-mint-tx](/img/user_guides/explorer-mint-tx.png)
 27. See your token and image 
 ![explorer-nft](/img/user_guides/explorer-nft.png)
