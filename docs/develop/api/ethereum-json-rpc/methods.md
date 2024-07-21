@@ -462,7 +462,7 @@ Sends transaction from given account to a given account.
 
 - Object containing:
 
-  `from`: `DATA`, 20 Bytes - The address the transaction is send from.
+  `from`: `DATA`, 20 Bytes - The address the transaction is sent from.
 
   `to`: `DATA`, 20 Bytes - (optional when creating new contract) The address the transaction is directed to.
 

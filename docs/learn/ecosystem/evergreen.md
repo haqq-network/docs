@@ -41,7 +41,7 @@ If the Shariah Board doesn’t submit a decision in 21 days, a proposal gets aut
 
 ### Deposit refund and seizure
 
-When a the a proposal finalized, the coins from the deposit are either refunded or go to Evergreen DAO
+When a proposal finalized, the coins from the deposit are either refunded or go to Evergreen DAO
 (on the contrary to the default cosmos governance where coins are burned), according to the final tally of the proposal:
 
 - If the proposal is approved or if it's rejected but not vetoed during Voting Period, deposit will automatically 
