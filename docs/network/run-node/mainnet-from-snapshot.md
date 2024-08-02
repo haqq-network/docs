@@ -13,23 +13,13 @@ Sources of all scripts are here [`github`](https://github.com/haqq-network/mainn
 
 _*Battle tested on [Ubuntu LTS 22.04](https://spinupwp.com/doc/what-does-lts-mean-ubuntu/#:~:text=The%20abbreviation%20stands%20for%20Long,extended%20period%20over%20regular%20releases)*_
 
-**All-in-one (tested on Ubuntu LTS):**
-
-You can easily install all dependencies and the HAQQ node binary by using a single bash script.
-
-```sh
-CUSTOM_MONIKER="haqq_node" && \
-curl -OL https://raw.githubusercontent.com/haqq-network/mainnet/master/all_in_one.sh && \
-sudo sh all_in_one.sh "$CUSTOM_MONIKER"
-```
-
 **You can do the same yourself**
 
 Install packages:
 
 ```sh
 sudo apt-get update && \
-sudo apt-get install curl git make gcc liblz4-tool build-essential jq -y
+sudo apt-get install curl git make gcc liblz4-tool build-essential jq aria2 -y
 ```
 
 **Preresquisites for compile from source**
@@ -66,16 +56,49 @@ haqq@haqq-node:~# haqqd -v
 haqqd version 1.7.7 31c96a356645946f8bc10a8beaab85d36c6ec18b
 ```
 
-**Initialize and start HAQQ**
+**Initialize**
 
 Run script:
 
 ```sh
-curl -OL https://raw.githubusercontent.com/haqq-network/mainnet/master/init_start.sh && \
-sh init_start.sh mainnet_node
+export CUSTOM_MONIKER="mainnet_node"
+export HAQQD_DIR="$HOME/.haqqd" # default haqq home folder
+
+haqqd config chain-id haqq_11235-1 && \
+haqqd init $CUSTOM_MONIKER --chain-id haqq_11235-1
+
+# Prepare genesis file for mainet(haqq_11235-1)
+curl -L https://raw.githubusercontent.com/haqq-network/mainnet/master/genesis.json -o $HAQQD_DIR/config/genesis.json
+
+# Prepare addrbook
+curl -L https://raw.githubusercontent.com/haqq-network/mainnet/master/addrbook.json -o $HAQQD_DIR/config/addrbook.json
 ```
 
-_`mainnet_node`_ is argument value for custom moniker
+After that need to download a haqq node snapshot from one of our providers:
+
+[Polkachu](https://polkachu.com/tendermint_snapshots/haqq)
+[Publicnode](https://publicnode.com/snapshots)
+
+Example download command via aria2:
+```ruby
+aria2c https://snapshots.polkachu.com/snapshots/haqq/haqq_12345540.tar.lz4
+```
+
+And decompress to HAQQD_DIR and start node(archive name is just for example use actual name from provider)
+
+Example for Polkachu format:
+```sh
+lz4 -c -d haqq_12345540.tar.lz4  | tar -x -C $HAQQD_DIR
+```
+Example for Publicnode format:
+```sh
+lz4 -c -d haqq-pruned-12345957-12345967.tar.lz4  | tar -x -C $HAQQD_DIR
+```
+
+After decompress you can try to start
+```sh
+haqqd start
+```
 
 ## Upgrade to Validator Node
 

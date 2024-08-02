@@ -217,10 +217,10 @@ First of all, you should make sure that your bin file is up to date
 
 ```sh
 haqq@haqq-node:~# haqqd -v
-haqqd version 1.7.6 6c2cce73614ecff317f3569593176c9e4938c6a6
+haqqd version 1.7.7 6c2cce73614ecff317f3569593176c9e4938c6a6
 ```
 
-We are currently using version `1.7.6` on Mainnet.
+We are currently using version `1.7.7` on Mainnet.
 
 This error can also occur if you run the validator from a period when blocks were produced on a different version of the binary.
 
