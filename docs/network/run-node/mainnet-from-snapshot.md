@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Mainnet
+# Mainnet from Snapshot 
 
 ## Overview
 
