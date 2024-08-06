@@ -6,7 +6,7 @@ sidebar_position: 3
 
 ## Overview
 
-The current HAQQ version of mainnet is [`v1.7.7`](https://github.com/haqq-network/haqq/releases/tag/v1.7.7).
+The current HAQQ version of mainnet is [`v1.7.8`](https://github.com/haqq-network/haqq/releases/tag/v1.7.8).
 Sources of all scripts are here [`github`](https://github.com/haqq-network/mainnet)
 
 ## Quickstart
@@ -48,13 +48,13 @@ bash <(curl -s https://raw.githubusercontent.com/haqq-network/mainnet/master/ins
 **Do the same manually:**
 
 Download latest binary for your arch:
-https://github.com/haqq-network/haqq/releases/tag/v1.7.7
+https://github.com/haqq-network/haqq/releases/tag/v1.7.8
 
 Build from source:
 
 ```sh
 cd $HOME
-git clone -b v1.7.7 https://github.com/haqq-network/haqq
+git clone -b v1.7.8 https://github.com/haqq-network/haqq
 cd haqq
 make install
 ```
@@ -63,7 +63,7 @@ Verify binary version:
 
 ```sh
 haqq@haqq-node:~# haqqd -v
-haqqd version 1.7.7 31c96a356645946f8bc10a8beaab85d36c6ec18b
+haqqd version "1.7.8" 3058d8f0485747aa5eacb352330d6bc1a867a838
 ```
 
 **Initialize and start HAQQ**
