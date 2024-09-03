@@ -21,7 +21,7 @@ As long as the sharia oracle mechanism is not running on the network, on the net
 | axlDAI  | [0xC5e00D3b04563950941f7137B5AfA3a534F0D6d6](https://explorer.haqq.network/token/0xC5e00D3b04563950941f7137B5AfA3a534F0D6d6) | IBC/ERC20  Token | dai                     |
 | USDC    | [0x0CE35b0D42608Ca54Eb7bcc8044f7087C18E7717](https://explorer.haqq.network/token/0x0CE35b0D42608Ca54Eb7bcc8044f7087C18E7717) | IBC/ERC20 Token  | usdc                    |
 | USDT    | [0x5aD523d94Efb56C400941eb6F34393b84c75ba39](https://explorer.haqq.network/token/0x5aD523d94Efb56C400941eb6F34393b84c75ba39) | IBC/ERC20  Token | tether                  | 
-| stISLM    | [0x12fEFEAc0568503F7C0D934c149f29a42B05C48f](https://explorer.haqq.network/token/0x12fEFEAc0568503F7C0D934c149f29a42B05C48f) | IBC/ERC20 Token  |                     |
+| stISLM    | [0x12fEFEAc0568503F7C0D934c149f29a42B05C48f](https://explorer.haqq.network/token/0x12fEFEAc0568503F7C0D934c149f29a42B05C48f) | IBC/ERC20 Token  | stride-staked-islm      |
 | DEEN    | [0x4FEBDDe47Ab9a76200e57eFcC80b212a07b3e6cE](https://explorer.haqq.network/token/0x4FEBDDe47Ab9a76200e57eFcC80b212a07b3e6cE) | IBC/ERC20  Token |                   | 
 
 ## Wrap 
