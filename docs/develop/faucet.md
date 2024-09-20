@@ -17,7 +17,7 @@ Follow the [Metamask](../user-guides/connect-your-wallet/Metamask) guide for mor
 
 <!-- markdown-link-check-disable-next-line -->
 
-1. Join our Discord at [https://discord.gg/islamic-coin](https://discord.gg/islamic-coin)
+1. Join our Discord at [https://discord.com/invite/islamiccoin](https://discord.com/invite/islamiccoin)
 2. Verify your account.
 3. Go to the HAQQERS category and click on the #faucet channel at [#faucet](https://discord.com/channels/989535240882114581/1075694966183043083).
 4. Simply write `!faucet <your hex address>` to receive 10 ISLM.
