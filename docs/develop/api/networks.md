@@ -25,10 +25,11 @@ If you are searching for the protobuf interfaces, head over [here](https://buf.b
 | [https://rpc.tm.haqq.network](https://rpc.tm.haqq.network)           | `CometBFT RPC`  | [HAQQ](https://haqq.network)      |
 | [https://grpc.cosmos.haqq.network](https://grpc.cosmos.haqq.network) | `gRPC Cosmos`   | [HAQQ](https://haqq.network)      |
 | [https://rest.cosmos.haqq.network](https://rest.cosmos.haqq.network) | `REST Cosmos`   | [HAQQ](https://haqq.network)      |
-| [wss://m-s1-evm-ws.haqq.sh](wss://m-s1-evm-ws.haqq.sh)               | `EVM Websocket` | [Kioqq](https://github.com/kioqq) |
-| [https://m-s1-evm-rpc.haqq.sh](https://m-s1-evm-rpc.haqq.sh)         | `EVM JSON-RPC`  | [Kioqq](https://github.com/kioqq) |
-| [https://m-s1-tm.haqq.sh](https://m-s1-tm.haqq.sh)                   | `CometBFT RPC`  | [Kioqq](https://github.com/kioqq) |
-| grpc://m-s1-grpc.haqq.sh:1337                                        | `gRPC Cosmos`   | [Kioqq](https://github.com/kioqq) |
+| [wss://evm-ws.haqq.sh](wss://evm-ws.haqq.sh)                         | `EVM Websocket` | [Kioqq](https://github.com/kioqq) |
+| [https://evm.haqq.sh](https://evm.haqq.sh)                           | `EVM JSON-RPC`  | [Kioqq](https://github.com/kioqq) |
+| [https://rpc.haqq.sh](https://rpc.haqq.sh)                           | `CometBFT RPC`  | [Kioqq](https://github.com/kioqq) |
+| [https://sdk.haqq.sh](https://sdk.haqq.sh)                           | `Rest Cosmos`   | [Kioqq](https://github.com/kioqq) |
+| grpc://grpc.haqq.sh:443                                              | `gRPC Cosmos`   | [Kioqq](https://github.com/kioqq) |
 
 ### TestEdge-2
 
