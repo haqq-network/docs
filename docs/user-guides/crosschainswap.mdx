@@ -26,6 +26,10 @@ Skip products, such as the Skip API, are used by various projects, including Nob
 Skip now requires a Noble blockchain address. This is due to the fact that transfers go through the centralized CIRCLE bridge, which mints tokens on the Noble blockchain, followed by IBC transfers to the HAQQ Network. This address serves as a backup in case the IBC transfer does not reach the target network.
 :::
 
+:::danger
+Recipient addresses MUST be your personal wallets, not the addresses of exchanges! 
+:::
+
 1. [Install Keplr](/user-guides/connect-your-wallet/Keplr/) and add both the Noble and HAQQ networks.
 2. Obtain a wallet address in Bech32 format on the HAQQ network.
 3. Obtain a wallet address on the Noble network.
