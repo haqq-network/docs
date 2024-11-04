@@ -100,23 +100,16 @@ Log example
 #### React example 
 Create a hook
 ```JS
-import { useMemo } from 'react';
+import {useMemo} from 'react';
 
-export function useDeeplink() {
-  const siteUrl = useMemo(() => {
-    //Use the address of your DApp 
-    return encodeURIComponent(window.location.origin);
-  }, []);
-
-  const web3BrowserLink = encodeURIComponent(
-    `https://haqq.network/wallet?web3_browser=${siteUrl}`,
-  );
-
-  const query = '&apn=com.haqq.wallet&isi=6443843352&ibi=com.haqq.wallet';
-
-  const dynamicLinkForWeb3Browser = `https://haqq.page.link/?link=${web3BrowserLink}${query}`;
-
-  return dynamicLinkForWeb3Browser;
+export function useDeeplink(siteUrl = window.location.origin) {
+  return useMemo(() => {
+    const web3BrowserLink = encodeURIComponent(
+      `https://haqq.network/wallet?web3_browser=${siteUrl}`,
+    );
+    const query = '&apn=com.haqq.wallet&isi=6443843352&ibi=com.haqq.wallet';
+    return `https://haqq.page.link/?link=${web3BrowserLink}${query}`;
+  }, [siteUrl]);
 }
 ```
 
