@@ -123,8 +123,15 @@ const config = {
   ],
 
   themeConfig:
+  
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [
+        {name: 'keywords', content: 'HAQQ, blockchain, ethereum, proof of stake, validator, documentation'},
+        {name: 'robots', content: 'index, follow'},
+        {property: 'og:title', content: 'HAQQ Network Documentation - Ethereum Compatible Blockchain Platform'},
+        {property: 'og:description', content: 'HAQQ is a scalable and interoperable Ethereum blockchain, built on Proof-of-Stake with fast-finality. Explore our comprehensive documentation.'},
+      ],
       // Replace with your project's social card
       // image: 'img/haqq-social-card.jpg',
       navbar: {

@@ -10,6 +10,7 @@ import { IntroducionIcon } from '../icons/introduciton-icon';
 
 export default function HomepageFeatures() {
   return (
+    <main aria-label="HAQQ Documentation Homepage">
     <section>
       <div className="container flex flex-col gap-[80px] py-[80px]">
         <div className="flex flex-col gap-[30px]">
@@ -133,5 +134,6 @@ export default function HomepageFeatures() {
         </div>
       </div>
     </section>
+    </main>
   );
 }
