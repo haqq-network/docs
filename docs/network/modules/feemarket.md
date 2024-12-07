@@ -11,7 +11,7 @@ This document specifies the `x/feemarket` module which allows to define a global
 
 This module has been designed to support EIP1559 in cosmos-sdk.
 
-The `MempoolFeeDecorator` in `x/auth` module needs to be overwritten to check the `baseFee` along with 
+The `MempoolFeeDecorator` in `x/auth` module needs to be overwritten to check the `baseFee` along with
 the `minimal-gas-prices` allowing to implement a global fee mechanism which vary depending on the network activity.
 
 For more reference to EIP1559:
@@ -53,7 +53,7 @@ feemarket/
 ├── migrations
 │   └── v4
 │       ├── types
-│       │   └── params.go    # Params struct for consensus version 4 of the module 
+│       │   └── params.go    # Params struct for consensus version 4 of the module
 │       └── migration.go     # Migration handler from consensus version 3 to 4
 ├── types
 │   ├── codec.go             # Type registration for encoding
@@ -92,22 +92,22 @@ With EIP-1559 enabled, the transaction fee is calculated with
 fee = (baseFee + priorityTip) * gasLimit
 ```
 
-where `baseFee` is the fixed-per-block network fee per gas and `priorityTip` is an additional fee per gas 
+where `baseFee` is the fixed-per-block network fee per gas and `priorityTip` is an additional fee per gas
 that can be set optionally. Note, that both the base fee and the priority tip are gas prices.
 To submit a transaction with EIP-1559, the signer needs to specify the `gasFeeCap`, which is the maximum fee per gas
-they are willing to pay in total. Optionally, the `priorityTip` can be specified, which covers both 
+they are willing to pay in total. Optionally, the `priorityTip` can be specified, which covers both
 the priority fee and the block's network fee per gas (aka: base fee).
 
 :::tip
-The Cosmos SDK uses a different terminology for `gas` than Ethereum. What is called `gasLimit` on Ethereum 
-is called `gasWanted` on Cosmos. You might encounter both terminologies on HAQQ since it builds Ethereum 
+The Cosmos SDK uses a different terminology for `gas` than Ethereum. What is called `gasLimit` on Ethereum
+is called `gasWanted` on Cosmos. You might encounter both terminologies on HAQQ since it builds Ethereum
 on top of the SDK, e.g. when using different wallets like Keplr for Cosmos and Metamask for Ethereum.
 :::
 
 ### Base Fee
 
 The base fee per gas (aka base fee) is a global gas price defined at the consensus level. It is stored as a module
-parameter and is adjusted at the end of each block based on the total gas used in the previous block 
+parameter and is adjusted at the end of each block based on the total gas used in the previous block
 and gas target (`block gas limit / elasticity multiplier`):
 
 - it increases when blocks are above the gas target,
@@ -122,9 +122,9 @@ In EIP-1559, the `max_priority_fee_per_gas`, often referred to as `tip`, is an a
 to the `baseFee` in order to incentivize transaction prioritization. The higher the tip, the more likely the transaction
 is included in the block.
 
-Until the Cosmos SDK version v0.46, however, there is no notion of transaction prioritization. 
+Until the Cosmos SDK version v0.46, however, there is no notion of transaction prioritization.
 Thus, the tip for an EIP-1559 transaction on HAQQ Network should be zero
-(`MaxPriorityFeePerGas` JSON-RPC endpoint returns `0`). Have a look at the mempool 
+(`MaxPriorityFeePerGas` JSON-RPC endpoint returns `0`). Have a look at the mempool
 docs to read more about how to leverage transaction prioritization.
 
 ### Effective Gas price
@@ -139,7 +139,7 @@ min(baseFee + gasTipCap, gasFeeCap)
 
 ### Local vs. Global Minimum Gas Prices
 
-Minimum gas prices are used to discard spam transactions in the network, by raising the cost of transactions 
+Minimum gas prices are used to discard spam transactions in the network, by raising the cost of transactions
 to the point that it is not economically viable for the spammer. This is achieved by defining a minimum gas price
 for accepting txs in the mempool for both Cosmos and EVM transactions. A transaction is discarded from the mempool
 if it doesn't provide at least one of the two types of min gas prices:
@@ -168,17 +168,15 @@ This is implemented, so that the base fee can't drop to gas prices that would no
 to be accepted in the mempool, because of a higher `MinGasPrice`.
 :::
 
-
 ## State
 
 The `x/feemarket` module keeps in the state variable needed to the fee calculation:
 
 Only `BlockGasUsed` in previous block needs to be tracked in state for the next base fee calculation.
 
-|                  | Description                    | Key            | Value               | Store     |
-| -----------      | ------------------------------ | ---------------| ------------------- | --------- |
-| BlockGasUsed     | gas used in the block          | `[]byte{1}`    | `[]byte{gas_used}`  | KV        |
-
+|              | Description           | Key         | Value              | Store |
+| ------------ | --------------------- | ----------- | ------------------ | ----- |
+| BlockGasUsed | gas used in the block | `[]byte{1}` | `[]byte{gas_used}` | KV    |
 
 ## Begin block
 
@@ -261,13 +259,13 @@ The `x/feemarket` module emits the following events:
 ### BeginBlocker
 
 | Type       | Attribute Key | Attribute Value |
-|------------|---------------|-----------------|
+| ---------- | ------------- | --------------- |
 | fee_market | base_fee      | `baseGasPrices` |
 
 ### EndBlocker
 
 | Type      | Attribute Key | Attribute Value |
-|-----------|---------------|-----------------|
+| --------- | ------------- | --------------- |
 | block_gas | height        | `blockHeight`   |
 | block_gas | amount        | `blockGasUsed`  |
 
@@ -276,7 +274,7 @@ The `x/feemarket` module emits the following events:
 The `x/feemarket` module contains the following parameters:
 
 | Key                      | Type    | Default Values | Description                                                                                                             |
-|--------------------------|---------|----------------|-------------------------------------------------------------------------------------------------------------------------|
+| ------------------------ | ------- | -------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | NoBaseFee                | bool    | false          | control the base fee adjustment                                                                                         |
 | BaseFeeChangeDenominator | uint32  | 8              | bounds the amount the base fee that can change between blocks                                                           |
 | ElasticityMultiplier     | uint32  | 2              | bounds the threshold which the base fee will increase or decrease depending on the total gas used in the previous block |
@@ -365,7 +363,7 @@ value: "2"
 #### Queries
 
 | Verb   | Method                                  | Description            |
-|--------|-----------------------------------------|------------------------|
+| ------ | --------------------------------------- | ---------------------- |
 | `gRPC` | `ethermint.feemarket.v1.Query/Params`   | Get the module params  |
 | `gRPC` | `ethermint.feemarket.v1.Query/BaseFee`  | Get the block base fee |
 | `gRPC` | `ethermint.feemarket.v1.Query/BlockGas` | Get the block gas used |
@@ -375,7 +373,7 @@ value: "2"
 
 ## AnteHandlers
 
-The `x/feemarket` module provides `AnteDecorator`s that are recursively chained together into a single 
+The `x/feemarket` module provides `AnteDecorator`s that are recursively chained together into a single
 [`Antehandler`](https://github.com/cosmos/cosmos-sdk/blob/v0.43.0-alpha1/docs/architecture/adr-010-modular-antehandler.md).
 These decorators perform basic validity checks on an Ethereum or Cosmos SDK transaction, such that it could be thrown
 out of the transaction Mempool.
@@ -393,10 +391,10 @@ Rejects Cosmos SDK transactions with transaction fees lower than `MinGasPrice * 
 Rejects EVM transactions with transactions fees lower than `MinGasPrice * GasLimit`.
 
 - For `LegacyTx` and `AccessListTx`, the `GasPrice * GasLimit` is used.
-- For EIP-1559 (*aka.* `DynamicFeeTx`), the `EffectivePrice * GasLimit` is used.
+- For EIP-1559 (_aka._ `DynamicFeeTx`), the `EffectivePrice * GasLimit` is used.
 
 :::note
-For dynamic transactions, if the `feemarket` formula results in a `BaseFee` 
+For dynamic transactions, if the `feemarket` formula results in a `BaseFee`
 that lowers `EffectivePrice < MinGasPrices`, the users must increase the `GasTipCap` (priority fee)
 until `EffectivePrice > MinGasPrices`. Transactions with `MinGasPrices * GasLimit < transaction fee < EffectiveFee`
 are rejected by the `feemarket` `AnteHandle`.

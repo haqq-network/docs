@@ -4,13 +4,13 @@ sidebar_position: 3
 
 # Module Accounts
 
-Some modules have their own module account. Think of this as a wallet that can only be controlled by that module. 
+Some modules have their own module account. Think of this as a wallet that can only be controlled by that module.
 Below is a table of modules, their respective wallet addresses and permissions:
 
 ## List of Module Accounts
 
 | Name                     | Address                                                                                                                  | Permissions        |
-|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------|:-------------------|
+| :----------------------- | :----------------------------------------------------------------------------------------------------------------------- | :----------------- |
 | `coinomics`              | [haqq13lmzrazlsjzca7ugqtpwe6xyy3553ghlh5hupc](https://ping.pub/haqq/account/haqq13lmzrazlsjzca7ugqtpwe6xyy3553ghlh5hupc) | `minter`           |
 | `distribution`           | [haqq1jv65s3grqf6v6jl3dp4t6c9t9rk99cd89c30hf](https://ping.pub/haqq/account/haqq1jv65s3grqf6v6jl3dp4t6c9t9rk99cd89c30hf) | `none`             |
 | `erc20`                  | [haqq1glht96kr2rseywuvhhay894qw7ekuc4qgrxfhs](https://ping.pub/haqq/account/haqq1glht96kr2rseywuvhhay894qw7ekuc4qgrxfhs) | `minter` `burner`  |
@@ -22,9 +22,8 @@ Below is a table of modules, their respective wallet addresses and permissions:
 | `transfer`               | [haqq1yl6hdjhmkf37639730gffanpzndzdpmhvcr6f4](https://ping.pub/haqq/account/haqq1yl6hdjhmkf37639730gffanpzndzdpmhvcr6f4) | `minter` `burner`  |
 | `liquidvesting`          | [haqq102lq49sg6lmw2e0mw740tjldzq68v0yfylw05s](https://ping.pub/haqq/account/haqq102lq49sg6lmw2e0mw740tjldzq68v0yfylw05s) | `minter` `burner`  |
 
-
 ## Account Permissions
 
-* The `burner` permission means this account has the permission to burn or destroy tokens.
-* The `minter` permission means this account has permission to mint or create new tokens.
-* The `staking` permission means this account has permission to stake tokens on behalf of its owner.
+- The `burner` permission means this account has the permission to burn or destroy tokens.
+- The `minter` permission means this account has permission to mint or create new tokens.
+- The `staking` permission means this account has permission to stake tokens on behalf of its owner.

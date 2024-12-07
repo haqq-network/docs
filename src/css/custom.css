@@ -4,7 +4,8 @@
 
 @font-face {
   font-family: 'Clash Display';
-  src: url('/fonts/ClashDisplay-Medium.woff2') format('woff2'),
+  src:
+    url('/fonts/ClashDisplay-Medium.woff2') format('woff2'),
     url('/fonts/ClashDisplay-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
@@ -12,7 +13,8 @@
 
 @font-face {
   font-family: 'HK Guise';
-  src: url('/fonts/hk_guise_medium-webfont.woff2') format('woff2'),
+  src:
+    url('/fonts/hk_guise_medium-webfont.woff2') format('woff2'),
     url('/fonts/hk_guise_medium-webfont.woff') format('woff');
   font-weight: 500;
   font-style: normal;
@@ -20,7 +22,8 @@
 
 @font-face {
   font-family: 'HK Guise';
-  src: url('/fonts/hk_guise_regular-webfont.woff2') format('woff2'),
+  src:
+    url('/fonts/hk_guise_regular-webfont.woff2') format('woff2'),
     url('/fonts/hk_guise_regular-webfont.woff') format('woff');
   font-weight: 400;
   font-style: normal;

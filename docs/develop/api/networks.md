@@ -19,7 +19,7 @@ If you are searching for the protobuf interfaces, head over [here](https://buf.b
 ### MainNet
 
 | Endpoint                                                             | Category        | Maintainer                        |
-|----------------------------------------------------------------------|-----------------|-----------------------------------|
+| -------------------------------------------------------------------- | --------------- | --------------------------------- |
 | [wss://rpc-ws.eth.haqq.network](wss://rpc-ws.eth.haqq.network)       | `EVM Websocket` | [HAQQ](https://haqq.network)      |
 | [https://rpc.eth.haqq.network](https://rpc.eth.haqq.network)         | `EVM JSON-RPC`  | [HAQQ](https://haqq.network)      |
 | [https://rpc.tm.haqq.network](https://rpc.tm.haqq.network)           | `CometBFT RPC`  | [HAQQ](https://haqq.network)      |
@@ -34,7 +34,7 @@ If you are searching for the protobuf interfaces, head over [here](https://buf.b
 ### TestEdge-2
 
 | Endpoint                                                                                 | Category        | Maintainer                        |
-|------------------------------------------------------------------------------------------|-----------------|-----------------------------------|
+| ---------------------------------------------------------------------------------------- | --------------- | --------------------------------- |
 | [https://rpc-ws.eth.testedge2.haqq.network](https://rpc-ws.eth.testedge2.haqq.network)   | `EVM Websocket` | [HAQQ](https://haqq.network)      |
 | [https://rpc.eth.testedge2.haqq.network](https://rpc.eth.testedge2.haqq.network)         | `EVM JSON-RPC`  | [HAQQ](https://haqq.network)      |
 | [https://rpc.tm.testedge2.haqq.network](https://rpc.tm.testedge2.haqq.network)           | `CometBFT RPC`  | [HAQQ](https://haqq.network)      |
