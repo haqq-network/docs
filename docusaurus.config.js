@@ -120,17 +120,41 @@ const config = {
         },
       };
     },
+    [
+      '@docusaurus/plugin-sitemap',
+      {
+        id: 'sitemap',
+        changefreq: 'weekly',
+        priority: 0.5,
+      },
+    ],
   ],
 
   themeConfig:
-  
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       metadata: [
-        {name: 'keywords', content: 'HAQQ, blockchain, ethereum, proof of stake, validator, documentation'},
-        {name: 'robots', content: 'index, follow'},
-        {property: 'og:title', content: 'HAQQ Network Documentation - Ethereum Compatible Blockchain Platform'},
-        {property: 'og:description', content: 'HAQQ is a scalable and interoperable Ethereum blockchain, built on Proof-of-Stake with fast-finality. Explore our comprehensive documentation.'},
+        {
+          name: 'keywords',
+          content:
+            'HAQQ, blockchain, ethereum, proof of stake, validator, documentation, islamic blockchain',
+        },
+        {
+          name: 'description',
+          content:
+            'HAQQ is a scalable and interoperable Ethereum blockchain, built on Proof-of-Stake with fast-finality. Explore our comprehensive documentation.',
+        },
+        { name: 'robots', content: 'index, follow' },
+        {
+          property: 'og:title',
+          content:
+            'HAQQ Network Documentation - Ethereum Compatible Blockchain Platform',
+        },
+        {
+          property: 'og:description',
+          content:
+            'HAQQ is a scalable and interoperable Ethereum blockchain, built on Proof-of-Stake with fast-finality. Explore our comprehensive documentation.',
+        },
       ],
       // Replace with your project's social card
       // image: 'img/haqq-social-card.jpg',
@@ -242,6 +266,19 @@ const config = {
         searchParameters: {},
       },
     }),
+
+  ssrTemplate: `<!DOCTYPE html>
+<html <%~ it.htmlAttributes %>>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%~ it.headTags %>
+    <%~ it.preBodyTags %>
+  </head>
+  <body <%~ it.bodyAttributes %>>
+    <%~ it.bodyTags %>
+  </body>
+</html>`,
 };
 
 module.exports = config;
