@@ -38,8 +38,8 @@ const config = {
     'HAQQ is a scalable and interoperable Ethereum, built on Proof-of-Stake with fast-finality.',
   url: 'https://docs.haqq.network',
   baseUrl: '/',
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'throw',
   favicon: 'img/favicon.ico',
   trailingSlash: true,
 
