@@ -16,7 +16,7 @@ If you're not familiar with the [IBC protocol](https://www.ibcprotocol.dev) and 
 :::
 
 This wrapper allows IBC (ICS20) transfers for the registered ERC-20 tokens by automatic conversion between EVM
-and native Cosmos representations. It coupled with [x/erc20](erc20.md) and [x/evm](evm.md) modules. 
+and native Cosmos representations. It coupled with [x/erc20](erc20.md) and [x/evm](evm.md) modules.
 
 ## References
 

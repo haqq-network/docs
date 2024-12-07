@@ -9,11 +9,11 @@ title: x/vesting
 
 This document specifies the internal `x/vesting` module of the HAQQ Network.
 
-The `x/vesting` module introduces the `ClawbackVestingAccount`,  a new vesting account type that implements 
+The `x/vesting` module introduces the `ClawbackVestingAccount`, a new vesting account type that implements
 the Cosmos SDK [`VestingAccount`](https://docs.cosmos.network/main/modules/auth/vesting#vesting-account-types)
 interface. This account is used to allocate tokens that are subject to vesting, lockup, and clawback.
 
-The `ClawbackVestingAccount` allows any two parties to agree on a future rewarding schedule, where tokens are granted 
+The `ClawbackVestingAccount` allows any two parties to agree on a future rewarding schedule, where tokens are granted
 permissions over time. The parties can use this account to enforce legal contracts or commit to mutual long-term interests.
 
 In this commitment, vesting is the mechanism for gradually earning permission to transfer and delegate allocated tokens.
@@ -22,7 +22,7 @@ transactions from the account. Both vesting and lockup are defined in schedules 
 At any time, the funder of a `ClawbackVestingAccount` can perform a clawback to retrieve unvested tokens.
 The circumstances under which a clawback should be performed can be agreed upon in a contract (e.g. smart contract).
 
-For HAQQ, the `ClawbackVestingAccount` is used to allocate tokens to users via airdrops, core team members and advisors to incentivize 
+For HAQQ, the `ClawbackVestingAccount` is used to allocate tokens to users via airdrops, core team members and advisors to incentivize
 long-term participation in the project.
 
 ## Contents
@@ -61,7 +61,7 @@ vesting/
 │   ├── keeper.go                    # Store keeper that handles the business logic of the module and has access to a specific subtree of the state tree.
 │   └── msg_server.go                # Tx handlers
 ├── types
-│   ├── clawback_vesting_account.go  # Utility functions for the ClawbackVestingAccount struct 
+│   ├── clawback_vesting_account.go  # Utility functions for the ClawbackVestingAccount struct
 │   ├── codec.go                     # Type registration for encoding
 │   ├── errors.go                    # Module-specific errors
 │   ├── events.go                    # Events exposed to the CometBFT PubSub/Websocket
@@ -78,8 +78,8 @@ vesting/
 
 ### Vesting
 
-Vesting describes the process of converting `unvested` into `vested` tokens without transferring the ownership 
-of those tokens. In an unvested state, tokens cannot be transferred to other accounts, delegated to validators, 
+Vesting describes the process of converting `unvested` into `vested` tokens without transferring the ownership
+of those tokens. In an unvested state, tokens cannot be transferred to other accounts, delegated to validators,
 or used for governance. A vesting schedule describes the amount and time at which tokens are vested.
 The duration until which the first tokens are vested is called the `cliff`.
 
@@ -94,11 +94,11 @@ it is possible to delegate them to validators, but not transfer them to other ac
 The following table summarizes the actions that are allowed for tokens that are subject to the combination of vesting and lockup:
 
 | Token Status            | Transfer | Delegate | Vote | Eth Txs that spend ISLM\*\* | Eth Txs that don't spend ISLM (amount=0)\*\* |
-|-------------------------|:--------:|:--------:|:----:|:---------------------------:|:--------------------------------------------:|
-| `locked` & `unvested`   |    ❌     |    ❌     |  ❌   |              ❌              |                      ✅                       |
-| `locked` & `vested`     |    ❌     |    ✅     |  ✅   |              ❌              |                      ✅                       |
-| `unlocked` & `unvested` |    ❌     |    ❌     |  ❌   |              ❌              |                      ✅                       |
-| `unlocked` & `vested`\* |    ✅     |    ✅     |  ✅   |              ✅              |                      ✅                       |
+| ----------------------- | :------: | :------: | :--: | :-------------------------: | :------------------------------------------: |
+| `locked` & `unvested`   |    ❌    |    ❌    |  ❌  |             ❌              |                      ✅                      |
+| `locked` & `vested`     |    ❌    |    ✅    |  ✅  |             ❌              |                      ✅                      |
+| `unlocked` & `unvested` |    ❌    |    ❌    |  ❌  |             ❌              |                      ✅                      |
+| `unlocked` & `vested`\* |    ✅    |    ✅    |  ✅  |             ✅              |                      ✅                      |
 
 \* Staking rewards are unlocked and vested
 
@@ -106,12 +106,12 @@ The following table summarizes the actions that are allowed for tokens that are 
 
 ### Schedules
 
-Vesting and lockup schedules specify the amount and time at which tokens are vested or unlocked. They are defined 
+Vesting and lockup schedules specify the amount and time at which tokens are vested or unlocked. They are defined
 as [`periods`](https://docs.cosmos.network/main/modules/auth/vesting#period) where each period has its own length and amount.
 A typical vesting schedule for instance would be defined starting with a one-year period to represent the vesting cliff,
 followed by several monthly vesting periods until the total allocated vesting amount is vested.
 
-Vesting or lockup schedules can be easily created with Agoric’s 
+Vesting or lockup schedules can be easily created with Agoric’s
 [`vestcalc`](https://github.com/agoric-labs/cosmos-sdk/tree/Agoric/x/auth/vesting/cmd/vestcalc) tool. E.g. to calculate
 a four-year vesting schedule with a one year cliff, starting in January 2022, you can run vestcalc with:
 
@@ -138,7 +138,7 @@ Accounts are exposed externally as an interface and stored internally as a clawb
 
 An instance that implements
 the [Vesting Account](https://docs.cosmos.network/main/modules/auth/vesting#vesting-account-types) interface.
-It provides an account that can hold contributions subject to lockup, or vesting which is subject to clawback 
+It provides an account that can hold contributions subject to lockup, or vesting which is subject to clawback
 of unvested tokens, or a combination (tokens vest, but are still locked).
 
 ```go
@@ -179,12 +179,12 @@ Defines the vesting schedule relative to the start time.
 
 ### Genesis State
 
-The `x/vesting` module allows the definition of `ClawbackVestingAccounts` at genesis. In this case, the account balance 
+The `x/vesting` module allows the definition of `ClawbackVestingAccounts` at genesis. In this case, the account balance
 must be logged in the SDK `bank` module balances or automatically adjusted through the `add-genesis-account` CLI command.
 
 ## State Transitions
 
-The `x/vesting` module allows for state transitions that create and update a clawback vesting account 
+The `x/vesting` module allows for state transitions that create and update a clawback vesting account
 with `CreateClawbackVestingAccount` or perform a clawback of unvested funds with `Clawback`.
 
 ### Create Clawback Vesting Account
@@ -194,17 +194,16 @@ Additionally, new grants can be added to existing clawback vesting accounts with
 
 1. Funder submits a `MsgCreateClawbackVestingAccount` through one of the clients.
 2. Check if
-    1. the vesting account address is not blocked
-    2. there is at least one vesting or lockup schedule provided.
-       If one of them is absent, default to instant vesting or unlock schedule.
-    3. lockup and vesting total amounts are equal
+   1. the vesting account address is not blocked
+   2. there is at least one vesting or lockup schedule provided.
+      If one of them is absent, default to instant vesting or unlock schedule.
+   3. lockup and vesting total amounts are equal
 3. Create or update a clawback vesting account and send coins from the funder to the vesting account
-    1. if the clawback vesting account already exists and `--merge` is set to true,
-       add a grant to the existing total vesting amount and update the vesting and lockup schedules.
-    2. else create a new clawback vesting account
+   1. if the clawback vesting account already exists and `--merge` is set to true,
+      add a grant to the existing total vesting amount and update the vesting and lockup schedules.
+   2. else create a new clawback vesting account
 
 ### Convert Into Vesting Account
-
 
 ### Clawback
 
@@ -212,10 +211,10 @@ The funding address is the only address that can perform the clawback.
 
 1. Funder submits a `MsgClawback` through one of the clients.
 2. Check if
-    1. a destination address is given and default to funder address if not
-    2. the destination address is not blocked
-    3. the account exists and is a clawback vesting account
-    4. account funder is same as in msg
+   1. a destination address is given and default to funder address if not
+   2. the destination address is not blocked
+   3. the account exists and is a clawback vesting account
+   4. account funder is same as in msg
 3. Transfer unvested tokens from the clawback vesting account to the destination address,
    update the lockup schedule and remove future vesting events.
 
@@ -225,9 +224,9 @@ The funding address of an existing clawback vesting account can be updated only 
 
 1. Funder submits a `MsgUpdateVestingFunder` through one of the clients.
 2. Check if
-    1. the new funder address is not blocked
-    2. the vesting account exists and is a clawback vesting account
-    3. account funder is same as in msg
+   1. the new funder address is not blocked
+   2. the vesting account exists and is a clawback vesting account
+   3. account funder is same as in msg
 3. Update the vesting account funder with the new funder address.
 
 ### Convert Vesting Account
@@ -236,8 +235,8 @@ Once all tokens are vested, the vesting account can be converted to an `ETHAccou
 
 1. Owner of vesting account submits a `MsgConvertVestingAccount` through one of the clients.
 2. Check if
-    1. the vesting account exists and is a clawback vesting account
-    2. the vesting account's vesting and locked schedules have concluded
+   1. the vesting account exists and is a clawback vesting account
+   2. the vesting account's vesting and locked schedules have concluded
 3. Convert the vesting account to an `EthAccount`
 
 ## Transactions
@@ -272,8 +271,8 @@ The msg content stateless validation fails if:
 
 - `FromAddress` or `ToAddress` are invalid
 - `LockupPeriods` and `VestingPeriods`
-    - include a period with a non-positive length or amount
-    - do not describe the same total amount
+  - include a period with a non-positive length or amount
+  - do not describe the same total amount
 
 ### `ConvertIntoVestingAccount`
 
@@ -308,8 +307,8 @@ The msg content stateless validation fails if:
 
 - `FromAddress` or `ToAddress` are invalid
 - `LockupPeriods` and `VestingPeriods`
-    - include a period with a non-positive length or amount
-    - do not describe the same total amount
+  - include a period with a non-positive length or amount
+  - do not describe the same total amount
 
 ### `Clawback`
 
@@ -361,15 +360,14 @@ The msg content stateless validation fails if:
 
 - `VestingAddress` is invalid
 
-
 ## AnteHandlers
 
-The `x/vesting` module provides `AnteDecorator`s that are recursively chained together into a single 
+The `x/vesting` module provides `AnteDecorator`s that are recursively chained together into a single
 [`Antehandler`](https://github.com/cosmos/cosmos-sdk/blob/v0.43.0-alpha1/docs/architecture/adr-010-modular-antehandler.md).
-These decorators perform basic validity checks on an Ethereum or SDK transaction, such that it could be thrown 
+These decorators perform basic validity checks on an Ethereum or SDK transaction, such that it could be thrown
 out of the transaction Mempool.
 
-Note that the `AnteHandler` is called on both `CheckTx` and `DeliverTx`, as CometBFT proposers presently have 
+Note that the `AnteHandler` is called on both `CheckTx` and `DeliverTx`, as CometBFT proposers presently have
 the ability to include in their proposed block transactions that fail `CheckTx`.
 
 ### Decorators
@@ -388,7 +386,7 @@ Validates if a transaction contains a staking delegation of unvested coins. This
 #### `EthVestingTransactionDecorator`
 
 Validates if a clawback vesting account is permitted to perform Ethereum transactions, based on if it has its vesting
-schedule has surpassed the vesting cliff and first lockup period. Also, validates if the account has sufficient 
+schedule has surpassed the vesting cliff and first lockup period. Also, validates if the account has sufficient
 unlocked tokens to execute the transaction. This AnteHandler decorator will fail if:
 
 - the message is not a `MsgEthereumTx`
@@ -405,7 +403,7 @@ The `x/vesting` module emits the following events:
 ### Create Clawback Vesting Account
 
 | Type                              | Attibute Key   | Attibute Value                    |
-|-----------------------------------|----------------|-----------------------------------|
+| --------------------------------- | -------------- | --------------------------------- |
 | `create_clawback_vesting_account` | `"from"`       | `{msg.FromAddress}`               |
 | `create_clawback_vesting_account` | `"coins"`      | `{vestingCoins.String()}`         |
 | `create_clawback_vesting_account` | `"start_time"` | `{msg.StartTime.String()}`        |
@@ -415,7 +413,7 @@ The `x/vesting` module emits the following events:
 ### Clawback
 
 | Type       | Attibute Key    | Attibute Value         |
-|------------|-----------------|------------------------|
+| ---------- | --------------- | ---------------------- |
 | `clawback` | `"funder"`      | `{msg.FromAddress}`    |
 | `clawback` | `"account"`     | `{msg.AccountAddress}` |
 | `clawback` | `"destination"` | `{msg.DestAddress}`    |
@@ -423,7 +421,7 @@ The `x/vesting` module emits the following events:
 ### Update Clawback Vesting Account Funder
 
 | Type                    | Attibute Key   | Attibute Value           |
-|-------------------------|----------------|--------------------------|
+| ----------------------- | -------------- | ------------------------ |
 | `update_vesting_funder` | `"funder"`     | `{msg.FromAddress}`      |
 | `update_vesting_funder` | `"account"`    | `{msg.VestingAddress}`   |
 | `update_vesting_funder` | `"new_funder"` | `{msg.NewFunderAddress}` |
@@ -433,7 +431,7 @@ The `x/vesting` module emits the following events:
 A user can query the HAQQ `x/vesting` module using the CLI, gRPC, or REST.
 
 :::note
-Due to namespace conflict with native Evmos vesting module HAQQ `x/vesting` module has been implemented using 
+Due to namespace conflict with native Evmos vesting module HAQQ `x/vesting` module has been implemented using
 `haqqvesting` namespace instead.
 :::
 
@@ -452,7 +450,7 @@ Must provide a lockup periods file (`--lockup`), a vesting periods file (`--vest
 
 If both files are given, they must describe schedules for the same total amount. If one file is omitted,
 it will default to a schedule that immediately unlocks or vests the entire amount. The described amount of coins
-will be transferred from the `--from` address to the vesting account. Unvested coins may be "clawed back" 
+will be transferred from the `--from` address to the vesting account. Unvested coins may be "clawed back"
 by the funder with the clawback command. Coins may not be transferred out of the account if they are locked or unvested.
 Only vested coins may be staked. For an example of how to set this see [this link](https://github.com/evmos/evmos/pull/303).
 
@@ -482,7 +480,7 @@ Allows users to create a new vesting account funded with an allocation of tokens
 Must provide a lockup periods file (`--lockup`), a vesting periods file (`--vesting`), or both.
 
 If both files are given, they must describe schedules for the same total amount. If one file is omitted,
-it will default to a schedule that immediately unlocks or vests the entire amount. The described amount of coins 
+it will default to a schedule that immediately unlocks or vests the entire amount. The described amount of coins
 will be transferred from the `--from` address to the vesting account. Unvested coins may be "clawed back"
 by the funder with the clawback command. Coins may not be transferred out of the account if they are locked or unvested.
 Only vested coins may be staked. For an example of how to set this see [this link](https://github.com/evmos/evmos/pull/303).
@@ -548,14 +546,14 @@ haqqd tx haqqvesting convert VESTING_ACCOUNT_ADDRESS [flags]
 #### Queries
 
 | Verb   | Method                                | Description                            |
-|--------|---------------------------------------|----------------------------------------|
+| ------ | ------------------------------------- | -------------------------------------- |
 | `gRPC` | `haqq.vesting.v1.Query/Balances`      | Gets locked, unvested and vested coins |
 | `GET`  | `/haqq/vesting/v1/balances/{address}` | Gets locked, unvested and vested coins |
 
 #### Transactions
 
 | Verb   | Method                                                | Description                                            |
-|--------|-------------------------------------------------------|--------------------------------------------------------|
+| ------ | ----------------------------------------------------- | ------------------------------------------------------ |
 | `gRPC` | `haqq.vesting.v1.Msg/CreateClawbackVestingAccount`    | Creates clawback vesting account                       |
 | `gRPC` | `haqq.vesting.v1.Msg/ConvertIntoVestingAccount`       | Convert existing account into clawback vesting account |
 | `gRPC` | `haqq.vesting.v1.Msg/Clawback`                        | Performs clawback                                      |

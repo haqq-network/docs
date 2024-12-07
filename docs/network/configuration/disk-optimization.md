@@ -16,9 +16,10 @@ disk usage quite significantly. Some of these changes take full effect
 only when you do the configuration and start syncing from start with
 them in use.
 
-## Storage Configuration Options        
+## Storage Configuration Options
 
 Set to true to discard ABCI responses from the state store, which can save a considerable amount of disk space. On `config.toml` setß
+
 ```toml
 [storage]
 discard_abci_responses = true
@@ -36,7 +37,6 @@ indexer = "null"
 If you do this on already synced node, the collected index is not purged
 automatically, you need to delete it manually. The index is located
 under the database directory with name `data/tx_index.db/`.
-
 
 ## Consensus Configuration Options
 
@@ -63,6 +63,7 @@ would not have the history.
 By default every 500th state, and the last zero states are kept. This
 consumes a lot of disk space on long run, and can be optimized with
 following custom configuration in `app.toml`:
+
 ```toml
 pruning = "everything"
 
@@ -71,8 +72,8 @@ pruning-interval = "0"
 min-retain-blocks = 400000
 ```
 
-
 ## API
+
 To reduce the load, we recommend disabling all APIs in in `app.toml`:
 
 ```toml

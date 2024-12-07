@@ -4,15 +4,16 @@ sidebar_position: 5
 ---
 
 # Vesting: The vesting dApp
+
 [Go to the vesting dApp](https://vesting.haqq.network/)
 
 ![vesting.png](/img/vesting.png)
 
 Vesting DApp allows users to manage vesting and view their wallet details, including:
 
-* **Total Balance**: The complete overall balance of your wallet.
-* **Available Balance**: The amount that is free to use for spending and transfers.
-* **Locked Balance**: The total of coins locked in vesting and staking.
+- **Total Balance**: The complete overall balance of your wallet.
+- **Available Balance**: The amount that is free to use for spending and transfers.
+- **Locked Balance**: The total of coins locked in vesting and staking.
 
 ## Schedule functionality
 
@@ -20,7 +21,7 @@ Vesting DApp allows users to manage vesting and view their wallet details, inclu
 
 If you have ongoing vesting schedules, the site displays the full vesting timeline, details about the next release period, and how many periods remain.
 
-## Liquid vesting functionality 
+## Liquid vesting functionality
 
 ![liquidity.png](/img/liquidity.png)
 

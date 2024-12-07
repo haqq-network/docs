@@ -8,7 +8,7 @@ Learn how to setup and run a validator node
 
 :::tip Pre-requisite Readings
 
-- [Run a Node](run-node/mainnet.md)
+- [Run a Node](run-node/index.md)
 - [Validator Overview](index.mdx)
 - [Validator Security](configuration/security.md)
 
@@ -45,7 +45,6 @@ haqqd tx staking create-validator \
   --from=<key_name> \
   --node https://rpc.tm.testedge2.haqq.network:443
 ```
-
 
 ### To create your validator on **Mainnet**
 
@@ -99,7 +98,7 @@ The `commission-rate` value must adhere to the following invariants:
 - Must not exceed the validator's `commission-max-change-rate` which is maximum
   % point change rate **per day**. In other words, a validator can only change
   its commission once per day and within `commission-max-change-rate` bounds.
-:::
+  :::
 
 ## View Validator Description
 
@@ -224,7 +223,7 @@ We are currently using version `1.7.8` on Mainnet.
 
 This error can also occur if you run the validator from a period when blocks were produced on a different version of the binary.
 
-From this point, we recommend starting the node using statesync. More information you can find [here](run-node/mainnet.md)
+From this point, we recommend starting the node using statesync. More information you can find [here](run-node/index.md)
 
 ### Unknown problems
 

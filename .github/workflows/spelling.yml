@@ -1,0 +1,23 @@
+name: Check Spelling
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    branches:
+      - 'main'
+  workflow_dispatch:
+
+jobs:
+  spelling:
+    runs-on:
+      - self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check Spelling
+        uses: check-spelling/check-spelling@v0.0.24
