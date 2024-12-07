@@ -23,7 +23,7 @@ Skip products, such as the Skip API, are used by various projects, including Nob
 ## Preparation
 
 :::danger
-Recipient addresses MUST be your personal wallets, not the addresses of exchanges! 
+Recipient addresses MUST be your personal wallets, not the addresses of exchanges!
 :::
 
 1. [Install Keplr](/user-guides/connect-your-wallet/Keplr/) and add both the Noble and HAQQ networks.
@@ -32,6 +32,7 @@ Recipient addresses MUST be your personal wallets, not the addresses of exchange
 
 :::tip Obtaining a Bech32 Address in HAQQ Wallet
 In the HAQQ Wallet, you can retrieve your wallet address in both EVM and Bech32 formats (the latter is used in Cosmos networks). To do this, click the three dots next to your wallet address and select "Copy Bech32 Address."
+
 <details>
   ![haqqwallet-get-bech32](/img/user_guides/haqqwallet-get-bech32.jpeg)
 </details>
@@ -39,6 +40,7 @@ In the HAQQ Wallet, you can retrieve your wallet address in both EVM and Bech32 
 
 :::tip Obtaining a Bech32 Address on HAQQ via EVM Address
 If you have the recipient's address in EVM format on the HAQQ Network, you can convert it to a Bech32 address using the web app for vesting. Visit this URL: https://shell.haqq.network/utils/address-conversion insert your EVM address and copy the bech32 address starting with "haqq1...."
+
 <details>
   ![address-conversion](/img/user_guides/address-conversion.png)
 </details>
@@ -54,32 +56,60 @@ If you have the recipient's address in EVM format on the HAQQ Network, you can c
 6. Click on "Swap"
 7. Review the tokens and networks. If everything looks correct, click "Set Destination Address."
 8. Set the recipient address on the HAQQ Network using Keplr or manually paste the Bech32 address.
-:::note The sender and recipient addresses must not be the same.
-:::
-<div align="center">
-  <img src="/img/user_guides/skip-destination.png"  alt="skip-destination" width="500" height="250"> </img> 
-</div>
+   :::note The sender and recipient addresses must not be the same.
+   :::
+
+   <div align="center">
+     <img
+       src="/img/user_guides/skip-destination.png"
+       alt="skip-destination"
+       width="500"
+       height="250"
+     >
+       {' '}
+     </img>
+   </div>
 
 9. Review the operation one more time. If everything is correct, click "Confirm swap."
 10. Skip will request permission to deduct the amount you wish to transfer. Verify the amount and confirm the operation.
-![skip-approve](/img/user_guides/skip-approve.png)
+    ![skip-approve](/img/user_guides/skip-approve.png)
 
-12. After 10-15 seconds, Skip will request the transfer transaction. Confirm it.
+11. After 10-15 seconds, Skip will request the transfer transaction. Confirm it.
 
 <div align="center">
-  <img src="/img/user_guides/skip-tx.png"  alt="skip-tx" width="400" height="150"> </img> 
+  <img
+    src="/img/user_guides/skip-tx.png"
+    alt="skip-tx"
+    width="400"
+    height="150"
+  >
+    {' '}
+  </img>
 </div>
 
-13. Next, you will see a screen indicating the EVM bridging finality time, which is approximately 16 minutes.  
-<div align="center">
-  <img src="/img/user_guides/skip-confirm.png"  alt="skip-confirm" width="500" height="250"> </img> 
-</div>
+13. Next, you will see a screen indicating the EVM bridging finality time, which is approximately 16 minutes.
+
+    <div align="center">
+      <img
+        src="/img/user_guides/skip-confirm.png"
+        alt="skip-confirm"
+        width="500"
+        height="250"
+      >
+        {' '}
+      </img>
+    </div>
 
 14. At this point, you can safely leave the page. Your tokens will be credited to your wallet on the HAQQ Network in about 16 minutes.
 15. The current transfer status will be displayed on the page.
 16. Once the transfer is complete, the successful status and transaction details will be shown.
-<div align="center">
-  <img src="/img/user_guides/skip-final.png"  alt="skip-final" width="1000" height="250"> </img> 
-</div>
-
-
+    <div align="center">
+      <img
+        src="/img/user_guides/skip-final.png"
+        alt="skip-final"
+        width="1000"
+        height="250"
+      >
+        {' '}
+      </img>
+    </div>

@@ -9,7 +9,7 @@ title: x/evm
 
 This document defines the specification of the Ethereum Virtual Machine (EVM) as a Cosmos SDK module.
 
-Since the introduction of Ethereum in 2015, the ability to control digital assets through 
+Since the introduction of Ethereum in 2015, the ability to control digital assets through
 [**smart contracts**](https://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/idea.html)
 has attracted a large community of developers to build decentralized applications on the Ethereum Virtual Machine (EVM).
 This community is continuously creating extensive tooling and introducing standards, which are further increasing
@@ -17,7 +17,7 @@ the adoption rate of EVM compatible technology.
 
 The growth of EVM-based chains (e.g. Ethereum), however, has uncovered several scalability challenges that are often
 referred to as the [trilemma of decentralization, security, and scalability](https://vitalik.ca/general/2021/04/07/sharding.html).
-Developers are frustrated by high gas fees, slow transaction speed & throughput, and chain-specific governance 
+Developers are frustrated by high gas fees, slow transaction speed & throughput, and chain-specific governance
 that can only undergo slow change because of its wide range of deployed applications. A solution is required
 that eliminates these concerns for developers, who build applications within a familiar EVM environment.
 
@@ -30,7 +30,7 @@ and horizontal scalability via [IBC](https://ibcprotocol.org/).
 
 :::note
 The `x/evm` module previously was a part of the [ethermint library](https://pkg.go.dev/github.com/evmos/ethermint),
-but has been merged into the Evmos repository lately and got protected by new LICENCE. Therefore, we decided 
+but has been merged into the Evmos repository lately and got protected by new LICENCE. Therefore, we decided
 to merge the latest common version into the HAQQ repository.
 :::
 
@@ -70,7 +70,7 @@ evm/
 │   └── statedb.go           # Functions from types/statedb with a passed in sdk.Context
 ├── migrations
 │   └── *                    # Migrations for the module between given consensus versions
-├── statedb                  
+├── statedb
 │   ├── journal.go           # Ethereum Journal of state transitions
 │   ├── state_object.go      # EVM state object
 │   └── statedb.go           # Implementation of the StateDb interface
@@ -102,22 +102,22 @@ evm/
 
 The Ethereum Virtual Machine (EVM) is a computation engine which can be thought of as one single entity maintained
 by thousands of connected computers (nodes) running an Ethereum client.
-As a virtual machine ([VM](https://en.wikipedia.org/wiki/Virtual_machine)), the EVM is responsible for computing 
+As a virtual machine ([VM](https://en.wikipedia.org/wiki/Virtual_machine)), the EVM is responsible for computing
 changes to the state deterministically regardless of its environment (hardware and OS).
 This means that every node has to get the exact same result given an identical starting state and transaction (tx).
 
-The EVM is considered to be the part of the Ethereum protocol that handles the deployment and execution 
+The EVM is considered to be the part of the Ethereum protocol that handles the deployment and execution
 of [smart contracts](https://ethereum.org/en/developers/docs/smart-contracts/).
 To make a clear distinction:
 
-* The Ethereum protocol describes a blockchain, in which all Ethereum accounts and smart contracts live.
+- The Ethereum protocol describes a blockchain, in which all Ethereum accounts and smart contracts live.
   It has only one canonical state (a data structure, which keeps all accounts) at any given block in the chain.
-* The EVM, however, is the [state machine](https://en.wikipedia.org/wiki/Finite-state_machine)
+- The EVM, however, is the [state machine](https://en.wikipedia.org/wiki/Finite-state_machine)
   that defines the rules for computing a new valid state from block to block.
-  It is an isolated runtime, which means that code running inside the EVM has no access to network, filesystem, 
+  It is an isolated runtime, which means that code running inside the EVM has no access to network, filesystem,
   or other processes (not external APIs).
 
-The `x/evm` module implements the EVM as a Cosmos SDK module. It allows users to interact with the EVM by submitting 
+The `x/evm` module implements the EVM as a Cosmos SDK module. It allows users to interact with the EVM by submitting
 Ethereum txs and executing their containing messages on the given state to evoke a state transition.
 
 #### State
@@ -132,10 +132,10 @@ by executing transactions in a block using the EVM. A new block of txs can be de
 
 There are two types of accounts that can be stored in state at a given address:
 
-* **Externally Owned Account (EOA)**: Has nonce (tx counter) and balance
-* **Smart Contract**: Has nonce, balance, (immutable) code hash, storage root (another Merkle Patricia Trie)
+- **Externally Owned Account (EOA)**: Has nonce (tx counter) and balance
+- **Smart Contract**: Has nonce, balance, (immutable) code hash, storage root (another Merkle Patricia Trie)
 
-Smart contracts are just like regular accounts on the blockchain, which additionally store executable code 
+Smart contracts are just like regular accounts on the blockchain, which additionally store executable code
 in an Ethereum-specific binary format, known as **EVM bytecode**.
 They are typically written in an Ethereum high level language, such as Solidity, which is compiled down to EVM bytecode
 and deployed on the blockchain by submitting a transaction using an Ethereum client.
@@ -144,27 +144,27 @@ and deployed on the blockchain by submitting a transaction using an Ethereum cli
 
 The EVM operates as a stack-based machine. It's main architecture components consist of:
 
-* Virtual ROM: contract code is pulled into this read only memory when processing txs
-* Machine state (volatile): changes as the EVM runs and is wiped clean after processing each tx
-    * Program counter (PC)
-    * Gas: keeps track of how much gas is used
-    * Stack and Memory: compute state changes
-* Access to account storage (persistent)
+- Virtual ROM: contract code is pulled into this read only memory when processing txs
+- Machine state (volatile): changes as the EVM runs and is wiped clean after processing each tx
+  - Program counter (PC)
+  - Gas: keeps track of how much gas is used
+  - Stack and Memory: compute state changes
+- Access to account storage (persistent)
 
 #### State Transitions with Smart Contracts
 
 Typically smart contracts expose a public ABI, which is a list of supported ways a user can interact with a contract.
-To interact with a contract and invoke a state transition, a user will submit a tx carrying any amount of gas 
+To interact with a contract and invoke a state transition, a user will submit a tx carrying any amount of gas
 and a data payload formatted according to the ABI, specifying the type of interaction and any additional parameters.
 When the tx is received, the EVM executes the smart contracts' EVM bytecode using the tx payload.
 
 #### Executing EVM bytecode
 
 A contract's EVM bytecode consists of basic operations (add, multiply, store, etc...), called **Opcodes**.
-Each Opcode execution requires gas that needs to be paid with the tx. The EVM is therefore considered quasi-turing 
+Each Opcode execution requires gas that needs to be paid with the tx. The EVM is therefore considered quasi-turing
 complete, as it allows any arbitrary computation, but the amount of computations during a contract execution is limited
 to the amount of gas provided in the tx.
-Each Opcode's [**gas cost**](https://www.evm.codes/) reflects the cost of running these operations on actual 
+Each Opcode's [**gas cost**](https://www.evm.codes/) reflects the cost of running these operations on actual
 computer hardware (e.g. `ADD = 3gas` and `SSTORE = 100gas`).
 To calculate the gas consumption of a tx, the gas cost is multiplied by the **gas price**, which can change depending
 on the demand of the network at the time.
@@ -172,16 +172,16 @@ If the network is under heavy load, you might have to pay a higher gas price to 
 If the gas limit is hit (out of gas exception) no changes to the Ethereum state are applied, except that the sender's
 nonce increments and their balance goes down to pay for wasting the EVM's time.
 
-Smart contracts can also call other smart contracts. Each call to a new contract creates a new instance 
+Smart contracts can also call other smart contracts. Each call to a new contract creates a new instance
 of the EVM (including a new stack and memory). Each call passes the sandbox state to the next EVM. If the gas runs out,
 all state changes are discarded. Otherwise, they are kept.
 
 For further reading, please refer to:
 
-* [EVM](https://eth.wiki/concepts/evm/evm)
-* [EVM Architecture](https://cypherpunks-core.github.io/ethereumbook/13evm.html#evm_architecture)
-* [What is Ethereum](https://ethdocs.org/en/latest/introduction/what-is-ethereum.html#what-is-ethereum)
-* [Opcodes](https://www.ethervm.io/)
+- [EVM](https://eth.wiki/concepts/evm/evm)
+- [EVM Architecture](https://cypherpunks-core.github.io/ethereumbook/13evm.html#evm_architecture)
+- [What is Ethereum](https://ethdocs.org/en/latest/introduction/what-is-ethereum.html#what-is-ethereum)
+- [Opcodes](https://www.ethervm.io/)
 
 ### HAQQ as Geth implementation
 
@@ -197,7 +197,7 @@ in order to be Web3 and EVM compatible.
 #### JSON-RPC
 
 JSON-RPC is a stateless, lightweight remote procedure call (RPC) protocol. Primarily this specification defines
-several data structures and the rules around their processing. It is transport agnostic in that the concepts 
+several data structures and the rules around their processing. It is transport agnostic in that the concepts
 can be used within the same process, over sockets, over HTTP, or in many various message passing environments.
 It uses JSON (RFC 4627) as a data format.
 
@@ -205,7 +205,7 @@ It uses JSON (RFC 4627) as a data format.
 
 The JSON-RPC method [`eth_call`](../../develop/api/ethereum-json-rpc/methods#eth_call) allows you to execute messages
 against contracts.
-Usually, you need to send a transaction to a Geth node to include it in the mempool, then nodes gossip between 
+Usually, you need to send a transaction to a Geth node to include it in the mempool, then nodes gossip between
 each other and eventually the transaction is included in a block and gets executed.
 `eth_call` however lets you send data to a contract and see what happens without committing a transaction.
 
@@ -241,8 +241,8 @@ The HAQQ implementation is similar and makes use of the gRPC query client which 
 #### StateDB
 
 The `StateDB` interface from [go-ethereum](https://github.com/ethereum/go-ethereum/blob/master/core/vm/interface.go)
-represents an EVM database for full state querying. EVM state transitions are enabled by this interface, 
-which in the `x/evm` module is implemented by the `Keeper`. 
+represents an EVM database for full state querying. EVM state transitions are enabled by this interface,
+which in the `x/evm` module is implemented by the `Keeper`.
 The implementation of this interface is what makes HAQQ EVM compatible.
 
 ### Consensus Engine
@@ -287,7 +287,7 @@ The `x/evm` module keeps the following objects in state:
 #### State
 
 |             | Description                                                                                                                              | Key                           | Value               | Store     |
-|-------------|------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|---------------------|-----------|
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ------------------- | --------- |
 | Code        | Smart contract bytecode                                                                                                                  | `[]byte{1} + []byte(address)` | `[]byte{code}`      | KV        |
 | Storage     | Smart contract storage                                                                                                                   | `[]byte{2} + [32]byte{key}`   | `[32]byte(value)`   | KV        |
 | Block Bloom | Block bloom filter, used to accumulate the bloom filter of current block, emitted to events at end blocker.                              | `[]byte{1} + []byte(tx.Hash)` | `protobuf([]Log)`   | Transient |
@@ -305,37 +305,37 @@ within the IAVL tree and take care of caching and storing nested states.
 // github.com/ethereum/go-ethereum/core/vm/interface.go
 type StateDB interface {
     CreateAccount(common.Address)
-    
+
     SubBalance(common.Address, *big.Int)
     AddBalance(common.Address, *big.Int)
     GetBalance(common.Address) *big.Int
-    
+
     GetNonce(common.Address) uint64
     SetNonce(common.Address, uint64)
-    
+
     GetCodeHash(common.Address) common.Hash
     GetCode(common.Address) []byte
     SetCode(common.Address, []byte)
     GetCodeSize(common.Address) int
-    
+
     AddRefund(uint64)
     SubRefund(uint64)
     GetRefund() uint64
-    
+
     GetCommittedState(common.Address, common.Hash) common.Hash
     GetState(common.Address, common.Hash) common.Hash
     SetState(common.Address, common.Hash, common.Hash)
-    
+
     Suicide(common.Address) bool
     HasSuicided(common.Address) bool
-    
+
     // Exist reports whether the given account exists in state.
     // Notably this should also return true for suicided accounts.
     Exist(common.Address) bool
     // Empty returns whether the given account is empty. Empty
     // is defined according to EIP161 (balance = nonce = code = 0).
     Empty(common.Address) bool
-    
+
     PrepareAccessList(sender common.Address, dest *common.Address, precompiles []common.Address, txAccesses types.AccessList)
     AddressInAccessList(addr common.Address) bool
     SlotInAccessList(addr common.Address, slot common.Hash) (addressOk bool, slotOk bool)
@@ -345,13 +345,13 @@ type StateDB interface {
     // AddSlotToAccessList adds the given (address,slot) to the access list. This operation is safe to perform
     // even if the feature/fork is not active yet
     AddSlotToAccessList(addr common.Address, slot common.Hash)
-    
+
     RevertToSnapshot(int)
     Snapshot() int
-    
+
     AddLog(*types.Log)
     AddPreimage(common.Hash, []byte)
-    
+
     ForEachStorage(common.Address, func(common.Hash, common.Hash) bool) error
 }
 ```
@@ -423,22 +423,22 @@ To check account existence use `Exist()` and `Empty()`.
 
 - `Exist()` returns true if the given account exists in store or if it has been marked as suicided.
 - `Empty()` returns true if the address meets the following conditions:
-    - nonce is 0
-    - balance amount for evm denom is 0
-    - account code hash is empty
+  - nonce is 0
+  - balance amount for evm denom is 0
+  - account code hash is empty
 
 #### EIP2930 functionality
 
 Supports a transaction type that contains an [access list](https://eips.ethereum.org/EIPS/eip-2930), a list of addresses
-and storage keys, that the transaction plans to access. The access list state is kept in memory and discarded after 
+and storage keys, that the transaction plans to access. The access list state is kept in memory and discarded after
 the transaction committed.
 
 - `PrepareAccessList()` handles the preparatory steps for executing a state transition in regard to both EIP-2929 and EIP-2930.
   This method should only be called if Yolov3/Berlin/2929+2930 is applicable at the current number.
-    - Add sender to access list (EIP-2929)
-    - Add destination to access list (EIP-2929)
-    - Add precompiles to access list (EIP-2929)
-    - Add the contents of the optional tx access list (EIP-2930)
+  - Add sender to access list (EIP-2929)
+  - Add destination to access list (EIP-2929)
+  - Add precompiles to access list (EIP-2929)
+  - Add the contents of the optional tx access list (EIP-2930)
 - `AddressInAccessList()` returns true if the address is registered.
 - `SlotInAccessList()` checks if the address and the slots are registered.
 - `AddAddressToAccessList()` adds the given address to the access list.
@@ -450,7 +450,7 @@ the transaction committed.
 
 The EVM uses state-reverting exceptions to handle errors. Such an exception will undo all changes made to the state
 in the current call (and all its sub-calls), and the caller could handle the error and don't propagate.
-You can use `Snapshot()` to identify the current state with a revision and revert the state to a given revision 
+You can use `Snapshot()` to identify the current state with a revision and revert the state to a given revision
 with `RevertToSnapshot()` to support this feature.
 
 - `Snapshot()` creates a new snapshot and returns the identifier.
@@ -464,14 +464,14 @@ and to revert to a snapshot it just undoes the journal logs after the snapshot i
 #### Ethereum Transaction logs
 
 With `AddLog()` you can append the given Ethereum `Log` to the list of logs associated with the transaction hash kept
-in the current state. This function also fills in the tx hash, block hash, tx index and log index fields before 
+in the current state. This function also fills in the tx hash, block hash, tx index and log index fields before
 setting the log to store.
 
 ### Keeper
 
 The EVM module `Keeper` grants access to the EVM module state
 and implements `statedb.Keeper` interface to support the `StateDB` implementation.
-The Keeper contains a store key that allows the DB to write to a concrete subtree of the multistore that is only 
+The Keeper contains a store key that allows the DB to write to a concrete subtree of the multistore that is only
 accessible by the EVM module.
 Instead of using a trie and database for querying and persistence (the `StateDB` implementation),
 HAQQ uses the Cosmos `KVStore` (key-value store) and Cosmos SDK `Keeper` to facilitate state transitions.
@@ -494,10 +494,10 @@ type Keeper struct {
     // - storing Bloom filters by block height. Needed for the Web3 API.
     // For the full list, check the module specification
     storeKey sdk.StoreKey
-    
+
     // key to access the transient store, which is reset on every block during Commit
     transientKey sdk.StoreKey
-    
+
     // module specific parameter space that can be configured through governance
     paramSpace paramtypes.Subspace
     // access to account state
@@ -508,16 +508,16 @@ type Keeper struct {
     stakingKeeper types.StakingKeeper
     // fetch EIP1559 base fee and parameters
     feeMarketKeeper types.FeeMarketKeeper
-    
+
     // chain ID number obtained from the context's chain id
     eip155ChainID *big.Int
-    
+
     // Tracer used to collect execution traces from the EVM transaction execution
     tracer string
     // trace EVM state transition execution. This value is obtained from the `--trace` flag.
     // For more info check https://geth.ethereum.org/docs/dapp/tracing
     debug bool
-    
+
     // EVM Hooks for tx post-processing
     hooks types.EvmHooks
 }
@@ -563,10 +563,10 @@ type GenesisAccount struct {
 
 ## State Transitions
 
-The `x/evm` module allows for users to submit Ethereum transactions (`Tx`) and execute their containing messages 
+The `x/evm` module allows for users to submit Ethereum transactions (`Tx`) and execute their containing messages
 to evoke state transitions on the given state.
 
-Users submit transactions client-side to broadcast it to the network. When the transaction is included in a block 
+Users submit transactions client-side to broadcast it to the network. When the transaction is included in a block
 during consensus, it is executed server-side. We highly recommend to understand the basics of the
 [CometBFT consensus engine](https://docs.cometbft.com/v0.37/introduction/what-is-cometbft#intro-to-abci)
 to understand the State Transitions in detail.
@@ -577,17 +577,17 @@ to understand the State Transitions in detail.
 👉 This is based on the `eth_sendTransaction` JSON-RPC
 :::
 
-1. A user submits a transaction via one of the available JSON-RPC endpoints using an Ethereum-compatible client 
+1. A user submits a transaction via one of the available JSON-RPC endpoints using an Ethereum-compatible client
    or wallet (eg Metamask, WalletConnect, Ledger, etc):
    - `eth` (public) namespace:
-      - `eth_sendTransaction`
-      - `eth_sendRawTransaction`
+     - `eth_sendTransaction`
+     - `eth_sendRawTransaction`
    - `personal` (private) namespace:
-      - `personal_sendTransaction`
-2. An instance of `MsgEthereumTx` is created after populating the RPC transaction using `SetTxDefaults` to fill 
-   missing tx arguments with  default values
+     - `personal_sendTransaction`
+2. An instance of `MsgEthereumTx` is created after populating the RPC transaction using `SetTxDefaults` to fill
+   missing tx arguments with default values
 3. The `Tx` fields are validated (stateless) using `ValidateBasic()`
-4. The `Tx` is **signed** using the key associated with the sender address and the latest ethereum hard 
+4. The `Tx` is **signed** using the key associated with the sender address and the latest ethereum hard
    fork (`London`, `Berlin`, etc) from the `ChainConfig`
 5. The `Tx` is **built** from the msg fields using the Cosmos Config builder
 6. The `Tx` is **broadcast** in [sync mode](https://docs.cosmos.network/main/run-node/txs.html#broadcasting-a-transaction)
@@ -599,50 +599,50 @@ to understand the State Transitions in detail.
 
 ### Server-Side
 
-Once a block (containing the `Tx`) has been committed during consensus, it is applied to the application in a series 
+Once a block (containing the `Tx`) has been committed during consensus, it is applied to the application in a series
 of ABCI msgs server-side.
 
 Each `Tx` is handled by the application by calling [`RunTx`](https://docs.cosmos.network/main/core/baseapp.html#runtx).
 After a stateless validation on each `sdk.Msg` in the `Tx`, the `AnteHandler` confirms whether the `Tx` is an Ethereum
-or SDK transaction. As an Ethereum transaction it's containing msgs are then handled by the `x/evm` module to update 
+or SDK transaction. As an Ethereum transaction it's containing msgs are then handled by the `x/evm` module to update
 the application's state.
 
 #### AnteHandler
 
-The `anteHandler` is run for every transaction. It checks if the `Tx` is an Ethereum transaction and routes it 
-to an internal ante handler. Here, `Tx`s are handled using `EthereumTx` extension options to process them differently 
-than normal Cosmos SDK transactions. The `antehandler` runs through a series of options and their `AnteHandle` 
+The `anteHandler` is run for every transaction. It checks if the `Tx` is an Ethereum transaction and routes it
+to an internal ante handler. Here, `Tx`s are handled using `EthereumTx` extension options to process them differently
+than normal Cosmos SDK transactions. The `antehandler` runs through a series of options and their `AnteHandle`
 functions for each `Tx`:
 
-- `EthSetUpContextDecorator()` is adapted from `SetUpContextDecorator` from cosmos-sdk, it ignores gas consumption 
+- `EthSetUpContextDecorator()` is adapted from `SetUpContextDecorator` from cosmos-sdk, it ignores gas consumption
   by setting the gas meter to infinite
 - `EthValidateBasicDecorator(evmKeeper)` validates the fields of an Ethereum type Cosmos `Tx` msg
 - `EthSigVerificationDecorator(evmKeeper)` validates that the registered chain id is the same as the one on the message,
-  and that the signer address matches the one defined on the message. It's not skipped for `RecheckTx`, because it 
-  set `From` address which is critical from other ante handler to work. Failure in `RecheckTx` will prevent tx 
+  and that the signer address matches the one defined on the message. It's not skipped for `RecheckTx`, because it
+  set `From` address which is critical from other ante handler to work. Failure in `RecheckTx` will prevent tx
   to be included into block, especially when `CheckTx` succeed, in which case user won't see the error message.
 - `EthAccountVerificationDecorator(ak, bankKeeper, evmKeeper)`
-  will verify, that the sender balance is greater than the total transaction cost. The account will be set to store 
+  will verify, that the sender balance is greater than the total transaction cost. The account will be set to store
   if it doesn't exist, i.e cannot be found on store. This `AnteHandler` decorator will fail if:
-    - any of the msgs is not a `MsgEthereumTx`
-    - from address is empty
-    - account balance is lower than the transaction cost
+  - any of the msgs is not a `MsgEthereumTx`
+  - from address is empty
+  - account balance is lower than the transaction cost
 - `EthNonceVerificationDecorator(ak)` validates that the transaction nonces are valid and equivalent to the sender account’s current nonce.
-- `EthGasConsumeDecorator(evmKeeper)` validates that the Ethereum tx message has enough to cover intrinsic 
-  gas (during `CheckTx` only) and that the sender has enough balance to pay for the gas cost. Intrinsic gas for 
-  a transaction is the amount of gas that the transaction uses before the transaction is executed. The gas is 
+- `EthGasConsumeDecorator(evmKeeper)` validates that the Ethereum tx message has enough to cover intrinsic
+  gas (during `CheckTx` only) and that the sender has enough balance to pay for the gas cost. Intrinsic gas for
+  a transaction is the amount of gas that the transaction uses before the transaction is executed. The gas is
   a constant value plus any cost incurred by additional bytes of data supplied with the transaction.
   This AnteHandler decorator will fail if:
-    - the transaction contains more than one message
-    - the message is not a `MsgEthereumTx`
-    - sender account cannot be found
-    - transaction's gas limit is lower than the intrinsic gas
-    - user doesn't have enough balance to deduct the transaction fees (`gas_limit * gas_price`)
-    - transaction or block gas meter runs out of gas
-- `CanTransferDecorator(evmKeeper, feeMarketKeeper)` creates an EVM from the message and calls the `BlockContext` 
+  - the transaction contains more than one message
+  - the message is not a `MsgEthereumTx`
+  - sender account cannot be found
+  - transaction's gas limit is lower than the intrinsic gas
+  - user doesn't have enough balance to deduct the transaction fees (`gas_limit * gas_price`)
+  - transaction or block gas meter runs out of gas
+- `CanTransferDecorator(evmKeeper, feeMarketKeeper)` creates an EVM from the message and calls the `BlockContext`
   `CanTransfer` function to see if the address can execute the transaction.
-- `EthIncrementSenderSequenceDecorator(ak)`  handles incrementing the sequence of the signer (i.e sender).
-  If the transaction is a contract creation, the nonce will be incremented during the transaction execution 
+- `EthIncrementSenderSequenceDecorator(ak)` handles incrementing the sequence of the signer (i.e sender).
+  If the transaction is a contract creation, the nonce will be incremented during the transaction execution
   and not within this AnteHandler decorator.
 
 The options `authante.NewMempoolFeeDecorator()`, `authante.NewTxTimeoutHeightDecorator()`
@@ -651,26 +651,26 @@ Click [here](https://docs.cosmos.network/main/basics/gas-fees.html#antehandler) 
 
 #### EVM module
 
-After authentication through the `antehandler`, each `sdk.Msg` (in this case `MsgEthereumTx`) in the `Tx`is delivered 
+After authentication through the `antehandler`, each `sdk.Msg` (in this case `MsgEthereumTx`) in the `Tx`is delivered
 to the Msg Handler in the `x/evm` module and runs through the following the steps:
 
 1. Convert `Msg` to an ethereum `Tx` type
 2. Apply `Tx` with `EVMConfig` and attempt to perform a state transition,
    that will only be persisted (committed) to the underlying KVStore
    if the transaction does not fail:
-    1. Confirm that `EVMConfig` is created
-    2. Create the ethereum signer using chain config value from `EVMConfig`
-    3. Set the ethereum transaction hash to the (impermanent) transient store so that it's also available on the StateDB functions
-    4. Generate a new EVM instance
-    5. Confirm that EVM params for contract creation (`EnableCreate`) and contract execution (`EnableCall`) are enabled
-    6. Apply message. If `To` address is `nil`, create new contract using code as deployment code.
-       Else call contract at given address with the given input as parameters
-    7. Calculate gas used by the evm operation
+   1. Confirm that `EVMConfig` is created
+   2. Create the ethereum signer using chain config value from `EVMConfig`
+   3. Set the ethereum transaction hash to the (impermanent) transient store so that it's also available on the StateDB functions
+   4. Generate a new EVM instance
+   5. Confirm that EVM params for contract creation (`EnableCreate`) and contract execution (`EnableCall`) are enabled
+   6. Apply message. If `To` address is `nil`, create new contract using code as deployment code.
+      Else call contract at given address with the given input as parameters
+   7. Calculate gas used by the evm operation
 3. If `Tx` applied successfully
-    1. Execute EVM `Tx` postprocessing hooks. If hooks return error, revert the whole `Tx`
-    2. Refund gas according to Ethereum gas accounting rules
-    3. Update block bloom filter value using the logs generated from the tx
-    4. Emit SDK events for the transaction fields and tx logs
+   1. Execute EVM `Tx` postprocessing hooks. If hooks return error, revert the whole `Tx`
+   2. Refund gas according to Ethereum gas accounting rules
+   3. Update block bloom filter value using the logs generated from the tx
+   4. Emit SDK events for the transaction fields and tx logs
 
 ## Transactions
 
@@ -678,10 +678,10 @@ This section defines the `sdk.Msg` concrete types that result in the state trans
 
 ## `MsgEthereumTx`
 
-An EVM state transition can be achieved by using the `MsgEthereumTx`. This message encapsulates an Ethereum 
-transaction data (`TxData`) as a `sdk.Msg`. It contains the necessary transaction data fields. Note, that 
+An EVM state transition can be achieved by using the `MsgEthereumTx`. This message encapsulates an Ethereum
+transaction data (`TxData`) as a `sdk.Msg`. It contains the necessary transaction data fields. Note, that
 the `MsgEthereumTx` implements both the [`sdk.Msg`](https://github.com/cosmos/cosmos-sdk/blob/v0.39.2/types/tx_msg.go#L7-L29)
-and [`sdk.Tx`](https://github.com/cosmos/cosmos-sdk/blob/v0.39.2/types/tx_msg.go#L33-L41) interfaces. Normally, 
+and [`sdk.Tx`](https://github.com/cosmos/cosmos-sdk/blob/v0.39.2/types/tx_msg.go#L33-L41) interfaces. Normally,
 SDK messages only implement the former, while the latter is a group of messages bundled together.
 
 ```go
@@ -707,10 +707,10 @@ This message field validation is expected to fail if:
 The transaction execution is expected to fail if:
 
 - Any of the custom `AnteHandler` Ethereum decorators checks fail:
-    - Minimum gas amount requirements for transaction
-    - Tx sender account doesn't exist or hasn't enough balance for fees
-    - Account sequence doesn't match the transaction `Data.AccountNonce`
-    - Message signature verification fails
+  - Minimum gas amount requirements for transaction
+  - Tx sender account doesn't exist or hasn't enough balance for fees
+  - Account sequence doesn't match the transaction `Data.AccountNonce`
+  - Message signature verification fails
 - EVM contract creation (i.e `evm.Create`) fails, or `evm.Call` fails
 
 #### Conversion
@@ -724,7 +724,7 @@ func (msg MsgEthereumTx) AsTransaction() *ethtypes.Transaction {
     if err != nil {
         return nil
     }
-    
+
     return ethtypes.NewTx(txData.AsEthereumData())
 }
 
@@ -742,12 +742,12 @@ func (tx *Transaction) AsMessage(s Signer, baseFee *big.Int) (Message, error) {
         accessList: tx.AccessList(),
         isFake:     false,
     }
- 
+
     // If baseFee provided, set gasPrice to effectiveGasPrice.
     if baseFee != nil {
         msg.gasPrice = math.BigMin(msg.gasPrice.Add(msg.gasTipCap, baseFee), msg.gasFeeCap)
     }
- 
+
     var err error
     msg.from, err = Sender(s, tx)
 
@@ -757,10 +757,10 @@ func (tx *Transaction) AsMessage(s Signer, baseFee *big.Int) (Message, error) {
 
 #### Signing
 
-In order for the signature verification to be valid, the  `TxData` must contain the `v | r | s` values from the `Signer`.
+In order for the signature verification to be valid, the `TxData` must contain the `v | r | s` values from the `Signer`.
 Sign calculates a `secp256k1` ECDSA signature and signs the transaction. It takes a keyring signer and the `chainID`
 to sign an Ethereum transaction according to EIP155 standard. This method mutates the transaction as it populates
-the `V`, `R`, `S` fields of the Transaction's Signature. The function will fail if the sender address is not defined 
+the `V`, `R`, `S` fields of the Transaction's Signature. The function will fail if the sender address is not defined
 for the msg or if the sender is not registered on the keyring.
 
 ```go
@@ -798,7 +798,7 @@ func (msg *MsgEthereumTx) Sign(ethSigner ethtypes.Signer, keyringSigner keyring.
 ### TxData
 
 The `MsgEthereumTx` supports the 3 valid Ethereum transaction data types from go-ethereum: `LegacyTx`, `AccessListTx`
-and `DynamicFeeTx`. These types are defined as protobuf messages and packed into a `proto.Any` interface type 
+and `DynamicFeeTx`. These types are defined as protobuf messages and packed into a `proto.Any` interface type
 in the `MsgEthereumTx` field.
 
 - `LegacyTx`: [EIP-155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md) transaction type
@@ -878,7 +878,7 @@ This message field validation is expected to fail if:
 - `GasTipCap` is invalid (`nil` , negative or overflows int256)
 - `GasFeeCap` is invalid (`nil` , negative or overflows int256)
 - `GasFeeCap` is less than `GasTipCap`
-- `Fee` (gas price * gas limit) is invalid (overflows int256)
+- `Fee` (gas price \* gas limit) is invalid (overflows int256)
 - `Amount` is invalid (negative or overflows int256)
 - `To` address is invalid (non-valid ethereum hex address)
 - `ChainID` is `nil`
@@ -924,7 +924,7 @@ This message field validation is expected to fail if:
 ## ABCI
 
 The Application Blockchain Interface (ABCI) allows the application to interact with the CometBFT Consensus engine.
-The application maintains several ABCI connections with CometBFT. The most relevant for the  `x/evm` is the
+The application maintains several ABCI connections with CometBFT. The most relevant for the `x/evm` is the
 [Consensus connection at Commit](https://docs.cometbft.com/v0.37/spec/abci/abci++_app_requirements#consensus-connection-requirements).
 This connection is responsible for block execution and calls the functions `InitChain` (containing `InitGenesis`),
 `BeginBlock`, `DeliverTx`, `EndBlock`, `Commit` . `InitChain` is only called the first time a new blockchain is started
@@ -937,7 +937,7 @@ In particular, it sets the parameters and genesis accounts (state and code).
 
 ### ExportGenesis
 
-The `ExportGenesis` ABCI function exports the genesis state of the EVM module. In particular, it retrieves all 
+The `ExportGenesis` ABCI function exports the genesis state of the EVM module. In particular, it retrieves all
 the accounts with their bytecode, balance and storage, the transaction logs, and the EVM parameters and chain configuration.
 
 ### BeginBlock
@@ -956,9 +956,9 @@ The EVM module `EndBlock` logic occurs after executing all the state transitions
 The main objective of this function is to:
 
 - Emit Block bloom events
-    - This is due for web3 compatibility as the Ethereum headers contain this type as a field.
-      The JSON-RPC service uses this event query to construct an Ethereum header from a CometBFT header.
-    - The block bloom filter value is obtained from the transient store and then emitted
+  - This is due for web3 compatibility as the Ethereum headers contain this type as a field.
+    The JSON-RPC service uses this event query to construct an Ethereum header from a CometBFT header.
+  - The block bloom filter value is obtained from the transient store and then emitted
 
 ## Hooks
 
@@ -970,8 +970,8 @@ This supports EVM contracts to call native cosmos modules by
 2. recognizing those logs in the native tx processing code, and
 3. converting them to native module calls.
 
-To do this, the interface includes a  `PostTxProcessing` hook that registers custom `Tx` hooks in the `EvmKeeper`.
-These  `Tx` hooks are processed after the EVM state transition is finalized and doesn't fail.
+To do this, the interface includes a `PostTxProcessing` hook that registers custom `Tx` hooks in the `EvmKeeper`.
+These `Tx` hooks are processed after the EVM state transition is finalized and doesn't fail.
 Note that there are no default hooks implemented in the EVM module.
 
 ```go
@@ -991,7 +991,7 @@ func (k *Keeper) PostTxProcessing(ctx sdk.Context, msg core.Message, receipt *et
     if k.hooks == nil {
         return nil
     }
-    
+
     return k.hooks.PostTxProcessing(k.Ctx(), msg, receipt)
 }
 ```
@@ -1000,7 +1000,7 @@ It's executed in the same cache context as the EVM transaction, if it returns an
 if the hook implementor doesn't want to revert the tx, they can always return `nil` instead.
 
 The error returned by the hooks is translated to a VM error `failed to process native logs`, the detailed error message
-is stored in the return value. The message is sent to native modules asynchronously, there's no way for the caller 
+is stored in the return value. The message is sent to native modules asynchronously, there's no way for the caller
 to catch and recover the error.
 
 ### Use Case: Call Native ERC20 Module on HAQQ
@@ -1052,28 +1052,28 @@ func (k Keeper) PostTxProcessing(
         }
 
         eventID := log.Topics[0] // event ID
-    
+
         event, err := erc20.EventByID(eventID)
         if err != nil {
             // invalid event for ERC20
             continue
         }
-    
+
         if event.Name != types.ERC20EventTransfer {
             h.k.Logger(ctx).Info("emitted event", "name", event.Name, "signature", event.Sig)
             continue
         }
-    
+
         transferEvent, err := erc20.Unpack(event.Name, log.Data)
         if err != nil {
             h.k.Logger(ctx).Error("failed to unpack transfer event", "error", err.Error())
             continue
         }
-    
+
         if len(transferEvent) == 0 {
             continue
         }
-    
+
         tokens, ok := transferEvent[0].(*big.Int)
         // safety check and ignore if amount not positive
         if !ok || tokens == nil || tokens.Sign() != 1 {
@@ -1082,19 +1082,19 @@ func (k Keeper) PostTxProcessing(
 
         // check that the contract is a registered token pair
         contractAddr := log.Address
-    
+
         id := h.k.GetERC20Map(ctx, contractAddr)
-    
+
         if len(id) == 0 {
             // no token is registered for the caller contract
             continue
         }
-    
+
         pair, found := h.k.GetTokenPair(ctx, id)
         if !found {
             continue
         }
-    
+
         // check that conversion for the pair is enabled
         if !pair.Enabled {
             // continue to allow transfers for the ERC20 in case the token pair is disabled
@@ -1104,7 +1104,7 @@ func (k Keeper) PostTxProcessing(
             )
             continue
         }
-    
+
         // ignore as the burning always transfers to the zero address
         to := common.BytesToAddress(log.Topics[2].Bytes())
         if !bytes.Equal(to.Bytes(), types.ModuleAddress.Bytes()) {
@@ -1113,10 +1113,10 @@ func (k Keeper) PostTxProcessing(
 
         // check that the event is Burn from the ERC20Burnable interface
         // NOTE: assume that if they are burning the token that has been registered as a pair, they want to mint a Cosmos coin
-    
+
         // create the corresponding sdk.Coin that is paired with ERC20
         coins := sdk.Coins{{Denom: pair.Denom, Amount: sdk.NewIntFromBigInt(tokens)}}
-    
+
         // Mint the coin only if ERC20 is external
         switch pair.ContractOwner {
         case types.OWNER_MODULE:
@@ -1126,7 +1126,7 @@ func (k Keeper) PostTxProcessing(
         default:
             err = types.ErrUndefinedOwner
         }
-    
+
         if err != nil {
             h.k.Logger(ctx).Debug(
                 "failed to process EVM hook for ER20 -> coin conversion",
@@ -1134,11 +1134,11 @@ func (k Keeper) PostTxProcessing(
             )
             continue
         }
-    
+
         // Only need last 20 bytes from log.topics
         from := common.BytesToAddress(log.Topics[1].Bytes())
         recipient := sdk.AccAddress(from.Bytes())
-    
+
         // transfer the tokens from ModuleAccount to sender address
         if err := h.k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, recipient, coins); err != nil {
             h.k.Logger(ctx).Debug(
@@ -1168,7 +1168,7 @@ The EVM module emits events of the relevant transaction fields, as well as the t
 ### MsgEthereumTx
 
 | Type        | Attribute Key      | Attribute Value       |
-|-------------|--------------------|-----------------------|
+| ----------- | ------------------ | --------------------- |
 | ethereum_tx | `"amount"`         | `{amount}`            |
 | ethereum_tx | `"recipient"`      | `{hex_address}`       |
 | ethereum_tx | `"contract"`       | `{hex_address}`       |
@@ -1186,7 +1186,7 @@ Additionally, the EVM module emits an event during `EndBlock` for the filter que
 ### ABCI
 
 | Type        | Attribute Key | Attribute Value      |
-|-------------|---------------|----------------------|
+| ----------- | ------------- | -------------------- |
 | block_bloom | `"bloom"`     | `string(bloomBytes)` |
 
 ## Parameters
@@ -1196,7 +1196,7 @@ The evm module contains the following parameters:
 ### Params
 
 | Key            | Type        | Default Value   |
-|----------------|-------------|-----------------|
+| -------------- | ----------- | --------------- |
 | `EVMDenom`     | string      | `"aISLM"`       |
 | `EnableCreate` | bool        | `true`          |
 | `EnableCall`   | bool        | `true`          |
@@ -1209,7 +1209,7 @@ The evm denomination parameter defines the token denomination used on the EVM st
 
 For example, on Ethereum, the `evm_denom` would be `ETH`. In the case of HAQQ, the default denomination is the **atto ISLM**.
 In terms of precision, `ISLM` and `ETH` share the same value,
-*i.e.* `1 ISLM = 10^18 atto ISLM` and `1 ETH = 10^18 wei`.
+_i.e._ `1 ISLM = 10^18 atto ISLM` and `1 ETH = 10^18 wei`.
 
 :::note
 SDK applications that want to import the EVM module as a dependency will need to set their own `evm_denom` (i.e not `"aISLM"`).
@@ -1254,7 +1254,7 @@ By default, all block configuration fields but `ConstantinopleBlock`, are enable
 #### ChainConfig Defaults
 
 | Name                | Default Value                                                        |
-|---------------------|----------------------------------------------------------------------|
+| ------------------- | -------------------------------------------------------------------- |
 | HomesteadBlock      | 0                                                                    |
 | DAOForkBlock        | 0                                                                    |
 | DAOForkSupport      | `true`                                                               |
@@ -1349,7 +1349,7 @@ please refer to [API](../../develop/api/ethereum-json-rpc/methods)
 #### Queries
 
 | Verb   | Method                                               | Description                                                                |
-|--------|------------------------------------------------------|----------------------------------------------------------------------------|
+| ------ | ---------------------------------------------------- | -------------------------------------------------------------------------- |
 | `gRPC` | `ethermint.evm.v1.Query/Account`                     | Get an Ethereum account                                                    |
 | `gRPC` | `ethermint.evm.v1.Query/CosmosAccount`               | Get an Ethereum account's Cosmos Address                                   |
 | `gRPC` | `ethermint.evm.v1.Query/ValidatorAccount`            | Get an Ethereum account's from a validator consensus Address               |
@@ -1376,6 +1376,6 @@ please refer to [API](../../develop/api/ethereum-json-rpc/methods)
 #### Transactions
 
 | Verb   | Method                            | Description                     |
-|--------|-----------------------------------|---------------------------------|
+| ------ | --------------------------------- | ------------------------------- |
 | `gRPC` | `ethermint.evm.v1.Msg/EthereumTx` | Submit an Ethereum transactions |
 | `POST` | `/ethermint/evm/v1/ethereum_tx`   | Submit an Ethereum transactions |
