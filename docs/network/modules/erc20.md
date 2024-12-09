@@ -10,7 +10,7 @@ title: x/erc20
 This document specifies the internal `x/erc20` module of the HAQQ Network.
 
 The `x/erc20` module enables the HAQQ Network to support a trustless, on-chain bidirectional internal conversion of tokens
-between HAQQ EVM and Cosmos runtimes, specifically the [`x/evm`](../modules/evm) and [`x/bank`](../modules/bank) modules.
+between HAQQ EVM and Cosmos runtimes, specifically the [`x/evm`](../evm) and [`x/bank`](../bank) modules.
 This allows token holders on HAQQ to instantaneously convert their native Cosmos `sdk.Coins` (in this document
 referred to as "Coin(s)") to ERC-20 (aka "Token(s)") and vice versa, while retaining fungibility with the original 
 asset on the issuing environment/runtime (EVM or Cosmos) and preserving ownership of the ERC-20 contract.

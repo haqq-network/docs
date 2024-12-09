@@ -10,7 +10,7 @@ Check how to obtain testnet tokens from the Haqq faucet.
 The Haqq TestEdge2 Faucet distributes small amounts of ISLM to anyone who can provide a valid testnet address for free.
 
 :::tip
-Follow the [Metamask](../user-guides/connect-your-wallet/Metamask) guide for more info on how to setup your wallet account.
+Follow the [Metamask](../../user-guides/connect-your-wallet/Metamask) guide for more info on how to setup your wallet account.
 :::
 
 ## Request Tokens on Discord

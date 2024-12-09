@@ -191,7 +191,7 @@ Geth includes an implementation of the EVM to compute state transitions.
 Have a look at the [go-ethereum source code](https://github.com/ethereum/go-ethereum/blob/master/core/vm/instructions.go)
 to see how the EVM opcodes are implemented.
 Just as Geth can be run as an Ethereum node, HAQQ can be run as a node to compute state transitions with the EVM.
-HAQQ supports Geth's standard [Ethereum JSON-RPC APIs](../../develop/api/ethereum-json-rpc/methods)
+HAQQ supports Geth's standard [Ethereum JSON-RPC APIs](../../../develop/api/ethereum-json-rpc/methods)
 in order to be Web3 and EVM compatible.
 
 #### JSON-RPC
@@ -203,7 +203,7 @@ It uses JSON (RFC 4627) as a data format.
 
 ##### JSON-RPC Example: `eth_call`
 
-The JSON-RPC method [`eth_call`](../../develop/api/ethereum-json-rpc/methods#eth_call) allows you to execute messages
+The JSON-RPC method [`eth_call`](../../../develop/api/ethereum-json-rpc/methods#eth_call) allows you to execute messages
 against contracts.
 Usually, you need to send a transaction to a Geth node to include it in the mempool, then nodes gossip between 
 each other and eventually the transaction is included in a block and gets executed.
@@ -1342,7 +1342,7 @@ value: "0x0000000000000000000000000000000000000000000000000000000000000000"
 ### JSON-RPC
 
 For an overview on the JSON-RPC methods and namespaces supported on HAQQ,
-please refer to [API](../../develop/api/ethereum-json-rpc/methods)
+please refer to [API](../../../develop/api/ethereum-json-rpc/methods)
 
 ### gRPC
 
