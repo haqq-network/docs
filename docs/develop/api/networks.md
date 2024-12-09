@@ -8,9 +8,9 @@ sidebar_position: 1
 
 Below is a list of publicly available endpoints that you can use to connect to the HAQQ mainnet and public testnets:
 
-:::tip
-You can also use [chainlist.org](https://chainlist.org/) to add the node directly to [Metamask](../../user-guides/).
-:::
+<!-- :::tip
+You can also use [chainlist.org](https://chainlist.org/) to add the node directly to [Metamask](../../user-guides/connect-your-wallet/Metamask).
+::: -->
 
 :::note
 If you are searching for the protobuf interfaces, head over [here](https://buf.build/haqq-network).

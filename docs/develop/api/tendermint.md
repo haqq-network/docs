@@ -26,7 +26,7 @@ curl localhost:26657/block?height=5
 ## RPC/HTTP
 
 JSONRPC requests can be POST'd to the root RPC endpoint via HTTP. See the list
-of supported CometBFT RPC endpoints using Swagger [here](../api#clients).
+of supported CometBFT RPC endpoints using Swagger [here](../api/index.md#clients).
 
 ## RPC/Websocket
 
@@ -100,7 +100,7 @@ The main events you can subscribe to are:
 - `ValidatorSetUpdates`: Contains validator set updates for the block.
 
 :::tip
-👉 The list of events types and values for each Cosmos SDK module can be found in the [Modules Specification](./../modules/) section.
+👉 The list of events types and values for each Cosmos SDK module can be found in the [Modules Specification](../../../network/modules/) section.
 Check the `Events` page to obtain the event list of each supported module on HAQQ Network.
 :::
 

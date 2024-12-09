@@ -8,7 +8,7 @@ Learn how to setup and run a validator node
 
 :::tip Pre-requisite Readings
 
-- [Run a Node](run-node/mainnet.md)
+- [Run a Node](run-node/mainnet-from-snapshot.md)
 - [Validator Overview](index.mdx)
 - [Validator Security](configuration/security.md)
 
@@ -224,7 +224,7 @@ We are currently using version `1.7.8` on Mainnet.
 
 This error can also occur if you run the validator from a period when blocks were produced on a different version of the binary.
 
-From this point, we recommend starting the node using statesync. More information you can find [here](run-node/mainnet.md)
+From this point, we recommend starting the node using statesync. More information you can find [here](run-node/mainnet-from-snapshot.md)
 
 ### Unknown problems
 

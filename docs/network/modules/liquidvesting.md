@@ -31,7 +31,7 @@ The user interface and user experience of `x/liquidvesting` module is presented 
 5. **[Concepts](#concepts)**
 6. **[Concepts](#state)**
 7. **[State Transitions](#state-transitions)**
-8. **[Transitions](#transitions)**
+8. **[Transactions](#transactions)**
 9. **[Parameters](#parameters)**
 10. **[Clients](#clients)**
 11. **[Shedule amount modification](#shedule-amount-modification )**

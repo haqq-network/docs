@@ -16,11 +16,11 @@ In this guide, we will delve into how you can create your first smart contact - 
 Before start - setup your wallet
 In this article, you will need an EVM-compatible wallet configured for the HAQQ testedge2 - test network, such as MetaMask or Haqq Wallet.
 
-Follow the [Metamask](../user-guides/connect-your-wallet/Metamask/#connect-to-testnet) guide for more info on how to setup your wallet account.
+Follow the [Metamask](../connect-your-wallet/Metamask#connect-to-testnet) guide for more info on how to setup your wallet account.
 :::
 
 :::info
-You can get free ISLM tokens on HAQQ testedge2 in [faucet here](../../develop/faucet/#request-tokens-on-web)
+You can get free ISLM tokens on HAQQ testedge2 in [faucet here](../../develop/faucet#request-tokens-on-web)
 :::
 
 
