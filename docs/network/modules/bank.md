@@ -5,6 +5,7 @@ title: x/bank
 
 # Bank
 
+
 ## Abstract
 
 This document specifies the internal `x/bank` module of the HAQQ Network.
@@ -19,9 +20,9 @@ Initially, this wrapper was made to comply with the tokenomics requirements desc
 [Whitepaper](https://islamiccoin.net/whitepaper). HAQQ bank keeper has a custom coins `burn` policy, that funds
 Evergreen DAO account instead of complete coins destruction in certain cases.
 
-The latest improvements of HAQQ bank make it an EVM-first module. It supports a trustless, on-chain bidirectional
+The latest improvements of HAQQ bank make it an EVM-first module. It supports a trustless, on-chain bidirectional 
 internal conversion of tokens between HAQQ EVM and Cosmos runtimes. Bank utilizes the `x/erc20` features
-to instantaneously convert users' native Cosmos `sdk.Coins` (in this document referred to as "Coin(s)")
+to instantaneously convert users' native Cosmos `sdk.Coins` (in this document referred to as "Coin(s)") 
 to ERC-20 (aka "Token(s)") during the transfers. That allows users' to see the same information about
 balances and make transfers without additional conversions using the preferred wallet apps (e.g. Keplr, MetaMask, etc).
 
@@ -37,7 +38,7 @@ bank/
 ├── keeper
 │   ├── grpc_query.go       # gRPC state query handlers
 │   ├── keeper.go           # Store keeper with the custom Burn() function
-│   └── msg_server.go       # Tx handlers (overrides functions Send, GetBalance, etc.)
+│   └── msg_server.go       # Tx handlers (overrides functions Send, GetBalance, etc.) 
 │   └── querier.go          # Legacy state query handlers
 │   └── wrapped_keeper.go   # Store keeper wrapper
 └── module.go               # Module setup for the module manager & ABCI InitGenesis and ExportGenesis functionality
@@ -49,7 +50,7 @@ bank/
 
 Once a token pair proposal passes, users of native Cosmos wallets (e.g., Keplr) can see their accurate Tokens
 balance as if they were native Coins.
-Holders of native Cosmos coins and IBC vouchers on the HAQQ Network can transfer their Tokens on HAQQ EVM
+Holders of native Cosmos coins and IBC vouchers on the HAQQ Network can transfer their Tokens on HAQQ EVM 
 by creating a `MsgSend` or `MsgTransfer` Tx.
 
 :::tip
@@ -98,6 +99,6 @@ Send coins from one address to another via IBC.
 Internal state transitions during execution:
 
 - check if ERC-20 is enabled
-  - check if the coins have registered token pairs
-  - convert tokens into coins
+    - check if the coins have registered token pairs
+    - convert tokens into coins
 - execute IBC transfer on HAQQ Cosmos runtime

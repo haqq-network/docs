@@ -12,18 +12,18 @@ This document specifies the internal `x/erc20` module of the HAQQ Network.
 The `x/erc20` module enables the HAQQ Network to support a trustless, on-chain bidirectional internal conversion of tokens
 between HAQQ EVM and Cosmos runtimes, specifically the [`x/evm`](../modules/evm) and [`x/bank`](../modules/bank) modules.
 This allows token holders on HAQQ to instantaneously convert their native Cosmos `sdk.Coins` (in this document
-referred to as "Coin(s)") to ERC-20 (aka "Token(s)") and vice versa, while retaining fungibility with the original
+referred to as "Coin(s)") to ERC-20 (aka "Token(s)") and vice versa, while retaining fungibility with the original 
 asset on the issuing environment/runtime (EVM or Cosmos) and preserving ownership of the ERC-20 contract.
 
 This conversion functionality is fully governed by native ISLM token holders who manage the canonical `TokenPair`
-registrations (ie, ERC20 ←→ Coin mappings). This governance functionality is implemented using the Cosmos-SDK
+registrations (ie, ERC20 ←→ Coin mappings). This governance functionality is implemented using the Cosmos-SDK 
 `gov` module with custom proposal types for registering and updating the canonical mappings respectively.
 
 Why is this important? Cosmos and the EVM are two runtimes that are not compatible by default. The native Cosmos Coins
-cannot be used in applications that require the ERC-20 standard. Cosmos coins are held on the `x/bank` module
+cannot be used in applications that require the ERC-20 standard. Cosmos coins are held on the `x/bank` module 
 (with access to module methods like querying the supply or balances) and ERC-20 Tokens live on smart contracts.
 This problem is similar to [wETH](https://coinmarketcap.com/alexandria/article/what-is-wrapped-ethereum-weth),
-with the difference, that it not only applies to gas tokens (like ISLM), but to all Cosmos Coins (IBC vouchers,
+with the difference, that it not only applies to gas tokens (like ISLM), but to all Cosmos Coins (IBC vouchers, 
 staking and gov coins, etc.) as well.
 
 With the `x/erc20` users on HAQQ can
@@ -73,7 +73,7 @@ erc20/
 ├── migrations
 │   └── v3
 │       ├── types
-│       │   └── params.go    # Params struct for consensus version 3 of the module
+│       │   └── params.go    # Params struct for consensus version 3 of the module 
 │       └── migration.go     # Migration handler from consensus version 2 to 3
 ├── spec
 │   └── *.md                 # The specifications of the module
@@ -125,8 +125,8 @@ representing the ERC20 token for the token pair, giving the module ownership of 
 #### Registration of an ERC20 token
 
 A proposal for an existing (i.e already deployed) ERC20 contract can be initiated too.
-In this case, the ERC20 maintains the original owner of the contract and uses an escrow & mint / burn & unescrow
-mechanism similar to the one defined by the
+In this case, the ERC20 maintains the original owner of the contract and uses an escrow & mint / burn & unescrow 
+mechanism similar to the one defined by the 
 [ICS20 - Fungible Token Transfer](https://github.com/cosmos/ibc/blob/master/spec/app/ics-020-fungible-token-transfer)
 specification.
 The token pair is composed of the original ERC20 token and a corresponding native Cosmos coin denomination.
@@ -144,7 +144,7 @@ During the registration of a Cosmos Coin the following bank `Metadata` is used t
 - **Symbol**
 - **Decimals**
 
-The native Cosmos Coin contains a more extensive metadata than the ERC20 and includes all necessary details
+The native Cosmos Coin contains a more extensive metadata than the ERC20 and includes all necessary details 
 for the conversion into a ERC20 Token, which requires no additional population of data.
 
 #### IBC voucher Metadata to ERC20 details
@@ -152,8 +152,8 @@ for the conversion into a ERC20 Token, which requires no additional population o
 IBC vouchers should comply to the following standard:
 
 - **Name**: `{NAME} channel-{channel}`
-- **Symbol**: `ibc{NAME}-{channel}`
-- **Decimals**: derived from bank `Metadata`
+- **Symbol**:  `ibc{NAME}-{channel}`
+- **Decimals**:  derived from bank `Metadata`
 
 #### ERC20 details to Coin Metadata
 
@@ -161,8 +161,8 @@ During the Registration of an ERC20 Token the Coin metadata is derived from the 
 
 - **Description**: `Cosmos coin token representation of {contractAddress}`
 - **DenomUnits**:
-  - Coin: `0`
-  - ERC20: `{uint32(erc20Data.Decimals)}`
+    - Coin: `0`
+    - ERC20: `{uint32(erc20Data.Decimals)}`
 - **Base**: `{"erc20/%s", address}`
 - **Display**: `{erc20Data.Name}`
 - **Name**: `{types.CreateDenom(strContract)}`
@@ -170,8 +170,8 @@ During the Registration of an ERC20 Token the Coin metadata is derived from the 
 
 ### Token Pair Modifiers
 
-A valid token pair can be modified through several governance proposals. The internal conversion of a token pair
-can be toggled with `ToggleTokenConversionProposal`, so that the conversions between the token pair's tokens
+A valid token pair can be modified through several governance proposals. The internal conversion of a token pair 
+can be toggled with `ToggleTokenConversionProposal`, so that the conversions between the token pair's tokens 
 can be enabled or disabled.
 
 ### Token Conversion
@@ -197,15 +197,15 @@ More sophisticated malicious implementations might also inherit code from custom
 include malicous behaviour. For an overview of more extensive examples, please review the `x/erc20` audit,
 section `IF-EVMOS-06: IERC20 Contracts may execute arbitrary code`.
 
-As the `x/erc20` module allows any arbitrary ERC20 contract to be registered through governance, it is essential
+As the `x/erc20` module allows any arbitrary ERC20 contract to be registered through governance, it is essential 
 that the proposer or the voters manually verify during voting phase that the proposed contract uses
 the default `ERC20.sol` implementation.
 
 Here are our recommendations for the reviewing process:
-
 - contract solidity code should be verified and accessable (e.g. using an explorer)
 - contract should be audited by a reputable auditor
 - inherited contracts need to be verified for correctness
+
 
 ## State
 
@@ -214,7 +214,7 @@ Here are our recommendations for the reviewing process:
 The `x/erc20` module keeps the following objects in state:
 
 | State Object       | Description                                    | Key                         | Value               | Store |
-| ------------------ | ---------------------------------------------- | --------------------------- | ------------------- | ----- |
+|--------------------|------------------------------------------------|-----------------------------|---------------------|-------|
 | `TokenPair`        | Token Pair bytecode                            | `[]byte{1} + []byte(id)`    | `[]byte{tokenPair}` | KV    |
 | `TokenPairByERC20` | Token Pair id bytecode by erc20 contract bytes | `[]byte{2} + []byte(erc20)` | `[]byte(id)`        | KV    |
 | `TokenPairByDenom` | Token Pair id bytecode by denom string         | `[]byte{3} + []byte(denom)` | `[]byte(id)`        | KV    |
@@ -242,12 +242,12 @@ The unique identifier of a `TokenPair` is obtained by obtaining the SHA256 hash 
 and the Coin denomination using the following function:
 
 ```tsx
-tokenPairId = sha256(erc20 + '|' + denom);
+tokenPairId = sha256(erc20 + "|" + denom)
 ```
 
 #### Token Origin
 
-The `ConvertCoin` and `ConvertERC20` functionalities use the owner field to check whether the token being
+The `ConvertCoin` and `ConvertERC20` functionalities use the owner field to check whether the token being 
 used is a native Coin or a native ERC20. The field is based on the token registration proposal
 type (`RegisterCoinProposal` = 1, `RegisterERC20Proposal` = 2).
 
@@ -301,6 +301,7 @@ type GenesisState struct {
 }
 ```
 
+
 ## State Transitions
 
 The `x/erc20` module allows for two types of registration state transitions.
@@ -325,12 +326,12 @@ Note that the native ISLM coin cannot be registered, as any coin including "evm"
    on the EVM based on the ERC20Mintable
    ([ERC20Mintable by openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20))
    interface
-   - Initial supply: 0
-   - Token details (Name, Symbol, Decimals, etc) are derived from the bank module `Metadata` field on the proposal content.
+    - Initial supply: 0
+    - Token details (Name, Symbol, Decimals, etc) are derived from the bank module `Metadata` field on the proposal content.
 
 #### 2. Register ERC20
 
-A user registers a ERC20 token contract that is already deployed on the EVM module.
+A user registers a ERC20 token contract that is already deployed on the EVM module. 
 Once the proposal passes (i.e. is approved by governance), the ERC20 module creates a Cosmos coin representation of the ERC20 token.
 
 1. User submits a `RegisterERC20Proposal`
@@ -363,20 +364,20 @@ and thus granting it the permission to call the `mint()` and `burnFrom()` method
 - There shouldn't exist any native Cosmos Coin ERC20 Contract (eg ISLM, Atom,
   Osmo ERC20 contracts) that is not owned by the governance
 - Token/Coin supply is maintained at all times:
-  - Total Coin supply = Coins + Escrowed Coins
-  - Total Token supply = Escrowed Coins = Minted Tokens
+    - Total Coin supply = Coins + Escrowed Coins
+    - Total Token supply = Escrowed Coins = Minted Tokens
 
 ##### 1.1 Coin to ERC20
 
 1. User submits `ConvertCoin` Tx
 2. Check if conversion is allowed for the pair, sender and recipient
-   - global parameter is enabled
-   - token pair is enabled
-   - sender tokens are not vesting (checked in the bank module)
-   - recipient address is not blacklisted
+    - global parameter is enabled
+    - token pair is enabled
+    - sender tokens are not vesting (checked in the bank module)
+    - recipient address is not blacklisted
 3. If Coin is a native Cosmos Coin and Token Owner is `ModuleAccount`
-   1. Escrow Cosmos coin by sending them to the `erc20` module account
-   2. Call `mint()` ERC20 tokens from the `ModuleAccount` address and send minted tokens to recipient address
+    1. Escrow Cosmos coin by sending them to the `erc20` module account
+    2. Call `mint()` ERC20 tokens from the `ModuleAccount` address and send minted tokens to recipient address
 4. Check if token balance increased by amount
 
 ##### 1.2 ERC20 to Coin
@@ -384,11 +385,11 @@ and thus granting it the permission to call the `mint()` and `burnFrom()` method
 1. User submits a `ConvertERC20` Tx
 2. Check if conversion is allowed for the pair, sender and recipient (see [1.1 Coin to ERC20](#11-coin-to-erc20))
 3. If token is a ERC20 and Token Owner is `ModuleAccount`
-   1. Call `burnCoins()` on ERC20 to burn ERC20 tokens from the user balance
-   2. Send Coins (previously escrowed, see [1.1 Coin to ERC20](#11-coin-to-erc20)) from module to the recipient address.
+    1. Call `burnCoins()` on ERC20 to burn ERC20 tokens from the user balance
+    2. Send Coins (previously escrowed, see [1.1 Coin to ERC20](#11-coin-to-erc20)) from module to the recipient address.
 4. Check if
-   - Coin balance increased by amount
-   - Token balance decreased by amount
+    - Coin balance increased by amount
+    - Token balance decreased by amount
 
 #### 2. Registered ERC20
 
@@ -401,23 +402,23 @@ The mechanism described below follows the same model as the ICS20 standard, by u
 ##### Invariants
 
 - ERC20 Token supply on the EVM runtime is maintained at all times:
-  - Escrowed ERC20 + Minted Cosmos Coin representation of ERC20 = Burned Cosmos Coin representation of ERC20 +
-    Unescrowed ERC20
-    - Convert 10 ERC20 → Coin, the total supply increases by 10. Mint on Cosmos side, no changes on EVM
-    - Convert 10 Coin → ERC20, the total supply decreases by 10. Burn on Cosmos side , no changes of supply on EVM
-  - Total ERC20 token supply = Non Escrowed Tokens + Escrowed Tokens (on Module account address)
-  - Total Coin supply for the native ERC20 = Escrowed ERC20 Tokens on module account (i.e balance) = Minted Coins
+    - Escrowed ERC20 + Minted Cosmos Coin representation of ERC20 = Burned Cosmos Coin representation of ERC20 +
+      Unescrowed ERC20
+        - Convert 10 ERC20 → Coin, the total supply increases by 10. Mint on Cosmos side, no changes on EVM
+        - Convert 10 Coin → ERC20, the total supply decreases by 10. Burn on Cosmos side , no changes of supply on EVM
+    - Total ERC20 token supply = Non Escrowed Tokens + Escrowed Tokens (on Module account address)
+    - Total Coin supply for the native ERC20 = Escrowed ERC20 Tokens on module account (i.e balance) = Minted Coins
 
 ##### 2.1 ERC20 to Coin
 
 1. User submits a `ConvertERC20` Tx
 2. Check if conversion is allowed for the pair, sender and recipient (See [1.1 Coin to ERC20](#11-coin-to-erc20))
 3. If token is a ERC20 and Token Owner is **not** `ModuleAccount`
-   1. Escrow ERC20 token by sending them to the `erc20` module account
-   2. Mint Cosmos coins of the corresponding token pair denomination and send coins to the recipient address
+    1. Escrow ERC20 token by sending them to the `erc20` module account
+    2. Mint Cosmos coins of the corresponding token pair denomination and send coins to the recipient address
 4. Check if
-   - Coin balance increased by amount
-   - Token balance decreased by amount
+    - Coin balance increased by amount
+    - Token balance decreased by amount
 5. Fail if unexpected `Approval` event found in logs to prevent malicious contract behaviour
 
 ##### 2.2 Coin to ERC20
@@ -425,11 +426,12 @@ The mechanism described below follows the same model as the ICS20 standard, by u
 1. User submits `ConvertCoin` Tx
 2. Check if conversion is allowed for the pair, sender and recipient
 3. If coin is a native Cosmos coin and Token Owner is **not** `ModuleAccount`
-   1. Escrow Cosmos Coins by sending them to the `erc20` module account
-   2. Unlock escrowed ERC20 from the module address by sending it to the recipient
-   3. Burn escrowed Cosmos coins
+    1. Escrow Cosmos Coins by sending them to the `erc20` module account
+    2. Unlock escrowed ERC20 from the module address by sending it to the recipient
+    3. Burn escrowed Cosmos coins
 4. Check if token balance increased by amount
 5. Fail if unexpected `Approval` event found in logs to prevent malicious contract behaviour
+
 
 ## Transactions
 
@@ -456,12 +458,12 @@ The proposal content stateless validation fails if:
 - Title is invalid (length or char)
 - Description is invalid (length or char)
 - Metadata is invalid
-  - Name and Symbol are not blank
-  - Base and Display denominations are valid coin denominations
-  - Base and Display denominations are present in the `DenomUnit` slice
-  - Base denomination has exponent 0
-  - Denomination units are sorted in ascending order
-  - Denomination units not duplicated
+    - Name and Symbol are not blank
+    - Base and Display denominations are valid coin denominations
+    - Base and Display denominations are present in the `DenomUnit` slice
+    - Base denomination has exponent 0
+    - Denomination units are sorted in ascending order
+    - Denomination units not duplicated
 
 ### `RegisterERC20Proposal`
 
@@ -553,7 +555,7 @@ The `erc20` module implements transaction hooks from the EVM in order to trigger
 
 ### EVM Hooks
 
-The EVM hooks allows users to convert ERC20s to Cosmos Coins by sending an Ethereum tx transfer
+The EVM hooks allows users to convert ERC20s to Cosmos Coins by sending an Ethereum tx transfer 
 to the module account address. This enables native conversion of tokens via Metamask and EVM-enabled wallets
 for both token pairs that have been registered through a native Cosmos coin or an ERC20 token.
 Note that additional coin/token balance checks for sender and receiver to prevent malicious contract behaviour
@@ -566,19 +568,20 @@ to the transaction is not available in the hook.
 2. Check if the ERC20 Token that was transferred from the sender is a native ERC20 or a native Cosmos Coin by looking at the
    [Ethereum event logs](https://medium.com/mycrypto/understanding-event-logs-on-the-ethereum-blockchain-f4ae7ba50378#:~:text=A%20log%20record%20can%20be,or%20a%20change%20of%20ownership.&text=Each%20log%20record%20consists%20of,going%20on%20in%20an%20event)
 3. If the token contract address corresponds to the ERC20 representation of a native Cosmos Coin
-   1. Call `burn()` ERC20 method from the `ModuleAccount`.
-      Note that this is the same as 1.2, but since the tokens are already on the ModuleAccount balance,
-      we burn the tokens from the module address instead of calling `burnFrom()`.
-      Also note that we don't need to mint because [1.1 coin to erc20](#state-transitions) escrows the coin
-   2. Transfer Cosmos Coin to the bech32 account address of the sender hex address
+    1. Call `burn()` ERC20 method from the  `ModuleAccount`.
+       Note that this is the same as 1.2, but since the tokens are already on the ModuleAccount balance,
+       we burn the tokens from the module address instead of calling `burnFrom()`.
+       Also note that we don't need to mint because [1.1 coin to erc20](#state-transitions) escrows the coin
+    2. Transfer Cosmos Coin to the bech32 account address of the sender hex address
 
 #### Registered ERC20: ERC20 to Coin
 
 1. User transfers coins to the`ModuleAccount` to escrow them
 2. Check if the ERC20 Token that was transferred is a native ERC20 or a native cosmos coin
 3. If the token contract address is a native ERC20 token
-   1. Mint Cosmos Coin
-   2. Transfer Cosmos Coin to the bech32 account address of the sender hex
+    1. Mint Cosmos Coin
+    2. Transfer Cosmos Coin to the bech32 account address of the sender hex
+
 
 ## Events
 
@@ -587,28 +590,28 @@ The `x/erc20` module emits the following events:
 ### Register Coin Proposal
 
 | Type            | Attribute Key   | Attribute Value   |
-| --------------- | --------------- | ----------------- |
+|-----------------|-----------------|-------------------|
 | `register_coin` | `"cosmos_coin"` | `{denom}`         |
 | `register_coin` | `"erc20_token"` | `{erc20_address}` |
 
 ### Register ERC20 Proposal
 
 | Type             | Attribute Key   | Attribute Value   |
-| ---------------- | --------------- | ----------------- |
+|------------------|-----------------|-------------------|
 | `register_erc20` | `"cosmos_coin"` | `{denom}`         |
 | `register_erc20` | `"erc20_token"` | `{erc20_address}` |
 
 ### Toggle Token Conversion
 
 | Type                      | Attribute Key   | Attribute Value   |
-| ------------------------- | --------------- | ----------------- |
+|---------------------------|-----------------|-------------------|
 | `toggle_token_conversion` | `"erc20_token"` | `{erc20_address}` |
 | `toggle_token_conversion` | `"cosmos_coin"` | `{denom}`         |
 
 ### Convert Coin
 
 | Type           | Attribute Key   | Attribute Value              |
-| -------------- | --------------- | ---------------------------- |
+|----------------|-----------------|------------------------------|
 | `convert_coin` | `"sender"`      | `{msg.Sender}`               |
 | `convert_coin` | `"receiver"`    | `{msg.Receiver}`             |
 | `convert_coin` | `"amount"`      | `{msg.Coin.Amount.String()}` |
@@ -618,7 +621,7 @@ The `x/erc20` module emits the following events:
 ### Convert ERC20
 
 | Type            | Attribute Key   | Attribute Value         |
-| --------------- | --------------- | ----------------------- |
+|-----------------|-----------------|-------------------------|
 | `convert_erc20` | `"sender"`      | `{msg.Sender}`          |
 | `convert_erc20` | `"receiver"`    | `{msg.Receiver}`        |
 | `convert_erc20` | `"amount"`      | `{msg.Amount.String()}` |
@@ -630,7 +633,7 @@ The `x/erc20` module emits the following events:
 The erc20 module contains the following parameters:
 
 | Key             | Type | Default Value |
-| --------------- | ---- | ------------- |
+|-----------------|------|---------------|
 | `EnableErc20`   | bool | `true`        |
 | `EnableEVMHook` | bool | `true`        |
 
@@ -641,14 +644,14 @@ When the parameter is disabled, it will prevent all token pair registration and 
 
 ### Enable EVM Hook
 
-The `EnableEVMHook` parameter enables the EVM hook to convert an ERC20 token to a Cosmos Coin by transferring
-the Tokens through a `MsgEthereumTx` to the `ModuleAddress` Ethereum address.
+The `EnableEVMHook` parameter enables the EVM hook to convert an ERC20 token  to a Cosmos Coin by transferring 
+the Tokens through a `MsgEthereumTx`  to the `ModuleAddress` Ethereum address.
 
 ## Clients
 
 ### CLI
 
-Find below a list of `haqqd` commands added with the `x/erc20` module.
+Find below a list of  `haqqd` commands added with the  `x/erc20` module.
 You can obtain the full list by using the `haqqd -h` command.
 A CLI command can look like this:
 
@@ -659,7 +662,7 @@ haqqd query erc20 params
 #### Queries
 
 | Command         | Subcommand    | Description                    |
-| --------------- | ------------- | ------------------------------ |
+|-----------------|---------------|--------------------------------|
 | `query` `erc20` | `params`      | Get erc20 params               |
 | `query` `erc20` | `token-pair`  | Get registered token pair      |
 | `query` `erc20` | `token-pairs` | Get all registered token pairs |
@@ -667,7 +670,7 @@ haqqd query erc20 params
 #### Transactions
 
 | Command      | Subcommand      | Description                    |
-| ------------ | --------------- | ------------------------------ |
+|--------------|-----------------|--------------------------------|
 | `tx` `erc20` | `convert-coin`  | Convert a Cosmos Coin to ERC20 |
 | `tx` `erc20` | `convert-erc20` | Convert a ERC20 to Cosmos Coin |
 
@@ -691,24 +694,24 @@ Where METADATA_FILE contains (example):
 {
   "metadata": [
     {
-      "description": "The native staking and governance token of the Osmosis chain",
-      "denom_units": [
-        {
-          "denom": "ibc/<HASH>",
-          "exponent": 0,
-          "aliases": ["ibcuosmo"]
-        },
-        {
-          "denom": "OSMO",
-          "exponent": 6
-        }
-      ],
-      "base": "ibc/<HASH>",
-      "display": "OSMO",
-      "name": "Osmo",
-      "symbol": "OSMO"
-    }
-  ]
+			"description": "The native staking and governance token of the Osmosis chain",
+			"denom_units": [
+				{
+						"denom": "ibc/<HASH>",
+						"exponent": 0,
+						"aliases": ["ibcuosmo"]
+				},
+				{
+						"denom": "OSMO",
+						"exponent": 6
+				}
+			],
+			"base": "ibc/<HASH>",
+			"display": "OSMO",
+			"name": "Osmo",
+			"symbol": "OSMO"
+		}
+	]
 }
 ```
 
@@ -742,7 +745,7 @@ haqqd tx gov submit-legacy-proposal param-change PROPOSAL_FILE [flags]
 #### Queries
 
 | Verb   | Method                            | Description                    |
-| ------ | --------------------------------- | ------------------------------ |
+|--------|-----------------------------------|--------------------------------|
 | `gRPC` | `evmos.erc20.v1.Query/Params`     | Get erc20 params               |
 | `gRPC` | `evmos.erc20.v1.Query/TokenPair`  | Get registered token pair      |
 | `gRPC` | `evmos.erc20.v1.Query/TokenPairs` | Get all registered token pairs |
@@ -753,7 +756,7 @@ haqqd tx gov submit-legacy-proposal param-change PROPOSAL_FILE [flags]
 #### Transactions
 
 | Verb   | Method                             | Description                    |
-| ------ | ---------------------------------- | ------------------------------ |
+|--------|------------------------------------|--------------------------------|
 | `gRPC` | `evmos.erc20.v1.Msg/ConvertCoin`   | Convert a Cosmos Coin to ERC20 |
 | `gRPC` | `evmos.erc20.v1.Msg/ConvertERC20`  | Convert a ERC20 to Cosmos Coin |
 | `GET`  | `/evmos/erc20/v1/tx/convert_coin`  | Convert a Cosmos Coin to ERC20 |

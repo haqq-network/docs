@@ -9,11 +9,11 @@ title: x/epochs
 
 This document specifies the internal `x/epochs` module of the HAQQ Network.
 
-Often, when working with the [Cosmos SDK](https://github.com/cosmos/cosmos-sdk), we would like to run certain
+Often, when working with the [Cosmos SDK](https://github.com/cosmos/cosmos-sdk), we would like to run certain 
 pieces of code every so often.
 
-The purpose of the `epochs` module is to allow other modules to maintain that they would like to be signaled
-once in a time period. So, another module can specify it wants to execute certain code once a week,
+The purpose of the `epochs` module is to allow other modules to maintain that they would like to be signaled 
+once in a time period. So, another module can specify it wants to execute certain code once a week, 
 starting at UTC-time = x. `epochs` creates a generalized epoch interface to other modules so they can be more
 easily signaled upon such events.
 
@@ -72,7 +72,7 @@ where `end time = start time + timer interval`.
 The `x/epochs` module keeps the following `objects in state`:
 
 | State Object | Description         | Key                  | Value               | Store |
-| ------------ | ------------------- | -------------------- | ------------------- | ----- |
+|--------------|---------------------|----------------------|---------------------|-------|
 | `EpochInfo`  | Epoch info bytecode | `[]byte{identifier}` | `[]byte{epochInfo}` | KV    |
 
 #### EpochInfo
@@ -114,7 +114,7 @@ message EpochInfo {
 }
 ```
 
-The `epochs` module keeps these `EpochInfo` objects in state, which are initialized at genesis and are modified
+The `epochs` module keeps these `EpochInfo` objects in state, which are initialized at genesis and are modified 
 on begin blockers or end blockers.
 
 #### Genesis State
@@ -137,14 +137,14 @@ The `x/epochs` module emits the following events:
 ### BeginBlocker
 
 | Type          | Attribute Key    | Attribute Value  |
-| ------------- | ---------------- | ---------------- |
+|---------------|------------------|------------------|
 | `epoch_start` | `"epoch_number"` | `{epoch_number}` |
 | `epoch_start` | `"start_time"`   | `{start_time}`   |
 
 ### EndBlocker
 
 | Type        | Attribute Key    | Attribute Value  |
-| ----------- | ---------------- | ---------------- |
+|-------------|------------------|------------------|
 | `epoch_end` | `"epoch_number"` | `{epoch_number}` |
 
 ## Keepers
@@ -153,7 +153,7 @@ The `x/epochs` module only exposes one keeper, the epochs keeper, which can be u
 
 ### Epochs Keeper
 
-Presently only one fully-permissioned epochs keeper is exposed, which has the ability to both read and write
+Presently only one fully-permissioned epochs keeper is exposed, which has the ability to both read and write 
 the `EpochInfo` for all epochs, and to iterate over all stored epochs.
 
 ```go
@@ -213,7 +213,7 @@ func (k Keeper) BeforeEpochStart(ctx sdk.Context, identifier string, epochNumber
 
 ### Receiving Hooks
 
-When other modules (outside of `x/epochs`) receive hooks, they need to filter the value `epochIdentifier`,
+When other modules (outside of `x/epochs`) receive hooks, they need to filter the value `epochIdentifier`, 
 and only do executions for a specific `epochIdentifier`.
 
 The filtered values from `epochIdentifier` could be stored in the `Params` of other modules, so they can be modified
@@ -243,13 +243,13 @@ Because of this, the time allocated to each epoch will be `max(block_time x 2, e
 For example: if the `epoch_duration` is set to `1s`, and `block_time` is `5s`, actual epoch time should be `10s`.
 
 It is recommended to configure `epoch_duration` to be more than two times the `block_time`, to use this module correctly.
-If there is a mismatch between the `epoch_duration` and the actual epoch time, as in the example above, then module
+If there is a mismatch between the `epoch_duration` and the actual epoch time, as in the example above, then module 
 logic could become invalid.
 
 ### Block-Time Drifts
 
 This implementation of the `x/epochs` module has block-time drifts based on the value of `block_time`.
-For example: if we have an epoch of 100 units that ends at `t=100`, and we have a block at `t=97` and a block
+For example: if we have an epoch of 100 units that ends at `t=100`, and we have a block at `t=97` and a block 
 at `t=104` and `t=110`, this epoch ends at `t=104`, and the new epoch will start at `t=110`.
 
 There are time drifts here, varying about 1-2 blocks time, which will slow down epochs.

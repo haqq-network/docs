@@ -30,11 +30,11 @@ https://github.com/haqq-network/haqq/releases/tag/v1.7.5
 - `Go 1.21+`
 
 Easy Go compiler installation:
-
 ```sh
 bash <(curl -s https://raw.githubusercontent.com/haqq-network/mainnet/master/install_go.sh) && \
 source $HOME/.bash_profile
 ```
+
 
 Build from source:
 
