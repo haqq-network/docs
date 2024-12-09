@@ -266,19 +266,6 @@ const config = {
         searchParameters: {},
       },
     }),
-
-  ssrTemplate: `<!DOCTYPE html>
-<html <%~ it.htmlAttributes %>>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%~ it.headTags %>
-    <%~ it.preBodyTags %>
-  </head>
-  <body <%~ it.bodyAttributes %>>
-    <%~ it.bodyTags %>
-  </body>
-</html>`,
 };
 
 module.exports = config;
