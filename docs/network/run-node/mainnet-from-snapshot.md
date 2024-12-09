@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Mainnet from Snapshot
+# Mainnet from Snapshot 
 
 ## Overview
 
@@ -80,7 +80,6 @@ After that need to download a haqq node snapshot from one of our providers:
 - [Publicnode](https://publicnode.com/snapshots)
 
 Example download command via aria2(via polkachu):
-
 ```ruby
 aria2c https://snapshots.polkachu.com/snapshots/haqq/haqq_12345540.tar.lz4
 ```
@@ -88,19 +87,15 @@ aria2c https://snapshots.polkachu.com/snapshots/haqq/haqq_12345540.tar.lz4
 And decompress to HAQQD_DIR and start node(archive name is just for example use actual name from provider)
 
 Example for Polkachu format:
-
 ```sh
 lz4 -c -d haqq_12345540.tar.lz4  | tar -x -C $HAQQD_DIR
 ```
-
 Example for Publicnode format:
-
 ```sh
 lz4 -c -d haqq-pruned-12345957-12345967.tar.lz4  | tar -x -C $HAQQD_DIR
 ```
 
 After decompress you can try to start the node:
-
 ```sh
 haqqd start
 ```

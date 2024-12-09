@@ -18,7 +18,7 @@ The `x/liquidvesting` module offers new capabilities for user-managed vesting wi
 Upon creation, `aLIQUIDX` tokens are automatically registered on the EVM layer as `ERC20` tokens. Each issuance of these partially liquid tokens generates a new unique partially liquid token.
 
 :::note
-The user interface and user experience of `x/liquidvesting` module is presented in [Vesting DApp](https://vesting.haqq.network/) you can read more
+The user interface and user experience of `x/liquidvesting` module is presented in [Vesting DApp](https://vesting.haqq.network/) you can read more 
 [here](/learn/ecosystem/vesting/#liquid-vesting-functionality).
 :::
 
@@ -34,7 +34,8 @@ The user interface and user experience of `x/liquidvesting` module is presented 
 8. **[Transitions](#transitions)**
 9. **[Parameters](#parameters)**
 10. **[Clients](#clients)**
-11. **[Shedule amount modification](#shedule-amount-modification)**
+11. **[Shedule amount modification](#shedule-amount-modification )**
+
 
 ## References
 
@@ -57,32 +58,32 @@ liquidvesting/
 ├── keeper
 │   ├── denom.go                     # Creation and management aLIQUIDX denoms
 │   ├── grpc_query.go                # gRPC state query handlers
-│   ├── keeper.go                    # Store keeper that handles the business logic of the module and has access to a specific subtree of the state tree.
+│   ├── keeper.go                    # Store keeper that handles the business logic of the module and has access to a specific subtree of the state tree. 
 │   ├── msg_server.go                # Tx handlers
 │   └── params.go                    # Parameter getter and setter
 ├── types
-│   ├── codec.go                     # Type registration for encoding
-│   ├── denom.go                     # Denom types description
+│   ├── codec.go                     # Type registration for encoding 
+│   ├── denom.go                     # Denom types description 
 │   ├── errors.go                    # Module-specific errors
-│   ├── genesis.go                   # Genesis state for the module
-│   ├── interfaces.go                # The interfaces describing the components of the required modules
-│   ├── keys.go                      # Store keys and utility functions
-│   ├── msg.go                       # Module transaction messages
+│   ├── genesis.go                   # Genesis state for the module 
+│   ├── interfaces.go                # The interfaces describing the components of the required modules 
+│   ├── keys.go                      # Store keys and utility functions 
+│   ├── msg.go                       # Module transaction messages  
 │   ├── params.go                    # Module parameters that can be customized with governance parameter change proposals
-│   └──schedule.go                   # Interaction with the vesting schedule
-├── genesis.go                       # ABCI InitGenesis and ExportGenesis functionality
-├── handler.go                       # Message routing
-└── module.go                        # Module setup for the module manager
+│   └──schedule.go                   # Interaction with the vesting schedule 
+├── genesis.go                       # ABCI InitGenesis and ExportGenesis functionality 
+├── handler.go                       # Message routing  
+└── module.go                        # Module setup for the module manager 
 ```
 
 ## Concepts
 
 `aLIQUIDX` are semi-liquid tokens registered on both the Cosmos and EVM layers as ERC20 tokens. These tokens are unrestricted, meaning they can be freely bought and sold.
 
+
 Users with vesting accounts and locked 1,000 ISLM tokens can make their locked ISLM tokens liquid - convert loked aISLM to liquid tokens `aLIQUIDX` . For every token creation, an exact amount of `aISLM` (minimal denomination is 10^18 aISLM equals 1 `ISLM`) is deducted from the user's vested balance corresponding to the number of aLIQUIDX tokens created. Each creation of `aLIQUIDX` tokens generates a new denomination and a new token—such as `aLIQUID1`, `aLIQUID2`, etc. A specific schedule assigned to the module by the creator of the token is associated with each of these denominations. Thus, each `aLIQUIDX` has its own unique schedule which may differ from another `aLIQUIDY` if `X != Y`. After creation, any user can exchange their `aLIQUIDX` tokens back into aISLM according to the schedule of that specific token. The exchange can be for all tokens at once or just a portion.
 
 ### Liquidation
-
 If vesting account contains only locked tokens user can use `Liquidate` transaction and next things will happen:
 
 1. Specified amount amount of locked ISLM token will be transfered from a user vesting account to `x/liquidvesting` module account
@@ -94,13 +95,12 @@ The minimum creation threshold of 1,000 ISLM tokens is set to reduce the number 
 
 **The primary purpose of `aLIQUIDX` is to enable p2p market for locked ISLM tokens.**
 
-#### Liquid token
+#### Liquid token 
 
 Liquid token represents arbitrary amount of ISLM token locked in vesting. For each liquidate transaction new unique liquid token will be created.
 Liquid token has vesting unlock schedule, it derives from original vesting account schedule which liquid token created from.
 
 ### Redeem
-
 Once user has any liquid token on its account, it can be redeemed to locked ISLM token. Once user uses `Redeem` transaction next things will happen:
 
 1. Liquid token amount specified for redeem will be burnt
@@ -123,9 +123,9 @@ If Users A and B transfer/sell 1,000 aLIQUID1 and 1,000 aLIQUID2 to User C, then
 
 The `x/liquidvesting` module keeps the following objects in state:
 
-| State Object | Description           | Key                             | Value           | Store |
-| ------------ | --------------------- | ------------------------------- | --------------- | ----- |
-| `Denom`      | Liquid token bytecode | `[]byte{1} + []byte(baseDenom)` | `[]byte{denom}` | KV    |
+| State Object | Description           | Key                             | Value           | Store  |
+|--------------|-----------------------|---------------------------------|-----------------| ------ |
+| `Denom`      | Liquid token bytecode | `[]byte{1} + []byte(baseDenom)` | `[]byte{denom}` | KV     |
 
 #### Denom
 
@@ -161,7 +161,6 @@ Original denom is keeping track of which denom liquid token derives from. In mos
 Defines start of unlock schedule bound to luqid token. Always match token creation date
 
 #### End time
-
 Defines the date when liquid token schedule ends
 
 #### LockupPeriods
@@ -198,9 +197,9 @@ type GenesisState struct {
 
 1. User submits `MsgLiquidate`
 2. Checks if liquidation allowed for account and amount
-   - tokens on target account are fully vested
-   - specified amount is more than minimum liquidation amount param
-   - specified amount is less or equal to locked token amount
+    - tokens on target account are fully vested
+    - specified amount is more than minimum liquidation amount param
+    - specified amount is less or equal to locked token amount
 3. Calculate new schedules for account and for liquid token
 4. Update target account with new schedule
 5. Escrow locked token to module account
@@ -213,8 +212,8 @@ type GenesisState struct {
 
 1. User submits `MsgRedeem`
 2. Checks if redeem possible
-   - Specified liquid token does exist
-   - Check user's account has sufficient amount of liquid token to redeem
+    - Specified liquid token does exist
+    - Check user's account has sufficient amount of liquid token to redeem
 3. Burn specified liquid token amount
 4. Subtract burnt liquid token amount from liquid token schedule
 5. Transfer ISLM to target account
@@ -269,9 +268,9 @@ Message stateless validation fails if:
 
 The `x/liquidvesting` module contains the following parameters:
 
-| Key                        | Type        | Default Value |
-| -------------------------- | ----------- | ------------- |
-| `MinimumLiquidationAmount` | sdkmath.Int | `1000*10^18`  |
+| Key                        | Type        | Default Value       |
+|----------------------------|-------------|---------------------|
+| `MinimumLiquidationAmount` | sdkmath.Int | `1000*10^18`        |
 
 ### Minimum liquidation amount
 
@@ -281,7 +280,7 @@ The `MinimumLiquidationAmount` parameter defines minimum amount of locked token 
 
 ### CLI
 
-Find below a list of `haqqd` commands added with the `x/liquidvesting` module. You can obtain the full list by using the `haqqd -h` command. A CLI command can look like this:
+Find below a list of  `haqqd` commands added with the  `x/liquidvesting` module. You can obtain the full list by using the `haqqd -h` command. A CLI command can look like this:
 
 ```bash
 haqqd query liquidvesting params
@@ -290,14 +289,14 @@ haqqd query liquidvesting params
 #### Queries
 
 | Command                 | Subcommand | Description                    |
-| ----------------------- | ---------- | ------------------------------ |
+|-------------------------|------------|--------------------------------|
 | `query` `liquidvesting` | `denom`    | Get liquid token               |
 | `query` `liquidvesting` | `denoms`   | Get all existing liquid tokens |
 
 #### Transactions
 
 | Command              | Subcommand  | Description                                       |
-| -------------------- | ----------- | ------------------------------------------------- |
+|----------------------|-------------|---------------------------------------------------|
 | `tx` `liquidvesting` | `liquidate` | Liquidates arbitrary amount of locked ISLM tokens |
 | `tx` `liquidvesting` | `redeem`    | Redeem liquid token to ISLM                       |
 
@@ -306,7 +305,7 @@ haqqd query liquidvesting params
 #### Queries
 
 | Verb   | Method                               | Description                    |
-| ------ | ------------------------------------ | ------------------------------ |
+| ------ |--------------------------------------| ------------------------------ |
 | `gRPC` | `haqq.liquidvesting.v1.Query/Denom`  | Get liquid token               |
 | `gRPC` | `haqq.liquidvesting.v1.Query/Denoms` | Get all existing liquid tokens |
 | `GET`  | `/haqq/liquidvesting/v1/denom`       | Get liquid token               |
@@ -315,21 +314,18 @@ haqqd query liquidvesting params
 #### Transactions
 
 | Verb   | Method                                | Description                                       |
-| ------ | ------------------------------------- | ------------------------------------------------- |
+|--------|---------------------------------------| ------------------------------------------------- |
 | `gRPC` | `haqq.liquidvesting.v1.Msg/Liquidate` | Liquidates arbitrary amount of locked ISLM tokens |
 | `gRPC` | `haqq.liquidvesting.v1.Msg/Redeem`    | Redeem liquid token to ISLM                       |
 | `POST` | `/haqq/liquidvesting/v1/tx/liquidate` | Liquidates arbitrary amount of locked ISLM tokens |
 | `POST` | `/haqq/liquidvesting/v1/tx/redeem`    | Redeem liquid token to ISLM                       |
 
-## Shedule amount modification
+## Shedule amount modification 
 
 This section describes in details how `x/liquidvesting` module handles operation with schedule mutation. Examples are provided.
-
 ### Liquidation
-
-For example we have an account this account has 3 days of vesting so each day represented as a period and has amount which be unlocked once period is passed.
+For example we have an account this account has 3 days of vesting so each day represented as a period and has amount which be unlocked once period is passed. 
 Let's imagine every period has different amount 10,20 and 30 respectively
-
 ```
 10,20,30
 ```
@@ -337,32 +333,26 @@ Let's imagine every period has different amount 10,20 and 30 respectively
 So total amount locked in this schedule is 60. We want to liquidate 20 tokens from this schedule.
 We will subtract portion of this amount from every period proportionally to total sum.
 For the first period :
-
 - 10 - first period amount
 - 20 - liquidation amount
 - 60 - total amount
 
-Formula is 10 - 10\*20/60 -> 10 - 200/60 -> 10 - 3 = 7
+Formula is 10 - 10*20/60 -> 10 - 200/60 -> 10 - 3 = 7
 
 Important note in above calculations. We have step 200/60 and this division has a remainder. We will track this remainder but won't use it to calculate new period.
 
 If we perform the same operation for every period we will get:
-
 ```
 7,14,20
 ```
-
 The sum of new periods is 41 but expected sum is 40 because we were subtracting 20 from periods with sum of 60.
 So calculate diff between sum of new periods and expected sum and it is 1. Now having the diff we subtract it from last period. So we get:
-
 ```
 7,14,19
 ```
-
 These are our new periods. These new periods will be the new schedule of vesting account targeted by liquidation.
 
 Now we need to know periods for newly created liquid token. and this is simply a diff between original periods and decreased periods
-
 ```
 10,20,30 - original amount in periods
 7,14,19 - decreased amount in periods

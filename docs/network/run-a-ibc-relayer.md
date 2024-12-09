@@ -11,6 +11,7 @@ An IBC (Inter-Blockchain Communication) Relayer is a crucial component in the Co
 
 Hermes is an open-source Rust implementation of a relayer for the Inter-Blockchain Communication Protocol (IBC). Hermes is widely used in production by relayer operators. It offers excellent logging and debugging options, but compared to the Go relayer, it may require more detailed knowledge of IBC to use properly. It is the one we recommend you use.
 
+
 ## About Hermes
 
 An IBC relayer is an off-chain process responsible for relaying IBC datagrams between any two chains. It does so by scanning chain states, building transactions based on these states, and submitting the transactions to the chains involved in the network.
@@ -32,50 +33,41 @@ We recommend start from the basic instructions from Hermes - [here.](https://her
 For instructions on how to install Rust on your machine, please follow the official [Rust Installation Notes.](https://www.rust-lang.org/tools/install). The provided instructions will install the entire Rust toolchain, including rustc, cargo, and rustup, required to build the project.
 
 Hermes requires Rust 1.76.0.
-
 ```bash
 rustc --version
 ```
 
-Also check `cargo`
-
+Also check `cargo` 
 ```bash
 cargo version
 ```
 
-### Install
-
+### Install 
 ```bash
 cargo install ibc-relayer-cli --bin hermes --locked
 ```
 
 If you have not installed Rust and Cargo via rustup.rs, you may need to add the $HOME/.cargo/bin directory to your PATH environment variable. For most shells, this can be done by adding the following line to your .bashrc or .zshrc configuration file:
-
 ```bash
 export PATH="$HOME/.cargo/bin:$PATH"
 ```
-
 ### Check
-
 ```bash
 hermes version
 ```
+Congratulations you've installed Hermes. 
 
-Congratulations you've installed Hermes.
-
-## Docker
+## Docker 
 
 We have prepared a Docker file for building Hermes, the IBC relayer, to facilitate its setup and deployment. You can obtain the Docker file and the full Docker Compose project using the links below:
-
-- [Hermes Docker File](https://raw.githubusercontent.com/haqq-network/hermes-docker/master/hermes.Dockerfile)
-- [Hermes Docker Compose File](https://raw.githubusercontent.com/haqq-network/hermes-docker/master/docker-compose.yml)
+* [Hermes Docker File](https://raw.githubusercontent.com/haqq-network/hermes-docker/master/hermes.Dockerfile)
+* [Hermes Docker Compose File](https://raw.githubusercontent.com/haqq-network/hermes-docker/master/docker-compose.yml)
 
 We also recommend using Docker Compose for managing your Hermes deployment. The full repository containing the Docker Compose project can be found here: [HAQQ Hermes Docker Project](https://github.com/haqq-network/hermes-docker)
 
 ## Config
-
-You can and should use the official documentation to configure it. The configuration from the example can be used as an [example.](https://raw.githubusercontent.com/haqq-network/hermes-docker/master/config.yaml)
-The key feature is `address_type derivation = 'ethermint'` and `ethermint.crypto.v1.ethsecp256k1.PubKey'` which need to be specified in the network settings, as in the example below.
+You can and should use the official documentation to configure it. The configuration from the example can be used as an [example.](https://raw.githubusercontent.com/haqq-network/hermes-docker/master/config.yaml) 
+The key feature is `address_type derivation = 'ethermint'` and `ethermint.crypto.v1.ethsecp256k1.PubKey'` which need to be specified in the network settings, as in the example below. 
 
 ```yaml
 [[chains]]
@@ -126,7 +118,7 @@ derivation = 'ethermint'
 proto_type = { pk_type = '/ethermint.crypto.v1.ethsecp256k1.PubKey' }
 ```
 
-You can see the settings of other networks in the [GitHub example](https://raw.githubusercontent.com/haqq-network/hermes-docker/master/config.yaml) or in the documentation of other networks.
+ You can see the settings of other networks in the [GitHub example](https://raw.githubusercontent.com/haqq-network/hermes-docker/master/config.yaml) or in the documentation of other networks. 
 
 ## Keys setup
 
@@ -135,16 +127,17 @@ Pay special attention to the HD-Path for Networks haqq_11235-1 and kava_2222-10.
 ```bash
 hermes keys add --chain haqq_11235-1 --mnemonic-file /root/.hermes/.mnemonic --hd-path "m/44'/60'/0'/0/0"
 hermes keys add --chain kava_2222-10 --mnemonic-file /root/.hermes/.mnemonic --hd-path "m/44'/459'/0'/0/0"
-hermes keys add --chain stride-1 --mnemonic-file /root/.hermes/.mnemonic
-hermes keys add --chain axelar-dojo-1 --mnemonic-file /root/.hermes/.mnemonic
-hermes keys add --chain osmosis-1 --mnemonic-file /root/.hermes/.mnemonic
-hermes keys add --chain noble-1 --mnemonic-file /root/.hermes/.mnemonic
+hermes keys add --chain stride-1 --mnemonic-file /root/.hermes/.mnemonic 
+hermes keys add --chain axelar-dojo-1 --mnemonic-file /root/.hermes/.mnemonic 
+hermes keys add --chain osmosis-1 --mnemonic-file /root/.hermes/.mnemonic 
+hermes keys add --chain noble-1 --mnemonic-file /root/.hermes/.mnemonic 
 hermes keys add --chain cosmoshub-4 --mnemonic-file /root/.hermes/.mnemonic
 ```
 
-## Commands
+## Commands 
 
-Note: you can get channels from the configuration or from the documentation [here.](../../develop/ibc/)
+Note: you can get channels from the configuration or from the documentation [here.](../../develop/ibc/) 
+
 
 Clear the channel with the following:
 
@@ -153,7 +146,6 @@ hermes clear packets --chain haqq_11235-1 --channel channel-7 --port transfer
 ```
 
 Get the channels with the following:
-
 ```bash
 hermes query channels  --chain haqq_11235-1
 ```
