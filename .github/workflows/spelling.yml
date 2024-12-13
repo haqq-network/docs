@@ -12,7 +12,7 @@ on:
 jobs:
   spelling:
     runs-on:
-      - self-hosted
+      - ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
