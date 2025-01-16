@@ -1,10 +1,6 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-// const { themes } = require('prism-react-renderer');
-// // const lightCodeTheme = require('prism-react-renderer/themes/github');
-// // const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
-
 const lightCodeTheme = require('prism-react-renderer').themes.github;
 const darkCodeTheme = require('prism-react-renderer').themes.vsDark;
 
@@ -71,9 +67,9 @@ const config = {
       // evm_explorer_url: 'https://escan.live',
       // testnet_cosmos_explorer_url: 'https://testnet.mintscan.io/evmos-testnet',
       // cosmos_explorer_url: 'https://www.mintscan.io/evmos',
-      latest_version: 'v1.7.4',
-      mainnet_version: 'v1.7.4',
-      testnet_version: 'v1.7.4',
+      latest_version: 'v1.8.2',
+      mainnet_version: 'v1.8.2',
+      testnet_version: 'v1.8.2',
       block_explorer_url: 'https://explorer.haqq.network',
       eth_name: 'Main Ethereum Network',
       unbonding_period: '21 days',
@@ -96,6 +92,11 @@ const config = {
         blog: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        sitemap: {
+          lastmod: 'datetime',
+          changefreq: 'weekly',
+          priority: 0.5,
         },
       }),
     ],
@@ -120,14 +121,6 @@ const config = {
         },
       };
     },
-    [
-      '@docusaurus/plugin-sitemap',
-      {
-        id: 'sitemap',
-        changefreq: 'weekly',
-        priority: 0.5,
-      },
-    ],
   ],
 
   themeConfig:
@@ -144,7 +137,6 @@ const config = {
           content:
             'HAQQ is a scalable and interoperable Ethereum blockchain, built on Proof-of-Stake with fast-finality. Explore our comprehensive documentation.',
         },
-        { name: 'robots', content: 'index, follow' },
         {
           property: 'og:title',
           content:
@@ -154,6 +146,10 @@ const config = {
           property: 'og:description',
           content:
             'HAQQ is a scalable and interoperable Ethereum blockchain, built on Proof-of-Stake with fast-finality. Explore our comprehensive documentation.',
+        },
+        {
+          name: 'sitemap',
+          content: '/sitemap.xml',
         },
       ],
       // Replace with your project's social card
