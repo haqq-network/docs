@@ -11,8 +11,7 @@ on:
 
 jobs:
   spelling:
-    runs-on:
-      - ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -20,4 +19,6 @@ jobs:
           fetch-depth: 0
 
       - name: Check Spelling
-        uses: check-spelling/check-spelling@v0.0.24
+        uses: streetsidesoftware/cspell-action@v6
+        with:
+          files: '{docs,static,src}/**/*.{md,mdx,js,ts,jsx,tsx,yml,yaml,json}'
