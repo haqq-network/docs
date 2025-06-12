@@ -13,15 +13,6 @@ The Haqq TestEdge2 Faucet distributes small amounts of ISLM to anyone who can pr
 Follow the [Metamask](../../user-guides/connect-your-wallet/Metamask) guide for more info on how to setup your wallet account.
 :::
 
-## Request Tokens on Discord
-
-<!-- markdown-link-check-disable-next-line -->
-
-1. Join our Discord at [https://discord.com/invite/islamiccoin](https://discord.com/invite/islamiccoin)
-2. Verify your account.
-3. Go to the HAQQERS category and click on the #faucet channel at [#faucet](https://discord.com/channels/989535240882114581/1075694966183043083).
-4. Simply write `!faucet <your hex address>` to receive 10 ISLM.
-
 ## Request Tokens on Web
 
 <!-- markdown-link-check-disable-next-line -->
