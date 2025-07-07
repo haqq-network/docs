@@ -40,7 +40,3 @@ If you are searching for the protobuf interfaces, head over [here](https://buf.b
 | [https://rpc.tm.testedge2.haqq.network](https://rpc.tm.testedge2.haqq.network)           | `CometBFT RPC`  | [HAQQ](https://haqq.network)      |
 | [https://grpc.cosmos.testedge2.haqq.network](https://grpc.cosmos.testedge2.haqq.network) | `gRPC Cosmos`   | [HAQQ](https://haqq.network)      |
 | [https://rest.cosmos.testedge2.haqq.network](https://rest.cosmos.testedge2.haqq.network) | `REST Cosmos`   | [HAQQ](https://haqq.network)      |
-| [wss://te2-s1-evm-ws.haqq.sh](wss://te2-s1-evm-ws.haqq.sh)                               | `EVM Websocket` | [Kioqq](https://github.com/kioqq) |
-| [https://te2-s1-evm-rpc.haqq.sh](https://te2-s1-evm-rpc.haqq.sh)                         | `EVM JSON-RPC`  | [Kioqq](https://github.com/kioqq) |
-| [https://te2-s1-tm.haqq.sh](https://te2-s1-tm.haqq.sh)                                   | `CometBFT RPC`  | [Kioqq](https://github.com/kioqq) |
-| grpc://te2-s1-grpc.haqq.sh:1337                                                          | `gRPC Cosmos`   | [Kioqq](https://github.com/kioqq) |
