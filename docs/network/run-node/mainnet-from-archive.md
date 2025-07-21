@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## Overview
 
-The current HAQQ version of mainnet is [`v1.7.8`](https://github.com/haqq-network/haqq/releases/tag/v1.7.8).
+The current HAQQ version of mainnet is [`v1.8.5`](https://github.com/haqq-network/haqq/releases/tag/v1.8.5).
 Sources of all scripts are here [`github`](https://github.com/haqq-network/mainnet)
 
 ## Quickstart
@@ -49,7 +49,7 @@ go version
 ### Install latest HAQQ node
 ```sh
 cd $HOME
-git clone -b v1.7.8 https://github.com/haqq-network/haqq
+git clone -b v1.8.5 https://github.com/haqq-network/haqq
 cd haqq && make install
 ```
 Checking 
@@ -57,7 +57,7 @@ Checking
 ```sh
 haqqd -v
 ```
-haqqd version "1.7.8" 3058d8f0485747aa5eacb352330d6bc1a867a838
+haqqd version 1.8.5 9ddfca4b98943e106de99fd525b6bb05bfe66d34
 
 ### Сonfig HAQQ node
 

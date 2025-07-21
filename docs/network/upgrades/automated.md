@@ -50,15 +50,15 @@ Cosmovisor will continually poll the `$DAEMON_HOME/data/upgrade-info.json` for n
 1. Download (**NOT INSTALL**) the binary for the new release
 2. Place it under `$DAEMON_HOME/cosmovisor/upgrades/<name>/bin`, where `<name>` is the URI-encoded name of the upgrade as specified in the Software Upgrade Plan.
 
-**Example**: for a `Plan` with name `v1.7.0` with the following `upgrade-info.json`:
+**Example**: for a `Plan` with name `v1.8.5` with the following `upgrade-info.json`:
 
 ```json
 {
   "binaries": {
-    "darwin/arm64": "https://github.com/haqq-network/haqq/releases/download/v1.7.0/haqq_1.7.0_Darwin_arm64.tar.gz",
-    "darwin/x86_64": "https://github.com/haqq-network/haqq/releases/download/v1.7.0/haqq_1.7.0_Darwin_x86_64.tar.gz",
-    "linux/arm64": "https://github.com/haqq-network/haqq/releases/download/v1.7.0/haqq_1.7.0_Linux_arm64.tar.gz",
-    "linux/amd64": "https://github.com/haqq-network/haqq/releases/download/v1.7.0/haqq_1.7.0_Linux_amd64.tar.gz"
+    "darwin/arm64": "https://github.com/haqq-network/haqq/releases/download/v1.8.5/haqq_1.8.5_darwin_arm64.tar.gz",
+    "darwin/x86_64": "https://github.com/haqq-network/haqq/releases/download/v1.8.5/haqq_1.8.5_darwin_amd64.tar.gz",
+    "linux/arm64": "https://github.com/haqq-network/haqq/releases/download/v1.8.5/haqq_1.8.5_linux_arm64.tar.gz",
+    "linux/amd64": "https://github.com/haqq-network/haqq/releases/download/v1.8.5/haqq_1.8.5_linux_amd64.tar.gz"
   }
 }
 ```
