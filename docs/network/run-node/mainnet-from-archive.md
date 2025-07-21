@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Mainnet Full Node from Archive 
+# Mainnet Full Node from Archive
 
 ## Overview
 
@@ -11,143 +11,147 @@ Sources of all scripts are here [`github`](https://github.com/haqq-network/mainn
 
 ## Quickstart
 
-_*Battle tested on [Ubuntu LTS 22.04](https://spinupwp.com/doc/what-does-lts-mean-ubuntu/#:~:text=The%20abbreviation%20stands%20for%20Long,extended%20period%20over%20regular%20releases)*_
-
-
 ## Setup
+
 ### APT
+
 ```sh
 sudo apt update && sudo apt upgrade -y
-sudo apt install curl git make gcc liblz4-tool build-essential jq -y
-sudo apt install snapd -y && sudo snap install lz4 -y
+sudo apt install curl git make gcc liblz4-tool build-essential jq lz4 -y
 ```
 
-Script repository 
+Clone the mainnet repository:
 
 ```sh
 git clone https://github.com/haqq-network/mainnet
 ```
 
-
 ### Go
-Need version 1.21
-https://go.dev/doc/install
 
-Don't forget:
+You need Go version 1.21:
+
 ```sh
-./mainnet/install_go.sh 
+./mainnet/install_go.sh
 export PATH=$PATH:/usr/local/go/bin
 ```
 
-Checking
+Check your Go installation:
 
-```
+```sh
 go version
 ```
 
+### Install the latest HAQQ node
 
-### Install latest HAQQ node
 ```sh
 cd $HOME
 git clone -b v1.8.5 https://github.com/haqq-network/haqq
 cd haqq && make install
 ```
-Checking 
+
+Add the haqq binary to your `$PATH`:
+
+```sh
+export PATH=$PATH:~/go/bin/
+```
+
+Check the installation:
 
 ```sh
 haqqd -v
 ```
-haqqd version 1.8.5 9ddfca4b98943e106de99fd525b6bb05bfe66d34
 
-### Сonfig HAQQ node
+You should see:
+
+```
+haqqd version "1.8.5" 9ddfca4b98943e106de99fd525b6bb05bfe66d34
+```
+
+### Configure HAQQ node
 
 ```sh
-CUSTOM_MONIKER="mainnet_seed_node" && \
+CUSTOM_MONIKER="mainnet_archive_node" && \
 haqqd config chain-id haqq_11235-1 && \
 haqqd init $CUSTOM_MONIKER --chain-id haqq_11235-1
 
-# Prepare genesis file for mainet(haqq_11235-1)
+# Prepare the genesis file for mainnet (haqq_11235-1)
 curl -OL https://raw.githubusercontent.com/haqq-network/mainnet/master/genesis.json && \
 mv genesis.json $HOME/.haqqd/config/genesis.json
 
-# Prepare addrbook
+# Prepare the addrbook
 curl -OL https://raw.githubusercontent.com/haqq-network/mainnet/master/addrbook.json && \
 mv addrbook.json $HOME/.haqqd/config/addrbook.json
 ```
 
-
-## Config for full node
+## Configuration for full node
 
 ```sh
-cd .haqqd/config
+cd $HOME/.haqqd/config
 ```
+
 ## app.toml
+
 ```
 pruning = "nothing"
 ```
+
 ## config.toml
+
 ```
 [statesync]
 enable = false
 ```
 
-##  Download and install archive
-go to - https://storage.googleapis.com/haqq-archive-snapshots/  -and see the latest available snapshots. We take snapshots every 2 days. 
+## Download and install archive
 
-```
-<ListBucketResult xmlns="http://doc.s3.amazonaws.com/2006-03-01">
-<Name>haqq-archive-snapshots</Name>
-...
-<Contents>
-<Key>haqqd-2024-05-23-02-00-02.lz4</Key>
-...
-<Key>haqqd-2024-05-27-02-00-01.lz4</Key>
-<Generation>1716804004002747</Generation>
-</Contents>
-</ListBucketResult>
-```
+Delete all old data:
 
-haqqd-2024-05-27-02-00-01.lz4 - last one from the example, and link to archive will be https://storage.googleapis.com/haqq-archive-snapshots/haqqd-2024-05-27-02-00-01.lz4 
-
-
-```
-wget -O haqqd-2023-07-13-02-00-01.lz4 https://storage.googleapis.com/haqq-archive-snapshots/haqqd-2024-05-27-02-00-01.lz4
-
+```sh
 haqqd tendermint unsafe-reset-all --home $HOME/.haqqd --keep-addr-book
-
-lz4 -c -d haqqd-2023-07-13-02-00-01.lz4  | tar -x -C $HOME/.haqqd 
 ```
 
-### Checks 
+Download and unpack the latest archive snapshot:
+
+```sh
+snapshot="$(curl -s "https://snapshots.haqq.network/index.json" | jq -r .archive[0].link)"
+wget -qO- "$snapshot" | lz4 -d - | tar -C "$HOME/.haqqd" -x -f -
+```
+
+### Check
 
 ```sh
 haqqd start
 ```
 
-
 ## Service setup
 
-1. Install cosmovisor bin
+Install the cosmovisor binary:
+
 ```sh
 go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@latest
 ```
 
-2. Create cosmovisor folders
+Create cosmovisor folders:
+
 ```sh
 mkdir $HOME/.haqqd/cosmovisor && \
 mkdir -p $HOME/.haqqd/cosmovisor/genesis/bin && \
 mkdir -p $HOME/.haqqd/cosmovisor/upgrades
 ```
 
-3. Copy node binary into Cosmovisor folder
+Copy the node binary into the Cosmovisor folder:
+
 ```sh
 cp /root/go/bin/haqqd $HOME/.haqqd/cosmovisor/genesis/bin
 ```
 
-4. Create haqqd cosmovisor service
+Create the haqqd cosmovisor service:
+
 ```sh
 nano /etc/systemd/system/haqqd.service
 ```
+
+Paste the following into the file:
 
 ```sh
 [Unit]
@@ -170,20 +174,20 @@ Environment="UNSAFE_SKIP_BACKUP=false"
 WantedBy=multi-user.target
 ```
 
-5. Enable and start service
+Enable and start the service:
 
 ```sh
 systemctl enable haqqd.service && \
 systemctl start haqqd.service
 ```
 
-6. Check logs
+Check logs:
+
 ```sh
 journalctl -fu haqqd
 ```
 
-
 ## Helpful links
 
-- https://quicksync.io/networks/osmosis.html 
+- https://quicksync.io/networks/osmosis.html
 - https://polkachu.com/tendermint_snapshots/haqq
