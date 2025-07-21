@@ -174,7 +174,7 @@ Get the web3 client version.
 #### Result
 
 ```json
- {"jsonrpc":"2.0","id":1,"result":"Haqq/1.7.0+/linux/go1.20"}
+ {"jsonrpc":"2.0","id":1,"result":"Haqq/1.8.0+/linux/go1.20"}
 ```
 
 #### Client Examples

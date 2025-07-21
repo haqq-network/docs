@@ -49,7 +49,7 @@ Check binary version:
 
 ```sh
 haqq@haqq-node:~# haqqd -v
-haqqd version "v1.8.5"
+haqqd version 1.8.5 9ddfca4b98943e106de99fd525b6bb05bfe66d34
 ```
 
 **Run pipline**

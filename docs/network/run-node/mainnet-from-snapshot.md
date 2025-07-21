@@ -53,7 +53,7 @@ Verify Binary Version:
 
 ```sh
 haqq@haqq-node:~# haqqd -v
-haqqd version "1.7.8" 3058d8f0485747aa5eacb352330d6bc1a867a838
+haqqd version 1.8.5 9ddfca4b98943e106de99fd525b6bb05bfe66d34
 ```
 
 **Initialize**
