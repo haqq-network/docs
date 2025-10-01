@@ -18,9 +18,9 @@
     "format": "pnpm prettier --write '**/*.{ts,js,tsx,jsx,cjs,mjs,css,json,md,mdx,html,yaml,yml}'"
   },
   "dependencies": {
-    "@docusaurus/core": "3.8.1",
+    "@docusaurus/core": "3.9.0",
     "@docusaurus/plugin-sitemap": "3.8.1",
-    "@docusaurus/preset-classic": "3.8.1",
+    "@docusaurus/preset-classic": "3.9.0",
     "@mdx-js/react": "3.1.0",
     "clsx": "2.1.1",
     "posthog-docusaurus": "2.0.2",
