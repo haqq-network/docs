@@ -39,7 +39,3 @@ module.exports = {
   },
   plugins: [typographyPlugin],
 };
-
-console.log('--------------------------------');
-console.log('tailwind.config.js');
-console.log('--------------------------------');
