@@ -24,7 +24,8 @@ const SECTIONS = [
   defineSection('learn'),
   defineSection('develop'),
   defineSection('user-guides'),
-  defineSection('network'),
+  defineSection('l1-network'),
+  defineSection('l2-network'),
 ];
 
 /** @type {import('@docusaurus/types').Config} */
@@ -168,9 +169,9 @@ const config = {
             label: 'Learn',
           },
           {
-            href: '/network',
+            href: '/l1-network',
             position: 'left',
-            label: 'Network',
+            label: 'L1 Network',
           },
           {
             href: '/develop',
@@ -181,6 +182,11 @@ const config = {
             href: '/user-guides',
             position: 'left',
             label: 'User Guides',
+          },
+          {
+            href: '/l2-network',
+            position: 'left',
+            label: 'L2 Network',
           },
           {
             href: 'https://github.com/haqq-network/haqq',
@@ -200,9 +206,9 @@ const config = {
                 label: 'Learn',
               },
               {
-                href: '/network',
+                href: '/l1-network',
 
-                label: 'Network',
+                label: 'L1 Network',
               },
               {
                 href: '/develop',
@@ -213,6 +219,11 @@ const config = {
                 href: '/user-guides',
 
                 label: 'User Guides',
+              },
+              {
+                href: '/l2-network',
+
+                label: 'L2 Network',
               },
             ],
           },
