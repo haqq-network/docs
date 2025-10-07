@@ -46,7 +46,7 @@ export default function HomepageFeatures() {
             </div>
             <div className="flex-1 w-full">
               <Link
-                to="/network/run-a-validator"
+                to="/l1-network/run-a-validator"
                 className={
                   'hover:no-underline transition-colors duration-250 ease-out !text-white'
                 }
@@ -108,7 +108,7 @@ export default function HomepageFeatures() {
             </div>
             <div>
               <Link
-                to={`/network`}
+                to={`/l1-network`}
                 className="hover:no-underline hover:text-inherit"
               >
                 <SmallCard
