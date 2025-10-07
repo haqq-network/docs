@@ -48,8 +48,9 @@ This page contains a comprehensive list of all deployed contracts in both L1 and
 
 - [L2 Testethic Explorer](https://explorer.testethic.haqq.network/)
 - [Ethereum Sepolia Explorer (Blockscout)](https://eth-sepolia.blockscout.com/)
-- [L1 Network Documentation](../l1-network/)
-- [L2 Network Documentation](../l2-network/)
+- [L1 Network RPC](https://chainlist.org/chain/11155111)
+- [HAQQ L2 Network Documentation](../../l2-network/)
+- [Optimism Docs](https://docs.optimism.io/app-developers/get-started)
 - [Development Guide](../../develop/)
 
 ## Notes
