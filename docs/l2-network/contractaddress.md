@@ -23,30 +23,30 @@ This page contains a comprehensive list of all deployed contracts in both L1 and
 | **AnchorStateRegistry** | [0xc7c945a172b36efc6b6165f4d70a5b93a9f109d9](https://eth-sepolia.blockscout.com/address/0xc7c945a172b36efc6b6165f4d70a5b93a9f109d9) | Registry for anchor states |
 | **DelayedWETH** | [0x44c85f79783be56d7db48c060a9721a320fc57c7](https://eth-sepolia.blockscout.com/address/0x44c85f79783be56d7db48c060a9721a320fc57c7) | Delayed WETH for dispute resolution |
 
-## L2 Testethic Contracts (Sepolia)
+## L2 Testethiq Contracts (Sepolia)
 
 | Contract | Address | Description |
 |----------|---------|-------------|
-| **L2ToL1MessagePasser** | [0x4200000000000000000000000000000000000016](https://explorer.testethic.haqq.network/address/0x4200000000000000000000000000000000000016) | Passes messages from L2 to L1 |
-| **L2CrossDomainMessenger** | [0x4200000000000000000000000000000000000007](https://explorer.testethic.haqq.network/address/0x4200000000000000000000000000000000000007) | Cross-domain messenger for L1-L2 communication |
-| **L2StandardBridge** | [0x4200000000000000000000000000000000000010](https://explorer.testethic.haqq.network/address/0x4200000000000000000000000000000000000010) | Standard bridge for ERC20 tokens |
-| **L2ERC721Bridge** | [0x4200000000000000000000000000000000000014](https://explorer.testethic.haqq.network/address/0x4200000000000000000000000000000000000014) | Bridge for NFT tokens (ERC721) |
-| **OptimismMintableERC20Factory** | [0x4200000000000000000000000000000000000012](https://explorer.testethic.haqq.network/address/0x4200000000000000000000000000000000000012) | Factory for creating mintable ERC20 tokens |
-| **OptimismMintableERC721Factory** | [0x4200000000000000000000000000000000000017](https://explorer.testethic.haqq.network/address/0x4200000000000000000000000000000000000017) | Factory for creating mintable ERC721 tokens |
-| **L1Block** | [0x4200000000000000000000000000000000000015](https://explorer.testethic.haqq.network/address/0x4200000000000000000000000000000000000015) | L1 block information provider |
-| **GasPriceOracle** | [0x420000000000000000000000000000000000000F](https://explorer.testethic.haqq.network/address/0x420000000000000000000000000000000000000F) | Gas price oracle for L2 |
-| **ProxyAdmin** | [0x4200000000000000000000000000000000000018](https://explorer.testethic.haqq.network/address/0x4200000000000000000000000000000000000018) | Proxy contract administrator |
-| **SequencerFeeVault** | [0x4200000000000000000000000000000000000011](https://explorer.testethic.haqq.network/address/0x4200000000000000000000000000000000000011) | Sequencer fee collection vault |
-| **BaseFeeVault** | [0x4200000000000000000000000000000000000019](https://explorer.testethic.haqq.network/address/0x4200000000000000000000000000000000000019) | Base fee collection vault |
-| **L1FeeVault** | [0x420000000000000000000000000000000000001A](https://explorer.testethic.haqq.network/address/0x420000000000000000000000000000000000001A) | L1 fee collection vault |
-| **SchemaRegistry** | [0x4200000000000000000000000000000000000020](https://explorer.testethic.haqq.network/address/0x4200000000000000000000000000000000000020) | Schema registry for attestations |
-| **EAS** | [0x4200000000000000000000000000000000000021](https://explorer.testethic.haqq.network/address/0x4200000000000000000000000000000000000021) | Ethereum Attestation Service main contract |
+| **L2ToL1MessagePasser** | [0x4200000000000000000000000000000000000016](https://explorer.testethiq.haqq.network/address/0x4200000000000000000000000000000000000016) | Passes messages from L2 to L1 |
+| **L2CrossDomainMessenger** | [0x4200000000000000000000000000000000000007](https://explorer.testethiq.haqq.network/address/0x4200000000000000000000000000000000000007) | Cross-domain messenger for L1-L2 communication |
+| **L2StandardBridge** | [0x4200000000000000000000000000000000000010](https://explorer.testethiq.haqq.network/address/0x4200000000000000000000000000000000000010) | Standard bridge for ERC20 tokens |
+| **L2ERC721Bridge** | [0x4200000000000000000000000000000000000014](https://explorer.testethiq.haqq.network/address/0x4200000000000000000000000000000000000014) | Bridge for NFT tokens (ERC721) |
+| **OptimismMintableERC20Factory** | [0x4200000000000000000000000000000000000012](https://explorer.testethiq.haqq.network/address/0x4200000000000000000000000000000000000012) | Factory for creating mintable ERC20 tokens |
+| **OptimismMintableERC721Factory** | [0x4200000000000000000000000000000000000017](https://explorer.testethiq.haqq.network/address/0x4200000000000000000000000000000000000017) | Factory for creating mintable ERC721 tokens |
+| **L1Block** | [0x4200000000000000000000000000000000000015](https://explorer.testethiq.haqq.network/address/0x4200000000000000000000000000000000000015) | L1 block information provider |
+| **GasPriceOracle** | [0x420000000000000000000000000000000000000F](https://explorer.testethiq.haqq.network/address/0x420000000000000000000000000000000000000F) | Gas price oracle for L2 |
+| **ProxyAdmin** | [0x4200000000000000000000000000000000000018](https://explorer.testethiq.haqq.network/address/0x4200000000000000000000000000000000000018) | Proxy contract administrator |
+| **SequencerFeeVault** | [0x4200000000000000000000000000000000000011](https://explorer.testethiq.haqq.network/address/0x4200000000000000000000000000000000000011) | Sequencer fee collection vault |
+| **BaseFeeVault** | [0x4200000000000000000000000000000000000019](https://explorer.testethiq.haqq.network/address/0x4200000000000000000000000000000000000019) | Base fee collection vault |
+| **L1FeeVault** | [0x420000000000000000000000000000000000001A](https://explorer.testethiq.haqq.network/address/0x420000000000000000000000000000000000001A) | L1 fee collection vault |
+| **SchemaRegistry** | [0x4200000000000000000000000000000000000020](https://explorer.testethiq.haqq.network/address/0x4200000000000000000000000000000000000020) | Schema registry for attestations |
+| **EAS** | [0x4200000000000000000000000000000000000021](https://explorer.testethiq.haqq.network/address/0x4200000000000000000000000000000000000021) | Ethereum Attestation Service main contract |
 
 
 
 ## Useful Links
 
-- [L2 Testethic Explorer](https://explorer.testethic.haqq.network/)
+- [L2 Testethiq Explorer](https://explorer.testethiq.haqq.network/)
 - [Ethereum Sepolia Explorer (Blockscout)](https://eth-sepolia.blockscout.com/)
 - [L1 Network RPC](https://chainlist.org/chain/11155111)
 - [HAQQ L2 Network Documentation](../../l2-network/)
@@ -57,7 +57,7 @@ This page contains a comprehensive list of all deployed contracts in both L1 and
 
 - All contract addresses are provided in checksum format
 - L1 contracts are deployed on Ethereum Sepolia testnet
-- L2 contracts are deployed on HAQQ Testethic (Sepolia) network
+- L2 contracts are deployed on HAQQ L2 Testethiq (L2 base on L1 Sepolia) network
 - Contracts are based on OP Stack v4.0.0 from [Ethereum Optimism](https://github.com/ethereum-optimism/optimism)
 - Contracts were deployed using [op-deployer v0.4.2](https://github.com/ethereum-optimism/optimism/releases/tag/op-deployer%2Fv0.4.2)
 - Contracts may be updated through the upgrade system
