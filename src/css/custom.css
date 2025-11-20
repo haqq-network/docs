@@ -1,6 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-family-sans: var(--guise-font);
+  --font-family-serif: var(--clash-font);
+  
+  --color-haqq-black: #0D0D0E;
+  --color-haqq-orange: #EC5728;
+  --color-haqq-light-orange: #FF8D69;
+}
 
 @font-face {
   font-family: 'Clash Display';
