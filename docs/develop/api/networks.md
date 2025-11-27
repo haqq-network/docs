@@ -25,6 +25,8 @@ If you are searching for the protobuf interfaces, head over [here](https://buf.b
 | [https://rpc.tm.haqq.network](https://rpc.tm.haqq.network)           | `CometBFT RPC`  | [HAQQ](https://haqq.network)      |
 | [https://grpc.cosmos.haqq.network](https://grpc.cosmos.haqq.network) | `gRPC Cosmos`   | [HAQQ](https://haqq.network)      |
 | [https://rest.cosmos.haqq.network](https://rest.cosmos.haqq.network) | `REST Cosmos`   | [HAQQ](https://haqq.network)      |
+| [wss://haqq.drpc.org](wss://haqq.drpc.org)                           | `EVM Websocket` | [dRPC](https://drpc.org/)      |
+| [https://haqq.drpc.org](https://haqq.drpc.org)                       | `EVM JSON-RPC`  | [dRPC](https://drpc.org/)      |
 | [wss://evm-ws.haqq.sh](wss://evm-ws.haqq.sh)                         | `EVM Websocket` | [Kioqq](https://github.com/kioqq) |
 | [https://evm.haqq.sh](https://evm.haqq.sh)                           | `EVM JSON-RPC`  | [Kioqq](https://github.com/kioqq) |
 | [https://rpc.haqq.sh](https://rpc.haqq.sh)                           | `CometBFT RPC`  | [Kioqq](https://github.com/kioqq) |
