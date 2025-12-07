@@ -128,11 +128,21 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       algolia: {
-        appId: 'T5OEVED57K',
-        apiKey: '33a0821aee656a275399c5151aa06a9e',
-        indexName: 'docusaurus',
+        // The application ID provided by Algolia
+        appId: 'XACAKO6XLW',
+        // Public API key: it is safe to commit it
+        apiKey: 'd30587dac55c28a41cd6aa97878d6e23',
+        indexName: 'Haqq Network Documentation',
+        // Optional: Contextual search is enabled by default
         contextualSearch: true,
+        // Optional: Algolia search parameters
         searchParameters: {},
+        // Optional: path for search page that enabled by default (`false` to disable it)
+        searchPagePath: 'search',
+        // Optional: whether the insights feature is enabled or not on Docsearch (`false` by default)
+        insights: false,
+        // Optional: whether you want to use the new Ask AI feature (undefined by default)
+        // askAi: 'L221qf3LeSPH', // Uncomment and replace with your Algolia Assistant ID if you want to enable Ask AI
       },
       metadata: [
         {
@@ -271,13 +281,6 @@ const config = {
           'yaml',
           'json',
         ],
-      },
-      algolia: {
-        appId: 'T5OEVED57K',
-        apiKey: '33a0821aee656a275399c5151aa06a9e',
-        indexName: 'docusaurus',
-        contextualSearch: true,
-        searchParameters: {},
       },
     }),
 };

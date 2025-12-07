@@ -84,6 +84,7 @@ svg {
 
 .container {
   @apply !max-w-6xl mx-auto;
+  @apply py-5;
 }
 
 .container-fluid {
