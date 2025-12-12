@@ -142,7 +142,7 @@ const config = {
         // Optional: whether the insights feature is enabled or not on Docsearch (`false` by default)
         insights: false,
         // Optional: whether you want to use the new Ask AI feature (undefined by default)
-        askAi: 'cfmmO9iSQcnA', // Uncomment and replace with your Algolia Assistant ID if you want to enable Ask AI
+        askAi: 'FL4BAnVxGzJD', // Uncomment and replace with your Algolia Assistant ID if you want to enable Ask AI
       },
       metadata: [
         {
