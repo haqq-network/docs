@@ -6,7 +6,7 @@ sidebar_position: 2
 
 ## Overview
 
-The current HAQQ version of mainnet is [`v1.8.5`](https://github.com/haqq-network/haqq/releases/tag/v1.8.5).
+The current HAQQ version of mainnet is [`v1.9.1`](https://github.com/haqq-network/haqq/releases/tag/v1.9.1).
 Sources of all scripts are here [`github`](https://github.com/haqq-network/mainnet)
 
 ## Quickstart
@@ -28,7 +28,7 @@ git clone https://github.com/haqq-network/mainnet
 
 ### Go
 
-You need Go version 1.21:
+You need Go version 1.23.10:
 
 ```sh
 ./mainnet/install_go.sh
@@ -45,7 +45,7 @@ go version
 
 ```sh
 cd $HOME
-git clone -b v1.8.5 https://github.com/haqq-network/haqq
+git clone -b v1.9.1 https://github.com/haqq-network/haqq
 cd haqq && make install
 ```
 
@@ -64,15 +64,17 @@ haqqd -v
 You should see:
 
 ```
-haqqd version "1.8.5" 9ddfca4b98943e106de99fd525b6bb05bfe66d34
+haqqd version "1.9.1" 5998c256a2acc8fb523795cd5c9374716952c014
 ```
 
 ### Configure HAQQ node
 
 ```sh
 CUSTOM_MONIKER="mainnet_archive_node" && \
-haqqd config chain-id haqq_11235-1 && \
 haqqd init $CUSTOM_MONIKER --chain-id haqq_11235-1
+
+# Set chain in client.toml
+sed -i.bak 's/^chain-id = .*/chain-id = "haqq_11235-1"/' $HOME/.haqqd/config/client.toml
 
 # Prepare the genesis file for mainnet (haqq_11235-1)
 curl -OL https://raw.githubusercontent.com/haqq-network/mainnet/master/genesis.json && \

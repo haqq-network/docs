@@ -14,6 +14,25 @@ Learn how to setup and run a validator node
 
 :::
 
+:::danger HAQQ v1.9.2 — Security fix upgrade
+
+**Validators must use HAQQ v1.9.2.** This release fixes a vulnerability in CometBFT. We cannot disclose the code until the vulnerability is published. Publication has been delayed to allow networks to update.
+
+This release was made possible thanks to a timely and responsible disclosure by the [Cosmos Hub team](https://cosmos.network).
+
+- **Binary-only release.** Apply the new binary as soon as possible.
+- **Do not build from source.** The security fix is not included in the tagged commit — use the official binaries only.
+
+Download: [HAQQ v1.9.2 (GitHub Releases)](https://github.com/haqq-network/haqq/releases/tag/v1.9.2)
+
+:::
+
+:::info Fresh snapshots
+
+Latest pruned and archive snapshots for fast node sync are available at [HAQQ Snapshots](https://snapshots.haqq.network/index.html).
+
+:::
+
 ## Create Your Validator
 
 Your node consensus public key (`haqqvalconspub...`) can be used to create a new validator by staking ISLM tokens. You can find your validator pubkey by running:
@@ -217,10 +236,10 @@ First of all, you should make sure that your bin file is up to date
 
 ```sh
 haqq@haqq-node:~# haqqd -v
-haqqd version 1.8.5 9ddfca4b98943e106de99fd525b6bb05bfe66d34
+haqqd version 1.9.1 5998c256a2acc8fb523795cd5c9374716952c014
 ```
 
-We are currently using version `1.8.5` on Mainnet.
+We are currently using version `1.9.1` on Mainnet.
 
 This error can also occur if you run the validator from a period when blocks were produced on a different version of the binary.
 

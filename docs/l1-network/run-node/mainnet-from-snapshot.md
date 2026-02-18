@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## Overview
 
-The current HAQQ version of mainnet is [`v1.8.5`](https://github.com/haqq-network/haqq/releases/tag/v1.8.5).
+The current HAQQ version of mainnet is [`v1.9.1`](https://github.com/haqq-network/haqq/releases/tag/v1.9.1).
 Sources of all scripts are here [`github`](https://github.com/haqq-network/mainnet)
 
 ## Quickstart
@@ -25,7 +25,7 @@ sudo apt-get install curl git make gcc liblz4-tool build-essential jq aria2 -y
 **Preresquisites for compile from source**
 
 - `make` & `gcc`
-- `Go 1.21+`
+- `Go 1.23+`
 
 **Easy GO compiler and HAQQ Node installation**
 
@@ -38,13 +38,13 @@ bash <(curl -s https://raw.githubusercontent.com/haqq-network/mainnet/master/ins
 **Do the same manually:**
 
 Download latest binary for your arch:
-https://github.com/haqq-network/haqq/releases/tag/v1.8.5
+https://github.com/haqq-network/haqq/releases/tag/v1.9.1
 
 Build from source:
 
 ```sh
 cd $HOME
-git clone -b v1.8.5 https://github.com/haqq-network/haqq
+git clone -b v1.9.1 https://github.com/haqq-network/haqq
 cd haqq
 make install
 ```
@@ -53,7 +53,7 @@ Verify Binary Version:
 
 ```sh
 haqq@haqq-node:~# haqqd -v
-haqqd version 1.8.5 9ddfca4b98943e106de99fd525b6bb05bfe66d34
+haqqd version 1.9.1 5998c256a2acc8fb523795cd5c9374716952c014
 ```
 
 **Initialize**
@@ -64,8 +64,10 @@ Run script:
 export CUSTOM_MONIKER="mainnet_node"
 export HAQQD_DIR="$HOME/.haqqd" # default haqq home folder
 
-haqqd config chain-id haqq_11235-1 && \
 haqqd init $CUSTOM_MONIKER --chain-id haqq_11235-1
+
+# Set default chain for CLI in client.toml
+sed -i.bak 's/^chain-id = .*/chain-id = "haqq_11235-1"/' $HAQQD_DIR/config/client.toml
 
 # Prepare genesis file for mainet(haqq_11235-1)
 curl -L https://raw.githubusercontent.com/haqq-network/mainnet/master/genesis.json -o $HAQQD_DIR/config/genesis.json
