@@ -6,6 +6,47 @@ sidebar_position: 2
 
 This page contains a comprehensive list of all deployed contracts in both L1 and L2 networks of HAQQ with their addresses and explorer links. The contracts are based on [OP Stack v5.0.0](https://github.com/ethereum-optimism/optimism/releases/tag/op-contracts%2Fv5.0.0) from the [Ethereum Optimism repository](https://github.com/ethereum-optimism/optimism) and deployed using [op-deployer v0.5.0-rc2](https://github.com/ethereum-optimism/optimism/releases/tag/op-deployer%2Fv0.5.0-rc.2).
 
+
+## L1 Ethereum Contracts
+
+| Contract | Address | Description |
+|----------|---------|-------------|
+| **SuperchainProxyAdmin** | [0x543ba4aadbab8f9025686bd03993043599c6fb04](https://eth.blockscout.com/address/0x543ba4aadbab8f9025686bd03993043599c6fb04) | Superchain proxy admin |
+| **SuperchainConfig** | [0x95703e0982140d16f8eba6d158fccede42f04a4c](https://eth.blockscout.com/address/0x95703e0982140d16f8eba6d158fccede42f04a4c) | Superchain configuration |
+| **ProtocolVersions** | [0x8062abc286f5e7d9428a0ccb9abd71e50d93b935](https://eth.blockscout.com/address/0x8062abc286f5e7d9428a0ccb9abd71e50d93b935) | Protocol versions proxy |
+| **OPCM** | [0xfa1ef97fb02b0da2ee2346b8e310907ab5519449](https://eth.blockscout.com/address/0xfa1ef97fb02b0da2ee2346b8e310907ab5519449) | OP Chain Manager |
+| **OptimismPortal** | [0xea857195ff569a0c623464e1a3062dd398d53046](https://eth.blockscout.com/address/0xea857195ff569a0c623464e1a3062dd398d53046) | Optimism portal  |
+| **EthLockbox** | [0xe26cd6ffdbc21f7294cf56245162be431b17c8e5](https://eth.blockscout.com/address/0xe26cd6ffdbc21f7294cf56245162be431b17c8e5) | ETH lockbox |
+| **SystemConfig** | [0x3f715f77cc105fca0936f479bded4a035eefe974](https://eth.blockscout.com/address/0x3f715f77cc105fca0936f479bded4a035eefe974) | System configuration |
+| **L1CrossDomainMessengerProxy** | [0xad4e4387b7f53b326d0d797f5342a120e8b427d2](https://eth.blockscout.com/address/0xad4e4387b7f53b326d0d797f5342a120e8b427d2) | L1 cross-domain messenger proxy |
+| **L1Erc721BridgeProxy** | [0xfb96b6c6a70ed0e1e1f9b26cbaf85f2ecbf26aec](https://eth.blockscout.com/address/0xfb96b6c6a70ed0e1e1f9b26cbaf85f2ecbf26aec) | L1 ERC721 bridge proxy |
+| **L1StandardBridgeProxy** | [0xfb30129241e7520e66b96426259e95359c3e2800](https://eth.blockscout.com/address/0xfb30129241e7520e66b96426259e95359c3e2800) | L1 standard bridge proxy |
+| **OptimismMintableErc20FactoryProxy** | [0x2045bc5f56e5b40978bab717c274aa2db9ea019d](https://eth.blockscout.com/address/0x2045bc5f56e5b40978bab717c274aa2db9ea019d) | Optimism mintable ERC20 factory proxy |
+| **DisputeGameFactoryProxy** | [0xd68f5ce839e1325401a9deab56fa1c14cddb1cea](https://eth.blockscout.com/address/0xd68f5ce839e1325401a9deab56fa1c14cddb1cea) | Dispute game factory proxy |
+| **AnchorStateRegistryProxy** | [0x159725154956a4097afdca285e4684764d7a02a5](https://eth.blockscout.com/address/0x159725154956a4097afdca285e4684764d7a02a5) | Anchor state registry proxy |
+| **OpChainProxyAdmin** | [0x004ea6bad47a7b51cb248e17b39b1a53cac663c0](https://eth.blockscout.com/address/0x004ea6bad47a7b51cb248e17b39b1a53cac663c0) | OP Chain proxy admin |
+| **DelayedWethPermissionedGameProxy** | [0xfbc084a037d510d1cb1d1aac08e010ecd8a42f5e](https://eth.blockscout.com/address/0xfbc084a037d510d1cb1d1aac08e010ecd8a42f5e) | Delayed WETH permissioned game proxy |
+
+## L2 Ethiq Contracts (Mainnet)
+
+| Contract | Address | Description |
+|----------|---------|-------------|
+| **L2ToL1MessagePasser** | [0x4200000000000000000000000000000000000016](https://explorer.ethiq.network/address/0x4200000000000000000000000000000000000016) | Passes messages from L2 to L1 |
+| **L2CrossDomainMessenger** | [0x4200000000000000000000000000000000000007](https://explorer.ethiq.network/address/0x4200000000000000000000000000000000000007) | Cross-domain messenger for L1-L2 communication |
+| **L2StandardBridge** | [0x4200000000000000000000000000000000000010](https://explorer.ethiq.network/address/0x4200000000000000000000000000000000000010) | Standard bridge for ERC20 tokens |
+| **L2ERC721Bridge** | [0x4200000000000000000000000000000000000014](https://explorer.ethiq.network/address/0x4200000000000000000000000000000000000014) | Bridge for NFT tokens (ERC721) |
+| **OptimismMintableERC20Factory** | [0x4200000000000000000000000000000000000012](https://explorer.ethiq.network/address/0x4200000000000000000000000000000000000012) | Factory for creating mintable ERC20 tokens |
+| **OptimismMintableERC721Factory** | [0x4200000000000000000000000000000000000017](https://explorer.ethiq.network/address/0x4200000000000000000000000000000000000017) | Factory for creating mintable ERC721 tokens |
+| **L1Block** | [0x4200000000000000000000000000000000000015](https://explorer.ethiq.network/address/0x4200000000000000000000000000000000000015) | L1 block information provider |
+| **GasPriceOracle** | [0x420000000000000000000000000000000000000F](https://explorer.ethiq.network/address/0x420000000000000000000000000000000000000F) | Gas price oracle for L2 |
+| **ProxyAdmin** | [0x4200000000000000000000000000000000000018](https://explorer.ethiq.network/address/0x4200000000000000000000000000000000000018) | Proxy contract administrator |
+| **SequencerFeeVault** | [0x4200000000000000000000000000000000000011](https://explorer.ethiq.network/address/0x4200000000000000000000000000000000000011) | Sequencer fee collection vault |
+| **BaseFeeVault** | [0x4200000000000000000000000000000000000019](https://explorer.ethiq.network/address/0x4200000000000000000000000000000000000019) | Base fee collection vault |
+| **L1FeeVault** | [0x420000000000000000000000000000000000001A](https://explorer.ethiq.network/address/0x420000000000000000000000000000000000001A) | L1 fee collection vault |
+| **SchemaRegistry** | [0x4200000000000000000000000000000000000020](https://explorer.ethiq.network/address/0x4200000000000000000000000000000000000020) | Schema registry for attestations |
+| **EAS** | [0x4200000000000000000000000000000000000021](https://explorer.ethiq.network/address/0x4200000000000000000000000000000000000021) | Ethereum Attestation Service main contract |
+
+
 ## L1 Sepolia Contracts
 
 | Contract | Address | Description |
