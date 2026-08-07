@@ -33,6 +33,8 @@ If you are searching for the protobuf interfaces, head over [here](https://buf.b
 | [https://sdk.haqq.sh](https://sdk.haqq.sh)                           | `Rest Cosmos`   | [Kioqq](https://github.com/kioqq) |
 | grpc://grpc.haqq.sh:443                                              | `gRPC Cosmos`   | [Kioqq](https://github.com/kioqq) |
 
+> Live latency benchmarks for these endpoints (p50/p90/p99, 3 regions, updated every 60 s): [OpenChainBench HAQQ RPC](https://openchainbench.com/benchmarks/haqq-rpc)
+
 ### TestEdge-2
 
 | Endpoint                                                                                 | Category        | Maintainer                        |
