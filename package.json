@@ -38,7 +38,7 @@
     "@types/prettier": "3.0.0",
     "autoprefixer": "10.4.22",
     "browserslist": "4.28.1",
-    "postcss": "8.5.6",
+    "postcss": "8.5.23",
     "prettier": "3.7.4",
     "tailwindcss": "4.1.17",
     "typescript": "5.9.3"
